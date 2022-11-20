@@ -1,5 +1,11 @@
 # frontend_bookmarks
 
+job seeking websites
+
+* [dev kg](https://devkg.com/ru)
+* [remote ok ] (https://remoteok.com/)
+
+
 ## bookmark for javascript articles , books , videos , topics
 
 - [ ] javascript-visualized-event-loop-3dif article lidia

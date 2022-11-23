@@ -18,9 +18,12 @@ job seeking websites
 - [ ] frontend desgin helper websites
   - [front end desgin helper websites](https://www.linkedin.com/feed/update/urn:li:activity:6995829940541644800/?utm_source=share&utm_medium=member_android)
 - [ ] js interview questions
+
   - [Javascript interview questions](https://www.linkedin.com/feed/update/urn:li:activity:6995420810395992064/?utm_source=share&utm_medium=member_android)
 
-<img src="./images/Event_bubbling.jpg" style="width:300px" />
+* > Event propagation
 
-- [ ] A simplified explanation of event propagation in JavaScript.
+   <img src="./images/Event_bubbling.jpg" style="width:300px" />
+
+- [x] A simplified explanation of event propagation in JavaScript.
   - [A simplified explanation of event propagation in JavaScript.](https://www.freecodecamp.org/news/a-simplified-explanation-of-event-propagation-in-javascript-f9de7961a06e/)

@@ -7,7 +7,19 @@ job seeking websites
 - [dev kg](https://devkg.com/ru)
 - [remote ok](https://remoteok.com)
 
-## bookmark for javascript articles , books , videos , topics
+
+## sources 
+
+- [smashing Magazine](https://www.smashingmagazine.com/)
+
+<img src="./images/smashing__magazine.jpg" style="width:150px" />
+
+
+
+
+
+
+## bookmark for javascript articles 
 
 - [ ] javascript-visualized-event-loop-3dif article lidia
 
@@ -20,6 +32,9 @@ job seeking websites
 - [ ] js interview questions
 
   - [Javascript interview questions](https://www.linkedin.com/feed/update/urn:li:activity:6995420810395992064/?utm_source=share&utm_medium=member_android)
+  
+
+
 
 * > Event propagation
 
@@ -28,7 +43,8 @@ job seeking websites
 - [x] A simplified explanation of event propagation in JavaScript.
   - [A simplified explanation of event propagation in JavaScript.](https://www.freecodecamp.org/news/a-simplified-explanation-of-event-propagation-in-javascript-f9de7961a06e/)
 
-
+- [X] SWR vs react query vs axios vs fetch
+* > - [SWR](https://www.smashingmagazine.com/2020/06/introduction-swr-react-hooks-remote-data-fetching/#:~:text=Axios%20or%20Fetch%20will%20just,built%20on%20top%20of%20it.)
 
 # My questions while learning ReactJS,NetxJS,...
 ---

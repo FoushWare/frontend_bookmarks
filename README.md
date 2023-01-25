@@ -6,6 +6,7 @@ job seeking websites
 
 - [dev kg](https://devkg.com/ru)
 - [remote ok](https://remoteok.com)
+- [naukrigulf](https://www.naukrigulf.com/)
 
 
 ## sources 

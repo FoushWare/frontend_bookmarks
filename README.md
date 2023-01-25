@@ -109,6 +109,33 @@ nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
 ---
 
 
+> ## SWR VS react query
+
+---
+
+   <img src="./images/swrVSReactQuery.jpg" style="width:500px" />
+
+
+
+###### 02- When to use SWR ,react query or RTK query?
+
+```
+All of them add enhance to [fetch or Axios] by caching,pagination,preservce page postion,revalidation,interval refetching
+
+```
+
+
+<details><summary><b>Answer</b></summary>
+
+They are the same but my peripheral is 
+  - when the app uses ReduxTool kit i will use RTK Query
+  - when the app uses simple state i will use react Query
+  - SWR is more intended to get data, not update it, usually you have another function to update and after it you will run mutate to update the cache and trigger a revalidation (SWR will fetch it again)
+
+
+</details>
+
+---
 
 
 

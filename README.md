@@ -113,7 +113,6 @@ nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
 
 ---
 
-   <img src="./images/swrVSReactQuery.jpg" style="width:500px" />
 
 
 
@@ -123,6 +122,8 @@ nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
 All of them add enhance to [fetch or Axios] by caching,pagination,preservce page postion,revalidation,interval refetching
 
 ```
+   <img src="./images/swrVSReactQuery.jpg" style="width:500px" />
+
 
 
 <details><summary><b>Answer</b></summary>

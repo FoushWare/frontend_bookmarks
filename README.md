@@ -139,6 +139,25 @@ They are the same but my peripheral is
 
 ---
 
+###### 03- What to do when creating React app from scratch?
+
+```
+Can you describe what will you think about when creating react app from scratch
+
+```
+  
+
+
+
+<details><summary><b>Answer</b></summary>
+
+
+
+
+</details>
+
+---
+
 
 
 

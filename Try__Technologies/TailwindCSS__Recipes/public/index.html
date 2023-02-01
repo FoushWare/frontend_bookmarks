@@ -75,44 +75,53 @@
 					</li>
 				</ul>
 			</nav>
-			<div class="flex-1">
+			<div class="flex-1 bg-gray-100">
 				<div>
 					<!-- login/signup buttons section -->
-					<section>
+					<section class="flex">
 						<button class="">Login</button>
 						<button class="">Signup</button>
 					</section>
 					<!-- Title/subtitle -->
-					<section>
-						<h1>Recipes</h1>
-						<h2>for foushware</h2>
+					<section class="flex flex-col">
+						<div class="self-start">
+							<h1>Recipes</h1>
+							<h2>for foushware</h2>
+						</div>
 					</section>
 					<!-- latest recipes -->
-					<section>
+					<section class="px-10">
 						<h2>Latest Recipes</h2>
-						<div class="">
-							<div class="">
+						<div class="flex gap-10">
+							<div class="recipe">
 								<img src="./img/curry.jpg" alt="recipe" />
-								<h3>Recipe 1</h3>
-								<p>Recipe description</p>
+								<div class="w-full pl-3">
+									<h3>Recipe 1</h3>
+									<p>Recipe description</p>
+								</div>
+								<span class="badge">25 mins</span>
 							</div>
 							<div class="recipe">
 								<img src="./img/noodles.jpg" alt="recipe" />
-								<h3>Recipe 2</h3>
-								<p>Recipe description</p>
+								<div class="w-full pl-3">
+									<h3>Recipe 2</h3>
+									<p>Recipe description</p>
+								</div>
 							</div>
-							<div class="">
+							<div class="recipe">
 								<img src="./img/stew.jpg" alt="recipe" />
-								<h3>Recipe 3</h3>
-								<p>Recipe description</p>
+								<div class="w-full pl-3">
+									<h3>Recipe 3</h3>
+									<p>Recipe description</p>
+								</div>
 							</div>
 						</div>
 					</section>
 
-					<section>
+					<section class="px-10">
 						<h2>Most Recipes</h2>
-						<div class="">
-							<div class="">
+						<div class="flex">
+							<div class="recipe">
 								<img src="./img/curry.jpg" alt="recipe" />
 								<h3>Recipe 1</h3>
 								<p>Recipe description</p>
@@ -122,7 +131,7 @@
 								<h3>Recipe 2</h3>
 								<p>Recipe description</p>
 							</div>
-							<div class="">
+							<div class="recipe">
 								<img src="./img/stew.jpg" alt="recipe" />
 								<h3>Recipe 3</h3>
 								<p>Recipe description</p>

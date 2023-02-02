@@ -20450,6 +20450,9 @@ video {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   border-radius: 9999px;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 @media (min-width: 640px) {

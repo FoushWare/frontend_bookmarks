@@ -17,6 +17,13 @@ job seeking websites
 
 
 
+## Tools and websites ⚙️⚒️
+
+- [X] [Pair Typography fonts](https://fontjoy.com/) 
+ <img src="./images/font__pairing.PNG" style="width:400px" />
+ 
+- [X] [empty views svgs](https://undraw.co/illustrations)
+ <img src="./images/empty.PNG" style="width:400px" />
 
 
 

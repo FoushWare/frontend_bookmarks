@@ -165,10 +165,29 @@ Can you describe what will you think about when creating react app from scratch
 
 ---
 
+---
+
+###### 04- What you will do to increase performance in react?
+
+<img src="./images/react-performance-profiling-optimization.gif"/>
+
+```
+Not doing things take less time than doing things
+
+```
+  
 
 
 
+<details><summary><b>Answer</b></summary>
 
+- push state down the tree so not to rerender heavy siplings components
+
+
+
+</details>
+
+---
 
 
 

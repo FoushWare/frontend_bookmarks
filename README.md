@@ -181,8 +181,8 @@ Not doing things take less time than doing things
 
 <details><summary><b>Answer</b></summary>
 
-- push state down the tree so not to rerender heavy siplings components
-- Pulling content up what i mean is 
+- push state down the tree so not to rerender heavy siplings components   [working with component hierarchy ]
+- Pulling content up what i mean is :                                     [working with component hierarchy ]
  
  ```
   if the problem is 

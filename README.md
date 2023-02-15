@@ -218,6 +218,8 @@ Not doing things take less time than doing things
  
  ```
 
+ - useMemo 
+ - useCallback
 
 
 </details>

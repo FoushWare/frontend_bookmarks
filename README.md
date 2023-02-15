@@ -182,6 +182,41 @@ Not doing things take less time than doing things
 <details><summary><b>Answer</b></summary>
 
 - push state down the tree so not to rerender heavy siplings components
+- Pulling content up what i mean is 
+ 
+ ```
+  if the problem is 
+  
+ > app.js
+ ========
+     <WrapperComponent/>
+ 
+ 
+ > WrapperComponent.js
+ ===========
+ 
+    <simpleComponent/>
+    <HeaveryComponent/>
+ 
+ 
+ solution will be 
+ 
+ app.js
+ ======
+ <WrapperComponent>
+  <SimpleComponent/>
+ </WrapperComponent>
+ 
+ > WrapperComponent.js
+ 
+ {children}
+ <HeavyComponent/>
+ 
+ 
+ > children it treated as it's not sipling of HeavyComponent  😛😛😛
+ 
+ 
+ ```
 
 
 

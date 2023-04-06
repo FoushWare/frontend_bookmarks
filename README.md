@@ -54,6 +54,15 @@ job seeking websites
 - [X] SWR vs react query vs axios vs fetch
 * > - [SWR](https://www.smashingmagazine.com/2020/06/introduction-swr-react-hooks-remote-data-fetching/#:~:text=Axios%20or%20Fetch%20will%20just,built%20on%20top%20of%20it.)
 
+- [X] what is the difference between types and interface?
+<details><summary><b>Answer</b></summary>
+<p>
+
+https://stackoverflow.com/questions/37233735/interfaces-vs-types-in-typescript
+
+</p>
+</details>
+
 # My questions while learning ReactJS,NetxJS,...
 ---
 > ## React Query 

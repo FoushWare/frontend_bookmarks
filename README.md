@@ -9,6 +9,76 @@ job seeking websites
 - [naukrigulf](https://www.naukrigulf.com/)
 
 
+🔥Topics Here 📙
+- Typescript
+- Tools 
+- Javascript articles
+- sources
+
+
+## Typescript
+
+---
+
+###### 01- Difference between const and readonly in typescript?
+
+```
+https://stackoverflow.com/questions/46561155/difference-between-const-and-readonly-in-typescript
+
+```
+
+
+<details><summary><b>Answer</b></summary>
+<p>
+
+they effectively both do the same thing, but one is for variables and the other is for properties.
+ 
+ A const variable cannot be re-assigned, just like a readonly property.
+
+Essentially, when you define a property, you can use readonly to prevent re-assignment. This is actually only a compile-time check.
+ When you define a const variable (and target a more recent version of JavaScript to preserve const in the output), the check is also made at runtime.
+ 
+ ```
+ const x = 5;
+
+// Not allowed
+x = 7;
+
+
+class Example {
+    public readonly y = 6;
+}
+
+var e = new Example();
+
+// Not allowed
+e.y = 4;
+ ```
+ 
+ Important note... "cannot be re-assigned" is not the same as immutability.
+
+```
+ const myArr = [1, 2, 3];
+
+// Not allowed
+myArr = [4, 5, 6]
+
+// Perfectly fine
+myArr.push(4);
+
+// Perfectly fine
+myArr[0] = 9;
+ 
+ ```
+
+</p>
+</details>
+
+---
+
+
+
+
 ## sources 
 
 - [smashing Magazine](https://www.smashingmagazine.com/)

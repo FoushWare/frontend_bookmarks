@@ -2,18 +2,23 @@
 
 # frontend_bookmarks
 
-job seeking websites
+
+🔥Topics Here 📙
+- job seeking websites
+- Typescript
+- Tools 
+- Javascript articles
+- sources
+
+
+## job seeking websites
 
 - [dev kg](https://devkg.com/ru)
 - [remote ok](https://remoteok.com)
 - [naukrigulf](https://www.naukrigulf.com/)
 
 
-🔥Topics Here 📙
-- Typescript
-- Tools 
-- Javascript articles
-- sources
+
 
 
 ## Typescript

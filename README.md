@@ -9,6 +9,7 @@
 - Tools 
 - Javascript articles
 - sources
+- [code review](#code-review)
 
 
 ## job seeking websites
@@ -310,6 +311,7 @@ Not doing things take less time than doing things
 
 ---
 
+##code review
 
 
 

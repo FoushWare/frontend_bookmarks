@@ -312,6 +312,7 @@ Not doing things take less time than doing things
 ---
 
 ## code review
+[read this article and write your checklist](https://pagepro.co/blog/18-tips-for-a-better-react-code-review-ts-js/)
 
 
 

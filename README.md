@@ -6,7 +6,7 @@
 🔥Topics Here 📙
 - [job seeking websites](#job-seeking-websites)
 - [Typescript](#typescript)
-- [Tools](#tools-and-websites⚙️-⚒️) 
+- [Tools](#tools-and-websites) 
 - Javascript articles
 - [sources](#sources)
 - [code review](#code-review)
@@ -93,8 +93,8 @@ myArr[0] = 9;
 
 
 
-## Tools and websites ⚙️⚒️
-
+## Tools and websites
+⚙️⚒️
 - [X] [Pair Typography fonts](https://fontjoy.com/) 
  <img src="./images/font__pairing.PNG" style="width:400px" />
  

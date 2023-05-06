@@ -4,11 +4,11 @@
 
 
 🔥Topics Here 📙
-- job seeking websites
-- Typescript
-- Tools 
+- [job seeking websites](#job-seeking-websites)
+- [Typescript](#typescript)
+- [Tools](#tools-and-websites) 
 - Javascript articles
-- sources
+- [sources](#sources)
 - [code review](#code-review)
 
 

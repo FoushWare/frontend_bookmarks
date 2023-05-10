@@ -10,6 +10,7 @@
 - Javascript articles
 - [sources](#sources)
 - [code review](#code-review)
+- [React Patterns](#react-patterns)
 
 
 ## job seeking websites
@@ -314,6 +315,12 @@ Not doing things take less time than doing things
 ## code review
 [read this article and write your checklist](https://pagepro.co/blog/18-tips-for-a-better-react-code-review-ts-js/)
 
+## react patterns
+- [prop getter](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters)
+```
+ maximum flexibility with minimal api ....like downshift it gives use two hooks and you can extend the functionality as you want
+```
+- [Render prop](https://kentcdodds.com/blog?q=render+prop)
 
 
 

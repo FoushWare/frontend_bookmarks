@@ -320,9 +320,10 @@ Not doing things take less time than doing things
 ```
  maximum flexibility with minimal api ....like downshift it gives use two hooks and you can extend the functionality as you want
 ```
-- [Render prop](https://kentcdodds.com/blog?q=render+prop)
-  - another article
-         [props pattern patterns.dev](https://www.patterns.dev/posts/render-props-pattern)
+- Render Props pattern:
+  - [Render prop kent c.doies](https://kentcdodds.com/blog?q=render+prop)
+  - [props pattern patterns.dev](https://www.patterns.dev/posts/render-props-pattern) 
+  - [Never use HOC ..video](https://www.youtube.com/watch?v=BcVAq3YFiuc)
  
 
 

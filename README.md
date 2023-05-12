@@ -8,7 +8,7 @@
 - [Typescript](#typescript)
 - [Tools ⚙️⚒️](#tools-and-websites) 
 - [Javascript articles](#javascript-articles)
-    -[Abstraction](#abstraction) 
+    - [Abstraction](#abstraction) 
 - [sources](#sources)
 - [code review](#code-review)
 - [React Patterns](#react-patterns)

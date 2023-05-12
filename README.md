@@ -11,6 +11,9 @@
 - [sources](#sources)
 - [code review](#code-review)
 - [React Patterns](#react-patterns)
+  - [Render prop](#render-prop)
+  - [prop getter](#prop-getter)
+  - [inversion of control](#ioc)
 
 
 ## job seeking websites
@@ -316,15 +319,17 @@ Not doing things take less time than doing things
 [read this article and write your checklist](https://pagepro.co/blog/18-tips-for-a-better-react-code-review-ts-js/)
 
 ## react patterns
-- [prop getter](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters)
+
+ - # render prop 
+    - [Render prop kent c.doies](https://kentcdodds.com/blog?q=render+prop)
+    - [props pattern patterns.dev](https://www.patterns.dev/posts/render-props-pattern) 
+    - [Never use HOC ..video](https://www.youtube.com/watch?v=BcVAq3YFiuc)
+ - # prop getter
+   - [prop getter](https://kentcdodds.com/blog/how-to-give-rendering-control-to-users-with-prop-getters)
 ```
  maximum flexibility with minimal api ....like downshift it gives use two hooks and you can extend the functionality as you want
 ```
-- Render Props pattern:
-  - [Render prop kent c.doies](https://kentcdodds.com/blog?q=render+prop)
-  - [props pattern patterns.dev](https://www.patterns.dev/posts/render-props-pattern) 
-  - [Never use HOC ..video](https://www.youtube.com/watch?v=BcVAq3YFiuc)
- 
-
+- # Ioc
+  - [inversion on control](https://kentcdodds.com/blog/inversion-of-control)
 
 

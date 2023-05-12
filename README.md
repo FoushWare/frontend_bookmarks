@@ -112,6 +112,7 @@ myArr[0] = 9;
 
 #### abstraction
   - [AHA programming](https://kentcdodds.com/blog/aha-programming)
+  - [wrong abstraction](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction#:~:text=If%20you%20find%20yourself%20passing,it%20show%20you%20what's%20right.)
 
 - [ ] javascript-visualized-event-loop-3dif article lidia
 

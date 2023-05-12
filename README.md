@@ -7,7 +7,7 @@
 - [job seeking websites](#job-seeking-websites)
 - [Typescript](#typescript)
 - [Tools ⚙️⚒️](#tools-and-websites) 
-- Javascript articles
+- [Javascript articles](#javascript-articles)
 - [sources](#sources)
 - [code review](#code-review)
 - [React Patterns](#react-patterns)
@@ -107,7 +107,9 @@ myArr[0] = 9;
 
 
 
-## bookmark for javascript articles 
+## javascript articles 
+
+- [AHA programming](https://kentcdodds.com/blog/aha-programming)
 
 - [ ] javascript-visualized-event-loop-3dif article lidia
 

@@ -8,6 +8,7 @@
 - [Typescript](#typescript)
 - [Tools ⚙️⚒️](#tools-and-websites) 
 - [Javascript articles](#javascript-articles)
+    -[Abstraction](#abstraction) 
 - [sources](#sources)
 - [code review](#code-review)
 - [React Patterns](#react-patterns)
@@ -109,7 +110,8 @@ myArr[0] = 9;
 
 ## javascript articles 
 
-- [AHA programming](https://kentcdodds.com/blog/aha-programming)
+#### abstraction
+  - [AHA programming](https://kentcdodds.com/blog/aha-programming)
 
 - [ ] javascript-visualized-event-loop-3dif article lidia
 

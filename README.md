@@ -334,6 +334,7 @@ Not doing things take less time than doing things
 ```
  maximum flexibility with minimal api ....like downshift it gives use two hooks and you can extend the functionality as you want
 ```
+- [React Hooks: What's going to happen to render props?](https://kentcdodds.com/blog/react-hooks-whats-going-to-happen-to-render-props) 
 - # Ioc
   - [inversion on control](https://kentcdodds.com/blog/inversion-of-control)
 

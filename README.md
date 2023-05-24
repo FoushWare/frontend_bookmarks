@@ -15,6 +15,7 @@
   - [Render prop](#render-prop)
   - [prop getter](#prop-getter)
   - [inversion of control](#ioc)
+- [presentation with markdown more interactivity](#presentation)
 
 
 ## job seeking websites
@@ -337,5 +338,9 @@ Not doing things take less time than doing things
 - [React Hooks: What's going to happen to render props?](https://kentcdodds.com/blog/react-hooks-whats-going-to-happen-to-render-props) 
 - # Ioc
   - [inversion on control](https://kentcdodds.com/blog/inversion-of-control)
+
+
+## presentation
+[mdx-deck: slide decks powered by markdown and react](https://kentcdodds.com/blog/mdx-deck-slide-decks-powered-by-markdown-and-react)
 
 

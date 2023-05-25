@@ -16,6 +16,7 @@
   - [prop getter](#prop-getter)
   - [inversion of control](#ioc)
 - [presentation with markdown more interactivity](#presentation)
+- [testing](#testing)
 
 
 ## job seeking websites
@@ -342,5 +343,8 @@ Not doing things take less time than doing things
 
 ## presentation
 [mdx-deck: slide decks powered by markdown and react](https://kentcdodds.com/blog/mdx-deck-slide-decks-powered-by-markdown-and-react)
+
+## testing
+- [Never use shallow rendering](https://www.youtube.com/watch?v=zkpwdw_JWBg)
 
 

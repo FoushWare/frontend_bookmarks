@@ -346,5 +346,6 @@ Not doing things take less time than doing things
 
 ## testing
 - [Never use shallow rendering](https://www.youtube.com/watch?v=zkpwdw_JWBg)
+- [testing-implementation-details](https://kentcdodds.com/blog/testing-implementation-details)
 
 

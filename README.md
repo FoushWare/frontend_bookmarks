@@ -345,6 +345,7 @@ Not doing things take less time than doing things
 [mdx-deck: slide decks powered by markdown and react](https://kentcdodds.com/blog/mdx-deck-slide-decks-powered-by-markdown-and-react)
 
 ## testing
+- [static testing](https://kentcdodds.com/blog/eliminate-an-entire-category-of-bugs-with-a-few-simple-tools)
 - [Never use shallow rendering](https://www.youtube.com/watch?v=zkpwdw_JWBg)
 - [testing-implementation-details](https://kentcdodds.com/blog/testing-implementation-details)
 - [why-i-never-use-shallow-rendering](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering)

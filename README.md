@@ -348,5 +348,5 @@ Not doing things take less time than doing things
 - [Never use shallow rendering](https://www.youtube.com/watch?v=zkpwdw_JWBg)
 - [testing-implementation-details](https://kentcdodds.com/blog/testing-implementation-details)
 - [why-i-never-use-shallow-rendering](https://kentcdodds.com/blog/why-i-never-use-shallow-rendering)
-
+- [stop-mocking-fetch](https://kentcdodds.com/blog/stop-mocking-fetch)
 

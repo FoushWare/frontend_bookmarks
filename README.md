@@ -1,7 +1,8 @@
 <!-- @format -->
+<a name="readme-top"></a>
 
 # frontend_bookmarks
-<a name="readme-top"></a>
+
 
 
 🔥Topics Here 📙
@@ -110,7 +111,7 @@ myArr[0] = 9;
 - [X] [empty views svgs](https://undraw.co/illustrations)
  <img src="./images/empty.PNG" style="width:400px" />
 
-
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## javascript articles 
 
@@ -323,9 +324,12 @@ Not doing things take less time than doing things
 </details>
 
 ---
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## code review
 [read this article and write your checklist](https://pagepro.co/blog/18-tips-for-a-better-react-code-review-ts-js/)
+
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## react patterns
 
@@ -342,9 +346,13 @@ Not doing things take less time than doing things
 - # Ioc
   - [inversion on control](https://kentcdodds.com/blog/inversion-of-control)
 
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
+
 
 ## presentation
 [mdx-deck: slide decks powered by markdown and react](https://kentcdodds.com/blog/mdx-deck-slide-decks-powered-by-markdown-and-react)
+
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## testing
 - [static testing](https://kentcdodds.com/blog/eliminate-an-entire-category-of-bugs-with-a-few-simple-tools)

@@ -28,6 +28,8 @@
 - [remote ok](https://remoteok.com)
 - [naukrigulf](https://www.naukrigulf.com/)
 
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
+
 
 
 
@@ -93,7 +95,7 @@ myArr[0] = 9;
 ---
 
 
-
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## sources 
 
@@ -101,7 +103,7 @@ myArr[0] = 9;
 
 <img src="./images/smashing__magazine.jpg" style="width:150px" />
 
-
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## Tools and websites
 

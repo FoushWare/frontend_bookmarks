@@ -11,6 +11,7 @@
 - [Tools ⚙️⚒️](#tools-and-websites) 
 - [Javascript articles](#javascript-articles)
     - [Abstraction](#abstraction) 
+    - [3ways to access object properties](#object-access)
 - [sources](#sources)
 - [code review](#code-review)
 - [React Patterns](#react-patterns)
@@ -116,6 +117,9 @@ myArr[0] = 9;
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## javascript articles 
+
+#### object access
+- [object access properties](https://dmitripavlutin.com/access-object-properties-javascript/)
 
 #### abstraction
   - [AHA programming](https://kentcdodds.com/blog/aha-programming)

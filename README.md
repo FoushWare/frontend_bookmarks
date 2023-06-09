@@ -38,6 +38,8 @@ Ans: [stackoverflow](https://stackoverflow.com/questions/37364973/what-is-the-di
 
 - What is Reactive programming?
 ans: [youtube](https://www.youtube.com/watch?v=Bme_RiT9CK4)
+- what do you know about event loop?
+ ans: [article Lydia Hallie](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif)
 
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>

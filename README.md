@@ -7,6 +7,7 @@
 
 🔥Topics Here 📙
 - [job seeking websites](#job-seeking-websites)
+- [Interview questions](#interview-questions)
 - [Typescript](#typescript)
 - [Tools ⚙️⚒️](#tools-and-websites) 
 - [Javascript articles](#javascript-articles)
@@ -31,7 +32,15 @@
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
+## interview questions
+- What is the difference between promise and observalble?
+Ans: [stackoverflow](https://stackoverflow.com/questions/37364973/what-is-the-difference-between-promises-and-observables)
 
+- What is Reactive programming?
+ans: [youtube](https://www.youtube.com/watch?v=Bme_RiT9CK4)
+
+
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 
 

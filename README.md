@@ -106,6 +106,8 @@ myArr[0] = 9;
 
 ---
 
+- [Solid Principles in Typescript](https://www.jmalvarez.dev/posts/open-closed-principle)
+
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 

@@ -393,4 +393,4 @@ Not doing things take less time than doing things
 - [Microservice and react](https://www.youtube.com/watch?v=wwktn2EafpM)
 
 ## installation
-- [docker and k8s](https://www.letscloud.io/community/how-to-install-kubernetesk8s-and-docker-on-ubuntu-2004)
+-

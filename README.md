@@ -21,6 +21,7 @@
   - [inversion of control](#ioc)
 - [presentation with markdown more interactivity](#presentation)
 - [🧪 testing](#testing)
+- [🔊 Talks](#talks-and-youtube-videos)
 
 
 
@@ -382,4 +383,5 @@ Not doing things take less time than doing things
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
-
+## talks and youtube videos
+- [Arabic Advanced Git](https://www.youtube.com/playlist?list=PLDSsH9x1gRyHlHT1gizpNbGqAUpit77XH)

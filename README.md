@@ -24,6 +24,7 @@
 - [🔊 Talks](#talks-and-youtube-videos)
 - [helper videos](#helper-videos)
 - [installation](#installation)
+- [React 18](#react18)
 
 
 
@@ -395,3 +396,12 @@ Not doing things take less time than doing things
 
 ## installation
 -
+## react18
+- [release notes](https://reactjs.org/blog/2022/03/29/react-v18.html)
+- [upgrade guid](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html)
+- [suspense](https://github.com/reactjs/rfcs/blob/main/text/0213-suspense-in-react-18.md)
+- [creat Root](https://github.com/reactwg/react-18/discussions/5)
+- [transation](https://github.com/reactwg/react-18/discussions/41)
+
+  ## renderring
+  - [render as you fetch](https://medium.com/jspoint/introduction-to-react-v18-suspense-and-render-as-you-fetch-approach-1b259551a4c0)

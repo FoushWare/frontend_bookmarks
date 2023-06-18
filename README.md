@@ -25,6 +25,7 @@
 - [helper videos](#helper-videos)
 - [installation](#installation)
 - [React 18](#react18)
+- [Rendering](#renderring)
 
 
 
@@ -403,5 +404,5 @@ Not doing things take less time than doing things
 - [creat Root](https://github.com/reactwg/react-18/discussions/5)
 - [transation](https://github.com/reactwg/react-18/discussions/41)
 
-  ## renderring
-  - [render as you fetch](https://medium.com/jspoint/introduction-to-react-v18-suspense-and-render-as-you-fetch-approach-1b259551a4c0)
+## renderring
+- [render as you fetch](https://medium.com/jspoint/introduction-to-react-v18-suspense-and-render-as-you-fetch-approach-1b259551a4c0)

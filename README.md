@@ -357,6 +357,7 @@ Not doing things take less time than doing things
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## react patterns
+- [Good Resource to practise patterns with lidiaHali](https://javascriptpatterns.vercel.app/patterns/design-patterns/singleton-pattern)
 
  - # render prop 
     - [Render prop kent c.doies](https://kentcdodds.com/blog?q=render+prop)

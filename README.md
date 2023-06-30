@@ -26,6 +26,7 @@
 - [installation](#installation)
 - [React 18](#react18)
 - [Rendering](#renderring)
+- [Questions to search about later](#questions-later)
 
 
 
@@ -407,3 +408,6 @@ Not doing things take less time than doing things
 
 ## renderring
 - [render as you fetch](https://medium.com/jspoint/introduction-to-react-v18-suspense-and-render-as-you-fetch-approach-1b259551a4c0)
+
+## questions later
+- what is use client in Nextjs13 and why in nextjs13 server side components is the default ?

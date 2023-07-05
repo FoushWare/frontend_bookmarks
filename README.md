@@ -27,6 +27,7 @@
 - [React 18](#react18)
 - [Rendering](#renderring)
 - [Questions to search about later](#questions-later)
+- [Configurations](#configs)
 
 
 
@@ -411,3 +412,98 @@ Not doing things take less time than doing things
 
 ## questions later
 - what is use client in Nextjs13 and why in nextjs13 server side components is the default ?
+
+
+## configs
+- Nextjs13 + Antd 5
+
+  <details><summary><b>Answer</b></summary>
+
+  Summarizing the answers above ，you can do like this:
+1.Create /app/components/AntdProvider
+
+'use client'
+import { useState, type PropsWithChildren } from 'react'
+import { useServerInsertedHTML } from 'next/navigation'
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs'
+
+export const AntdProvider = ({ children }: PropsWithChildren) => {
+  const [cache] = useState(() => createCache())
+
+  useServerInsertedHTML(() => {
+    return (
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `</script>${extractStyle(cache)}<script>`,
+        }}
+      />
+    )
+  })
+
+  return <StyleProvider cache={cache}>{children}</StyleProvider>
+}
+2.If you want to custom your antd theme,create /app/components/AntdStyleProvider
+
+'use client';
+
+import { PropsWithChildren, useEffect, useState } from 'react';
+import { ConfigProvider } from 'antd';
+import { AntdProvider } from './AntdProvider';
+
+export function AntdStyleProvider({ children }: PropsWithChildren) {
+    return (
+        <ConfigProvider
+            theme={{
+                token: {
+                    colorPrimary: '#52c41a',
+                },
+            }}
+        >
+            <ConfigProvider
+                theme={{
+                    token: {
+                        borderRadius: 16,
+                    },
+                }}
+            >
+                <AntdProvider>{children}</AntdProvider>
+            </ConfigProvider>
+        </ConfigProvider>
+    );
+}
+3.Create the layout for the root page，/app/layout.tsx
+
+import type { PropsWithChildren } from 'react'
+import { AntdProvider } from './components/AntdProvider'
+import {AntdStyleProvider} from './components/AntdStyleProvider'
+
+export default function RootLayout({ children }: PropsWithChildren) {
+  return (
+    <html lang="es">
+      <head />
+      <body>
+        <AntdStyleProvider>{children}</AntdStyleProvider>
+      </body>
+    </html>
+  )
+};
+4./app/page.tsx
+
+'use client'
+import React, { Button } from 'antd'
+export default function Home() {
+  return  <Button>Ant Design Button</Button>
+}
+This works for me
+But I also have a question，i use 'use client' in the provider，it surrounds all the child components , does it mean all the application is client ? if it is ,as @kkx64 said, i think antd5 does not fit next.js13，can someone answer the question?
+
+
+
+ </details>
+
+
+
+
+
+
+  

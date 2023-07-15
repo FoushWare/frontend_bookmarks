@@ -415,7 +415,7 @@ Not doing things take less time than doing things
 
 
 ## configs
-- Nextjs13 + Antd 5
+- Nextjs13 + Antd 5 [App Router]  flicking problem
 
   <details><summary><b>Answer</b></summary>
 
@@ -504,7 +504,33 @@ Not doing things take less time than doing things
 
  </details>
 
-
+- NextJs13+Ant5 [pages Router] flicking problem
+`url   https://github.com/ant-design/ant-design/issues/16037#issuecomment-509024637 `
+  <details><summary><b>Answer</b></summary>
+                  Thank you @zombieJ
+            
+            In case anyone else wants to add that solution to their next.js app - I added the following in the Head section in _app.js:
+            
+            <style
+              id="holderStyle"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  /* https://github.com/ant-design/ant-design/issues/16037#issuecomment-483140458 */
+                  /* Not only antd, but also any other style if you want to use ssr. */
+                  *, *::before, *::after {
+                    transition: none!important;
+                  }
+                `
+              }}
+            />
+            And this before returning the App component:
+            
+            if (typeof window !== "undefined") {
+              window.onload = () => {
+                document.getElementById("holderStyle").remove();
+              };
+            }
+  </details>
 
 
 

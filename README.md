@@ -508,7 +508,8 @@ Not doing things take less time than doing things
     [soluation](https://github.com/sagemathinc/cocalc/issues/6320)
   </details>
 
-
+  - social login [React+RestfulApi with any backend]
+      - [#Good Medium Article](https://alexanderleon.medium.com/implement-social-authentication-with-react-restful-api-9b44f4714fa) 
 
 
   

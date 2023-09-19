@@ -15,10 +15,12 @@
     - [3ways to access object properties](#object-access)
 - [sources](#sources)
 - [code review](#code-review)
-- [React Patterns](#react-patterns)
+- [React Design Patterns](#react-design-patterns)
   - [Render prop](#render-prop)
   - [prop getter](#prop-getter)
   - [inversion of control](#ioc)
+ 
+- [React Rendering patterns](#react-rendering-patterns)
 - [presentation with markdown more interactivity](#presentation)
 - [🧪 testing](#testing)
 - [🔊 Talks](#talks-and-youtube-videos)
@@ -358,7 +360,7 @@ Not doing things take less time than doing things
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
-## react patterns
+## react design patterns
 - [Good Resource to practise patterns with lidiaHali](https://javascriptpatterns.vercel.app/patterns/design-patterns/singleton-pattern)
 
  - # render prop 
@@ -377,6 +379,12 @@ Not doing things take less time than doing things
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
+## react rendering patterns
+- First things first what is rendering?
+- > rendering is turning code + data TO => Html
+  >  (This can be done on the server OR Browser)
+  > This can be done all at once OR partially i.e [ Render Now , Render on Scroll]
+  > and these all have trade-offs in terms of [user-experience , performance, developer-experience ]
 
 ## presentation
 [mdx-deck: slide decks powered by markdown and react](https://kentcdodds.com/blog/mdx-deck-slide-decks-powered-by-markdown-and-react)

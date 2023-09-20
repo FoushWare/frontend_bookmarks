@@ -7,6 +7,7 @@
 
 🔥Topics Here 📙
 - [job seeking websites](#job-seeking-websites)
+- [First Things First](#first-things-first)
 - [Interview questions](#interview-questions)
 - [Typescript](#typescript)
 - [Tools ⚙️⚒️](#tools-and-websites) 
@@ -31,7 +32,11 @@
 - [Questions to search about later](#questions-later)
 - [Configurations](#configs)
 
+## first things first
+- Write proper html .... you can test your html markup with this tool ARIA DevTools [ARIA DevTools](https://chrome.google.com/webstore/detail/aria-devtools/dneemiigcbbgbdjlcdjjnianlikimpck)
 
+- first things use the proper html and css to make the code small and maintance
+- [ ] display property [display css](https://www.w3schools.com/cssref/pr_class_display.php)
 
 ## job seeking websites
 

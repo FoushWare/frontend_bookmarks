@@ -37,6 +37,7 @@
 
 - first things use the proper html and css to make the code small and maintance
 - [ ] display property [display css](https://www.w3schools.com/cssref/pr_class_display.php)
+- [ ] css mastery book [css mastery book](https://www.breathebook.info/d/266566)
 
 ## job seeking websites
 

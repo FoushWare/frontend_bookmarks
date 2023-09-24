@@ -31,6 +31,7 @@
 - [Rendering](#renderring)
 - [Questions to search about later](#questions-later)
 - [Configurations](#configs)
+- [Building tools for frontend 2023](#build-tools)
 
 ## first things first
 - Write proper html .... you can test your html markup with this tool ARIA DevTools [ARIA DevTools](https://chrome.google.com/webstore/detail/aria-devtools/dneemiigcbbgbdjlcdjjnianlikimpck)
@@ -527,3 +528,6 @@ Not doing things take less time than doing things
 
 
   
+
+# build tools
+[Article](https://stackdiary.com/build-tools-for-web-development/)

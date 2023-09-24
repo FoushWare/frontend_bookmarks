@@ -32,6 +32,7 @@
 - [Questions to search about later](#questions-later)
 - [Configurations](#configs)
 - [Building tools for frontend 2023](#build-tools)
+- [Monorepo vs polyrepo](monorepo-vs-polyrepo)
 
 ## first things first
 - Write proper html .... you can test your html markup with this tool ARIA DevTools [ARIA DevTools](https://chrome.google.com/webstore/detail/aria-devtools/dneemiigcbbgbdjlcdjjnianlikimpck)
@@ -531,3 +532,5 @@ Not doing things take less time than doing things
 
 # build tools
 [Article](https://stackdiary.com/build-tools-for-web-development/)
+# monorepo vs polyrepo
+- [Article medhat darwash](https://medhatdawoud.net/blog/using-monorepos-is-not-that-bad-case-study)

@@ -59,6 +59,9 @@ ans: [youtube](https://www.youtube.com/watch?v=Bme_RiT9CK4)
 - what do you know about event loop?
  ans: [article Lydia Hallie](https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif)
 - [lydiahallie question](https://github.com/lydiahallie/javascript-questions/tree/master)
+- [React interview questions](https://github.com/sudheerj/reactjs-interview-questions)
+- [Rendering pattersn react 10 of them ](https://www.youtube.com/watch?v=Dkx5ydvtpCA&t=9s)
+- [Rendering patterns react lydia](https://www.patterns.dev/posts/rendering-patterns)
 
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>

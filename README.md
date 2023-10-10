@@ -34,6 +34,7 @@
 - [Building tools for frontend 2023](#build-tools)
 - [Monorepo vs polyrepo](#monorepo-vs-polyrepo)
 - [Why use BEM](#why-use-BEM)
+- [Edge Computing](#edge-computing)
 
 ## first things first
 - Write proper html .... you can test your html markup with this tool ARIA DevTools [ARIA DevTools](https://chrome.google.com/webstore/detail/aria-devtools/dneemiigcbbgbdjlcdjjnianlikimpck)
@@ -541,3 +542,6 @@ Not doing things take less time than doing things
 
 # why use BEM
 [video](https://www.youtube.com/watch?v=SLjHSVwXYq4)
+# edge computing
+While reading this article for rendering patterns [article](https://www.patterns.dev/posts/rendering-patterns) i hit this concept
+[video](https://www.youtube.com/watch?v=yOP5-3_WFus)

@@ -50,6 +50,7 @@
 - [naukrigulf](https://www.naukrigulf.com/)
 - [arch dev](https://arc.dev/remote-jobs)
 - [jobgether](https://jobgether.com/home)
+- [remotive](https://remotive.com/?tags=react%20js)
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 

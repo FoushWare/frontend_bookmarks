@@ -552,6 +552,8 @@ While reading this article for rendering patterns [article](https://www.patterns
 [video](https://www.youtube.com/watch?v=yOP5-3_WFus)
 
 # notes
+01- Domain Driven design
+[01](https://raw.githubusercontent.com/FoushWare/frontend_bookmarks/master/images/domainDrivenDesign01.jpeg)
 
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>

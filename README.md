@@ -39,11 +39,12 @@
 - [Edge Computing](#edge-computing)
 - [notes](#notes)
 
-  ## search about
+## search about
 
   - thunk vs saga middleware
+  - Redux toolkit with typescript
  
-  ## refresh learning
+## refresh learning
   - redux toolkit (youtube) [Redux toolkit](https://www.youtube.com/playlist?list=PLC3y8-rFHvwiaOAuTtVXittwybYIorRB3)
 
 ## first things first

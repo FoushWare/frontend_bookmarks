@@ -7,6 +7,7 @@
 
 🔥Topics Here 📙
 - [search about](#search-about)
+- [Refresh Learning](#refresh-learning)
 - [job seeking websites](#job-seeking-websites)
 - [First Things First](#first-things-first)
 - [Interview questions](#interview-questions)
@@ -41,6 +42,9 @@
   ## search about
 
   - thunk vs saga middleware
+ 
+  ## refresh learning
+  - redux toolkit (youtube) [Redux toolkit](https://www.youtube.com/playlist?list=PLC3y8-rFHvwiaOAuTtVXittwybYIorRB3)
 
 ## first things first
 - Write proper html .... you can test your html markup with this tool ARIA DevTools [ARIA DevTools](https://chrome.google.com/webstore/detail/aria-devtools/dneemiigcbbgbdjlcdjjnianlikimpck)

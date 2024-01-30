@@ -6,6 +6,7 @@
 
 
 🔥Topics Here 📙
+- [search about](#search-about)
 - [job seeking websites](#job-seeking-websites)
 - [First Things First](#first-things-first)
 - [Interview questions](#interview-questions)
@@ -36,6 +37,10 @@
 - [Why use BEM](#why-use-BEM)
 - [Edge Computing](#edge-computing)
 - [notes](#notes)
+
+  ## search about
+
+  - thunk vs saga middleware
 
 ## first things first
 - Write proper html .... you can test your html markup with this tool ARIA DevTools [ARIA DevTools](https://chrome.google.com/webstore/detail/aria-devtools/dneemiigcbbgbdjlcdjjnianlikimpck)

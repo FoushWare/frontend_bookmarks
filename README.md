@@ -576,6 +576,9 @@ While reading this article for rendering patterns [article](https://www.patterns
 - function generators
     - [video web simplify](https://www.youtube.com/watch?v=IJ6EgdiI_wU&t=1s)
     - [article lydia](https://dev.to/lydiahallie/javascript-visualized-generators-and-iterators-e36)
+ 
+      
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 
 

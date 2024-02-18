@@ -38,6 +38,7 @@
 - [Why use BEM](#why-use-BEM)
 - [Edge Computing](#edge-computing)
 - [notes](#notes)
+- [Topics](#topics)
 
 ## search about
 
@@ -568,5 +569,15 @@ While reading this article for rendering patterns [article](https://www.patterns
 
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
+
+
+
+# topics
+- function generators
+    - [video web simplify](https://www.youtube.com/watch?v=IJ6EgdiI_wU&t=1s)
+    - [article lydia](https://dev.to/lydiahallie/javascript-visualized-generators-and-iterators-e36)
+
+
+
 
 

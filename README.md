@@ -6,6 +6,7 @@
 
 
 🔥Topics Here 📙
+- [What do you need to jump between frameworks smoother ](#what-do-you-need-to-know)
 - [search about](#search-about)
 - [Refresh Learning](#refresh-learning)
 - [job seeking websites](#job-seeking-websites)
@@ -39,6 +40,17 @@
 - [Edge Computing](#edge-computing)
 - [notes](#notes)
 - [Topics](#topics)
+
+
+
+## what do you need to know
+* to jump between frameworks you should know some concepts like:
+
+      - component Architecture : like in the past there was dummy components and smart components  components for logic and componets for presenting but now there is loaders that load all the data and all components are dummy components
+      - state managment
+      - comman patterns in security you should avoid
+      - how to make the code reusable and isolated this require to know some design patterns
+      - 
 
 ## search about
 

@@ -50,7 +50,7 @@
       - state managment
       - comman patterns in security you should avoid
       - how to make the code reusable and isolated this require to know some design patterns
-      - 
+      - layout and positioning with css
 
 ## search about
 

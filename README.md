@@ -7,6 +7,7 @@
 
 🔥Topics Here 📙
 - [What do you need to jump between frameworks smoother ](#what-do-you-need-to-know)
+- [Html](#html)
 - [search about](#search-about)
 - [Refresh Learning](#refresh-learning)
 - [job seeking websites](#job-seeking-websites)
@@ -52,6 +53,8 @@
       - how to make the code reusable and isolated this require to know some design patterns
       - layout and positioning with css
 
+## html 
+- normal document flow [from left to right and from top to bottom] , postionining elements based on block or inline element [video](https://www.youtube.com/watch?v=yqxb4clxszg)
 ## search about
 
   - thunk vs saga middleware

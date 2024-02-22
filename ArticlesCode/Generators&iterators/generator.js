@@ -170,3 +170,94 @@ for (const key in obj) {
 // c
 
 console.log("===========================");
+
+console.log("====So why would you ever want to use generator functions?====");
+const bookClubs = [
+  {
+    name: "JavaScript",
+    clubMembers: [
+      {
+        name: "johun hossain",
+        books: [{ id: "hs891", title: "A Perfect" }],
+      },
+    ],
+  },
+];
+
+// Function to generate a random alphanumeric string for book IDs
+function generateRandomId() {
+  return Math.random().toString(36).substring(2, 8);
+}
+
+// Function to generate a large dataset by replicating and modifying the existing data
+function generateLargeDataset(originalData, size) {
+  const largeDataset = [];
+  const originalClub = originalData[0]; // Assuming there's only one club in the original data
+  const originalBook = originalClub.clubMembers[0].books[0]; // Assuming there's only one book in the original club
+  for (let i = 0; i < size; i++) {
+    const newClub = { ...originalClub }; // Create a shallow copy of the original club
+    newClub.name += `_${i + 1}`; // Modify club name to make it unique
+    newClub.clubMembers = []; // Clear club members array
+    for (const member of originalClub.clubMembers) {
+      const newMember = { ...member }; // Create a shallow copy of the original member
+      newMember.name += `_${i + 1}`; // Modify member name to make it unique
+      newMember.books = []; // Clear books array
+      for (const book of member.books) {
+        const newBook = { ...book }; // Create a shallow copy of the original book
+        if (i === 0) {
+          // Keep the original book with ID "hs891" in the first object
+          newBook.id = originalBook.id;
+        } else {
+          newBook.id = generateRandomId(); // Generate a new random ID for the book
+        }
+        newMember.books.push(newBook); // Add modified book to member's books array
+      }
+      newClub.clubMembers.push(newMember); // Add modified member to club's members array
+    }
+    largeDataset.push(newClub); // Add modified club to large dataset
+  }
+  return largeDataset;
+}
+
+// Generate a large dataset with 1000 clubs
+const largeDataset = generateLargeDataset(bookClubs, 1000);
+
+console.log(JSON.stringify(largeDataset, null, 2));
+
+function* iterateBooks(books) {
+  for (let i = 0; i < books.length; i++) {
+    const book = books[i];
+    yield book;
+  }
+}
+
+function* iterateMembers(members) {
+  for (let i = 0; i < members.length; i++) {
+    const member = members[i];
+    yield* iterateBooks(member.books);
+  }
+}
+
+function* iterateBookClubs(clubs) {
+  for (let i = 0; i < clubs.length; i++) {
+    const club = clubs[i];
+    yield* iterateMembers(club.clubMembers);
+  }
+}
+// const it = iterateBookClubs(largeDataset);
+// console.log("✨ generator use case", JSON.stringify(it.next()));
+
+function findBook(id) {
+  const genObj = iterateBookClubs(largeDataset);
+  let result = genObj.next();
+  while (!result.done) {
+    if (result.value.id === id) {
+      console.log("founded");
+      return result.value;
+    } else {
+      result = genObj.next();
+    }
+  }
+}
+
+console.log(findBook("hs891"));

@@ -607,6 +607,7 @@ While reading this article for rendering patterns [article](https://www.patterns
  
 - for...of
   - [article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+  - [code](https://github.com/FoushWare/frontend_bookmarks/blob/master/ArticlesCode/Generators%26iterators/generator.js)
  
       
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>

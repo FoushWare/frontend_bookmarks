@@ -605,6 +605,9 @@ While reading this article for rendering patterns [article](https://www.patterns
     - [video web simplify](https://www.youtube.com/watch?v=IJ6EgdiI_wU&t=1s)
     - [article lydia](https://dev.to/lydiahallie/javascript-visualized-generators-and-iterators-e36)
  
+- for...of
+  - [article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of)
+ 
       
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 

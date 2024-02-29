@@ -7,6 +7,7 @@
 
 🔥Topics Here 📙
 - [What do you need to jump between frameworks smoother ](#what-do-you-need-to-know)
+- [security](#comman-patterns-in-security)
 - [Html](#html)
 - [Css](#css)
 - [search about](#search-about)
@@ -56,6 +57,10 @@
 
   <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
+## comman patterns in security
+
+- content-security-policy [CSP](https://vercel.com/guides/understanding-xss-attacks#set-a-content-security-policy-(csp))
+- you can access lydia halia course [advanced web developer quiz] video 15 to understand more
 
 ## html 
 - normal document flow [from left to right and from top to bottom] , postionining elements based on block or inline element [video](https://www.youtube.com/watch?v=yqxb4clxszg)

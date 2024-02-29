@@ -63,6 +63,7 @@
 - you can access lydia halia course [advanced web developer quiz] video 15 to understand more
 - [understand cookies for security](https://vercel.com/guides/understanding-cookies) 🍪
 - [configure react with CSP](https://nextjs.org/docs/app/building-your-application/configuring/content-security-policy)
+- [sameSite](https://vercel.com/guides/understanding-the-samesite-attribute)
 
 ## html 
 - normal document flow [from left to right and from top to bottom] , postionining elements based on block or inline element [video](https://www.youtube.com/watch?v=yqxb4clxszg)

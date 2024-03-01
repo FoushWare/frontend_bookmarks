@@ -106,8 +106,7 @@
 ## interview questions
 - What is the difference between promise and observalble?
 Ans: [stackoverflow](https://stackoverflow.com/questions/37364973/what-is-the-difference-between-promises-and-observables)
-- promise all,race,any,settled
-* [article](https://dev.to/shameel/javascript-promise-all-vs-allsettled-and-race-vs-any-3foj)
+- [promise all,race,any,settled](https://dev.to/shameel/javascript-promise-all-vs-allsettled-and-race-vs-any-3foj)
 
 - What is Reactive programming?
 ans: [youtube](https://www.youtube.com/watch?v=Bme_RiT9CK4)

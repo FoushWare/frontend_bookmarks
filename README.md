@@ -116,6 +116,7 @@ ans: [youtube](https://www.youtube.com/watch?v=Bme_RiT9CK4)
 - [React interview questions](https://github.com/sudheerj/reactjs-interview-questions)
 - [Rendering pattersn react 10 of them ](https://www.youtube.com/watch?v=Dkx5ydvtpCA&t=9s)
 - [Rendering patterns react lydia](https://www.patterns.dev/posts/rendering-patterns)
+- [repo for js topics and questions](https://github.com/didicodes/javascript-dev-bookmarks?tab=readme-ov-file)
 
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>

@@ -43,6 +43,7 @@
 - [Edge Computing](#edge-computing)
 - [notes](#notes)
 - [Topics](#topics)
+- [browser](#browser)
 
 
 
@@ -625,6 +626,8 @@ While reading this article for rendering patterns [article](https://www.patterns
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 
+## browser 
+- [bfcache](#https://developer.chrome.com/docs/web-platform/deprecating-unload?ref=dailydev)
 
 
 

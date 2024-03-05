@@ -76,6 +76,7 @@
 
 ## css
 - stacking context [video](https://www.youtube.com/watch?v=uS8l4YRXbaw)
+- css layouts [video](https://www.youtube.com/watch?v=i1FeOOhNnwU)
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 

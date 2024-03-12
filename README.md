@@ -17,6 +17,7 @@
 - [First Things First](#first-things-first)
 - [Interview questions](#interview-questions)
 - [Typescript](#typescript)
+- [interview Forms questions](#interview-forms-question)
 - [Tools ⚙️⚒️](#tools-and-websites) 
 - [Javascript articles](#javascript-articles)
     - [Abstraction](#abstraction) 
@@ -103,6 +104,12 @@
 
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
+
+
+## interview forms questions
+
+- what make you the ideal candidate?
+> As a senior frontend developer i bring a wealth of experience and expertiese to the table .Wth deep understanding of HTML,CSSand javascript along with proficiency in framwork like React . I am well-equipped to tackle any frontend challenge . My commitment to staying updated with the latest industry trends ensures that i can deliver innovative solutions that meet both user needs and business goals. Additionally , my strong communication skills and leadership qualities make me an ideal candidate for collaborating with cross-functional teams and metoring junior developers.I am excited about the opportunity to leverage my skills and experience to drive success in your organization
 ## job seeking websites
 
 - [dev kg](https://devkg.com/ru)

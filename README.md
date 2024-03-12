@@ -12,6 +12,7 @@
 - [Css](#css)
 - [search about](#search-about)
 - [Refresh Learning](#refresh-learning)
+- [system design and design systems](#system-design-and-design-systems)
 - [job seeking websites](#job-seeking-websites)
 - [First Things First](#first-things-first)
 - [Interview questions](#interview-questions)
@@ -95,6 +96,13 @@
 - [ ] display property [display css](https://www.w3schools.com/cssref/pr_class_display.php)
 - [ ] css mastery book [css mastery book](https://www.breathebook.info/d/266566)
 
+
+## system design and design systems
+-[course frontent masters](https://frontendmasters.com/courses/design-systems/)
+
+
+
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 ## job seeking websites
 
 - [dev kg](https://devkg.com/ru)

@@ -79,6 +79,7 @@
 ## css
 - stacking context [video](https://www.youtube.com/watch?v=uS8l4YRXbaw)
 - css layouts [video](https://www.youtube.com/watch?v=i1FeOOhNnwU)
+- [masonary layout](https://hackernoon.com/how-to-build-a-masonry-layout-using-css?ref=dailydev)
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 

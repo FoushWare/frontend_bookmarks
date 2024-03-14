@@ -10,6 +10,7 @@
 - [security](#comman-patterns-in-security)
 - [Html](#html)
 - [Css](#css)
+- [Cheet sheet](#cheet-sheet)
 - [search about](#search-about)
 - [Refresh Learning](#refresh-learning)
 - [system design and design systems](#system-design-and-design-systems)
@@ -82,6 +83,12 @@
 - [masonary layout](https://hackernoon.com/how-to-build-a-masonry-layout-using-css?ref=dailydev)
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
+
+## cheet sheet
+- flex patterns [flex-patterns](https://attachments.convertkitcdnn.com/150663/071438c9-d64f-469c-83c3-d0dd6105a3a0/useful-flexbox-patterns.pdf?utm_campaign=Landing%20Page%20or%20Form%20-%201884631&utm_medium=email&utm_source=convertkit)
+
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
+
 
 ## search about
 

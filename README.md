@@ -236,6 +236,8 @@ myArr[0] = 9;
 
 ## javascript articles 
 
+### async and defer with html 
+- [async and defer ](https://dev.to/fidalmathew/async-vs-defer-in-javascript-which-is-better-26gm?ref=dailydev)
 #### object access
 - [object access properties](https://dmitripavlutin.com/access-object-properties-javascript/)
 

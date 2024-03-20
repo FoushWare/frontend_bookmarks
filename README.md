@@ -86,6 +86,12 @@
 
 ## cheet sheet
 - flex patterns [flex-patterns](https://attachments.convertkitcdnn.com/150663/071438c9-d64f-469c-83c3-d0dd6105a3a0/useful-flexbox-patterns.pdf?utm_campaign=Landing%20Page%20or%20Form%20-%201884631&utm_medium=email&utm_source=convertkit)
+- grid [grid](https://alialaa.github.io/css-grid-cheat-sheet/)
+- grid2 [grid2](https://grid.malven.co/)
+- flex [flex](https://flexbox.malven.co/)
+- animation Easings [Easings](https://easings.net/)
+- free resources [books-podcasts](https://github.com/EbookFoundation/free-programming-books?tab=readme-ov-file)
+- sheet cheat for all programming langs [cheat sheet](https://www.codecademy.com/resources/cheatsheets/all)
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 

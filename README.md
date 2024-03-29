@@ -8,6 +8,7 @@
 🔥Topics Here 📙
 - [What do you need to jump between frameworks smoother ](#what-do-you-need-to-know)
 - [security](#comman-patterns-in-security)
+- [performance](#performance)
 - [Html](#html)
 - [Css](#css)
 - [Cheet sheet](#cheet-sheet)
@@ -71,6 +72,11 @@
 - [norefer,noopenr](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
 - [cors visualized lydia hallie](https://dev.to/lydiahallie/cs-visualized-cors-5b8h)
 - patterns of security xss,csrf,ui redressing (click jacking ) , MTM (man in the middle)
+
+
+## performance
+
+- core web vitals [fireship video ](https://www.youtube.com/watch?v=0fONene3OIA)
 
 ## html 
 - normal document flow [from left to right and from top to bottom] , postionining elements based on block or inline element [video](https://www.youtube.com/watch?v=yqxb4clxszg)

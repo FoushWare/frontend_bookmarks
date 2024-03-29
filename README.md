@@ -77,6 +77,11 @@
 ## performance
 
 - core web vitals [fireship video ](https://www.youtube.com/watch?v=0fONene3OIA)
+- tools to measure performance [web vital extension](https://chromewebstore.google.com/detail/web-vitals/ahfhijdlegdabablpippeagghigmibma)
+- tools to measure performance
+  ```
+  npx unlighthouse --site  site you need to measure
+  ```
 
 ## html 
 - normal document flow [from left to right and from top to bottom] , postionining elements based on block or inline element [video](https://www.youtube.com/watch?v=yqxb4clxszg)

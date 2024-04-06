@@ -144,6 +144,7 @@
 - [jobgether](https://jobgether.com/home)
 - [remotive](https://remotive.com/?tags=react%20js)
 - [companies-hiring-remote-devs](https://github.com/nmajor25/companies-hiring-remote-devs?tab=readme-ov-file)
+- [workatastartup](https://www.workatastartup.com/)
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 

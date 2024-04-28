@@ -48,6 +48,7 @@
 - [notes](#notes)
 - [Topics](#topics)
 - [browser](#browser)
+- [Atomic Design](#atomic-design)
 
 
 
@@ -674,5 +675,6 @@ While reading this article for rendering patterns [article](https://www.patterns
 ## browser 
 - [bfcache](https://developer.chrome.com/docs/web-platform/deprecating-unload?ref=dailydev)
 
-
+## atomic design 
+- [article](https://bradfrost.com/blog/post/atomic-web-design/)
 

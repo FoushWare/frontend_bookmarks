@@ -227,6 +227,8 @@ myArr[0] = 9;
 </p>
 </details>
 
+* (utility types](https://timmousk.com/blog/typescript-utility-types/#picktype-keys)
+
 ---
 
 - [Solid Principles in Typescript](https://www.jmalvarez.dev/posts/open-closed-principle)

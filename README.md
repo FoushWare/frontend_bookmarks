@@ -49,6 +49,7 @@
 - [Topics](#topics)
 - [browser](#browser)
 - [Atomic Design](#atomic-design)
+- [some BE work](#backend)
 
 
 
@@ -679,4 +680,7 @@ While reading this article for rendering patterns [article](https://www.patterns
 
 ## atomic design 
 - [article](https://bradfrost.com/blog/post/atomic-web-design/)
+
+## backend
+- [mongo db crash course fast talking is greet 😆](https://www.youtube.com/watch?v=QPFlGswpyJY)
 

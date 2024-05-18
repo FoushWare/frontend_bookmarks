@@ -50,6 +50,7 @@
 - [browser](#browser)
 - [Atomic Design](#atomic-design)
 - [some BE work](#backend)
+- [problem solving](#problem-solving)
 
 
 
@@ -683,4 +684,16 @@ While reading this article for rendering patterns [article](https://www.patterns
 
 ## backend
 - [mongo db crash course fast talking is greet 😆](https://www.youtube.com/watch?v=QPFlGswpyJY)
+
+
+
+## problem solving
+
+- #### Analysis of Algorithms
+  - 
+  - [log timing Deeply Understanding Logarithms In Time Complexities & Their Role In Computer Science](https://www.youtube.com/watch?v=M4ubFru2O80) you can see implemention for binary search like in this video [search an element in bitonic array](https://www.youtube.com/watch?v=hV7z1w8u8Us)
+
+
+
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 

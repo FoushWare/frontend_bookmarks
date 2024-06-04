@@ -75,6 +75,10 @@
 - [norefer,noopenr](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
 - [cors visualized lydia hallie](https://dev.to/lydiahallie/cs-visualized-cors-5b8h)
 - patterns of security xss,csrf,ui redressing (click jacking ) , MTM (man in the middle)
+- [Open Redirect Vulnerability](https://www.youtube.com/watch?v=4Jk_I-cw4WE&list=PLI_rLWXMqpSl_TqX9bbisW-d7tDqcVvOJ&index=2)
+- [Http parametars pollution](https://www.youtube.com/watch?v=QVZBl8yxVX0&list=PLI_rLWXMqpSl_TqX9bbisW-d7tDqcVvOJ&index=2)
+- [Insecure Direct Object Reference (IDOR)](https://www.youtube.com/watch?v=rloqMGcPMkI&list=PLI_rLWXMqpSl_TqX9bbisW-d7tDqcVvOJ&index=3)
+- [XML External Entities (XXE)](https://www.youtube.com/watch?v=gjm6VHZa_8s&list=PLI_rLWXMqpSl_TqX9bbisW-d7tDqcVvOJ&index=4)
 
 
 ## performance

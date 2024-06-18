@@ -90,6 +90,8 @@
   npx unlighthouse --site  site you need to measure
   ```
 
+- [video hady osmany](https://www.youtube.com/watch?v=AQqFZ5t8uNc)
+
 ## html 
 - normal document flow [from left to right and from top to bottom] , postionining elements based on block or inline element [video](https://www.youtube.com/watch?v=yqxb4clxszg)
 

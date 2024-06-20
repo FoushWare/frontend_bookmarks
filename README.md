@@ -15,6 +15,7 @@
 - [search about](#search-about)
 - [Refresh Learning](#refresh-learning)
 - [system design and design systems](#system-design-and-design-systems)
+- [API Design](#api)
 - [job seeking websites](#job-seeking-websites)
 - [First Things First](#first-things-first)
 - [Interview questions](#interview-questions)
@@ -139,6 +140,10 @@
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
+# api 
+-[HTTP Long Polling vs Server Sent Events vs Websockets | Tech Primers](https://www.youtube.com/watch?v=1cFyfT0m3bA)
+
+<p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## interview forms questions
 

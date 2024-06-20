@@ -258,6 +258,7 @@ myArr[0] = 9;
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 ## Tools and websites
+- [SVG Custom Shape Dividers](https://www.shapedivider.app/)
 - [css cheat sheet interactive not pdf](https://app.daily.dev/posts/fb8jSmx9X)
 - [squoosh for image reduce sizes](https://squoosh.app/)
 - [X] [Pair Typography fonts](https://fontjoy.com/) 

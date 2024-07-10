@@ -121,6 +121,7 @@
 
   - thunk vs saga middleware
   - Redux toolkit with typescript
+  - MonoRepo [NX for monoRepo](https://nx.dev/) , [video](https://www.youtube.com/watch?v=9iU_IE6vnJ8)
  
 ## refresh learning
   - redux toolkit (youtube) [Redux toolkit](https://www.youtube.com/playlist?list=PLC3y8-rFHvwiaOAuTtVXittwybYIorRB3)

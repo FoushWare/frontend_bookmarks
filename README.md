@@ -15,6 +15,7 @@
 - [search about](#search-about)
 - [Refresh Learning](#refresh-learning)
 - [system design and design systems](#system-design-and-design-systems)
+- [Micro frontend](#micro-frontend)
 - [API Design](#api)
 - [job seeking websites](#job-seeking-websites)
 - [First Things First](#first-things-first)
@@ -137,6 +138,8 @@
 ## system design and design systems
 -[course frontent masters](https://frontendmasters.com/courses/design-systems/)
 
+## micro-frontend
+- [spa-application](https://single-spa.js.org/docs/microfrontends-concept/)
 
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>

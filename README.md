@@ -714,3 +714,11 @@ While reading this article for rendering patterns [article](https://www.patterns
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
+# binary tree 
+- [what is binary tree](https://chatgpt.com/share/a99e517f-bdd5-48f0-8a48-0636bbc72946)
+
+
+
+
+
+

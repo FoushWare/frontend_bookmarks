@@ -123,6 +123,7 @@
   - thunk vs saga middleware
   - Redux toolkit with typescript
   - MonoRepo [NX for monoRepo](https://nx.dev/) , [video](https://www.youtube.com/watch?v=9iU_IE6vnJ8)
+  - NX monorepo vs Turbo Repo ... the interviewer asked me about it and tell me that NX horrible due to migrations 🛎️ search about it before you forget it please
  
 ## refresh learning
   - redux toolkit (youtube) [Redux toolkit](https://www.youtube.com/playlist?list=PLC3y8-rFHvwiaOAuTtVXittwybYIorRB3)
@@ -716,6 +717,7 @@ While reading this article for rendering patterns [article](https://www.patterns
 
 # binary tree 
 - [what is binary tree](https://chatgpt.com/share/a99e517f-bdd5-48f0-8a48-0636bbc72946)
+
 
 
 

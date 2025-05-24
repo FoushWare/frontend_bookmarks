@@ -728,14 +728,13 @@ AI-powered tools that help generate UI components and designs in real-time:
 
 ### Live UI Generation
 - **[v0](https://v0.dev/)** - AI-powered UI component generator by Vercel (React, Tailwind)
+- **[lovable](https://lovable.dev/) 
 - **[Locofy](https://www.locofy.ai/)** - Convert designs to responsive code (Figma/Adobe XD to React/Next.js)
 - **[BoltAI](https://www.boltai.com/)** - AI assistant for frontend developers
 - **[Anima](https://www.animaapp.com/)** - Design to code automation
 
 ### Design to Code
 - **[Figma AI](https://www.figma.com/ai/)** - Figma's built-in AI features for design generation
-- **[Dora AI](https://www.dora.ai/)** - AI-powered no-code website builder
-- **[CodeDesign](https://codedesign.ai/)** - AI-assisted design to frontend code
 
 ### Component Libraries
 - **[Mantine AI](https://mantine.ai/)** - AI-generated Mantine components

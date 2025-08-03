@@ -745,6 +745,9 @@ AI-powered tools that help generate UI components and designs in real-time:
 - **[Framer AI](https://www.framer.com/ai/)** - AI website generator in Framer
 - **[Draftbit](https://draftbit.com/)** - AI-assisted mobile app builder
 
+### documents
+- [create diagrams in minutes not hours!](https://www.rapidcharts.ai/)
+
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 

@@ -10,7 +10,7 @@
 - [What do you need to jump between frameworks smoother ](#what-do-you-need-to-know)
 - [security](#comman-patterns-in-security)
 - [performance](#performance)
-- [git](#git)
+- [git](#🌀Git)
 - [Html](#html)
 - [Css](#css)
 - [Cheet sheet](#cheet-sheet)

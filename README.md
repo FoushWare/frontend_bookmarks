@@ -752,6 +752,6 @@ AI-powered tools that help generate UI components and designs in real-time:
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>
 
 
-### 🌀 Git
+### Git
 - [The Dangers of Git Force Push](https://www.youtube.com/watch?v=mpceWKeXCGY)
 

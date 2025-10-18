@@ -251,7 +251,7 @@ myArr[0] = 9;
 
 ---
 
-- [Solid Principles in Typescript](https://www.jmalvarez.dev/posts/open-closed-principle)
+- [Solid Principles in Typescript](https://dev.to/jmalvarez/openclosed-principle-in-typescript-749)
 
 
 <p align="right">(<a href="#readme-top">back to top ☝️ 🔼 </a>)</p>

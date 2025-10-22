@@ -742,6 +742,9 @@ AI-powered tools that help generate UI components and designs in real-time:
 - **[Mantine AI](https://mantine.ai/)** - AI-generated Mantine components
 - **[Chakra UI AI](https://chakra-ui.com/)** - AI-assisted Chakra component generation
 
+## state libraries
+- [nuqs](https://nuqs.dev/)  => search params state manager for React 
+
 ### Prototyping
 - **[Framer AI](https://www.framer.com/ai/)** - AI website generator in Framer
 - **[Draftbit](https://draftbit.com/)** - AI-assisted mobile app builder

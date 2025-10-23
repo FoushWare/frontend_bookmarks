@@ -55,7 +55,7 @@
 - [Atomic Design](#atomic-design)
 - [some BE work](#backend)
 - [problem solving](#problem-solving)
-
+- [Nextjs new features](#nextjs-new)
 
 
 ## what do you need to know
@@ -757,4 +757,7 @@ AI-powered tools that help generate UI components and designs in real-time:
 
 ### Git
 - [The Dangers of Git Force Push](https://www.youtube.com/watch?v=mpceWKeXCGY)
+
+### nextjs new
+- [parallel routes](https://www.builder.io/blog/nextjs-14-intercepting-routes)
 

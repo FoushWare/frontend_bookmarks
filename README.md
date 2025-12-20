@@ -761,3 +761,14 @@ AI-powered tools that help generate UI components and designs in real-time:
 ### nextjs new
 - [parallel routes](https://www.builder.io/blog/nextjs-14-intercepting-routes)
 
+
+
+
+## open source 
+- https://firstcontributions.github.io/
+- https://up-for-grabs.net/#/
+- https://www.freecodecamp.org/news/tag/open-source/
+- https://goodfirstissues.com/
+- https://opensource.guide/
+- https://chatgpt.com/g/g-68c61918499081918bcb2e6827ebd800-my-open-source-buddy
+

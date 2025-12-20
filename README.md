@@ -771,4 +771,5 @@ AI-powered tools that help generate UI components and designs in real-time:
 - https://goodfirstissues.com/
 - https://opensource.guide/
 - https://chatgpt.com/g/g-68c61918499081918bcb2e6827ebd800-my-open-source-buddy
+- https://opensource.guide/
 

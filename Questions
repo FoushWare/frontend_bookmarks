@@ -1,28 +1,1204 @@
 # 🧠 Frontend Interview Quiz — Complete Reference
 
-> A comprehensive question bank covering React, TypeScript, JavaScript, CSS, Performance, Testing, Accessibility, System Design, and more.
+> From basic to advanced: test how well you know JavaScript, React, TypeScript, CSS, and more. Answers are in the collapsed sections below the questions — click to expand. Good luck! ❤️
 
 ---
 
 ## 📑 Table of Contents
 
-- [⚛️ React](#-react)
+- [🟨 JavaScript Core](#-javascript-core)
+- [⚛️ React](#️-react)
 - [🔷 TypeScript](#-typescript)
-- [🟨 JavaScript](#-javascript)
 - [🎨 CSS & Styling](#-css--styling)
-- [🚀 Performance](#-performance)
+- [🚀 Performance & Web Vitals](#-performance--web-vitals)
 - [🧪 Testing](#-testing)
 - [♿ Accessibility](#-accessibility)
 - [🔌 APIs & Data Fetching](#-apis--data-fetching)
-- [🏗️ System Design](#-system-design)
+- [🔄 State Management](#-state-management)
+- [🏗️ System Design](#️-system-design)
 - [🔐 Security](#-security)
 - [📦 Build Tools & Bundlers](#-build-tools--bundlers)
-- [🌐 Web Fundamentals](#-web-fundamentals)
-- [🔄 State Management](#-state-management)
-- [🧩 Design Patterns](#-design-patterns)
-- [📱 PWA & Mobile](#-pwa--mobile)
-- [🐙 Git & Version Control](#-git--version-control)
+- [🌐 Web Fundamentals & Browser](#-web-fundamentals--browser)
+- [🐙 Git & Workflow](#-git--workflow)
 - [🤖 Next.js & SSR](#-nextjs--ssr)
+
+---
+
+## 🟨 JavaScript Core
+
+### 🔹 Scope & Hoisting
+
+---
+
+**1. What's the output?**
+
+```javascript
+function sayHi() {
+  console.log(name);
+  console.log(age);
+  var name = "Lydia";
+  let age = 21;
+}
+sayHi();
+```
+
+- A: `Lydia` and `undefined`
+- B: `Lydia` and `ReferenceError`
+- C: `ReferenceError` and `21`
+- D: `undefined` and `ReferenceError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**D: `undefined` and `ReferenceError`**
+
+`var name` is hoisted and initialized as `undefined`. `let age` is hoisted but sits in the **Temporal Dead Zone** until the declaration line is reached — accessing it before then throws a `ReferenceError`.
+
+</details>
+
+---
+
+**2. What's the output?**
+
+```javascript
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1);
+}
+```
+
+- A: `0 1 2` and `0 1 2`
+- B: `0 1 2` and `3 3 3`
+- C: `3 3 3` and `0 1 2`
+- D: `3 3 3` and `3 3 3`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C: `3 3 3` and `0 1 2`**
+
+`var` is function-scoped — all three callbacks share the **same** `i`. By the time they run, `i` is `3`. `let` is block-scoped — each iteration creates a **new binding**, so each callback closes over its own value.
+
+</details>
+
+---
+
+**3. What's the output?**
+
+```javascript
+const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
+};
+
+console.log(shape.diameter());
+console.log(shape.perimeter());
+```
+
+- A: `20` and `62.83`
+- B: `20` and `NaN`
+- C: `20` and `63`
+- D: `NaN` and `63`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `20` and `NaN`**
+
+`diameter` is a regular method — `this` refers to `shape`. `perimeter` is an **arrow function** — arrow functions inherit `this` from the outer (lexical) scope, not from the object. `this.radius` is `undefined`, making `2 * Math.PI * undefined` → `NaN`.
+
+</details>
+
+---
+
+**4. What's the output?**
+
+```javascript
++true;
+!"Lydia";
+```
+
+- A: `1` and `false`
+- B: `false` and `NaN`
+- C: `false` and `false`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A: `1` and `false`**
+
+The unary `+` operator converts `true` → `1`. `"Lydia"` is truthy, so `!` negates it to `false`.
+
+</details>
+
+---
+
+**5. Which option is NOT correct?**
+
+```javascript
+const bird = {
+  size: "small",
+};
+
+const mouse = {
+  name: "Mickey",
+  small: true,
+};
+```
+
+- A: `mouse[bird.size]`
+- B: `mouse[bird["size"]]`
+- C: `mouse["small"]`
+- D: `mouse.bird.size`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**D: `mouse.bird.size`**
+
+`mouse` has no `bird` property — `mouse.bird` is `undefined`, and `undefined.size` throws a `TypeError`. The other options all evaluate to `mouse["small"]` → `true`.
+
+</details>
+
+---
+
+**6. What's the output?**
+
+```javascript
+let c = { greeting: "Hey!" };
+let d;
+
+d = c;
+c.greeting = "Hello";
+console.log(d.greeting);
+```
+
+- A: `Hello`
+- B: `undefined`
+- C: `Hey!`
+- D: `ReferenceError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A: `Hello`**
+
+Objects are assigned **by reference**. Both `c` and `d` point to the same object in memory. Mutating `c.greeting` is visible through `d`.
+
+</details>
+
+---
+
+**7. What's the output?**
+
+```javascript
+let a = 3;
+let b = new Number(3);
+let c = 3;
+
+console.log(a == b);
+console.log(a === b);
+console.log(b === c);
+```
+
+- A: `true` `false` `true`
+- B: `false` `false` `true`
+- C: `true` `false` `false`
+- D: `false` `true` `true`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C: `true` `false` `false`**
+
+`new Number(3)` creates a **Number object**, not a primitive. `==` coerces the object to its primitive value → `true`. `===` checks both value and type — a primitive `number` vs. an `object` → `false`.
+
+</details>
+
+---
+
+**8. What's the output?**
+
+```javascript
+class Chameleon {
+  static colorChange(newColor) {
+    this.newColor = newColor;
+    return this.newColor;
+  }
+
+  constructor({ newColor = "green" } = {}) {
+    this.newColor = newColor;
+  }
+}
+
+const freddie = new Chameleon({ newColor: "purple" });
+console.log(freddie.colorChange("orange"));
+```
+
+- A: `orange`
+- B: `purple`
+- C: `green`
+- D: `TypeError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**D: `TypeError`**
+
+`colorChange` is a **static** method — it belongs to the class itself, not to instances. `freddie.colorChange` is `undefined`, so calling it throws `TypeError: freddie.colorChange is not a function`.
+
+</details>
+
+---
+
+### 🔹 Closures & Scope
+
+---
+
+**9. What's the output?**
+
+```javascript
+const add = () => {
+  const cache = {};
+  return (num) => {
+    if (num in cache) {
+      return `From cache! ${cache[num]}`;
+    } else {
+      const result = num + 10;
+      cache[num] = result;
+      return `Calculated! ${result}`;
+    }
+  };
+};
+
+const addFunction = add();
+console.log(addFunction(10));
+console.log(addFunction(10));
+console.log(addFunction(5 * 2));
+```
+
+- A: `Calculated! 20` `Calculated! 20` `Calculated! 20`
+- B: `Calculated! 20` `From cache! 20` `Calculated! 20`
+- C: `Calculated! 20` `From cache! 20` `From cache! 20`
+- D: `Calculated! 20` `From cache! 20` `Error`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C: `Calculated! 20` `From cache! 20` `From cache! 20`**
+
+This is **memoization** via closure. `cache` persists between calls because of the closure. Both `10` and `5 * 2` evaluate to the same number, so the third call hits the cache too.
+
+</details>
+
+---
+
+**10. What's the output?**
+
+```javascript
+let x = 1;
+const list = [{ x: 2 }, { x: 3 }];
+
+function addToX(obj) {
+  obj.x += x;
+  return obj;
+}
+
+const newList = list.map(addToX);
+console.log(x);
+console.log(newList);
+```
+
+- A: `1` and `[{x: 3}, {x: 4}]`
+- B: `1` and `[{x: 3}, {x: 4}]` — but original list is mutated
+- C: `3` and `[{x: 3}, {x: 4}]`
+- D: `1` and `[{x: 2}, {x: 3}]`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `1` and `[{x: 3}, {x: 4}]` — original objects are mutated**
+
+`obj.x += x` mutates the original objects in `list` because objects are passed by reference. `x` itself (the number) is unchanged. `list[0].x` is now `3` and `list[1].x` is now `4`.
+
+</details>
+
+---
+
+### 🔹 Prototypes & Classes
+
+---
+
+**11. What's the output?**
+
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const member = new Person("Lydia", "Hallie");
+Person.getFullName = function() {
+  return `${this.firstName} ${this.lastName}`;
+};
+
+console.log(member.getFullName());
+```
+
+- A: `TypeError`
+- B: `"Lydia Hallie"`
+- C: `undefined undefined`
+- D: `ReferenceError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A: `TypeError`**
+
+`getFullName` is added to the **constructor function** itself, not to `Person.prototype`. Instances don't have access to it. Use `Person.prototype.getFullName = ...` to make it available on instances.
+
+</details>
+
+---
+
+**12. What's the output?**
+
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const lydia = new Person("Lydia", "Hallie");
+const sarah = Person("Sarah", "Smith");
+
+console.log(lydia);
+console.log(sarah);
+```
+
+- A: `Person { firstName: "Lydia", lastName: "Hallie" }` and `undefined`
+- B: `Person { firstName: "Lydia", ... }` and `Person { firstName: "Sarah", ... }`
+- C: `Person { firstName: "Lydia", ... }` and `{}`
+- D: `Person { firstName: "Lydia", ... }` and `ReferenceError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A: `Person { firstName: "Lydia", lastName: "Hallie" }` and `undefined`**
+
+`new Person()` creates an instance and returns it. `Person()` without `new` is a plain function call — `this` sets properties on the global object (or errors in strict mode), and the function returns nothing → `undefined`.
+
+</details>
+
+---
+
+**13. What's the output?**
+
+```javascript
+class Dog {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+Dog.prototype.bark = function() {
+  console.log(`Woof I am ${this.name}`);
+};
+
+const pet = new Dog("Mara");
+pet.bark();
+
+delete Dog.prototype.bark;
+
+pet.bark();
+```
+
+- A: `"Woof I am Mara"` then `TypeError`
+- B: `"Woof I am Mara"` then `"Woof I am Mara"`
+- C: `"Woof I am Mara"` then `undefined`
+- D: `TypeError` then `TypeError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A: `"Woof I am Mara"` then `TypeError`**
+
+After `delete Dog.prototype.bark`, the method is permanently removed from the prototype. The second `pet.bark()` throws `TypeError: pet.bark is not a function`.
+
+</details>
+
+---
+
+**14. What's the output?**
+
+```javascript
+class Counter {
+  #count = 0;
+
+  increment() {
+    this.#count++;
+  }
+
+  getCount() {
+    return this.#count;
+  }
+}
+
+const counter = new Counter();
+counter.increment();
+counter.increment();
+console.log(counter.getCount());
+console.log(counter.#count);
+```
+
+- A: `2` and `2`
+- B: `2` and `undefined`
+- C: `2` and `SyntaxError`
+- D: `undefined` and `undefined`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C: `2` and `SyntaxError`**
+
+`#count` is a **private class field** — only accessible inside the class body. Accessing `counter.#count` from outside the class is a `SyntaxError` at parse time.
+
+</details>
+
+---
+
+### 🔹 Async JavaScript
+
+---
+
+**15. What's the output?**
+
+```javascript
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, "one");
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, "two");
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
+
+- A: `"one"`
+- B: `"two"`
+- C: `"two" "one"`
+- D: `"one" "two"`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `"two"`**
+
+`Promise.race` resolves/rejects with the **first** settled promise. `secondPromise` resolves after 100ms — before `firstPromise` at 500ms.
+
+</details>
+
+---
+
+**16. What's the output?**
+
+```javascript
+async function getData() {
+  return await Promise.resolve("I made it!");
+}
+
+const data = getData();
+console.log(data);
+```
+
+- A: `"I made it!"`
+- B: `Promise { <pending> }`
+- C: `Promise { "I made it!" }`
+- D: `undefined`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `Promise { <pending> }`**
+
+`async` functions always return a Promise. The `console.log` runs synchronously before the async function resolves — so the Promise is still pending at that point.
+
+</details>
+
+---
+
+**17. What's the output?**
+
+```javascript
+const myPromise = Promise.resolve(Promise.resolve("Promise!"));
+
+function funcOne() {
+  setTimeout(() => console.log("Timeout 1!"), 0);
+  myPromise.then(res => res).then(res => console.log(`${res} 1!`));
+  console.log("Last line 1!");
+}
+
+function funcTwo() {
+  myPromise.then(res => console.log(`${res} 2!`));
+  setTimeout(() => console.log("Timeout 2!"), 0);
+  console.log("Last line 2!");
+}
+
+funcOne();
+funcTwo();
+```
+
+- A: `Promise! 1!` `Last line 1!` `Promise! 2!` `Last line 2!` `Timeout 1!` `Timeout 2!`
+- B: `Last line 1!` `Last line 2!` `Promise! 1!` `Promise! 2!` `Timeout 1!` `Timeout 2!`
+- C: `Last line 1!` `Promise! 1!` `Last line 2!` `Promise! 2!` `Timeout 1!` `Timeout 2!`
+- D: `Last line 1!` `Last line 2!` `Promise! 1!` `Timeout 1!` `Promise! 2!` `Timeout 2!`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `Last line 1!` `Last line 2!` `Promise! 1!` `Promise! 2!` `Timeout 1!` `Timeout 2!`**
+
+Order of execution: **synchronous code** → **microtasks (Promises)** → **macrotasks (setTimeout)**. Synchronous lines run first, then the microtask queue drains completely, then timeouts.
+
+</details>
+
+---
+
+**18. What does `Promise.allSettled` return?**
+
+```javascript
+const p1 = Promise.resolve("Success");
+const p2 = Promise.reject("Error");
+const p3 = Promise.resolve("Also Success");
+
+Promise.allSettled([p1, p2, p3]).then(console.log);
+```
+
+- A: Only the resolved values
+- B: Throws on first rejection
+- C: An array of `{ status, value/reason }` objects for every promise
+- D: `undefined`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C: An array of `{ status, value/reason }` objects for every promise**
+
+Unlike `Promise.all`, `Promise.allSettled` never short-circuits. Each result is `{ status: 'fulfilled', value: ... }` or `{ status: 'rejected', reason: ... }`.
+
+</details>
+
+---
+
+**19. What's the output?**
+
+```javascript
+async function* range(start, end) {
+  for (let i = start; i <= end; i++) {
+    yield Promise.resolve(i);
+  }
+}
+
+(async () => {
+  const gen = range(1, 3);
+  for await (const item of gen) {
+    console.log(item);
+  }
+})();
+```
+
+- A: `Promise {1}` `Promise {2}` `Promise {3}`
+- B: `1` `2` `3`
+- C: `0` `1` `2`
+- D: `undefined` `undefined` `undefined`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `1` `2` `3`**
+
+`for await...of` automatically awaits each yielded Promise. Even though `Promise.resolve(i)` is yielded, `for await` unwraps the resolved value.
+
+</details>
+
+---
+
+### 🔹 Type Coercion & Operators
+
+---
+
+**20. What's the output?**
+
+```javascript
+console.log(typeof typeof 1);
+```
+
+- A: `"number"`
+- B: `"string"`
+- C: `"object"`
+- D: `undefined`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `"string"`**
+
+`typeof 1` returns the string `"number"`. Then `typeof "number"` returns `"string"`. `typeof` always returns a string.
+
+</details>
+
+---
+
+**21. What's the output?**
+
+```javascript
+console.log(3 + 4 + "5");
+```
+
+- A: `"345"`
+- B: `"75"`
+- C: `12`
+- D: `"12"`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `"75"`**
+
+Evaluated left-to-right: `3 + 4` → `7` (number addition). Then `7 + "5"` → `"75"` (string concatenation by type coercion).
+
+</details>
+
+---
+
+**22. What's the output?**
+
+```javascript
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
+```
+
+- A: `1` `1` `2`
+- B: `1` `2` `2`
+- C: `0` `2` `2`
+- D: `0` `1` `2`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C: `0` `2` `2`**
+
+`number++` is **postfix** — returns `0` first, then increments to `1`. `++number` is **prefix** — increments to `2` first, then returns `2`.
+
+</details>
+
+---
+
+**23. What's the output?**
+
+```javascript
+// 🎉 Classic!
+const output = `${[] && "Im"}possible! You should${
+  "" && `n't`
+} see a therapist after so much JavaScript lol`;
+console.log(output);
+```
+
+- A: `possible! You should see a therapist after so much JavaScript lol`
+- B: `Impossible! You should see a therapist after so much JavaScript lol`
+- C: `possible! You shouldn't see a therapist after so much JavaScript lol`
+- D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `Impossible! You should see a therapist after so much JavaScript lol`**
+
+`[]` is **truthy** → `[] && "Im"` returns `"Im"`. `""` is **falsy** → `"" && "n't"` returns `""`. Result: `"Im" + "possible! You should" + "" + " see..."` → `Impossible! You should see...`.
+
+</details>
+
+---
+
+**24. What's the output?**
+
+```javascript
+const obj = { 1: "a", 2: "b", 3: "c" };
+const set = new Set([1, 2, 3, 4, 5]);
+
+obj.hasOwnProperty("1");
+obj.hasOwnProperty(1);
+set.has("1");
+set.has(1);
+```
+
+- A: `false` `true` `false` `true`
+- B: `false` `true` `true` `true`
+- C: `true` `true` `false` `true`
+- D: `true` `true` `true` `true`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C: `true` `true` `false` `true`**
+
+Object keys are always strings — both `"1"` and `1` match. Sets are **type-strict** — `set.has("1")` is `false` because the set contains the number `1`, not the string `"1"`.
+
+</details>
+
+---
+
+**25. What's the output?**
+
+```javascript
+const a = {};
+const b = { key: "b" };
+const c = { key: "c" };
+
+a[b] = 123;
+a[c] = 456;
+
+console.log(a[b]);
+```
+
+- A: `123`
+- B: `456`
+- C: `undefined`
+- D: `ReferenceError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `456`**
+
+Object keys are always strings. Both `b` and `c` stringify to `"[object Object]"`. So `a["[object Object]"]` is set to `123`, then overwritten with `456`.
+
+</details>
+
+---
+
+### 🔹 ES6+ Features
+
+---
+
+**26. What's the output?**
+
+```javascript
+const settings = {
+  username: "lydiahallie",
+  level: 19,
+  health: 90,
+};
+
+const data = JSON.stringify(settings, ["level", "health"]);
+console.log(data);
+```
+
+- A: `'{"username":"lydiahallie","level":19,"health":90}'`
+- B: `'{"level":19,"health":90}'`
+- C: `'{"health":90}'`
+- D: `'{"username":"lydiahallie"}'`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `'{"level":19,"health":90}'`**
+
+The second argument to `JSON.stringify` is a **replacer array** — only the listed property names are included. `username` is excluded.
+
+</details>
+
+---
+
+**27. What's the output?**
+
+```javascript
+const food = ["🍕", "🍫", "🥑", "🍔"];
+const info = { favoriteFood: food[0] };
+
+info.favoriteFood = "🍍";
+
+console.log(food);
+```
+
+- A: `["🍍", "🍫", "🥑", "🍔"]`
+- B: `["🍕", "🍫", "🥑", "🍔"]`
+- C: `["🍕", "🍍", "🥑", "🍔"]`
+- D: `ReferenceError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `["🍕", "🍫", "🥑", "🍔"]`**
+
+Strings are **primitives** — copied by value, not reference. `info.favoriteFood` holds a copy of `"🍕"`, not a pointer to `food[0]`. Changing `info.favoriteFood` has no effect on the array.
+
+</details>
+
+---
+
+**28. What's the output?**
+
+```javascript
+function* generator(I) {
+  yield I;
+  yield I * 2;
+}
+
+const gen = generator(10);
+
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
+```
+
+- A: `10` `20` `20`
+- B: `10` `20` `undefined`
+- C: `10` `10` `undefined`
+- D: `Error`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `10` `20` `undefined`**
+
+Each `gen.next()` resumes to the next `yield`. After both yields are exhausted, the third call returns `{ value: undefined, done: true }`.
+
+</details>
+
+---
+
+**29. What's the output?**
+
+```javascript
+const person = {
+  name: "Lydia",
+  age: 21,
+};
+
+for (const [x, y] of Object.entries(person)) {
+  console.log(x, y);
+}
+```
+
+- A: `name` `Lydia` and `age` `21`
+- B: `["name", "Lydia"]` and `["age", 21]`
+- C: `"name"` `"age"` and `"Lydia"` `21`
+- D: `Error`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A: `name Lydia` and `age 21`**
+
+`Object.entries(person)` returns `[["name", "Lydia"], ["age", 21]]`. Destructuring each entry as `[x, y]` gives the key and value.
+
+</details>
+
+---
+
+**30. What's the output?**
+
+```javascript
+function getItems(fruitList, ...args, favoriteFruit) {
+  return [...fruitList, ...args, favoriteFruit];
+}
+
+getItems(["banana", "apple"], "pear", "orange");
+```
+
+- A: `["banana", "apple", "pear", "orange"]`
+- B: `[["banana", "apple"], "pear", "orange"]`
+- C: `["banana", "apple", ["pear"], "orange"]`
+- D: `SyntaxError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**D: `SyntaxError`**
+
+A **rest parameter** (`...args`) must always be the **last** parameter in a function. Placing another parameter after it is a `SyntaxError` at parse time.
+
+</details>
+
+---
+
+**31. What's the output?**
+
+```javascript
+const user = { name: "Lydia", age: 21, email: "lydia@email.com" };
+const { name, ...details } = user;
+console.log(name);
+console.log(details);
+```
+
+- A: `"Lydia"` and `{}`
+- B: `"Lydia"` and `{ age: 21, email: "lydia@email.com" }`
+- C: `"Lydia"` and `{ name: "Lydia", age: 21 }`
+- D: `Error`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `"Lydia"` and `{ age: 21, email: "lydia@email.com" }`**
+
+Rest syntax in destructuring collects all **remaining** properties into a new object.
+
+</details>
+
+---
+
+**32. What's the output?**
+
+```javascript
+const add = x => x + x;
+console.log(add`Hello`);
+```
+
+- A: `NaN`
+- B: `"HelloHello"`
+- C: `["Hello"]`
+- D: `Error`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `"HelloHello"`**
+
+This is a **tagged template literal**. `add` is called with the template parts array `["Hello"]` as the first argument. `x = ["Hello"]`, and `["Hello"] + ["Hello"]` coerces both arrays to strings → `"HelloHello"`.
+
+</details>
+
+---
+
+### 🔹 Error Handling
+
+---
+
+**33. What's the output?**
+
+```javascript
+function greeting() {
+  throw "Hello world!";
+}
+
+function sayHi() {
+  try {
+    const data = greeting();
+    console.log("It worked!", data);
+  } catch (e) {
+    console.log("Oh no an error:", e);
+  }
+}
+
+sayHi();
+```
+
+- A: `It worked! Hello world!`
+- B: `Oh no an error: undefined`
+- C: `SyntaxError: can only throw Error objects`
+- D: `Oh no an error: Hello world!`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**D: `Oh no an error: Hello world!`**
+
+In JavaScript you can `throw` any value — not just `Error` objects. The string `"Hello world!"` is caught by the `catch` block as `e`.
+
+</details>
+
+---
+
+**34. What's the output?**
+
+```javascript
+try {
+  (() => {
+    throw new TypeError("Error!");
+  })();
+} catch (e) {
+  if (e instanceof TypeError) {
+    console.log("TypeError");
+  } else {
+    console.log("Other error");
+  }
+}
+```
+
+- A: `TypeError`
+- B: `Other error`
+- C: `SyntaxError`
+- D: `Uncaught TypeError: Error!`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A: `TypeError`**
+
+The IIFE throws a `TypeError`. The `catch` block catches it. `e instanceof TypeError` is `true`.
+
+</details>
+
+---
+
+### 🔹 Functional & Array Methods
+
+---
+
+**35. What's the output?**
+
+```javascript
+[1, 2, 3].map(num => {
+  if (typeof num === "number") return;
+  return num * 2;
+});
+```
+
+- A: `[]`
+- B: `[null, null, null]`
+- C: `[undefined, undefined, undefined]`
+- D: `[1, 2, 3]`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C: `[undefined, undefined, undefined]`**
+
+Every element is a number, so the `if` condition is always `true` and `return;` executes — returning `undefined`. `map` always produces an array of the same length.
+
+</details>
+
+---
+
+**36. What's the output?**
+
+```javascript
+const list = [1 + 2, 1 * 2, 1 / 2];
+console.log(list);
+```
+
+- A: `["1 + 2", "1 * 2", "1 / 2"]`
+- B: `[3, 2, 0.5]`
+- C: `[1, 1, 1]`
+- D: `[null, null, null]`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `[3, 2, 0.5]`**
+
+Array literal values are **evaluated immediately** when the array is created.
+
+</details>
+
+---
+
+**37. What's the output?**
+
+```javascript
+const arr = [1, 2, 3, 4, 5];
+const [y, z] = arr;
+console.log(y, z);
+```
+
+- A: `1` `2`
+- B: `1` `[2, 3, 4, 5]`
+- C: `1` `undefined`
+- D: `[1, 2]` `[3, 4, 5]`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A: `1` `2`**
+
+Array destructuring assigns values by position (left to right). `y` = `1`, `z` = `2`.
+
+</details>
+
+---
+
+### 🔹 Objects & WeakRef
+
+---
+
+**38. What's the output?**
+
+```javascript
+const obj = { a: "one", b: "two", a: "three" };
+console.log(obj);
+```
+
+- A: `{ a: "one", b: "two" }`
+- B: `{ b: "two", a: "three" }`
+- C: `{ a: "three", b: "two" }`
+- D: `SyntaxError`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**C: `{ a: "three", b: "two" }`**
+
+Duplicate keys in an object literal don't throw an error — the **last value wins**. Order is preserved positionally, but the value is overwritten.
+
+</details>
+
+---
+
+**39. What's the output?**
+
+```javascript
+const map = new Map();
+const obj = { name: "Lydia" };
+
+map.set(obj, "Works!");
+map.delete(obj);
+
+console.log(map.size);
+```
+
+- A: `0`
+- B: `1`
+- C: `false`
+- D: `Error`
+
+<details>
+<summary><b>Answer</b></summary>
+
+**A: `0`**
+
+`map.set` adds the entry (size = 1). `map.delete(obj)` removes it (size = 0). `Map.size` is a property, not a method.
+
+</details>
+
+---
+
+**40. What is a WeakMap used for?**
+
+- A: A slower version of Map
+- B: A Map whose object keys are held weakly — they don't prevent garbage collection
+- C: A Map that only holds primitive keys
+- D: A Map with a maximum size limit
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: A Map whose object keys are held weakly — don't prevent garbage collection**
+
+When the only remaining reference to an object key is in a `WeakMap`, the garbage collector can reclaim it. Useful for attaching metadata to objects without causing memory leaks.
+
+</details>
+
+---
 
 ---
 
@@ -30,145 +1206,93 @@
 
 ### 🔹 Core Concepts
 
-#### ❓ What is the Virtual DOM?
+---
 
-- [ ] A. A copy of the real DOM stored in the browser
-- [ ] B. A lightweight in-memory representation of the DOM
-- [ ] C. A database of UI elements
-- [ ] D. A CSS abstraction
+**41. What is the Virtual DOM?**
+
+- A: A copy of the real DOM stored in the browser
+- B: A lightweight in-memory representation of the DOM
+- C: A database of UI elements
+- D: A CSS abstraction
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A lightweight in-memory representation of the DOM**
+**B: A lightweight in-memory representation of the DOM**
 
-React keeps a virtual DOM in memory and syncs it with the real DOM using a process called reconciliation. This avoids expensive direct DOM manipulations by batching and diffing changes first.
+React keeps a virtual DOM tree in memory and syncs it with the real DOM via reconciliation — only the minimal set of actual DOM operations are performed per update.
 
 </details>
 
 ---
 
-#### ❓ What is reconciliation in React?
+**42. What is React Fiber?**
 
-- [ ] A. Merging two Redux stores
-- [ ] B. The process of comparing old and new virtual DOM trees to update the real DOM
-- [ ] C. A lifecycle method
-- [ ] D. Fetching remote data and syncing it to state
+- A: A CSS-in-JS library
+- B: A network request manager
+- C: React's internal reconciliation engine enabling incremental, interruptible rendering
+- D: A deprecated feature replaced by hooks
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. The process of comparing old and new virtual DOM trees to update the real DOM**
+**C: React's internal reconciliation engine enabling incremental, interruptible rendering**
 
-React's reconciler (formerly called the "diff algorithm", now Fiber-based) compares the previous and new virtual DOM trees and applies only the minimal set of changes needed.
+Introduced in React 16, Fiber breaks rendering into small units of work that can be paused and resumed — enabling Suspense, concurrent features, and time-slicing.
 
 </details>
 
 ---
 
-#### ❓ What is React Fiber?
+**43. What is the difference between controlled and uncontrolled components?**
 
-- [ ] A. A CSS-in-JS library
-- [ ] B. A network request manager in React
-- [ ] C. React's internal reconciliation engine that enables incremental rendering
-- [ ] D. A deprecated feature replaced by hooks
+- A: Controlled use refs; uncontrolled use state
+- B: Controlled have state managed by React; uncontrolled manage their own via the DOM
+- C: They are the same
+- D: Uncontrolled can't be used with forms
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**C. React's internal reconciliation engine that enables incremental rendering**
+**B: Controlled have state managed by React; uncontrolled manage their own via the DOM**
 
-React Fiber (introduced in React 16) is a complete rewrite of the reconciler. It enables features like time-slicing, Suspense, and concurrent rendering by breaking rendering work into small units that can be paused and resumed.
+In controlled components, form data is driven by `useState`. In uncontrolled, the DOM holds the data and you access it via `useRef`.
 
 </details>
 
 ---
 
-#### ❓ What is the difference between controlled and uncontrolled components?
+**44. What is `<React.StrictMode>` for?**
 
-- [ ] A. Controlled components use refs; uncontrolled use state
-- [ ] B. Controlled components have their state managed by React; uncontrolled manage their own state via the DOM
-- [ ] C. They are the same thing
-- [ ] D. Uncontrolled components cannot be used with forms
+- A: Enables production optimizations
+- B: In development: double-invokes functions to surface side effects, warns about deprecated APIs
+- C: CSS strict mode equivalent
+- D: Network isolation layer
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Controlled components have their state managed by React; uncontrolled manage their own state via the DOM**
+**B: In development — double-invokes functions to surface side effects, warns about deprecated APIs**
 
-In a controlled component, the form data is handled by React state. In an uncontrolled component, the form data is handled by the DOM itself (accessed via `ref`).
+Strict Mode has **no effect in production**. It's a developer tool to catch bugs early. In React 18+, it also simulates mounting components twice to detect cleanup issues.
 
 </details>
 
 ---
 
-#### ❓ What does the `key` prop do in React lists?
+**45. What problem does using array index as `key` cause?**
 
-- [ ] A. Styles the element
-- [ ] B. Helps React identify which items changed, were added, or removed
-- [ ] C. Prevents re-renders entirely
-- [ ] D. Sets an element's CSS class
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Helps React identify which items changed, were added, or removed**
-
-Keys allow React to track elements across renders. Without stable keys, React may unnecessarily re-create DOM nodes or show stale data during list updates.
-
-</details>
-
----
-
-#### ❓ What is the problem with using array index as a `key` in lists?
-
-- [ ] A. It is not a valid JavaScript value
-- [ ] B. It can cause UI bugs when items are reordered, inserted, or deleted
-- [ ] C. It forces re-renders on every change
-- [ ] D. There is no problem; it is the recommended approach
+- A: Not a valid JavaScript value
+- B: UI bugs when items are reordered, inserted, or deleted
+- C: Forces re-renders on every change
+- D: No problem — it's the recommended approach
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. It can cause UI bugs when items are reordered, inserted, or deleted**
+**B: UI bugs when items are reordered, inserted, or deleted**
 
-When items are reordered, the same index maps to a different item, confusing React's diffing algorithm and causing incorrect component state or visual glitches.
-
-</details>
-
----
-
-#### ❓ What is `StrictMode` in React?
-
-- [ ] A. A production-only optimization flag
-- [ ] B. A tool that highlights potential problems by intentionally double-invoking certain functions in development
-- [ ] C. A CSS strict-mode equivalent
-- [ ] D. A network isolation layer
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A tool that highlights potential problems by intentionally double-invoking certain functions in development**
-
-`<React.StrictMode>` renders components twice in development to surface side effects, warns about deprecated APIs, and detects unexpected side effects in lifecycle methods and hooks.
-
-</details>
-
----
-
-#### ❓ What is the difference between `props` and `state`?
-
-- [ ] A. Props are mutable; state is immutable
-- [ ] B. Props are passed from parent to child and read-only; state is managed internally and can change
-- [ ] C. State is passed from parent to child; props are internal
-- [ ] D. They are interchangeable
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Props are passed from parent to child and read-only; state is managed internally and can change**
-
-Props flow downward and a component cannot modify its own props. State is local, mutable, and triggers re-renders when updated.
+When list order changes, the same index maps to a different item — React's diffing gets confused, causing stale component state or wrong DOM node reuse.
 
 </details>
 
@@ -176,217 +1300,111 @@ Props flow downward and a component cannot modify its own props. State is local,
 
 ### 🔹 Hooks
 
-#### ❓ What is the purpose of `useEffect`?
+---
 
-- [ ] A. To manage state
-- [ ] B. To handle side effects (data fetching, subscriptions, DOM manipulation)
-- [ ] C. To create components
-- [ ] D. To optimize rendering
+**46. When does `useEffect` with `[]` run?**
+
+- A: On every render
+- B: Never
+- C: Only once after the initial render (mount)
+- D: Only on unmount
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. To handle side effects (data fetching, subscriptions, DOM manipulation)**
+**C: Only once after the initial render (mount)**
 
-`useEffect` runs after render and is used for side effects. The dependency array controls when it re-runs.
+Empty `[]` = no dependencies to watch. Effect runs once on mount; cleanup runs on unmount.
 
 </details>
 
 ---
 
-#### ❓ When does `useEffect` run with an empty dependency array `[]`?
+**47. What does the cleanup function in `useEffect` do?**
 
-- [ ] A. On every render
-- [ ] B. Never
-- [ ] C. Only once after the initial render (mount)
-- [ ] D. Only when the component unmounts
+- A: Deletes component state
+- B: Runs before the next effect or on unmount — cancels subscriptions/timers
+- C: Prevents the effect from running
+- D: Resets the dependency array
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**C. Only once after the initial render (mount)**
+**B: Runs before the next effect or on unmount — cancels subscriptions/timers**
 
-An empty dependency array tells React there are no dependencies, so the effect runs once on mount and the cleanup runs on unmount.
+Essential to prevent memory leaks. Always clear `setInterval`, abort `fetch`, or unsubscribe from event emitters in the cleanup.
 
 </details>
 
 ---
 
-#### ❓ What does the cleanup function returned from `useEffect` do?
+**48. What is the difference between `useMemo` and `useCallback`?**
 
-- [ ] A. Deletes component state
-- [ ] B. Runs before the next effect execution or when the component unmounts, used to cancel subscriptions/timers
-- [ ] C. Prevents the effect from running
-- [ ] D. Resets the dependency array
+- A: No difference
+- B: `useMemo` memoizes a computed value; `useCallback` memoizes a function reference
+- C: `useCallback` memoizes a value; `useMemo` memoizes a function
+- D: Both only work with async functions
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Runs before the next effect execution or when the component unmounts, used to cancel subscriptions/timers**
+**B: `useMemo` memoizes a computed value; `useCallback` memoizes a function reference**
 
-The cleanup function prevents memory leaks by clearing timeouts, canceling subscriptions, or aborting fetch requests before re-running the effect or unmounting.
+`useCallback(fn, deps)` ≡ `useMemo(() => fn, deps)`. Both recompute only when dependencies change.
 
 </details>
 
 ---
 
-#### ❓ What is `useCallback` used for?
+**49. What does `useRef` return?**
 
-- [ ] A. Memoizing a computed value
-- [ ] B. Memoizing a function reference so it does not get recreated on every render
-- [ ] C. Replacing `useState`
-- [ ] D. Scheduling asynchronous work
+- A: Triggers re-render when `.current` changes
+- B: A mutable object whose `.current` persists across renders without causing re-renders
+- C: Global state
+- D: Replaces `useEffect`
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Memoizing a function reference so it does not get recreated on every render**
+**B: A mutable `.current` that persists without causing re-renders**
 
-`useCallback` returns a stable function reference that only changes when its dependencies change. Useful when passing callbacks to child components wrapped in `React.memo`.
+Use cases: DOM node access, previous value storage, timer IDs, or any mutable value that shouldn't trigger re-renders.
 
 </details>
 
 ---
 
-#### ❓ What is `useMemo` used for?
+**50. What is `useLayoutEffect` vs `useEffect`?**
 
-- [ ] A. Memoizing a function definition
-- [ ] B. Caching the result of an expensive computation between renders
-- [ ] C. Managing async state
-- [ ] D. Setting global state
+- A: Only works on mobile
+- B: Fires synchronously after DOM mutations but before browser paint; `useEffect` fires after paint
+- C: Runs before mount
+- D: Identical to `useEffect`
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Caching the result of an expensive computation between renders**
+**B: Fires synchronously after DOM mutations but before browser paint**
 
-`useMemo` recomputes the value only when its dependencies change. It avoids re-running expensive calculations on every render.
+Use for measuring layout (element dimensions) and synchronously applying changes to avoid visual flicker. Use `useEffect` for everything else.
 
 </details>
 
 ---
 
-#### ❓ What is the difference between `useMemo` and `useCallback`?
+**51. What is `useId` for?**
 
-- [ ] A. There is no difference
-- [ ] B. `useMemo` memoizes a value; `useCallback` memoizes a function
-- [ ] C. `useCallback` memoizes a value; `useMemo` memoizes a function
-- [ ] D. Both only work with async functions
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. `useMemo` memoizes a value; `useCallback` memoizes a function**
-
-`useMemo(() => computeValue(), deps)` returns the cached value. `useCallback(() => fn(), deps)` is equivalent to `useMemo(() => () => fn(), deps)`.
-
-</details>
-
----
-
-#### ❓ What does `useRef` do?
-
-- [ ] A. Triggers a re-render when updated
-- [ ] B. Creates a mutable object whose `.current` property persists for the full lifetime of the component without causing re-renders
-- [ ] C. Stores global state
-- [ ] D. Replaces `useEffect`
+- A: Generating unique database record IDs
+- B: Generating stable, unique IDs for accessibility attributes that are consistent across server and client renders
+- C: Identifying the current user
+- D: Resetting component state
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Creates a mutable object whose `.current` property persists for the full lifetime of the component without causing re-renders**
+**B: Stable, unique IDs consistent across SSR and client hydration**
 
-Common uses: accessing DOM nodes directly, storing previous values, or holding mutable values that shouldn't trigger re-renders.
-
-</details>
-
----
-
-#### ❓ What is the `useContext` hook used for?
-
-- [ ] A. Creating a new context provider
-- [ ] B. Consuming a value from the nearest matching React context without prop drilling
-- [ ] C. Sharing state between sibling files
-- [ ] D. Replacing Redux entirely
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Consuming a value from the nearest matching React context without prop drilling**
-
-`useContext(MyContext)` returns the current context value. The component re-renders when the context value changes.
-
-</details>
-
----
-
-#### ❓ What does `useReducer` do?
-
-- [ ] A. Reduces bundle size
-- [ ] B. Manages complex state logic with a reducer function, similar to Redux
-- [ ] C. Merges two components
-- [ ] D. Handles HTTP error codes
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Manages complex state logic with a reducer function, similar to Redux**
-
-`useReducer(reducer, initialState)` is preferred over `useState` when next state depends on the previous state or when the state has multiple sub-values.
-
-</details>
-
----
-
-#### ❓ What is `useLayoutEffect` and how does it differ from `useEffect`?
-
-- [ ] A. It only works on mobile devices
-- [ ] B. It fires synchronously after DOM mutations but before the browser paints, unlike `useEffect` which fires after paint
-- [ ] C. It runs before the component mounts
-- [ ] D. It is the same as `useEffect`
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. It fires synchronously after DOM mutations but before the browser paints, unlike `useEffect` which fires after paint**
-
-Use `useLayoutEffect` when you need to read layout from the DOM and synchronously re-render (e.g., measuring element dimensions). Prefer `useEffect` to avoid blocking visual updates.
-
-</details>
-
----
-
-#### ❓ What is the `useId` hook used for?
-
-- [ ] A. Generating unique IDs for database records
-- [ ] B. Generating stable, unique IDs for accessibility attributes across server and client renders
-- [ ] C. Identifying which user is logged in
-- [ ] D. Resetting component state
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Generating stable, unique IDs for accessibility attributes across server and client renders**
-
-`useId` generates IDs that are consistent between server-side rendering and client hydration, avoiding hydration mismatches when wiring `htmlFor`/`id` pairs.
-
-</details>
-
----
-
-#### ❓ What is a custom hook?
-
-- [ ] A. A hook created by the React team for special use cases
-- [ ] B. A JavaScript function whose name starts with `use` and can call other hooks to encapsulate reusable logic
-- [ ] C. A hook only available in class components
-- [ ] D. A third-party library hook
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A JavaScript function whose name starts with `use` and can call other hooks to encapsulate reusable logic**
-
-Custom hooks extract component logic into reusable functions. Examples: `useFetch`, `useLocalStorage`, `useDebounce`.
+Avoids hydration mismatches when wiring `htmlFor`/`id` pairs for form labels. Don't use it for list keys.
 
 </details>
 
@@ -394,147 +1412,57 @@ Custom hooks extract component logic into reusable functions. Examples: `useFetc
 
 ### 🔹 Performance
 
-#### ❓ What does `React.memo` do?
+---
 
-- [ ] A. Prevents re-render if props don't change
-- [ ] B. Stores data in memory
-- [ ] C. Re-renders components faster
-- [ ] D. Caches API calls
+**52. What does `React.memo` do?**
+
+- A: Prevents re-render if props don't change (shallow comparison)
+- B: Stores data in memory
+- C: Re-renders components faster
+- D: Caches API calls
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**A. Prevents re-render if props don't change**
+**A: Prevents re-render if props don't change (shallow comparison)**
 
-`React.memo` is a higher-order component that shallowly compares props. If props are identical, the component skips re-rendering.
+Wrap with `React.memo` and pass stable callback refs via `useCallback` for the optimization to work correctly.
 
 </details>
 
 ---
 
-#### ❓ What is code splitting in React?
+**53. What does `startTransition` do in React 18?**
 
-- [ ] A. Splitting CSS from JS
-- [ ] B. Breaking the app bundle into smaller chunks loaded on demand using `React.lazy` and `Suspense`
-- [ ] C. Dividing a component into multiple files
-- [ ] D. Separating test code from production code
+- A: Starts a CSS animation
+- B: Marks a state update as non-urgent — React can defer it without blocking urgent updates
+- C: Transitions between React versions
+- D: Triggers a page navigation
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Breaking the app bundle into smaller chunks loaded on demand using `React.lazy` and `Suspense`**
+**B: Marks a state update as non-urgent — React can defer it**
 
-Code splitting reduces the initial bundle size. `React.lazy(() => import('./Component'))` enables dynamic imports, and `<Suspense>` provides a fallback while the chunk loads.
+Ideal for expensive, non-user-facing updates like filtering a large list. The UI stays responsive while deferred work runs in the background.
 
 </details>
 
 ---
 
-#### ❓ What is the purpose of `React.lazy`?
+**54. What does `React.lazy` do?**
 
-- [ ] A. To make React load slower for debugging
-- [ ] B. To dynamically import a component and defer its loading until it is rendered
-- [ ] C. To memoize a component
-- [ ] D. To replace `useEffect`
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. To dynamically import a component and defer its loading until it is rendered**
-
-`React.lazy` works with dynamic `import()` and must be used inside a `<Suspense>` boundary.
-
-</details>
-
----
-
-#### ❓ What is the Concurrent Mode feature in React 18?
-
-- [ ] A. Running React on multiple servers
-- [ ] B. Enabling React to prepare multiple UI versions simultaneously, making rendering interruptible
-- [ ] C. Multi-threading JavaScript
-- [ ] D. Running two React apps on the same page
+- A: Slows down React for debugging
+- B: Dynamically imports a component, deferring its loading until it's rendered
+- C: Memoizes a component
+- D: Replaces `useEffect`
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Enabling React to prepare multiple UI versions simultaneously, making rendering interruptible**
+**B: Dynamically imports a component, deferring loading until rendered**
 
-Concurrent React can pause, resume, or abandon renders. This powers features like `startTransition`, `useDeferredValue`, and streaming SSR.
-
-</details>
-
----
-
-#### ❓ What does `startTransition` do in React 18?
-
-- [ ] A. Starts a CSS animation
-- [ ] B. Marks a state update as non-urgent so React can defer it without blocking urgent updates
-- [ ] C. Transitions between React versions
-- [ ] D. Triggers a page navigation
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Marks a state update as non-urgent so React can defer it without blocking urgent updates**
-
-Wrapping a state update in `startTransition` allows React to keep the UI responsive by deprioritizing expensive updates (e.g., filtering a large list).
-
-</details>
-
----
-
-### 🔹 Lifecycle & Class Components
-
-#### ❓ What lifecycle method is equivalent to `useEffect(() => {}, [])`?
-
-- [ ] A. `componentDidUpdate`
-- [ ] B. `componentWillUnmount`
-- [ ] C. `componentDidMount`
-- [ ] D. `shouldComponentUpdate`
-
-<details>
-<summary>✅ Answer</summary>
-
-**C. `componentDidMount`**
-
-Both run once after the first render.
-
-</details>
-
----
-
-#### ❓ What does `shouldComponentUpdate` do?
-
-- [ ] A. Prevents the component from ever rendering
-- [ ] B. Lets you bail out of re-rendering by returning `false` when props/state haven't meaningfully changed
-- [ ] C. Forces a re-render
-- [ ] D. Fetches data before rendering
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Lets you bail out of re-rendering by returning `false` when props/state haven't meaningfully changed**
-
-`PureComponent` implements a shallow version of this automatically. In function components, `React.memo` serves the same purpose.
-
-</details>
-
----
-
-#### ❓ What is an Error Boundary in React?
-
-- [ ] A. A try/catch statement in a hook
-- [ ] B. A class component that catches JavaScript errors in its child tree and renders a fallback UI
-- [ ] C. A TypeScript type guard
-- [ ] D. A network error handler
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A class component that catches JavaScript errors in its child tree and renders a fallback UI**
-
-Error boundaries use `componentDidCatch` and `getDerivedStateFromError`. As of React 19, there is also a new `use()` hook for async error boundaries.
+`const Comp = React.lazy(() => import('./Comp'))`. Must be inside a `<Suspense fallback={...}>` boundary.
 
 </details>
 
@@ -542,185 +1470,93 @@ Error boundaries use `componentDidCatch` and `getDerivedStateFromError`. As of R
 
 ### 🔹 Advanced Patterns
 
-#### ❓ What is the render props pattern?
+---
 
-- [ ] A. Passing JSX as children to configure a component's output
-- [ ] B. A technique where a component shares code by calling a prop that is a function returning JSX
-- [ ] C. Rendering props as HTML attributes
-- [ ] D. A deprecated lifecycle pattern
+**55. What is a Higher-Order Component (HOC)?**
+
+- A: A component with high render priority
+- B: A function that takes a component and returns a new, enhanced component
+- C: A CSS wrapper
+- D: A lifecycle method
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A technique where a component shares code by calling a prop that is a function returning JSX**
+**B: A function that takes a component and returns a new, enhanced component**
 
-Example: `<DataProvider render={data => <Chart data={data} />} />`. Often replaced by custom hooks today.
+Pattern predating hooks. Examples: `withAuth(Component)`, `connect()` in React-Redux. Custom hooks are often preferred today.
 
 </details>
 
 ---
 
-#### ❓ What is the Context API best suited for?
+**56. What is `forwardRef` for?**
 
-- [ ] A. High-frequency updates like mouse position
-- [ ] B. Low-frequency global data like theme, locale, or authentication
-- [ ] C. Replacing all prop passing
-- [ ] D. Server-side state
+- A: Forwarding props to parents
+- B: Allowing a parent to access a DOM node inside a child via a forwarded ref
+- C: Memoizing child components
+- D: Forwarding context values
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Low-frequency global data like theme, locale, or authentication**
+**B: Allowing a parent to access a DOM node inside a child via a forwarded ref**
 
-Every consumer re-renders when context changes, making it unsuitable for rapidly-changing values without additional memoization strategies.
+Common in component libraries: `React.forwardRef((props, ref) => <input ref={ref} {...props} />)`.
 
 </details>
 
 ---
 
-#### ❓ What is `forwardRef` used for?
+**57. What are React Server Components (RSC)?**
 
-- [ ] A. Forwarding props to parent components
-- [ ] B. Allowing a parent component to access a DOM node or instance inside a child component via a ref
-- [ ] C. Memoizing child components
-- [ ] D. Forwarding context values
+- A: Components only for Node.js
+- B: Components that render on the server, access backends directly, and ship zero JS to the client
+- C: SSR components that hydrate on the client
+- D: A React Native concept
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Allowing a parent component to access a DOM node or instance inside a child component via a ref**
+**B: Server-rendered, backend-accessible, zero client JS**
 
-`React.forwardRef((props, ref) => ...)` is commonly used in reusable component libraries to expose underlying DOM elements.
+Cannot use hooks or browser APIs. Client components opt in with `"use client"`. RSCs dramatically reduce bundle size.
 
 </details>
 
 ---
 
-#### ❓ What is `useImperativeHandle` used for?
+**58. What is `ReactDOM.createPortal` for?**
 
-- [ ] A. Exposing imperative methods to parent components via a forwarded ref
-- [ ] B. Handling form submissions imperatively
-- [ ] C. Bypassing React rendering
-- [ ] D. Directly mutating the DOM
+- A: Importing remote components
+- B: Rendering a child into a different DOM node outside the parent hierarchy
+- C: Routing
+- D: Database access
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**A. Exposing imperative methods to parent components via a forwarded ref**
+**B: Rendering a child into a DOM node outside the parent hierarchy**
 
-Used with `forwardRef` to customize what instance value is exposed. Example: exposing a `focus()` method from a custom input component.
+Essential for modals, tooltips, and dropdowns that need to escape `overflow: hidden` or `z-index` stacking context constraints.
 
 </details>
 
 ---
 
-#### ❓ What are Compound Components?
+**59. What is the render props pattern?**
 
-- [ ] A. Independent components
-- [ ] B. Components that share implicit state, often via Context
-- [ ] C. CSS utilities
-- [ ] D. API handlers
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Components that share implicit state, often via Context**
-
-Example: `<Select>`, `<Select.Option>` — the parent manages state and communicates it to children implicitly.
-
-</details>
-
----
-
-#### ❓ What is the Portals API in React?
-
-- [ ] A. A way to import remote components
-- [ ] B. A way to render a child into a different DOM node outside the parent hierarchy
-- [ ] C. A routing mechanism
-- [ ] D. A database API
+- A: Passing JSX children to configure output
+- B: Sharing code via a prop that is a function returning JSX
+- C: Rendering props as HTML attributes
+- D: A deprecated lifecycle pattern
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A way to render a child into a different DOM node outside the parent hierarchy**
+**B: Sharing code via a prop that is a function returning JSX**
 
-`ReactDOM.createPortal(child, container)` is useful for modals, tooltips, and overlays that need to break out of `overflow: hidden` containers.
-
-</details>
-
----
-
-### 🔹 React Router
-
-#### ❓ What is the purpose of `<Outlet>` in React Router v6?
-
-- [ ] A. A component for rendering form outputs
-- [ ] B. A placeholder that renders matched child routes within a parent route component
-- [ ] C. A redirect component
-- [ ] D. A loading indicator
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A placeholder that renders matched child routes within a parent route component**
-
-`<Outlet>` is placed in a layout component to render nested child routes.
-
-</details>
-
----
-
-#### ❓ What is the `useNavigate` hook in React Router v6?
-
-- [ ] A. A hook that returns the current URL
-- [ ] B. A hook that returns a function to programmatically navigate to a route
-- [ ] C. A hook that animates page transitions
-- [ ] D. A hook for handling query strings
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A hook that returns a function to programmatically navigate to a route**
-
-`const navigate = useNavigate(); navigate('/dashboard');`
-
-</details>
-
----
-
-### 🔹 shadcn/ui
-
-#### ❓ What is shadcn/ui?
-
-- [ ] A. A precompiled UI library
-- [ ] B. A CLI that copies component source code directly into your project
-- [ ] C. A CSS framework
-- [ ] D. A backend service
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A CLI that copies component source code directly into your project**
-
-Unlike npm-installed component libraries, shadcn/ui gives you full ownership of the code, which you can customize freely.
-
-</details>
-
----
-
-#### ❓ What does shadcn/ui rely on for component behavior?
-
-- [ ] A. Redux
-- [ ] B. Radix UI primitives
-- [ ] C. Vue
-- [ ] D. Angular
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Radix UI primitives**
-
-Radix UI provides unstyled, accessible components; shadcn/ui adds Tailwind CSS styling on top.
+`<Mouse render={pos => <Cat position={pos} />} />`. Often replaced by custom hooks. Still used in some headless component APIs.
 
 </details>
 
@@ -730,280 +1566,138 @@ Radix UI provides unstyled, accessible components; shadcn/ui adds Tailwind CSS s
 
 ## 🔷 TypeScript
 
-### 🔹 Basics
+### 🔹 Type System
 
-#### ❓ What is the difference between `type` and `interface`?
+---
 
-- [ ] A. No difference
-- [ ] B. Interfaces support declaration merging and are better for objects; types support unions/intersections
-- [ ] C. Types are only for primitives
-- [ ] D. Interfaces cannot be reused
+**60. What is the difference between `type` and `interface`?**
+
+- A: No difference
+- B: `interface` supports declaration merging and object shapes; `type` supports unions, intersections, and advanced types
+- C: `type` is only for primitives
+- D: `interface` can't be reused
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Interfaces support declaration merging and are better for objects; types support unions/intersections**
+**B: `interface` for object shapes + merging; `type` for unions, intersections, mapped/conditional types**
 
-Use `interface` for object shapes (extendable, mergeable). Use `type` for unions, intersections, mapped types, and conditional types.
+Rule of thumb: use `interface` for public APIs where declaration merging matters; use `type` for everything else.
 
 </details>
 
 ---
 
-#### ❓ What is `unknown` vs `any` in TypeScript?
+**61. What is the difference between `unknown` and `any`?**
 
-- [ ] A. They are identical
-- [ ] B. `unknown` requires type narrowing before use; `any` disables type checking entirely
-- [ ] C. `any` requires narrowing; `unknown` does not
-- [ ] D. Both disable type checking
+- A: Identical
+- B: `unknown` requires type narrowing before use; `any` disables type checking entirely
+- C: `any` requires narrowing; `unknown` does not
+- D: Both disable type checking
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. `unknown` requires type narrowing before use; `any` disables type checking entirely**
+**B: `unknown` requires narrowing; `any` disables checks**
 
-`unknown` is the type-safe alternative to `any`. You must check the type before performing operations on an `unknown` value.
+`unknown` is the type-safe counterpart to `any`. You must prove the type with a guard before using it. Avoid `any` in production code.
 
 </details>
 
 ---
 
-#### ❓ What does the `never` type represent in TypeScript?
+**62. What does `never` represent?**
 
-- [ ] A. A value that is always undefined
-- [ ] B. A value that never occurs — used for exhaustive checks and functions that always throw
-- [ ] C. A type that accepts any value
-- [ ] D. An alias for `void`
+- A: Always undefined
+- B: A value that can never occur — functions that always throw, or exhaustive type checks
+- C: Accepts any value
+- D: Alias for `void`
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A value that never occurs — used for exhaustive checks and functions that always throw**
+**B: A value that can never occur**
 
-A function that throws always returns `never`. It's also used in discriminated union exhaustiveness checks.
+Used for exhaustive switch checks and functions that always throw or loop forever. If TypeScript infers `never` where you didn't expect, you have a logic error.
 
 </details>
 
 ---
 
-#### ❓ What is the `void` type used for?
+**63. What does `Partial<T>` do?**
 
-- [ ] A. Representing empty arrays
-- [ ] B. Indicating that a function does not return a meaningful value
-- [ ] C. Replacing `undefined`
-- [ ] D. A type error placeholder
+- A: Makes all properties required
+- B: Makes all properties optional
+- C: Removes properties
+- D: Converts types to strings
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Indicating that a function does not return a meaningful value**
+**B: Makes all properties optional**
 
-`void` is typically used as the return type of functions that perform side effects and don't return a value.
+Useful for update/patch payloads where only some fields may be sent.
 
 </details>
 
 ---
 
-### 🔹 Generics
+**64. What does `Omit<T, K>` do?**
 
-#### ❓ What are generics used for?
-
-- [ ] A. Fixing types permanently
-- [ ] B. Creating reusable, type-safe components and functions
-- [ ] C. Avoiding functions
-- [ ] D. Styling components
+- A: Picks specified properties
+- B: Creates a new type excluding the specified properties from T
+- C: Makes properties required
+- D: Merges two interfaces
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Creating reusable, type-safe components and functions**
+**B: Creates a new type excluding the specified properties**
 
-`function identity<T>(arg: T): T { return arg; }` — generics let you write code that works with any type while preserving type information.
+`Omit<User, 'password' | 'salt'>` creates a safe public-facing user type without sensitive fields.
 
 </details>
 
 ---
 
-#### ❓ What is a generic constraint (`extends`) used for?
+**65. What is a discriminated union?**
 
-- [ ] A. Class inheritance
-- [ ] B. Limiting what types a generic parameter can accept
-- [ ] C. Extending an array
-- [ ] D. Overriding interface defaults
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Limiting what types a generic parameter can accept**
-
-`function getLength<T extends { length: number }>(arg: T): number` — ensures `T` must have a `length` property.
-
-</details>
-
----
-
-### 🔹 Advanced Types
-
-#### ❓ What does `Partial<T>` do?
-
-- [ ] A. Makes all properties required
-- [ ] B. Makes all properties optional
-- [ ] C. Removes properties
-- [ ] D. Converts types to strings
+- A: A union with duplicates
+- B: A union of types sharing a common literal property used to narrow the type
+- C: A union of only primitives
+- D: A union that only works with classes
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Makes all properties optional**
-
-Useful when working with update/patch payloads where only some fields may be provided.
-
-</details>
-
----
-
-#### ❓ What does `Required<T>` do?
-
-- [ ] A. Makes all properties optional
-- [ ] B. Makes all properties required, removing `?`
-- [ ] C. Picks specific properties
-- [ ] D. Creates readonly properties
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Makes all properties required, removing `?`**
-
-The opposite of `Partial<T>`.
-
-</details>
-
----
-
-#### ❓ What does `Pick<T, K>` do?
-
-- [ ] A. Removes specified properties from a type
-- [ ] B. Creates a new type with only the specified properties from T
-- [ ] C. Merges two types
-- [ ] D. Makes properties optional
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Creates a new type with only the specified properties from T**
-
-`Pick<User, 'name' | 'email'>` creates a type with only `name` and `email` from `User`.
-
-</details>
-
----
-
-#### ❓ What does `Omit<T, K>` do?
-
-- [ ] A. Picks specified properties
-- [ ] B. Creates a new type excluding the specified properties from T
-- [ ] C. Makes properties required
-- [ ] D. Merges two interfaces
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Creates a new type excluding the specified properties from T**
-
-`Omit<User, 'password'>` creates a type with everything from `User` except `password`.
-
-</details>
-
----
-
-#### ❓ What is a discriminated union in TypeScript?
-
-- [ ] A. A union with duplicate types
-- [ ] B. A union of types that share a common literal property used to narrow the type
-- [ ] C. A union of only primitive types
-- [ ] D. A union that only works with classes
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A union of types that share a common literal property used to narrow the type**
+**B: A union sharing a common literal property for narrowing**
 
 ```ts
-type Shape = { kind: 'circle'; radius: number } | { kind: 'square'; side: number };
+type Result =
+  | { status: 'success'; data: string }
+  | { status: 'error'; message: string };
+
+// Checking result.status narrows to the correct variant
 ```
-Checking `shape.kind === 'circle'` narrows `shape` to the circle type.
 
 </details>
 
 ---
 
-#### ❓ What is a type guard in TypeScript?
+**66. What is a mapped type?**
 
-- [ ] A. A runtime error handler
-- [ ] B. An expression that narrows a type within a conditional block
-- [ ] C. A generic constraint
-- [ ] D. A CSS class validator
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. An expression that narrows a type within a conditional block**
-
-Examples: `typeof x === 'string'`, `x instanceof Date`, or a custom `function isUser(x: any): x is User { ... }`.
-
-</details>
-
----
-
-#### ❓ What is the `ReturnType<T>` utility type?
-
-- [ ] A. Gets the parameter types of a function
-- [ ] B. Extracts the return type of a function type
-- [ ] C. Creates a new function type
-- [ ] D. Converts a type to a string
+- A: Based on JavaScript `Map`
+- B: A type created by transforming properties of another type using `in keyof`
+- C: Maps to a database schema
+- D: A generic array type
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Extracts the return type of a function type**
-
-`ReturnType<typeof someFunction>` is useful when you want to reuse a function's return type without re-declaring it.
-
-</details>
-
----
-
-#### ❓ What is `keyof` in TypeScript?
-
-- [ ] A. A JavaScript keyword
-- [ ] B. An operator that produces a union of all keys of a type
-- [ ] C. A method that iterates over object keys
-- [ ] D. A type that converts values to keys
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. An operator that produces a union of all keys of a type**
-
-`keyof User` produces `'id' | 'name' | 'email'` if `User` has those properties.
-
-</details>
-
----
-
-#### ❓ What is a mapped type in TypeScript?
-
-- [ ] A. A type based on a JavaScript `Map`
-- [ ] B. A type created by transforming the properties of another type using `in keyof`
-- [ ] C. A type that maps to a database schema
-- [ ] D. A generic array type
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A type created by transforming the properties of another type using `in keyof`**
+**B: Transforms properties using `in keyof`**
 
 ```ts
+type Optional<T> = { [K in keyof T]?: T[K] };
 type Readonly<T> = { readonly [K in keyof T]: T[K] };
 ```
 
@@ -1011,505 +1705,45 @@ type Readonly<T> = { readonly [K in keyof T]: T[K] };
 
 ---
 
-#### ❓ What is a conditional type in TypeScript?
+**67. What is a conditional type?**
 
-- [ ] A. A type that only works inside `if` statements
-- [ ] B. A type that selects one of two possible types based on a condition: `T extends U ? X : Y`
-- [ ] C. A type for boolean values
-- [ ] D. A runtime type check
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A type that selects one of two possible types based on a condition: `T extends U ? X : Y`**
-
-`type IsString<T> = T extends string ? true : false;`
-
-</details>
-
----
-
-#### ❓ What is the `as const` assertion?
-
-- [ ] A. Casts a value to a constant type at runtime
-- [ ] B. Tells TypeScript to infer the most specific literal types and make all properties readonly
-- [ ] C. Prevents a variable from being reassigned
-- [ ] D. Converts a type to a string literal
+- A: A type only inside `if` statements
+- B: `T extends U ? X : Y` — selects one of two types based on a condition
+- C: A type for booleans
+- D: A runtime type check
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Tells TypeScript to infer the most specific literal types and make all properties readonly**
+**B: `T extends U ? X : Y`**
 
-`const config = { port: 3000 } as const` — `config.port` becomes type `3000` instead of `number`.
-
-</details>
-
----
-
-#### ❓ What is declaration merging in TypeScript interfaces?
-
-- [ ] A. Combining two variables
-- [ ] B. When two interface declarations with the same name are automatically merged into a single interface
-- [ ] C. Extending a class with an interface
-- [ ] D. Merging two modules
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. When two interface declarations with the same name are automatically merged into a single interface**
-
-This is why `interface Window` can be augmented to add custom properties to the global `window` object.
-
-</details>
-
----
-
----
-
-## 🟨 JavaScript
-
-### 🔹 Fundamentals
-
-#### ❓ What is the difference between `==` and `===`?
-
-- [ ] A. No difference
-- [ ] B. `==` does type coercion; `===` checks value and type without coercion
-- [ ] C. `===` is slower
-- [ ] D. `==` is only for numbers
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. `==` does type coercion; `===` checks value and type without coercion**
-
-`'5' == 5` is `true`; `'5' === 5` is `false`. Always prefer `===` to avoid unexpected bugs.
-
-</details>
-
----
-
-#### ❓ What is hoisting in JavaScript?
-
-- [ ] A. Moving images to the top of the page
-- [ ] B. JavaScript's behavior of moving declarations to the top of their scope before execution
-- [ ] C. A CSS layout technique
-- [ ] D. A sorting algorithm
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. JavaScript's behavior of moving declarations to the top of their scope before execution**
-
-`var` declarations and function declarations are hoisted. `let` and `const` are hoisted but remain in a "temporal dead zone" until the declaration is reached.
-
-</details>
-
----
-
-#### ❓ What is the Temporal Dead Zone (TDZ)?
-
-- [ ] A. The time between a function call and its return
-- [ ] B. The period where `let`/`const` variables are hoisted but cannot be accessed before their declaration
-- [ ] C. A garbage collection phase
-- [ ] D. A CSS animation state
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. The period where `let`/`const` variables are hoisted but cannot be accessed before their declaration**
-
-Accessing a `let`/`const` variable before its declaration throws a `ReferenceError`.
-
-</details>
-
----
-
-#### ❓ What is closure in JavaScript?
-
-- [ ] A. A way to close a browser tab
-- [ ] B. A function that remembers variables from its outer (lexical) scope even after the outer function has returned
-- [ ] C. A method of ending a loop
-- [ ] D. A CSS property
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A function that remembers variables from its outer (lexical) scope even after the outer function has returned**
-
-Closures enable data privacy, factory functions, and module patterns.
-
-</details>
-
----
-
-#### ❓ What is the difference between `null` and `undefined`?
-
-- [ ] A. They are the same
-- [ ] B. `undefined` means a variable was declared but not assigned; `null` is an intentional absence of value
-- [ ] C. `null` is for numbers; `undefined` is for strings
-- [ ] D. `undefined` is a keyword; `null` is not
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. `undefined` means a variable was declared but not assigned; `null` is an intentional absence of value**
-
-`typeof undefined === 'undefined'` but `typeof null === 'object'` (a historical JavaScript bug).
-
-</details>
-
----
-
-#### ❓ What is the event loop in JavaScript?
-
-- [ ] A. A for loop inside an event handler
-- [ ] B. The mechanism that allows JavaScript to perform non-blocking operations by offloading tasks and processing them when the call stack is empty
-- [ ] C. A loop for DOM events
-- [ ] D. A React lifecycle loop
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. The mechanism that allows JavaScript to perform non-blocking operations by offloading tasks and processing them when the call stack is empty**
-
-The call stack, Web APIs, callback queue, and microtask queue all interact through the event loop to enable async behavior in a single-threaded environment.
-
-</details>
-
----
-
-#### ❓ What is the difference between microtasks and macrotasks?
-
-- [ ] A. They are the same
-- [ ] B. Microtasks (Promises, `queueMicrotask`) run before the next macrotask (setTimeout, setInterval) after the current task completes
-- [ ] C. Macrotasks run before microtasks
-- [ ] D. Microtasks are only for DOM events
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Microtasks (Promises, `queueMicrotask`) run before the next macrotask (setTimeout, setInterval) after the current task completes**
-
-The microtask queue is fully drained before the event loop moves to the next macrotask.
-
-</details>
-
----
-
-#### ❓ What does `this` refer to in an arrow function?
-
-- [ ] A. The arrow function itself
-- [ ] B. The global object always
-- [ ] C. It is lexically bound — it inherits `this` from the enclosing scope at definition time
-- [ ] D. The DOM element
-
-<details>
-<summary>✅ Answer</summary>
-
-**C. It is lexically bound — it inherits `this` from the enclosing scope at definition time**
-
-Arrow functions do not have their own `this`, which is why they are useful in class methods and callbacks where you want to preserve the outer `this`.
-
-</details>
-
----
-
-#### ❓ What is the difference between `call`, `apply`, and `bind`?
-
-- [ ] A. They are the same
-- [ ] B. `call` invokes with individual args; `apply` invokes with an array of args; `bind` returns a new function with a bound `this`
-- [ ] C. `bind` invokes immediately; the others return functions
-- [ ] D. `apply` is only for async functions
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. `call` invokes with individual args; `apply` invokes with an array of args; `bind` returns a new function with a bound `this`**
-
-All three control what `this` refers to inside a function.
-
-</details>
-
----
-
-#### ❓ What is prototypal inheritance in JavaScript?
-
-- [ ] A. Inheriting CSS styles
-- [ ] B. Objects inheriting properties and methods from their prototype chain
-- [ ] C. A pattern only in class-based languages
-- [ ] D. A TypeScript feature
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Objects inheriting properties and methods from their prototype chain**
-
-Every object in JS has a `[[Prototype]]`. The chain ends at `Object.prototype`. Classes in JS are syntactic sugar over prototypal inheritance.
-
-</details>
-
----
-
-### 🔹 Async JavaScript
-
-#### ❓ What is a Promise?
-
-- [ ] A. A guaranteed synchronous result
-- [ ] B. An object representing the eventual completion or failure of an asynchronous operation
-- [ ] C. A CSS animation callback
-- [ ] D. A React hook
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. An object representing the eventual completion or failure of an asynchronous operation**
-
-A Promise can be in one of three states: `pending`, `fulfilled`, or `rejected`.
-
-</details>
-
----
-
-#### ❓ What does `Promise.all` do?
-
-- [ ] A. Runs promises sequentially
-- [ ] B. Resolves when all promises resolve, or rejects as soon as one rejects
-- [ ] C. Returns the fastest resolved promise
-- [ ] D. Ignores rejected promises
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Resolves when all promises resolve, or rejects as soon as one rejects**
-
-Use `Promise.allSettled` if you want to handle all outcomes regardless of rejection.
-
-</details>
-
----
-
-#### ❓ What does `Promise.race` do?
-
-- [ ] A. Resolves when all promises resolve
-- [ ] B. Resolves or rejects with the first promise to settle
-- [ ] C. Returns the slowest promise
-- [ ] D. Cancels all other promises
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Resolves or rejects with the first promise to settle**
-
-Useful for implementing timeouts: race a fetch against a `setTimeout` that rejects.
-
-</details>
-
----
-
-#### ❓ What is `async/await`?
-
-- [ ] A. A new type of loop
-- [ ] B. Syntactic sugar over Promises that allows writing asynchronous code in a synchronous style
-- [ ] C. A new thread in JavaScript
-- [ ] D. A React hook for async data
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Syntactic sugar over Promises that allows writing asynchronous code in a synchronous style**
-
-An `async` function always returns a Promise. `await` pauses execution inside the async function until the awaited Promise settles.
-
-</details>
-
----
-
-#### ❓ What is the difference between `Promise.allSettled` and `Promise.all`?
-
-- [ ] A. No difference
-- [ ] B. `Promise.allSettled` waits for all promises to settle (regardless of outcome); `Promise.all` short-circuits on the first rejection
-- [ ] C. `Promise.all` waits for all regardless of outcome
-- [ ] D. `Promise.allSettled` only works with async functions
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. `Promise.allSettled` waits for all promises to settle (regardless of outcome); `Promise.all` short-circuits on the first rejection**
-
-Use `allSettled` when you need results of all promises even if some fail.
-
-</details>
-
----
-
-### 🔹 ES6+ Features
-
-#### ❓ What is destructuring in JavaScript?
-
-- [ ] A. Deleting object properties
-- [ ] B. Extracting values from arrays or objects into distinct variables
-- [ ] C. Converting objects to JSON
-- [ ] D. A CSS feature
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Extracting values from arrays or objects into distinct variables**
-
-```js
-const { name, age } = user;
-const [first, second] = items;
+```ts
+type IsString<T> = T extends string ? true : false;
+type Flatten<T> = T extends Array<infer Item> ? Item : T;
 ```
 
 </details>
 
 ---
 
-#### ❓ What is the spread operator (`...`) used for?
+**68. What does `as const` do?**
 
-- [ ] A. String concatenation only
-- [ ] B. Expanding an iterable into individual elements, or spreading object properties
-- [ ] C. Creating async generators
-- [ ] D. Defining rest parameters only
+- A: Runtime constant cast
+- B: Infers the most specific literal types and marks all properties `readonly`
+- C: Prevents reassignment
+- D: Converts a type to string literal
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Expanding an iterable into individual elements, or spreading object properties**
+**B: Infers literal types and makes everything `readonly`**
 
-```js
-const merged = { ...obj1, ...obj2 };
-const combined = [...arr1, ...arr2];
+```ts
+const routes = ['/', '/about'] as const;
+// Type: readonly ['/', '/about'] — not string[]
 ```
 
-</details>
-
----
-
-#### ❓ What is a generator function (`function*`)?
-
-- [ ] A. A function that auto-generates unit tests
-- [ ] B. A function that can pause its execution and yield multiple values over time
-- [ ] C. A factory function
-- [ ] D. A function that only runs once
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A function that can pause its execution and yield multiple values over time**
-
-Generators return an iterator. Each `yield` pauses execution; calling `.next()` resumes it.
-
-</details>
-
----
-
-#### ❓ What is optional chaining (`?.`)?
-
-- [ ] A. A way to make properties optional in TypeScript only
-- [ ] B. An operator that short-circuits and returns `undefined` if a property in a chain is `null` or `undefined`
-- [ ] C. A conditional CSS class
-- [ ] D. A ternary shorthand
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. An operator that short-circuits and returns `undefined` if a property in a chain is `null` or `undefined`**
-
-`user?.address?.city` avoids `TypeError` if `user` or `address` is nullish.
-
-</details>
-
----
-
-#### ❓ What is the nullish coalescing operator (`??`)?
-
-- [ ] A. Identical to `||`
-- [ ] B. Returns the right-hand value only if the left-hand value is `null` or `undefined` (not falsy)
-- [ ] C. Negates a boolean
-- [ ] D. A bitwise operator
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Returns the right-hand value only if the left-hand value is `null` or `undefined` (not falsy)**
-
-`0 ?? 'default'` returns `0`. `0 || 'default'` returns `'default'`. Use `??` when `0`, `''`, or `false` are valid values.
-
-</details>
-
----
-
-#### ❓ What is a WeakMap in JavaScript?
-
-- [ ] A. A Map with weaker performance
-- [ ] B. A Map whose keys are objects and are held weakly, meaning they don't prevent garbage collection
-- [ ] C. A smaller version of Map
-- [ ] D. A Map that only holds primitive values
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A Map whose keys are objects and are held weakly, meaning they don't prevent garbage collection**
-
-Useful for private data storage associated with objects without causing memory leaks.
-
-</details>
-
----
-
-### 🔹 Functional Programming
-
-#### ❓ What is a pure function?
-
-- [ ] A. A function with no parameters
-- [ ] B. A function that always returns the same output for the same input and has no side effects
-- [ ] C. A function that only works with strings
-- [ ] D. An async function
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A function that always returns the same output for the same input and has no side effects**
-
-Pure functions are predictable, testable, and safe to memoize.
-
-</details>
-
----
-
-#### ❓ What is currying in JavaScript?
-
-- [ ] A. Formatting a string
-- [ ] B. Transforming a function with multiple arguments into a series of functions each taking one argument
-- [ ] C. A cooking metaphor for async code
-- [ ] D. A CSS animation technique
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Transforming a function with multiple arguments into a series of functions each taking one argument**
-
-`const add = a => b => a + b; add(2)(3) // 5`
-
-</details>
-
----
-
-#### ❓ What is function composition?
-
-- [ ] A. Writing two functions in one file
-- [ ] B. Combining two or more functions so the output of one becomes the input of the next
-- [ ] C. A class inheritance pattern
-- [ ] D. Importing functions from a module
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Combining two or more functions so the output of one becomes the input of the next**
-
-`const compose = (f, g) => x => f(g(x));`
+Useful for exhaustive checks and when you want TypeScript to track exact string values.
 
 </details>
 
@@ -1521,275 +1755,147 @@ Pure functions are predictable, testable, and safe to memoize.
 
 ### 🔹 Layout
 
-#### ❓ What is the main difference between Flexbox and Grid?
+---
 
-- [ ] A. No difference
-- [ ] B. Flexbox is 1-dimensional (row or column); Grid is 2-dimensional (rows and columns)
-- [ ] C. Grid is deprecated
-- [ ] D. Flexbox is slower
+**69. What is the main difference between Flexbox and Grid?**
+
+- A: No difference
+- B: Flexbox is 1-dimensional; Grid is 2-dimensional
+- C: Grid is deprecated
+- D: Flexbox is slower
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Flexbox is 1-dimensional (row or column); Grid is 2-dimensional (rows and columns)**
+**B: Flexbox is 1D (row or column); Grid is 2D (rows and columns simultaneously)**
 
-Use Flexbox for component-level layout; use Grid for page-level or complex 2D layouts.
+Use Flexbox for linear layouts (nav, button groups). Use Grid for two-dimensional page layouts or complex component grids.
 
 </details>
 
 ---
 
-#### ❓ What does `position: sticky` do?
+**70. What does `position: sticky` do?**
 
-- [ ] A. Fixes an element to the viewport permanently
-- [ ] B. Positions an element relative to its normal flow but sticks to a threshold within its scroll container
-- [ ] C. Positions an element absolutely within its parent
-- [ ] D. Removes the element from normal flow
+- A: Fixes to the viewport permanently
+- B: Stays in normal flow until a scroll threshold, then sticks within its scroll container
+- C: Absolutely positions within its parent
+- D: Removes from normal flow
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Positions an element relative to its normal flow but sticks to a threshold within its scroll container**
+**B: Normal flow until scroll threshold, then sticks**
 
-Requires a defined `top`, `bottom`, `left`, or `right` value to activate the sticky behavior.
+Requires a `top`/`bottom`/`left`/`right` value. Sticks within its scroll container — once the container scrolls past, it unsticks.
 
 </details>
 
 ---
 
-#### ❓ What is the CSS box model?
+**71. What does `box-sizing: border-box` change?**
 
-- [ ] A. A 3D rendering model
-- [ ] B. The concept that every element is a box composed of content, padding, border, and margin
-- [ ] C. A grid layout system
-- [ ] D. A JavaScript-managed layout system
+- A: Adds a border to every element
+- B: Makes `width`/`height` include padding and border, not just content
+- C: Removes the box model
+- D: Changes margin behavior
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. The concept that every element is a box composed of content, padding, border, and margin**
+**B: `width`/`height` include padding and border**
 
-`box-sizing: border-box` makes `width` include padding and border, which is usually more intuitive.
+The browser default `content-box` adds padding and border on top of the declared width. `border-box` keeps the total size as declared — generally far more intuitive.
 
 </details>
 
 ---
 
-#### ❓ What does `z-index` control?
+**72. What is CSS specificity order?**
 
-- [ ] A. The zoom level of an element
-- [ ] B. The stacking order of positioned elements along the z-axis
-- [ ] C. The number of layers in a CSS animation
-- [ ] D. The opacity of an element
+- A: Element → ID → Class → Inline → `!important`
+- B: Inline → ID → Class → Element → `!important`
+- C: Element → Class → ID → Inline → `!important`
+- D: Class → Element → ID → Inline → `!important`
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. The stacking order of positioned elements along the z-axis**
+**C: Element → Class → ID → Inline → `!important`**
 
-Higher `z-index` values appear on top. Only works on positioned elements (`position` not `static`).
+Specificity weights: element `(0,0,1)` < class/attribute/pseudo-class `(0,1,0)` < ID `(1,0,0)` < inline styles < `!important`.
 
 </details>
 
 ---
 
-#### ❓ What is a stacking context in CSS?
+**73. What is `clamp()` in CSS?**
 
-- [ ] A. A JavaScript rendering context
-- [ ] B. A self-contained unit where `z-index` values only compete against siblings within the same context
-- [ ] C. A CSS Grid concept
-- [ ] D. A browser rendering thread
+- A: Flexbox shorthand
+- B: Clamps a value between a minimum and maximum — great for fluid typography
+- C: Border shorthand
+- D: JavaScript-only function
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A self-contained unit where `z-index` values only compete against siblings within the same context**
+**B: Clamps between min and max**
 
-New stacking contexts are created by `position` + `z-index`, `opacity < 1`, `transform`, `filter`, etc.
+`font-size: clamp(1rem, 2.5vw, 2rem)` — scales with viewport, never smaller than `1rem` or larger than `2rem`. No media queries needed.
 
 </details>
 
 ---
 
-#### ❓ What is `display: contents`?
+**74. What are CSS Container Queries?**
 
-- [ ] A. Hides an element but keeps its space
-- [ ] B. Makes the element's box disappear so children participate in the parent's layout as if the element didn't exist
-- [ ] C. Displays content in a modal
-- [ ] D. Shows only text content
+- A: Media queries for grid containers
+- B: Queries applying styles based on an ancestor element's size — not the viewport
+- C: Flexbox container rules
+- D: JavaScript DOM queries
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Makes the element's box disappear so children participate in the parent's layout as if the element didn't exist**
+**B: Apply styles based on an ancestor's size**
 
-Useful for wrapper elements in flexbox/grid layouts where you want children to participate directly in the parent grid/flex context.
+`@container` enables truly component-driven responsive design. A card adapts to its container size regardless of viewport.
 
 </details>
 
 ---
 
-### 🔹 Responsive Design
+**75. What is the difference between `em` and `rem`?**
 
-#### ❓ What is a mobile-first approach?
-
-- [ ] A. Designing for desktop first
-- [ ] B. Writing base styles for mobile, then adding complexity for larger screens using `min-width` media queries
-- [ ] C. Ignoring mobile
-- [ ] D. Using fixed widths
+- A: No difference
+- B: `em` is relative to the element's font-size; `rem` is relative to the root `html` font-size
+- C: `rem` is relative to the parent; `em` to the root
+- D: Both are absolute units
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Writing base styles for mobile, then adding complexity for larger screens using `min-width` media queries**
+**B: `em` → element's font-size; `rem` → root font-size**
 
-This results in simpler, more performant CSS since mobile styles are the default and desktop overrides are additive.
+Nested `em` values compound. `rem` is always consistent — better for spacing and global typography.
 
 </details>
 
 ---
 
-#### ❓ What is the `clamp()` CSS function?
+**76. What is CSS `display: contents`?**
 
-- [ ] A. A Flexbox shorthand
-- [ ] B. A function that clamps a value between a minimum and maximum, useful for fluid typography
-- [ ] C. A border shorthand
-- [ ] D. A JavaScript-only function
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A function that clamps a value between a minimum and maximum, useful for fluid typography**
-
-`font-size: clamp(1rem, 2.5vw, 2rem)` sets a min, preferred, and max size.
-
-</details>
-
----
-
-#### ❓ What is the `container` query in CSS?
-
-- [ ] A. A media query for containers
-- [ ] B. A query that applies styles based on the size of a containing element rather than the viewport
-- [ ] C. A flexbox container rule
-- [ ] D. A JavaScript DOM query
+- A: Hides an element but keeps its space
+- B: Makes the element's box disappear so children participate in the parent's layout directly
+- C: Displays content in a modal
+- D: Shows only text content
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A query that applies styles based on the size of a containing element rather than the viewport**
+**B: Makes the box disappear so children participate directly in the parent layout**
 
-Container queries (`@container`) allow truly component-driven responsive design.
-
-</details>
-
----
-
-### 🔹 Architecture & Naming
-
-#### ❓ What is BEM?
-
-- [ ] A. A JS framework
-- [ ] B. A CSS naming convention (Block, Element, Modifier) for creating reusable components
-- [ ] C. A testing tool
-- [ ] D. A browser API
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A CSS naming convention (Block, Element, Modifier) for creating reusable components**
-
-`.card__title--highlighted` — Block: `card`, Element: `title`, Modifier: `highlighted`.
-
-</details>
-
----
-
-#### ❓ What is CSS specificity?
-
-- [ ] A. How fast CSS is applied
-- [ ] B. The algorithm browsers use to determine which CSS rule takes precedence when multiple rules match an element
-- [ ] C. The number of rules in a stylesheet
-- [ ] D. A media query type
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. The algorithm browsers use to determine which CSS rule takes precedence when multiple rules match an element**
-
-Specificity order (low to high): element → class/attribute → ID → inline → `!important`.
-
-</details>
-
----
-
-#### ❓ What are CSS Custom Properties (variables)?
-
-- [ ] A. JavaScript variables accessible in CSS
-- [ ] B. User-defined properties prefixed with `--` that can be reused throughout a stylesheet via `var()`
-- [ ] C. Sass variables
-- [ ] D. A PostCSS plugin feature
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. User-defined properties prefixed with `--` that can be reused throughout a stylesheet via `var()`**
-
-`--primary-color: #3498db;` defined on `:root` can be used as `color: var(--primary-color)` anywhere.
-
-</details>
-
----
-
-#### ❓ What is the difference between `em` and `rem`?
-
-- [ ] A. No difference
-- [ ] B. `em` is relative to the element's own font-size; `rem` is relative to the root (`html`) font-size
-- [ ] C. `rem` is relative to the parent; `em` is relative to the root
-- [ ] D. Both are absolute units
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. `em` is relative to the element's own font-size; `rem` is relative to the root (`html`) font-size**
-
-`rem` avoids the compounding problem of nested `em` values and is generally preferred for spacing and typography.
-
-</details>
-
----
-
-#### ❓ What is CSS-in-JS?
-
-- [ ] A. Writing CSS inside HTML files
-- [ ] B. A pattern where component styles are written in JavaScript, scoped to the component
-- [ ] C. Converting JavaScript to CSS
-- [ ] D. A CSS preprocessor
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A pattern where component styles are written in JavaScript, scoped to the component**
-
-Libraries like styled-components, Emotion, or vanilla-extract use this approach. Styles are co-located with the component.
-
-</details>
-
----
-
-#### ❓ What is Tailwind CSS?
-
-- [ ] A. A component library
-- [ ] B. A utility-first CSS framework that applies pre-defined single-purpose class names directly in HTML
-- [ ] C. A CSS preprocessor like Sass
-- [ ] D. A CSS-in-JS library
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A utility-first CSS framework that applies pre-defined single-purpose class names directly in HTML**
-
-Instead of writing custom CSS, you compose utilities: `class="flex items-center gap-4 text-lg font-bold"`.
+Useful for semantic wrapper elements (like `<article>` or `<li>`) in a Flexbox/Grid context where you want children to be direct flex/grid items.
 
 </details>
 
@@ -1797,187 +1903,114 @@ Instead of writing custom CSS, you compose utilities: `class="flex items-center 
 
 ---
 
-## 🚀 Performance
+## 🚀 Performance & Web Vitals
 
-### 🔹 Web Vitals
+---
 
-#### ❓ What is LCP (Largest Contentful Paint)?
+**77. What does LCP measure?**
 
-- [ ] A. The time until the first byte is received
-- [ ] B. The time until the largest visible content element (image or text) in the viewport is rendered
-- [ ] C. The total page weight
-- [ ] D. The number of elements on the page
+- A: Time to first byte
+- B: Time until the largest visible content element in the viewport is rendered
+- C: Total page weight
+- D: Number of DOM elements
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. The time until the largest visible content element (image or text) in the viewport is rendered**
+**B: Time until the largest visible content element is rendered**
 
-A good LCP is under 2.5 seconds. It measures perceived loading performance for the user.
+Good LCP: under 2.5s. Measures perceived loading performance — when the main content is visible to the user.
 
 </details>
 
 ---
 
-#### ❓ What is CLS (Cumulative Layout Shift)?
+**78. What is CLS?**
 
-- [ ] A. The total JavaScript execution time
-- [ ] B. A measure of how much visible content unexpectedly shifts during the page's lifecycle
-- [ ] C. The number of DOM mutations
-- [ ] D. The first paint time
+- A: Total JS execution time
+- B: A score measuring unexpected visual layout shifts during page load
+- C: Number of DOM mutations
+- D: First paint time
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A measure of how much visible content unexpectedly shifts during the page's lifecycle**
+**B: A score measuring unexpected visual layout shifts**
 
-A good CLS score is under 0.1. Set explicit `width` and `height` on images to avoid shifts.
+Good CLS: under 0.1. Common fix: always declare explicit `width` and `height` on images and video elements.
 
 </details>
 
 ---
 
-#### ❓ What is INP (Interaction to Next Paint)?
+**79. What is INP?**
 
-- [ ] A. Image network performance
-- [ ] B. A metric that measures the latency of all user interactions to find the worst-case responsiveness
-- [ ] C. Initial navigation performance
-- [ ] D. The time for the first DOM paint
+- A: Image network performance
+- B: A metric measuring the worst-case latency of all user interactions on the page
+- C: Initial navigation performance
+- D: Time to first DOM paint
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A metric that measures the latency of all user interactions to find the worst-case responsiveness**
+**B: Worst-case latency of all user interactions**
 
-INP replaced FID as a Core Web Vital in 2024. A good INP is under 200ms.
+INP replaced FID as a Core Web Vital in 2024. Good INP: under 200ms. Measures how quickly the page responds to clicks, taps, and keyboard input.
 
 </details>
 
 ---
 
-### 🔹 Optimization Techniques
+**80. What is tree shaking?**
 
-#### ❓ What is tree shaking?
-
-- [ ] A. Removing dead code from a CSS file
-- [ ] B. Eliminating unused JavaScript exports from the final bundle during the build process
-- [ ] C. A DOM traversal optimization
-- [ ] D. A React rendering optimization
+- A: Removing dead CSS
+- B: Eliminating unused JavaScript exports from the bundle at build time
+- C: A DOM traversal optimization
+- D: A React rendering optimization
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Eliminating unused JavaScript exports from the final bundle during the build process**
+**B: Eliminating unused JS exports at build time**
 
-Bundlers like Rollup and Webpack perform tree shaking on ES modules by statically analyzing import/export relationships.
+Requires ES modules (`import`/`export`) — bundlers like Rollup and Webpack statically analyze the import/export graph. CommonJS (`require`) is not statically analyzable, so it can't be tree-shaken.
 
 </details>
 
 ---
 
-#### ❓ What is lazy loading?
+**81. What is the difference between debounce and throttle?**
 
-- [ ] A. Loading all resources at once
-- [ ] B. Deferring the loading of non-critical resources until they are needed or visible
-- [ ] C. A caching strategy
-- [ ] D. A CSS rendering technique
+- A: No difference
+- B: Debounce delays execution until after a pause; throttle limits to at most once per interval
+- C: Throttle delays; debounce limits per interval
+- D: Same concept, different names
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Deferring the loading of non-critical resources until they are needed or visible**
+**B: Debounce waits for pause; throttle limits rate**
 
-Images can use `loading="lazy"`, and JavaScript can use dynamic `import()` for lazy-loading code.
+**Debounce**: fire search API after user stops typing for 300ms.
+**Throttle**: fire scroll handler at most every 100ms regardless of scroll speed.
 
 </details>
 
 ---
 
-#### ❓ What is debouncing?
+**82. What is memoization?**
 
-- [ ] A. Preventing a function from running at all
-- [ ] B. Delaying the execution of a function until a specified time has passed since the last invocation
-- [ ] C. Running a function at a fixed interval
-- [ ] D. Canceling a Promise
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Delaying the execution of a function until a specified time has passed since the last invocation**
-
-Common for search inputs — avoid firing an API call on every keystroke.
-
-</details>
-
----
-
-#### ❓ What is throttling?
-
-- [ ] A. Stopping a function permanently
-- [ ] B. Ensuring a function is called at most once per specified time interval regardless of how many times it is triggered
-- [ ] C. Running a function only on unmount
-- [ ] D. Limiting CSS animations
+- A: A memory leak
+- B: Caching function results — same inputs return the cached output without recomputing
+- C: Storing data in `localStorage`
+- D: A React hook for forms
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Ensuring a function is called at most once per specified time interval regardless of how many times it is triggered**
+**B: Caching function results for the same inputs**
 
-Common for scroll/resize handlers to limit expensive recalculations.
-
-</details>
-
----
-
-#### ❓ What is memoization?
-
-- [ ] A. A memory leak
-- [ ] B. Caching the results of a function call so the same result is returned for the same inputs
-- [ ] C. Storing data in localStorage
-- [ ] D. A React hook for forms
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Caching the results of a function call so the same result is returned for the same inputs**
-
-React's `useMemo` and `useCallback` apply memoization principles at the component level.
-
-</details>
-
----
-
-#### ❓ What is the purpose of the `loading="lazy"` attribute on images?
-
-- [ ] A. Makes images load immediately
-- [ ] B. Defers loading of off-screen images until they are near the viewport
-- [ ] C. Compresses images automatically
-- [ ] D. Removes images from the DOM
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Defers loading of off-screen images until they are near the viewport**
-
-This reduces initial page load time and bandwidth by not loading images the user may never see.
-
-</details>
-
----
-
-#### ❓ What does `preconnect` do as a resource hint?
-
-- [ ] A. Prefetches a resource
-- [ ] B. Establishes a connection (DNS lookup, TCP handshake, TLS) to an origin early to reduce latency
-- [ ] C. Preloads a specific file
-- [ ] D. Caches a resource permanently
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Establishes a connection (DNS lookup, TCP handshake, TLS) to an origin early to reduce latency**
-
-`<link rel="preconnect" href="https://fonts.googleapis.com">` speeds up loading of third-party resources.
+`useMemo` and `useCallback` apply memoization at the React component level. The trade-off: memoization has memory cost and cache-check overhead.
 
 </details>
 
@@ -1987,131 +2020,75 @@ This reduces initial page load time and bandwidth by not loading images the user
 
 ## 🧪 Testing
 
-### 🔹 Unit Testing
+---
 
-#### ❓ What is unit testing?
+**83. What is the Testing Library philosophy?**
 
-- [ ] A. Testing the full application
-- [ ] B. Testing individual units of code (functions, components) in isolation
-- [ ] C. Testing API integrations
-- [ ] D. Manual browser testing
+- A: Test implementation details closely
+- B: Test the way real users interact — behavior over implementation
+- C: Only unit tests
+- D: Avoid async testing
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Testing individual units of code (functions, components) in isolation**
+**B: Test behavior, not implementation**
 
-Unit tests are fast and focused. Tools: Jest, Vitest.
+Tests that mirror user behavior remain valid through refactors. Don't test internal state — test what the user sees and does.
 
 </details>
 
 ---
 
-#### ❓ What is a mock in testing?
+**84. What is the testing pyramid?**
 
-- [ ] A. A fake user
-- [ ] B. A controlled replacement for a real dependency (function, module, API) used to isolate the unit under test
-- [ ] C. A test environment
-- [ ] D. A snapshot file
+- A: Framework popularity ranking
+- B: Many unit tests → fewer integration tests → fewest E2E tests
+- C: CSS layout for test reports
+- D: A file structure guide
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A controlled replacement for a real dependency (function, module, API) used to isolate the unit under test**
+**B: Many unit → fewer integration → fewest E2E**
 
-Mocks allow you to control inputs and verify that functions were called with the right arguments.
+Higher in pyramid = slower, more expensive, harder to maintain. A healthy suite has a wide base of fast unit tests.
 
 </details>
 
 ---
 
-#### ❓ What is snapshot testing in React?
+**85. What is snapshot testing?**
 
-- [ ] A. Taking screenshots of the UI
-- [ ] B. Serializing a component's rendered output and comparing it to a saved reference to detect unintended changes
-- [ ] C. Testing component snapshots in the browser
-- [ ] D. A performance profiling technique
+- A: UI screenshots
+- B: Serializing a component's rendered output and comparing it to a saved reference to catch unintended changes
+- C: Browser-based snapshots
+- D: A performance profiling technique
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Serializing a component's rendered output and comparing it to a saved reference to detect unintended changes**
+**B: Serializing rendered output and comparing to a saved reference**
 
-Snapshot files are stored in a `__snapshots__` directory and should be committed to version control.
+Snapshots are stored in `__snapshots__` and committed to version control. Fragile for large components — prefer for small, stable ones.
 
 </details>
 
 ---
 
-### 🔹 Integration & E2E Testing
+**86. Why is `getByRole` the preferred Testing Library query?**
 
-#### ❓ What is the Testing Library philosophy?
-
-- [ ] A. Test implementation details as closely as possible
-- [ ] B. Test software the way a real user would interact with it, focusing on behavior not implementation
-- [ ] C. Only test with unit tests
-- [ ] D. Avoid testing async code
+- A: It's fastest
+- B: It queries by accessible ARIA roles — reflecting how assistive technology works
+- C: It queries by CSS class
+- D: It queries by test IDs
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Test software the way a real user would interact with it, focusing on behavior not implementation**
+**B: Queries by ARIA role — how assistive technology navigates the page**
 
-Testing Library's guiding principle: "The more your tests resemble the way your software is used, the more confidence they can give you."
-
-</details>
-
----
-
-#### ❓ What is end-to-end (E2E) testing?
-
-- [ ] A. Testing only the backend
-- [ ] B. Testing the full user flow through the real application in a browser environment
-- [ ] C. Testing only individual components
-- [ ] D. Testing API endpoints in isolation
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Testing the full user flow through the real application in a browser environment**
-
-Tools: Playwright, Cypress. E2E tests are slower but provide the highest confidence.
-
-</details>
-
----
-
-#### ❓ What is the testing pyramid?
-
-- [ ] A. A ranking of test frameworks by popularity
-- [ ] B. A model suggesting having many unit tests, fewer integration tests, and even fewer E2E tests
-- [ ] C. A CSS-based layout for test reports
-- [ ] D. A guide to structuring test files
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A model suggesting having many unit tests, fewer integration tests, and even fewer E2E tests**
-
-Higher in the pyramid = slower, more expensive, harder to maintain. More at the base = faster, isolated, cheaper.
-
-</details>
-
----
-
-#### ❓ What does `getByRole` in Testing Library prioritize?
-
-- [ ] A. CSS class names
-- [ ] B. Accessible roles (ARIA roles) for querying elements, promoting accessible markup
-- [ ] C. DOM IDs
-- [ ] D. Test IDs
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Accessible roles (ARIA roles) for querying elements, promoting accessible markup**
-
-`getByRole('button', { name: /submit/i })` is the recommended query method as it reflects how assistive technologies interact with the page.
+Testing Library priority: `getByRole` > `getByLabelText` > `getByText` > `getByAltText` > `getByTestId`. Avoid `getByTestId` for most cases.
 
 </details>
 
@@ -2121,129 +2098,75 @@ Higher in the pyramid = slower, more expensive, harder to maintain. More at the 
 
 ## ♿ Accessibility
 
-### 🔹 Core Concepts
+---
 
-#### ❓ What does WCAG stand for?
+**87. What does WCAG AA require for normal text color contrast?**
 
-- [ ] A. Web Content Accessibility Guidelines
-- [ ] B. Web Component Animation Guide
-- [ ] C. World CSS Automation Group
-- [ ] D. Web Core API Guidelines
+- A: 2:1
+- B: 3:1
+- C: 4.5:1
+- D: 7:1
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**A. Web Content Accessibility Guidelines**
+**C: 4.5:1 for normal text (3:1 for large text)**
 
-WCAG is published by the W3C. WCAG 2.1 AA compliance is the widely accepted standard for web accessibility.
+WCAG AAA requires 7:1. Large text = 18pt (24px) regular or 14pt (18.67px) bold.
 
 </details>
 
 ---
 
-#### ❓ What is ARIA?
+**88. What is the first rule of ARIA?**
 
-- [ ] A. An async React interface
-- [ ] B. Accessible Rich Internet Applications — HTML attributes that convey semantic meaning to assistive technologies
-- [ ] C. A JavaScript animation library
-- [ ] D. A CSS Grid specification
+- A: Always use ARIA on every element
+- B: Don't use ARIA if a native HTML element provides the same semantics
+- C: ARIA replaces all HTML attributes
+- D: Use `aria-hidden` on all decorative elements
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Accessible Rich Internet Applications — HTML attributes that convey semantic meaning to assistive technologies**
+**B: Don't use ARIA if a native element does the job**
 
-ARIA attributes like `role`, `aria-label`, `aria-expanded` communicate state and meaning to screen readers when native HTML semantics are insufficient.
+A `<button>` is always better than `<div role="button" tabindex="0">` — keyboard interaction, focus, and semantics come for free.
 
 </details>
 
 ---
 
-#### ❓ What is the first rule of ARIA?
+**89. What does `aria-live` do?**
 
-- [ ] A. Always use ARIA on every element
-- [ ] B. Don't use ARIA if you can use native HTML elements with built-in semantics
-- [ ] C. ARIA replaces all HTML attributes
-- [ ] D. Use `aria-hidden` on all decorative elements
+- A: Animates content in real-time
+- B: Announces dynamic content changes to screen reader users without a focus change
+- C: Updates the page title
+- D: Triggers a browser notification
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Don't use ARIA if you can use native HTML elements with built-in semantics**
+**B: Announces dynamic content changes without focus change**
 
-A `<button>` is better than `<div role="button">` because it comes with keyboard interaction, focus, and semantics built in.
+`"polite"` waits for a pause before announcing. `"assertive"` interrupts immediately. Use `"assertive"` only for critical alerts.
 
 </details>
 
 ---
 
-#### ❓ What is focus management and why is it important?
+**90. What is a skip navigation link?**
 
-- [ ] A. Managing CSS focus styles only
-- [ ] B. Controlling where keyboard focus goes during interactions (e.g., opening/closing modals) so keyboard and screen reader users can navigate effectively
-- [ ] C. Preventing users from tabbing through elements
-- [ ] D. A JavaScript event for mouse clicks
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Controlling where keyboard focus goes during interactions (e.g., opening/closing modals) so keyboard and screen reader users can navigate effectively**
-
-When a modal opens, focus should move inside it. When it closes, focus should return to the trigger element.
-
-</details>
-
----
-
-#### ❓ What does `aria-live` do?
-
-- [ ] A. Makes content animate in real-time
-- [ ] B. Announces dynamic content changes to screen reader users without requiring a focus change
-- [ ] C. Updates the page title
-- [ ] D. Triggers a browser notification
+- A: A footer jump link
+- B: A visually-hidden link at page top letting keyboard users bypass repetitive navigation
+- C: A nav that hides on mobile
+- D: A JavaScript redirect
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Announces dynamic content changes to screen reader users without requiring a focus change**
+**B: A visually-hidden link at page top bypassing navigation**
 
-`aria-live="polite"` announces updates when the user is idle. `aria-live="assertive"` announces immediately, interrupting current speech.
-
-</details>
-
----
-
-#### ❓ What is a skip navigation link?
-
-- [ ] A. A link that jumps to the footer
-- [ ] B. A visually hidden link at the top of the page that lets keyboard users skip repetitive navigation and jump to main content
-- [ ] C. A navigation component that hides on mobile
-- [ ] D. A JavaScript redirect
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A visually hidden link at the top of the page that lets keyboard users skip repetitive navigation and jump to main content**
-
-Typically shown on focus: `<a href="#main-content" class="skip-link">Skip to content</a>`.
-
-</details>
-
----
-
-#### ❓ What color contrast ratio does WCAG AA require for normal text?
-
-- [ ] A. 2:1
-- [ ] B. 3:1
-- [ ] C. 4.5:1
-- [ ] D. 7:1
-
-<details>
-<summary>✅ Answer</summary>
-
-**C. 4.5:1**
-
-WCAG AA requires 4.5:1 for normal text and 3:1 for large text. WCAG AAA requires 7:1 for normal text.
+`<a href="#main-content" class="skip-link">Skip to content</a>`. Shown on `:focus`. Critical for keyboard and screen reader users.
 
 </details>
 
@@ -2253,151 +2176,75 @@ WCAG AA requires 4.5:1 for normal text and 3:1 for large text. WCAG AAA requires
 
 ## 🔌 APIs & Data Fetching
 
-### 🔹 REST & HTTP
+---
 
-#### ❓ What is the difference between `GET` and `POST` HTTP methods?
+**91. What is the difference between `PUT` and `PATCH`?**
 
-- [ ] A. No difference
-- [ ] B. `GET` retrieves data and is idempotent; `POST` creates/submits data and may have side effects
-- [ ] C. `POST` retrieves data; `GET` creates it
-- [ ] D. `GET` is only for JSON
+- A: No difference
+- B: `PUT` replaces the entire resource; `PATCH` applies partial updates
+- C: `PATCH` replaces; `PUT` patches
+- D: Both delete the resource
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. `GET` retrieves data and is idempotent; `POST` creates/submits data and may have side effects**
+**B: `PUT` replaces entire resource; `PATCH` applies partial updates**
 
-`GET` requests should be cacheable and repeatable without side effects. `POST` requests create resources.
+Use `PATCH` when updating only one field (like `email`) without resending the full object.
 
 </details>
 
 ---
 
-#### ❓ What does HTTP status code `304` mean?
+**92. What is CORS and who enforces it?**
 
-- [ ] A. Not Found
-- [ ] B. Not Modified — the cached version is still valid
-- [ ] C. Bad Request
-- [ ] D. Unauthorized
+- A: A CSS layout module
+- B: Cross-Origin Resource Sharing — enforced by the **browser**, not the server
+- C: A JavaScript runtime restriction
+- D: A caching protocol
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Not Modified — the cached version is still valid**
+**B: Browser-enforced mechanism for cross-origin requests**
 
-`304` is returned when the server confirms the cached resource hasn't changed, saving bandwidth.
+Non-browser clients (curl, Postman, server-to-server) are **not** subject to CORS. The server sets `Access-Control-Allow-Origin` headers; the browser decides whether to allow the response.
 
 </details>
 
 ---
 
-#### ❓ What is CORS?
+**93. What is the `stale-while-revalidate` pattern?**
 
-- [ ] A. A CSS layout module
-- [ ] B. Cross-Origin Resource Sharing — a browser mechanism that allows or restricts cross-origin HTTP requests
-- [ ] C. A JavaScript runtime
-- [ ] D. A caching protocol
+- A: Delete stale data immediately
+- B: Return cached (stale) data immediately while fetching an update in the background
+- C: Wait for fresh data before rendering anything
+- D: Validate all data before caching
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Cross-Origin Resource Sharing — a browser mechanism that allows or restricts cross-origin HTTP requests**
+**B: Return cached data immediately; fetch fresh data in background**
 
-The server controls CORS via response headers like `Access-Control-Allow-Origin`. Browsers enforce CORS; non-browser HTTP clients do not.
+Used in SWR, React Query, and the `Cache-Control: stale-while-revalidate` HTTP header. Provides instant responses with eventual consistency.
 
 </details>
 
 ---
 
-#### ❓ What is the difference between `PUT` and `PATCH`?
+**94. What is the N+1 query problem?**
 
-- [ ] A. No difference
-- [ ] B. `PUT` replaces the entire resource; `PATCH` applies partial modifications
-- [ ] C. `PATCH` replaces the entire resource; `PUT` applies partial modifications
-- [ ] D. Both delete the resource
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. `PUT` replaces the entire resource; `PATCH` applies partial modifications**
-
-Use `PATCH` when you want to update only specific fields without resending the entire payload.
-
-</details>
-
----
-
-### 🔹 GraphQL
-
-#### ❓ What is GraphQL?
-
-- [ ] A. A SQL dialect for graph databases
-- [ ] B. A query language for APIs that lets clients request exactly the data they need
-- [ ] C. A CSS-in-JS library
-- [ ] D. A REST API standard
+- A: Having more than N components
+- B: Fetching a list of N items then making N more individual requests for each item's related data
+- C: A TypeScript error
+- D: Sending too many mutations
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A query language for APIs that lets clients request exactly the data they need**
+**B: 1 list request + N individual detail requests**
 
-GraphQL solves over-fetching (getting too much data) and under-fetching (requiring multiple requests) compared to REST.
-
-</details>
-
----
-
-#### ❓ What is the N+1 problem in GraphQL?
-
-- [ ] A. Having more than N components
-- [ ] B. Executing N+1 database queries when resolving a list of N items and their related data
-- [ ] C. A TypeScript error type
-- [ ] D. Sending too many GraphQL mutations
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Executing N+1 database queries when resolving a list of N items and their related data**
-
-Solved by DataLoader which batches and caches resolver calls.
-
-</details>
-
----
-
-### 🔹 Data Fetching Libraries
-
-#### ❓ What is React Query (TanStack Query)?
-
-- [ ] A. A state management library
-- [ ] B. A data-fetching library that handles caching, synchronization, and server state management
-- [ ] C. A GraphQL client
-- [ ] D. A form management library
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A data-fetching library that handles caching, synchronization, and server state management**
-
-React Query separates server state from client state and handles background refetching, stale-while-revalidate, and more.
-
-</details>
-
----
-
-#### ❓ What is the `stale-while-revalidate` pattern?
-
-- [ ] A. Deleting stale data immediately
-- [ ] B. Returning cached (potentially stale) data immediately while fetching an update in the background
-- [ ] C. Waiting for fresh data before rendering anything
-- [ ] D. Validating all data before caching
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Returning cached (potentially stale) data immediately while fetching an update in the background**
-
-This provides instant UI feedback with eventual consistency — used in SWR and React Query.
+Fetching 20 posts then fetching each post's author separately = 21 requests. Fix with DataLoader (batching) in GraphQL or join queries in REST.
 
 </details>
 
@@ -2407,193 +2254,57 @@ This provides instant UI feedback with eventual consistency — used in SWR and 
 
 ## 🔄 State Management
 
-### 🔹 Concepts
+---
 
-#### ❓ When do you need global state?
+**95. What is the difference between client state and server state?**
 
-- [ ] A. Always
-- [ ] B. When multiple components share state that cannot be efficiently passed via props
-- [ ] C. Only in backend
-- [ ] D. Never
+- A: No difference
+- B: Client state is local UI data; server state is remote data requiring synchronization
+- C: Server state is always in Redux
+- D: Client state is only for forms
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. When multiple components share state that cannot be efficiently passed via props**
+**B: Client state = local; server state = remote, needs sync**
 
-Evaluate state co-location first. Only lift state to global when prop drilling becomes unmanageable.
+React Query/SWR handle server state (caching, revalidation, optimistic updates). Redux/Zustand handle complex client state. Don't use Redux to cache API responses.
 
 </details>
 
 ---
 
-#### ❓ What is the difference between client state and server state?
+**96. What is Zustand?**
 
-- [ ] A. No difference
-- [ ] B. Client state (UI flags, form data) is managed locally; server state (API data) requires syncing with a remote source
-- [ ] C. Server state is always stored in Redux
-- [ ] D. Client state is only for forms
+- A: A German word for a CSS property
+- B: A minimal, hook-based React state management library with near-zero boilerplate
+- C: Redux middleware
+- D: A server state library
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Client state (UI flags, form data) is managed locally; server state (API data) requires syncing with a remote source**
+**B: Minimal, hook-based state management**
 
-Libraries like React Query and SWR are purpose-built for server state; Redux/Zustand are better for client state.
+Zustand supports selective subscriptions — components only re-render when the slice of state they subscribe to changes. No Provider wrapper needed.
 
 </details>
 
 ---
 
-### 🔹 Redux & Alternatives
+**97. When should you use `useReducer` over `useState`?**
 
-#### ❓ What is Redux Toolkit (RTK)?
-
-- [ ] A. A CSS library for Redux
-- [ ] B. The official, opinionated toolset for Redux that reduces boilerplate with `createSlice`, `createAsyncThunk`, etc.
-- [ ] C. A replacement for Redux
-- [ ] D. A testing library for Redux
+- A: Always
+- B: When state transitions are complex, next state depends on previous, or multiple sub-values are related
+- C: Only for global state
+- D: Never — `useState` covers everything
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. The official, opinionated toolset for Redux that reduces boilerplate with `createSlice`, `createAsyncThunk`, etc.**
+**B: Complex transitions, previous-state dependency, related sub-values**
 
-RTK uses Immer internally for immutable state updates, allowing you to write "mutating" logic in reducers.
-
-</details>
-
----
-
-#### ❓ What is Zustand?
-
-- [ ] A. A German word for a CSS property
-- [ ] B. A minimal, unopinionated React state management library using a hook-based API
-- [ ] C. A Redux middleware
-- [ ] D. A server state library
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A minimal, unopinionated React state management library using a hook-based API**
-
-Zustand requires much less boilerplate than Redux and supports selective subscriptions to avoid unnecessary re-renders.
-
-</details>
-
----
-
-#### ❓ What is Jotai?
-
-- [ ] A. A Japanese CSS framework
-- [ ] B. An atomic state management library for React where state is split into atoms
-- [ ] C. A Redux alternative with flux architecture
-- [ ] D. A server-side rendering library
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. An atomic state management library for React where state is split into atoms**
-
-Jotai (like Recoil) breaks state into small, composable atoms. Components subscribe only to the atoms they use.
-
-</details>
-
----
-
----
-
-## 🧩 Design Patterns
-
-### 🔹 JavaScript Patterns
-
-#### ❓ What is the Singleton pattern?
-
-- [ ] A. Multiple instances
-- [ ] B. Ensuring a class has only one instance and providing a global access point to it
-- [ ] C. A React hook
-- [ ] D. A CSS pattern
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Ensuring a class has only one instance and providing a global access point to it**
-
-A module-level object in JavaScript is effectively a singleton.
-
-</details>
-
----
-
-#### ❓ What is the Observer pattern?
-
-- [ ] A. Watching DOM changes
-- [ ] B. A pattern where an object maintains a list of subscribers and notifies them of state changes
-- [ ] C. A testing approach
-- [ ] D. A routing strategy
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A pattern where an object maintains a list of subscribers and notifies them of state changes**
-
-Events in the browser and libraries like RxJS are built on the observer/pub-sub pattern.
-
-</details>
-
----
-
-#### ❓ What is the Factory pattern?
-
-- [ ] A. A component for creating forms
-- [ ] B. A function or method that creates objects without exposing the creation logic
-- [ ] C. A CSS class generator
-- [ ] D. A TypeScript pattern only
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A function or method that creates objects without exposing the creation logic**
-
-Factory functions in JavaScript: `const createUser = (name) => ({ name, createdAt: Date.now() })`.
-
-</details>
-
----
-
-### 🔹 React Patterns
-
-#### ❓ What is a Higher-Order Component (HOC)?
-
-- [ ] A. A component with high priority
-- [ ] B. A function that takes a component and returns a new, enhanced component
-- [ ] C. A CSS wrapper
-- [ ] D. A lifecycle method
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A function that takes a component and returns a new, enhanced component**
-
-HOCs were the main code-reuse pattern before hooks. Examples: `withAuth(Component)`, `connect()` from React-Redux.
-
-</details>
-
----
-
-#### ❓ What is the Provider Pattern in React?
-
-- [ ] A. A REST API provider
-- [ ] B. Using a Context Provider to make data available to an entire component tree without prop drilling
-- [ ] C. A way to inject CSS
-- [ ] D. A testing pattern
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Using a Context Provider to make data available to an entire component tree without prop drilling**
-
-`<ThemeProvider>`, `<AuthProvider>`, `<QueryClientProvider>` are all examples of this pattern.
+`useReducer` centralizes state logic into a pure function — making it predictable and easy to test independently of React.
 
 </details>
 
@@ -2603,95 +2314,57 @@ HOCs were the main code-reuse pattern before hooks. Examples: `withAuth(Componen
 
 ## 🏗️ System Design
 
-### 🔹 Architecture
+---
 
-#### ❓ What is a Micro Frontend?
+**98. What is a Micro Frontend?**
 
-- [ ] A. A small UI component
-- [ ] B. Splitting a frontend application into independently deployable, loosely coupled smaller apps
-- [ ] C. Backend API
-- [ ] D. CSS framework
+- A: A small UI component
+- B: Splitting a frontend monolith into independently deployable applications owned by separate teams
+- C: A backend microservice
+- D: A CSS methodology
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Splitting a frontend application into independently deployable, loosely coupled smaller apps**
+**B: Independently deployable frontend applications per team**
 
-Implementation approaches: Module Federation (Webpack 5), iframes, Web Components, or server-side composition.
+Approaches: Webpack Module Federation, iframes, Web Components, server-side composition. Each team ships independently without coordinating a monolith deploy.
 
 </details>
 
 ---
 
-#### ❓ What is the BFF (Backend for Frontend) pattern?
+**99. What is the BFF (Backend for Frontend) pattern?**
 
-- [ ] A. A frontend testing helper
-- [ ] B. A dedicated backend layer tailored for the specific needs of a frontend application, aggregating services
-- [ ] C. A CSS-in-JS pattern
-- [ ] D. A build pipeline pattern
+- A: Frontend testing helper
+- B: A dedicated server layer tailored to one frontend, aggregating and shaping backend service responses
+- C: CSS-in-JS pattern
+- D: Build pipeline optimization
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A dedicated backend layer tailored for the specific needs of a frontend application, aggregating services**
+**B: Dedicated server layer per frontend client**
 
-A BFF avoids exposing multiple microservices directly to the frontend and can tailor responses for the specific client.
+A BFF prevents the frontend from calling many microservices directly. It aggregates, transforms, and caches data optimally for that specific client (web vs. mobile).
 
 </details>
 
 ---
 
-#### ❓ What is CDN and why is it important for frontends?
+**100. What is a CDN and why is it critical for frontends?**
 
-- [ ] A. Content Detection Network — finds broken links
-- [ ] B. Content Delivery Network — distributes static assets from edge servers geographically close to users, reducing latency
-- [ ] C. Central Data Node — stores API responses
-- [ ] D. CSS Distribution Network
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Content Delivery Network — distributes static assets from edge servers geographically close to users, reducing latency**
-
-CDNs serve JS, CSS, images, and fonts faster by reducing the physical distance between server and user.
-
-</details>
-
----
-
-### 🔹 Performance & Caching
-
-#### ❓ What is caching?
-
-- [ ] A. Deleting data
-- [ ] B. Storing data temporarily for faster subsequent access, reducing the need to recompute or re-fetch
-- [ ] C. Encrypting data
-- [ ] D. Logging
+- A: Content Detection Network
+- B: Content Delivery Network — serves static assets from edge servers close to users, reducing latency
+- C: Central Data Node
+- D: CSS Distribution Network
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Storing data temporarily for faster subsequent access, reducing the need to recompute or re-fetch**
+**B: Serves assets from geographically close edge servers**
 
-Caching strategies: Cache-First, Network-First, Stale-While-Revalidate, Cache-Then-Network.
-
-</details>
-
----
-
-#### ❓ What is HTTP caching and what headers control it?
-
-- [ ] A. Caching in JavaScript memory; controlled by `Content-Type`
-- [ ] B. Browser caching of HTTP responses; controlled by `Cache-Control`, `ETag`, and `Last-Modified` headers
-- [ ] C. Service worker caching; controlled by JavaScript only
-- [ ] D. A CDN-only feature
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Browser caching of HTTP responses; controlled by `Cache-Control`, `ETag`, and `Last-Modified` headers**
-
-`Cache-Control: max-age=31536000, immutable` for versioned assets. `Cache-Control: no-cache` for HTML to always validate.
+JS, CSS, images, and fonts served from a CDN have significantly lower latency. Long-term caching of hashed assets (`Cache-Control: max-age=31536000, immutable`) maximizes CDN efficiency.
 
 </details>
 
@@ -2701,93 +2374,93 @@ Caching strategies: Cache-First, Network-First, Stale-While-Revalidate, Cache-Th
 
 ## 🔐 Security
 
-### 🔹 Web Security
+---
 
-#### ❓ What is XSS (Cross-Site Scripting)?
+**101. What is XSS (Cross-Site Scripting)?**
 
-- [ ] A. A CSS preprocessor attack
-- [ ] B. An attack where malicious scripts are injected into web pages viewed by other users
-- [ ] C. A server-side rendering vulnerability
-- [ ] D. A network interception attack
+- A: A CSS preprocessor vulnerability
+- B: An attack injecting malicious scripts into pages viewed by other users
+- C: A server-side rendering vulnerability
+- D: A network interception attack
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. An attack where malicious scripts are injected into web pages viewed by other users**
+**B: Injecting malicious scripts into pages**
 
-Prevention: sanitize user input, use `textContent` instead of `innerHTML`, set a Content Security Policy (CSP).
+Prevention: sanitize user input, use `textContent` instead of `innerHTML`, avoid `dangerouslySetInnerHTML` with untrusted data, set a strict Content Security Policy (CSP).
 
 </details>
 
 ---
 
-#### ❓ What is CSRF (Cross-Site Request Forgery)?
+**102. What is CSRF (Cross-Site Request Forgery)?**
 
-- [ ] A. A JavaScript injection attack
-- [ ] B. An attack that tricks an authenticated user's browser into making unintended requests to another site
-- [ ] C. A CSS injection attack
-- [ ] D. A DNS attack
+- A: JavaScript injection
+- B: Tricking an authenticated user's browser into making unintended requests to another site
+- C: CSS injection
+- D: DNS hijacking
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. An attack that tricks an authenticated user's browser into making unintended requests to another site**
+**B: Tricking an authenticated browser into unintended requests**
 
-Prevention: CSRF tokens, `SameSite` cookie attribute, checking `Origin`/`Referer` headers.
+Prevention: CSRF tokens in forms, `SameSite=Strict` or `SameSite=Lax` cookie attribute, validating `Origin`/`Referer` headers on the server.
 
 </details>
 
 ---
 
-#### ❓ What is Content Security Policy (CSP)?
+**103. What do `HttpOnly` and `Secure` cookie flags do?**
 
-- [ ] A. A policy for API rate limiting
-- [ ] B. An HTTP header that restricts which sources of content (scripts, styles, images) the browser can load
-- [ ] C. A user authentication policy
-- [ ] D. A CORS configuration
+- A: Set cookie expiry
+- B: `HttpOnly` prevents JS access; `Secure` restricts cookie to HTTPS only
+- C: Both encrypt the cookie value
+- D: Both set cookie lifetime
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. An HTTP header that restricts which sources of content (scripts, styles, images) the browser can load**
+**B: `HttpOnly` = no JS access; `Secure` = HTTPS only**
 
-CSP mitigates XSS by preventing execution of scripts from unauthorized sources.
+`HttpOnly` mitigates XSS token theft. `Secure` prevents sending the cookie over unencrypted HTTP. Always use both for auth session cookies.
 
 </details>
 
 ---
 
-#### ❓ What is the difference between `localStorage` and `sessionStorage`?
+**104. Why should auth tokens NOT be stored in `localStorage`?**
 
-- [ ] A. No difference
-- [ ] B. `localStorage` persists data with no expiry across sessions; `sessionStorage` is cleared when the tab is closed
-- [ ] C. `sessionStorage` persists forever; `localStorage` clears on session end
-- [ ] D. Both are cleared on page refresh
+- A: `localStorage` is too slow
+- B: `localStorage` is readable by any JS on the page — XSS can steal tokens trivially
+- C: `localStorage` only holds strings
+- D: `localStorage` is cleared on page refresh
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. `localStorage` persists data with no expiry across sessions; `sessionStorage` is cleared when the tab is closed**
+**B: Any JS on the page can read `localStorage` — XSS steals tokens**
 
-Neither should be used to store sensitive data like auth tokens; prefer `httpOnly` cookies for security.
+Prefer `HttpOnly` cookies. The browser manages them and JS cannot read them even during an XSS attack.
 
 </details>
 
 ---
 
-#### ❓ What are `httpOnly` and `Secure` cookie flags?
+**105. What is Content Security Policy (CSP)?**
 
-- [ ] A. CSS flags for cookie UI
-- [ ] B. `httpOnly` prevents JavaScript access to the cookie; `Secure` ensures it's only sent over HTTPS
-- [ ] C. Both encrypt the cookie
-- [ ] D. Both set cookie expiry
+- A: API rate limiting policy
+- B: An HTTP header restricting which sources of scripts, styles, and media the browser can load
+- C: User authentication policy
+- D: A CORS header
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. `httpOnly` prevents JavaScript access to the cookie; `Secure` ensures it's only sent over HTTPS**
+**B: HTTP header restricting which content sources are allowed**
 
-`httpOnly` mitigates XSS token theft. `Secure` prevents transmission over unencrypted connections.
+CSP mitigates XSS by blocking execution of scripts from unauthorized sources. A strict CSP disallows inline scripts and `eval()`.
 
 </details>
 
@@ -2797,57 +2470,57 @@ Neither should be used to store sensitive data like auth tokens; prefer `httpOnl
 
 ## 📦 Build Tools & Bundlers
 
-### 🔹 Vite & Webpack
+---
 
-#### ❓ What is Vite?
+**106. What is Vite and why is it fast in development?**
 
-- [ ] A. A CSS preprocessor
-- [ ] B. A fast frontend build tool that uses native ES modules during development and Rollup for production builds
-- [ ] C. A testing framework
-- [ ] D. A backend framework
+- A: CSS preprocessor
+- B: A build tool using native ES modules in dev (no bundling) and Rollup for production
+- C: Testing framework
+- D: Backend framework
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A fast frontend build tool that uses native ES modules during development and Rollup for production builds**
+**B: Native ES modules in dev; Rollup for production**
 
-Vite serves source files via native ESM in development, avoiding full rebundling and making HMR near-instant.
+Because browsers natively understand ESM, Vite skips bundling during development. Only changed modules are served — HMR is near-instant regardless of project size.
 
 </details>
 
 ---
 
-#### ❓ What is Hot Module Replacement (HMR)?
+**107. What is Hot Module Replacement (HMR)?**
 
-- [ ] A. Replacing server modules at runtime
-- [ ] B. Updating changed modules in the browser without a full page reload, preserving application state
-- [ ] C. A webpack plugin for CSS
-- [ ] D. A React optimization
+- A: Server module replacement
+- B: Updating changed modules in the browser without a full reload, preserving application state
+- C: A Webpack CSS plugin
+- D: A React optimization
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Updating changed modules in the browser without a full page reload, preserving application state**
+**B: In-place module updates without full reload, preserving state**
 
-HMR dramatically improves the developer experience by making changes appear instantly without losing component state.
+Change a component's style → it updates instantly without losing the current form state or navigation position.
 
 </details>
 
 ---
 
-#### ❓ What is the purpose of a `.env` file in a frontend project?
+**108. What is the purpose of a `.env` file?**
 
-- [ ] A. Configuring environment variables that can be injected into the build
-- [ ] B. Storing user passwords
-- [ ] C. Defining CSS environment settings
-- [ ] D. Configuring the Node.js server
+- A: Storing environment variables injected into the build
+- B: Storing user passwords
+- C: Defining CSS settings
+- D: Configuring the Node.js server
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**A. Configuring environment variables that can be injected into the build**
+**A: Storing environment variables injected at build time**
 
-Variables prefixed with `VITE_` (Vite) or `REACT_APP_` (CRA) are exposed to the client bundle. Never store secrets in client-side env vars.
+Vite exposes `VITE_`-prefixed vars; CRA exposes `REACT_APP_`-prefixed vars to the client bundle. **Never** store secrets in client-side env vars — they are visible in the bundle.
 
 </details>
 
@@ -2855,151 +2528,191 @@ Variables prefixed with `VITE_` (Vite) or `REACT_APP_` (CRA) are exposed to the 
 
 ---
 
-## 🌐 Web Fundamentals
+## 🌐 Web Fundamentals & Browser
 
-### 🔹 Browser & DOM
+---
 
-#### ❓ What is the Critical Rendering Path?
+**109. What is the Critical Rendering Path?**
 
-- [ ] A. The network path to the server
-- [ ] B. The sequence of steps the browser takes from receiving HTML to displaying pixels: HTML → DOM → CSSOM → Render Tree → Layout → Paint
-- [ ] C. A React rendering concept
-- [ ] D. A CSS loading order
+- A: Network path to the server
+- B: Steps from HTML bytes to pixels: HTML → DOM → CSSOM → Render Tree → Layout → Paint
+- C: A React rendering concept
+- D: CSS loading order
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. The sequence of steps the browser takes from receiving HTML to displaying pixels: HTML → DOM → CSSOM → Render Tree → Layout → Paint**
+**B: HTML → DOM → CSSOM → Render Tree → Layout → Paint**
 
-Optimizing the critical rendering path reduces time-to-first-paint and improves perceived performance.
+Optimizing the CRP reduces time-to-first-paint. Render-blocking resources (synchronous `<script>`, unloaded fonts, critical CSS) delay this sequence.
 
 </details>
 
 ---
 
-#### ❓ What is event bubbling?
+**110. What is the difference between `defer` and `async` on `<script>`?**
 
-- [ ] A. Creating multiple events at once
-- [ ] B. An event propagating from the target element up through its ancestors in the DOM
-- [ ] C. An event traveling from the root down to the target
-- [ ] D. An async event queue
+- A: No difference
+- B: `async` fetches and executes immediately when ready; `defer` executes in document order after HTML parsing
+- C: `defer` executes immediately; `async` waits for DOM
+- D: Both block HTML parsing
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. An event propagating from the target element up through its ancestors in the DOM**
+**B: `async` = download+execute immediately; `defer` = execute in order after parsing**
 
-`event.stopPropagation()` prevents bubbling. Event delegation relies on bubbling to handle events from children on a parent.
+Use `defer` for scripts that depend on the DOM or each other. Use `async` for independent scripts (analytics). Without either, scripts block HTML parsing.
 
 </details>
 
 ---
 
-#### ❓ What is event delegation?
+**111. What is event delegation?**
 
-- [ ] A. Assigning multiple event listeners to one element
-- [ ] B. Attaching a single event listener to a parent element to handle events from its children using bubbling
-- [ ] C. Preventing event propagation
-- [ ] D. A React-specific event pattern
+- A: Multiple listeners on one element
+- B: One listener on a parent handling events from children via bubbling
+- C: Preventing event propagation
+- D: A React-specific pattern
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Attaching a single event listener to a parent element to handle events from its children using bubbling**
+**B: One parent listener handles events from children via bubbling**
 
-React itself uses event delegation by attaching a single listener to the root element.
+More efficient than attaching individual listeners to each child. React itself uses event delegation — all synthetic events are attached to the root container.
 
 </details>
 
 ---
 
-#### ❓ What is the difference between `defer` and `async` on a `<script>` tag?
+**112. What are WebSockets?**
 
-- [ ] A. No difference
-- [ ] B. `async` downloads and executes immediately when ready; `defer` executes in order after HTML parsing completes
-- [ ] C. `defer` executes immediately; `async` waits for DOM
-- [ ] D. Both block HTML parsing
+- A: CSS layout feature
+- B: A protocol providing full-duplex, persistent communication between client and server
+- C: A REST API pattern
+- D: A Service Worker API
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. `async` downloads and executes immediately when ready; `defer` executes in order after HTML parsing completes**
+**B: Full-duplex, persistent client-server communication**
 
-Use `defer` for scripts that depend on the DOM or each other. Use `async` for independent scripts like analytics.
+Unlike HTTP (request/response only), WebSockets allow the server to push data at any time. Ideal for chat, live scores, and collaborative editing.
 
 </details>
 
 ---
 
-#### ❓ What is `requestAnimationFrame` (rAF)?
+**113. What is `requestAnimationFrame` (rAF)?**
 
-- [ ] A. A Promise for animations
-- [ ] B. A browser API that schedules a callback before the next repaint, synchronized with the display refresh rate
-- [ ] C. A CSS animation trigger
-- [ ] D. A React animation hook
+- A: A Promise for animations
+- B: Schedules a callback before the next repaint, synced to the display refresh rate
+- C: A CSS animation trigger
+- D: A React animation hook
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A browser API that schedules a callback before the next repaint, synchronized with the display refresh rate**
+**B: Schedules a callback before the next repaint, synced to refresh rate**
 
-Use `rAF` for smooth JavaScript animations instead of `setTimeout`/`setInterval`.
+Prefer over `setTimeout(fn, 16)` for animations — rAF automatically syncs to the monitor's refresh rate and pauses when the tab is hidden, saving battery.
 
 </details>
 
 ---
 
-#### ❓ What is the Web Vitals API?
+**114. What does `preconnect` do as a resource hint?**
 
-- [ ] A. A framework for building health apps
-- [ ] B. A browser API (or library) for measuring real-user Core Web Vitals metrics like LCP, CLS, and INP
-- [ ] C. A Node.js performance tool
-- [ ] D. A Lighthouse plugin
+- A: Prefetches a resource file
+- B: Establishes a connection (DNS, TCP, TLS) to an origin early to reduce latency
+- C: Preloads a specific file into the cache
+- D: Permanently caches a resource
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A browser API (or library) for measuring real-user Core Web Vitals metrics like LCP, CLS, and INP**
+**B: Early connection establishment — DNS + TCP + TLS**
 
-Google's `web-vitals` npm package provides a simple interface to measure and report these metrics.
+`<link rel="preconnect" href="https://fonts.googleapis.com">` reduces font loading time by completing the handshake before the font request is made.
 
 </details>
 
 ---
 
-### 🔹 HTTP & Protocols
+---
 
-#### ❓ What is HTTP/2 and its main advantages over HTTP/1.1?
+## 🐙 Git & Workflow
 
-- [ ] A. A newer version of HTML
-- [ ] B. A binary protocol supporting multiplexing, server push, and header compression — reducing latency
-- [ ] C. A replacement for HTTPS
-- [ ] D. A WebSocket alternative
+---
+
+**115. What is the difference between `git merge` and `git rebase`?**
+
+- A: No difference
+- B: `merge` creates a merge commit preserving history; `rebase` rewrites commits for a linear history
+- C: `rebase` is only for remote branches
+- D: `merge` deletes the source branch
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A binary protocol supporting multiplexing, server push, and header compression — reducing latency**
+**B: `merge` preserves history; `rebase` rewrites for linear history**
 
-HTTP/2 allows multiple requests on a single connection (no head-of-line blocking), eliminating the need for domain sharding and request bundling workarounds.
+Golden rule: **never rebase public/shared branches** — it rewrites commit hashes and breaks other collaborators' clones. Rebase is safe for local feature branches before merging.
 
 </details>
 
 ---
 
-#### ❓ What are WebSockets?
+**116. What does `git cherry-pick` do?**
 
-- [ ] A. A CSS layout feature
-- [ ] B. A protocol providing full-duplex, persistent communication channels between client and server
-- [ ] C. A REST API pattern
-- [ ] D. A service worker feature
+- A: Selecting files to commit
+- B: Applying a specific commit from one branch onto the current branch
+- C: Stashing uncommitted changes
+- D: Deleting a remote branch
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. A protocol providing full-duplex, persistent communication channels between client and server**
+**B: Applying a specific commit to the current branch**
 
-Ideal for real-time features like chat, live feeds, and collaborative editing where the server needs to push updates.
+`git cherry-pick <hash>` is useful for backporting a bug fix from `main` to a release branch without merging everything else.
+
+</details>
+
+---
+
+**117. What does `git stash` do?**
+
+- A: Permanently deletes uncommitted changes
+- B: Temporarily shelves uncommitted changes so you can switch branches, then restore them later
+- C: Stages all changes for commit
+- D: Creates a new branch
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: Temporarily shelves uncommitted changes**
+
+`git stash` = save. `git stash pop` = restore. `git stash list` = see all stashes. Useful when you need to urgently switch context mid-work.
+
+</details>
+
+---
+
+**118. What is the difference between `git fetch` and `git pull`?**
+
+- A: No difference
+- B: `fetch` downloads remote changes without merging; `pull` fetches and immediately merges into the current branch
+- C: `pull` only downloads; `fetch` merges
+- D: `fetch` only works with GitHub
+
+<details>
+<summary><b>Answer</b></summary>
+
+**B: `fetch` downloads; `pull` fetches + merges**
+
+`git fetch` is safer — it lets you inspect incoming changes before integrating them. `git pull` = `git fetch` + `git merge` (or `git fetch` + `git rebase` with `--rebase`).
 
 </details>
 
@@ -3009,200 +2722,96 @@ Ideal for real-time features like chat, live feeds, and collaborative editing wh
 
 ## 🤖 Next.js & SSR
 
-### 🔹 Rendering Strategies
+---
 
-#### ❓ What is Server-Side Rendering (SSR)?
+**119. What is the difference between SSR and SSG?**
 
-- [ ] A. Rendering components only on the client
-- [ ] B. Generating HTML on the server for each request and sending it to the client
-- [ ] C. Pre-rendering at build time
-- [ ] D. Rendering in a web worker
+- A: No difference
+- B: SSR generates HTML per request; SSG generates HTML at build time
+- C: SSG generates per request; SSR generates at build
+- D: SSR is client-side only
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Generating HTML on the server for each request and sending it to the client**
+**B: SSR = per-request; SSG = build-time**
 
-SSR provides fast initial page loads and good SEO. The trade-off is server processing per request.
+SSG is served from CDN (fastest, no server cost). SSR provides per-request fresh data (personalization, auth-gated content). ISR combines both.
 
 </details>
 
 ---
 
-#### ❓ What is Static Site Generation (SSG)?
+**120. What is Incremental Static Regeneration (ISR)?**
 
-- [ ] A. Rendering on every request
-- [ ] B. Pre-rendering pages at build time into static HTML files
-- [ ] C. Rendering only on the client
-- [ ] D. Streaming HTML from the server
+- A: Rebuilds entire site on every change
+- B: Regenerates specific static pages in the background after a revalidation period — no full rebuild
+- C: Client-side rendering with caching
+- D: Progressive image loading
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Pre-rendering pages at build time into static HTML files**
+**B: Background regeneration per page, per revalidation period**
 
-SSG is the fastest delivery method (files can be served from CDN), best for pages that don't change per user/request.
+ISR = CDN performance of SSG + freshness of SSR. The `revalidate` option in `getStaticProps` (Pages Router) or `fetch` options (App Router) controls the revalidation interval.
 
 </details>
 
 ---
 
-#### ❓ What is Incremental Static Regeneration (ISR) in Next.js?
+**121. What is hydration in SSR?**
 
-- [ ] A. Rebuilding the entire site on every change
-- [ ] B. Regenerating specific static pages in the background after a revalidation period without a full rebuild
-- [ ] C. Client-side rendering with caching
-- [ ] D. A progressive image loading technique
+- A: Downloading CSS files
+- B: React attaching event listeners to server-rendered HTML to make it interactive
+- C: Converting JSON to HTML
+- D: A caching mechanism
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Regenerating specific static pages in the background after a revalidation period without a full rebuild**
+**B: React attaching event listeners to server-rendered HTML**
 
-ISR provides the performance of static pages with the freshness of SSR using `revalidate` in `getStaticProps`.
+The server sends pre-rendered HTML (fast first paint). React then runs on the client to "hydrate" — attaching all event handlers. Hydration mismatches happen when server and client render differently.
 
 </details>
 
 ---
 
-#### ❓ What are React Server Components (RSC)?
+**122. What is the difference between Server and Client Components in Next.js App Router?**
 
-- [ ] A. Components that only work in Node.js
-- [ ] B. Components that render exclusively on the server, can directly access backend resources, and send no JavaScript to the client
-- [ ] C. SSR components that hydrate on the client
-- [ ] D. A React Native feature
+- A: Server components can use hooks; client components cannot
+- B: Server components render on server with zero client JS; client components run in browser with hooks/events/state
+- C: They are identical
+- D: Client components cannot use CSS
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. Components that render exclusively on the server, can directly access backend resources, and send no JavaScript to the client**
+**B: Server = server-only, no JS shipped; Client = browser with full React**
 
-RSCs reduce client bundle size significantly. They cannot use hooks or browser APIs. Client components opt-in with `"use client"`.
+All components in the App Router are Server Components by default. Add `"use client"` to opt into a Client Component. The skill is in mixing them correctly for optimal performance.
 
 </details>
 
 ---
 
-#### ❓ What is hydration in SSR?
+**123. What is a Service Worker?**
 
-- [ ] A. Downloading CSS files
-- [ ] B. The process where React attaches event listeners to server-rendered HTML to make it interactive
-- [ ] C. Converting JSON to HTML
-- [ ] D. A caching mechanism
+- A: A JavaScript file running on the server
+- B: A script running in a background browser thread, intercepting network requests and enabling offline functionality
+- C: A Web Worker for CSS
+- D: A React background task hook
 
 <details>
-<summary>✅ Answer</summary>
+<summary><b>Answer</b></summary>
 
-**B. The process where React attaches event listeners to server-rendered HTML to make it interactive**
+**B: Background browser thread intercepting network requests**
 
-Hydration mismatch errors occur when the server-rendered HTML differs from what React would render on the client.
+Service workers power PWA features: offline mode (cache-first strategy), push notifications, and background sync. They run outside the main thread and persist even when the page is closed.
 
 </details>
 
 ---
 
----
-
-## 📱 PWA & Mobile
-
-### 🔹 Progressive Web Apps
-
-#### ❓ What is a Service Worker?
-
-- [ ] A. A JavaScript file that runs on the server
-- [ ] B. A script that runs in the background in a separate browser thread, intercepting network requests and enabling offline functionality
-- [ ] C. A web worker for CSS
-- [ ] D. A React hook for background tasks
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A script that runs in the background in a separate browser thread, intercepting network requests and enabling offline functionality**
-
-Service workers power PWA features: offline mode, push notifications, and background sync.
-
-</details>
-
----
-
-#### ❓ What is a Web App Manifest?
-
-- [ ] A. A package.json for web apps
-- [ ] B. A JSON file that defines how a PWA appears and behaves when installed (name, icons, start URL, display mode)
-- [ ] C. A service worker configuration file
-- [ ] D. A sitemap format
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. A JSON file that defines how a PWA appears and behaves when installed (name, icons, start URL, display mode)**
-
-Linked via `<link rel="manifest" href="/manifest.json">`, it enables "Add to Home Screen" installation prompts.
-
-</details>
-
----
-
----
-
-## 🐙 Git & Version Control
-
-### 🔹 Git Workflows
-
-#### ❓ What is the difference between `git merge` and `git rebase`?
-
-- [ ] A. No difference
-- [ ] B. `merge` combines branches with a merge commit preserving history; `rebase` rewrites commits for a linear history
-- [ ] C. `rebase` is only for remote branches
-- [ ] D. `merge` deletes the source branch
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. `merge` combines branches with a merge commit preserving history; `rebase` rewrites commits for a linear history**
-
-Use `rebase` for local cleanup; avoid rebasing shared branches as it rewrites commit history.
-
-</details>
-
----
-
-#### ❓ What is a Git cherry-pick?
-
-- [ ] A. Selecting which files to add to a commit
-- [ ] B. Applying a specific commit from one branch onto another
-- [ ] C. Stashing uncommitted changes
-- [ ] D. Deleting a remote branch
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Applying a specific commit from one branch onto another**
-
-`git cherry-pick <commit-hash>` is useful for applying bug fixes to multiple release branches.
-
-</details>
-
----
-
-#### ❓ What does `git stash` do?
-
-- [ ] A. Permanently deletes uncommitted changes
-- [ ] B. Temporarily shelves changes so you can switch branches, then restore them later
-- [ ] C. Stages all changes
-- [ ] D. Creates a new branch
-
-<details>
-<summary>✅ Answer</summary>
-
-**B. Temporarily shelves changes so you can switch branches, then restore them later**
-
-`git stash pop` restores the most recently stashed changes.
-
-</details>
-
----
-
----
-
-*This reference covers 100+ questions across 17 categories. Good luck with your interview! 🚀*
+*123 questions across 15 categories. Bookmark this, review it before interviews, and keep updating it as you learn! 🚀*

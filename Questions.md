@@ -1903,6 +1903,172 @@ Useful for semantic wrapper elements (like `<article>` or `<li>`) in a Flexbox/G
 
 ---
 
+## 🧩 shadcn/ui
+
+### ❓ What is shadcn/ui?
+
+- [ ] A. A component library installed via npm  
+- [ ] B. A CLI that copies prebuilt components into your project  
+- [ ] C. A CSS framework  
+- [ ] D. A state management tool  
+
+<details>
+<summary>✅ Answer</summary>
+
+**B. A CLI that copies prebuilt components into your project**
+
+</details>
+
+---
+
+### ❓ What styling approach does shadcn/ui use?
+
+- [ ] A. Styled-components  
+- [ ] B. CSS Modules  
+- [ ] C. Tailwind CSS  
+- [ ] D. Inline styles only  
+
+<details>
+<summary>✅ Answer</summary>
+
+**C. Tailwind CSS**
+
+</details>
+
+---
+
+### ❓ What is the main advantage of shadcn/ui?
+
+- [ ] A. It reduces bundle size automatically  
+- [ ] B. You fully own and customize the component code  
+- [ ] C. It replaces React  
+- [ ] D. It provides backend APIs  
+
+<details>
+<summary>✅ Answer</summary>
+
+**B. You fully own and customize the component code**
+
+</details>
+
+---
+
+### ❓ How are components added in shadcn/ui?
+
+- [ ] A. Installed from npm  
+- [ ] B. Imported from CDN  
+- [ ] C. Generated and copied into your project  
+- [ ] D. Loaded dynamically  
+
+<details>
+<summary>✅ Answer</summary>
+
+**C. Generated and copied into your project**
+
+</details>
+
+---
+
+### ❓ What is the relationship between shadcn/ui and Radix UI?
+
+- [ ] A. They are competitors  
+- [ ] B. shadcn/ui uses Radix UI primitives internally  
+- [ ] C. Radix UI depends on shadcn/ui  
+- [ ] D. They are unrelated  
+
+<details>
+<summary>✅ Answer</summary>
+
+**B. shadcn/ui uses Radix UI primitives internally**
+
+</details>
+
+---
+
+## 🧠 Radix UI
+
+### ❓ What is Radix UI?
+
+- [ ] A. A CSS framework  
+- [ ] B. A headless UI component library  
+- [ ] C. A state management library  
+- [ ] D. A backend framework  
+
+<details>
+<summary>✅ Answer</summary>
+
+**B. A headless UI component library**
+
+</details>
+
+---
+
+### ❓ What does "headless" mean in Radix UI?
+
+- [ ] A. No JavaScript  
+- [ ] B. No styling included  
+- [ ] C. No components  
+- [ ] D. No DOM  
+
+<details>
+<summary>✅ Answer</summary>
+
+**B. No styling included**
+
+</details>
+
+---
+
+### ❓ What is the main benefit of Radix UI?
+
+- [ ] A. Built-in themes  
+- [ ] B. Fully styled components  
+- [ ] C. Accessibility and behavior without styling constraints  
+- [ ] D. Faster build times  
+
+<details>
+<summary>✅ Answer</summary>
+
+**C. Accessibility and behavior without styling constraints**
+
+</details>
+
+---
+
+### ❓ Which feature does Radix UI strongly focus on?
+
+- [ ] A. Animations  
+- [ ] B. Accessibility (ARIA, keyboard navigation)  
+- [ ] C. SEO  
+- [ ] D. Backend integration  
+
+<details>
+<summary>✅ Answer</summary>
+
+**B. Accessibility (ARIA, keyboard navigation)**
+
+</details>
+
+---
+
+### ❓ When would you choose Radix UI over a full UI library?
+
+- [ ] A. When you want ready-made design  
+- [ ] B. When you want full control over styling and behavior  
+- [ ] C. When you don’t use React  
+- [ ] D. When you need backend APIs  
+
+<details>
+<summary>✅ Answer</summary>
+
+**B. When you want full control over styling and behavior**
+
+</details>
+
+---
+
+---
+
 ## 🚀 Performance & Web Vitals
 
 ---

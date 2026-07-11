@@ -56,7 +56,7 @@ If `flex-direction: row` (the default), the main axis is horizontal and the cros
 
 This is why "why isn't `justify-content: center` centering it vertically" is almost always an axis confusion — the fix is either switching axes mentally, or setting `flex-direction: column`.
 
-![Main axis vs cross axis for row and column direction](assets/axes.svg)
+![Main axis vs cross axis for row and column direction](CSS/Layout/Flex/assets/axes.svg)
 
 ---
 
@@ -88,7 +88,7 @@ justify-content: space-evenly;  /* truly equal gaps everywhere, including edges 
 
 `space-between` vs `space-around` vs `space-evenly` is a classic interview question — the difference is entirely about what happens at the two outer edges.
 
-![All justify-content values compared](assets/justify-content.svg)
+![All justify-content values compared](CSS/Layout/Flex/assets/justify-content.svg)
 
 ### `align-items`
 
@@ -104,7 +104,7 @@ align-items: baseline;   /* items aligned by their text baseline */
 
 Note the default is `stretch`, not `flex-start` — this is why flex children often end up full-height even though you never set a height on them.
 
-![All align-items values compared](assets/align-items.svg)
+![All align-items values compared](CSS/Layout/Flex/assets/align-items.svg)
 
 ### `align-content`
 
@@ -158,7 +158,7 @@ How much of the *leftover* space an item claims, relative to its siblings. Defau
 
 If item A has `flex-grow: 2` and item B has `flex-grow: 1`, and there's 30px of leftover space, A gets 20px and B gets 10px — it's a ratio, not an absolute value.
 
-![flex-grow ratio example: 1, 2, 1](assets/flex-grow.svg)
+![flex-grow ratio example: 1, 2, 1](CSS/Layout/Flex/assets/flex-grow.svg)
 
 ### `flex-shrink`
 

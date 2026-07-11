@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flexbox: fixed sidebar + fluid content</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; padding: 40px; background: #fafafa; }
+  h1 { font-size: 16px; color: #333; }
+
+  .container {
+    display: flex;
+    height: 240px;
+    gap: 16px;
+  }
+  .sidebar {
+    flex: 0 0 200px;
+    background: #faece7;
+    border: 1px solid #f0997b;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 13px;
+    color: #4a1b0c;
+  }
+  .content {
+    flex: 1;
+    background: #eeedfe;
+    border: 1px solid #cecbf6;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 13px;
+    color: #26215c;
+  }
+</style>
+</head>
+<body>
+  <h1>.sidebar { flex: 0 0 200px; }  .content { flex: 1; }</h1>
+  <div class="container">
+    <div class="sidebar">Fixed 200px sidebar — never grows, never shrinks</div>
+    <div class="content">Content fills whatever space is left, and reflows as the window resizes</div>
+  </div>
+</body>
+</html>

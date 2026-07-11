@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flexbox: sticky footer</title>
+<style>
+  html, body { height: 100%; margin: 0; font-family: system-ui, sans-serif; }
+  .page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+  header, footer {
+    background: #eeedfe;
+    padding: 16px 24px;
+    font-size: 13px;
+    color: #26215c;
+  }
+  .main {
+    flex: 1;
+    padding: 24px;
+    font-size: 13px;
+    color: #333;
+  }
+  footer {
+    background: #e1f5ee;
+    color: #04342c;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>Header</header>
+    <div class="main">Short page content. Resize the window shorter and taller — the footer always stays pinned to the bottom because .main has flex: 1 and consumes all leftover vertical space.</div>
+    <footer>Footer — always pinned to the bottom, even on short pages</footer>
+  </div>
+</body>
+</html>

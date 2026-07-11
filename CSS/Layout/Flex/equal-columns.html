@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flexbox: equal-width columns</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; padding: 40px; background: #fafafa; }
+  h1 { font-size: 16px; color: #333; }
+
+  .container {
+    display: flex;
+    gap: 16px;
+  }
+  .column {
+    flex: 1;
+    background: #e1f5ee;
+    border: 1px solid #9fe1cb;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 13px;
+    color: #04342c;
+  }
+</style>
+</head>
+<body>
+  <h1>display: flex; gap: 16px; — each column: flex: 1;</h1>
+  <div class="container">
+    <div class="column">Short content</div>
+    <div class="column">A column with quite a bit more text in it, but it still stays exactly the same width as its siblings.</div>
+    <div class="column">Medium length content here</div>
+  </div>
+</body>
+</html>

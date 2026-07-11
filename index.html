@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frontend Bookmarks</title>
+    <title>Frontend Learning Hub</title>
     <style>
         * {
             margin: 0;
@@ -13,148 +13,513 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f5f5f5;
-            padding: 20px;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 20px;
         }
-        h1 {
+        
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.5em;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .subtitle {
+        .hero .subtitle {
+            font-size: 1.3em;
             color: #7f8c8d;
             margin-bottom: 30px;
         }
-        .section {
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav-tab {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #2c3e50;
+            transition: all 0.3s;
+        }
+        .nav-tab:hover {
             background: white;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        .section h2 {
-            color: #34495e;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+        .nav-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
-        .links {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        
+        /* Learning Paths */
+        .learning-path {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .learning-path h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
             gap: 15px;
         }
-        .link-card {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 6px;
-            padding: 15px;
-            transition: all 0.2s;
+        .learning-path .path-icon {
+            font-size: 1.5em;
         }
-        .link-card:hover {
+        .learning-path .path-description {
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
             background: #e9ecef;
-            transform: translateY(-2px);
+            border-radius: 10px;
+            height: 8px;
+            margin-bottom: 25px;
+            overflow: hidden;
         }
-        .link-card a {
-            color: #3498db;
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+        
+        /* Course Grid */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .course-card {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .course-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        .course-card a {
+            color: #2c3e50;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
         }
-        .link-card a:hover {
-            text-decoration: underline;
+        .course-card a:hover {
+            color: #667eea;
         }
-        .link-card .description {
+        .course-card .description {
             color: #6c757d;
-            font-size: 0.9em;
-            margin-top: 5px;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        .course-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
         .badge {
             display: inline-block;
-            background: #3498db;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        .badge-beginner {
+            background: #d4edda;
+            color: #155724;
+        }
+        .badge-intermediate {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .badge-advanced {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .badge-live {
+            background: #667eea;
             color: white;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            margin-left: 8px;
+        }
+        .badge-docs {
+            background: #17a2b8;
+            color: white;
+        }
+        .badge-practice {
+            background: #28a745;
+            color: white;
+        }
+        
+        /* Difficulty Section */
+        .difficulty-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .difficulty-section h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        /* Quick Start */
+        .quick-start {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+        }
+        .quick-start h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .quick-start p {
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .quick-start-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+        .quick-start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .hero-stats {
+                gap: 20px;
+            }
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Frontend Bookmarks</h1>
-        <p class="subtitle">Personal reference collection for frontend development & interview prep</p>
-
-        <div class="section">
-            <h2>CSS Flexbox Examples</h2>
-            <div class="links">
-                <div class="link-card">
-                    <a href="CSS/Layout/Flex/center.html">Center Anything <span class="badge">Live</span></a>
-                    <div class="description">Center content both horizontally and vertically</div>
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>🚀 Frontend Learning Hub</h1>
+            <p class="subtitle">Master modern frontend development with interactive examples, interview prep, and comprehensive resources</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">6+</div>
+                    <div class="stat-label">Live Examples</div>
                 </div>
-                <div class="link-card">
-                    <a href="CSS/Layout/Flex/equal-columns.html">Equal Columns <span class="badge">Live</span></a>
-                    <div class="description">Create equal-width columns regardless of content</div>
+                <div class="stat">
+                    <div class="stat-number">9+</div>
+                    <div class="stat-label">Interview Topics</div>
                 </div>
-                <div class="link-card">
-                    <a href="CSS/Layout/Flex/sidebar-layout.html">Sidebar Layout <span class="badge">Live</span></a>
-                    <div class="description">Fixed sidebar with flexible content area</div>
+                <div class="stat">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Questions</div>
                 </div>
-                <div class="link-card">
-                    <a href="CSS/Layout/Flex/sticky-footer.html">Sticky Footer <span class="badge">Live</span></a>
-                    <div class="description">Footer pinned to bottom on short pages</div>
-                </div>
-                <div class="link-card">
-                    <a href="CSS/Layout/Flex/navbar.html">Navbar <span class="badge">Live</span></a>
-                    <div class="description">Logo left, links right navigation</div>
-                </div>
-                <div class="link-card">
-                    <a href="CSS/Layout/Flex/responsive-wrap-cards.html">Responsive Cards <span class="badge">Live</span></a>
-                    <div class="description">Cards that wrap responsively based on width</div>
-                </div>
-                <div class="link-card">
-                    <a href="CSS/Layout/Flex/css-flexbox-reference.md">Flexbox Reference <span class="badge">Docs</span></a>
-                    <div class="description">Complete flexbox reference with interview Q&A</div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Learning</div>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2>Documentation</h2>
-            <div class="links">
-                <div class="link-card">
-                    <a href="README.md">README</a>
-                    <div class="description">Project overview and documentation</div>
+        <!-- Quick Start -->
+        <div class="quick-start">
+            <h2>🎯 Quick Start Guide</h2>
+            <p>New to frontend development? Start with CSS Flexbox fundamentals and work your way through interactive examples.</p>
+            <a href="#css-flexbox" class="quick-start-btn">Start Learning →</a>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-tabs">
+            <button class="nav-tab active">All Topics</button>
+            <button class="nav-tab">CSS</button>
+            <button class="nav-tab">JavaScript</button>
+            <button class="nav-tab">React</button>
+            <button class="nav-tab">Interview Prep</button>
+        </div>
+
+        <!-- CSS Flexbox Learning Path -->
+        <div class="learning-path" id="css-flexbox">
+            <h2><span class="path-icon">🎨</span> CSS Flexbox Mastery</h2>
+            <p class="path-description">Master the fundamentals of CSS Flexbox with interactive examples and comprehensive reference material</p>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
+            <div class="course-grid">
+                <div class="course-card">
+                    <a href="CSS/Layout/Flex/css-flexbox-reference.md">📖 Flexbox Reference Guide</a>
+                    <div class="description">Complete reference with container properties, item properties, and interview Q&A</div>
+                    <div class="course-meta">
+                        <span class="badge badge-docs">Documentation</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
+                    </div>
                 </div>
-                <div class="link-card">
-                    <a href="Questions.md">Questions</a>
-                    <div class="description">Interview questions and answers</div>
+                <div class="course-card">
+                    <a href="CSS/Layout/Flex/center.html">🎯 Center Anything</a>
+                    <div class="description">Learn to center content both horizontally and vertically using flexbox</div>
+                    <div class="course-meta">
+                        <span class="badge badge-live">Live Demo</span>
+                        <span class="badge badge-beginner">Beginner</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="CSS/Layout/Flex/equal-columns.html">📊 Equal Columns</a>
+                    <div class="description">Create equal-width columns regardless of content size</div>
+                    <div class="course-meta">
+                        <span class="badge badge-live">Live Demo</span>
+                        <span class="badge badge-beginner">Beginner</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="CSS/Layout/Flex/sidebar-layout.html">📱 Sidebar Layout</a>
+                    <div class="description">Build a fixed sidebar with flexible content area</div>
+                    <div class="course-meta">
+                        <span class="badge badge-live">Live Demo</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="CSS/Layout/Flex/sticky-footer.html">📌 Sticky Footer</a>
+                    <div class="description">Pin footer to bottom even on short pages</div>
+                    <div class="course-meta">
+                        <span class="badge badge-live">Live Demo</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="CSS/Layout/Flex/navbar.html">🧭 Navbar</a>
+                    <div class="description">Create navigation with logo left and links right</div>
+                    <div class="course-meta">
+                        <span class="badge badge-live">Live Demo</span>
+                        <span class="badge badge-beginner">Beginner</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="CSS/Layout/Flex/responsive-wrap-cards.html">🔄 Responsive Cards</a>
+                    <div class="description">Build cards that wrap responsively based on viewport width</div>
+                    <div class="course-meta">
+                        <span class="badge badge-live">Live Demo</span>
+                        <span class="badge badge-advanced">Advanced</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2>Resources</h2>
-            <div class="links">
-                <div class="link-card">
-                    <a href="CSS/">CSS</a>
-                    <div class="description">CSS reference materials and examples</div>
+        <!-- Interview Preparation -->
+        <div class="learning-path">
+            <h2><span class="path-icon">💼</span> Interview Preparation</h2>
+            <p class="path-description">Comprehensive interview questions and answers organized by topic</p>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 85%"></div>
+            </div>
+            <div class="course-grid">
+                <div class="course-card">
+                    <a href="Questions/css.md">🎨 CSS Interview Questions</a>
+                    <div class="description">CSS-specific questions covering layouts, positioning, and modern features</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
+                    </div>
                 </div>
-                <div class="link-card">
-                    <a href="Questions/">Questions</a>
-                    <div class="description">Interview questions by topic</div>
+                <div class="course-card">
+                    <a href="Questions/html.md">📄 HTML Interview Questions</a>
+                    <div class="description">HTML semantics, accessibility, and best practices</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-beginner">Beginner</span>
+                    </div>
                 </div>
-                <div class="link-card">
-                    <a href="ArticlesCode/">Articles Code</a>
+                <div class="course-card">
+                    <a href="Questions/javascript.md">⚡ JavaScript Interview Questions</a>
+                    <div class="description">Core JavaScript concepts, closures, async/await, and more</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-advanced">Advanced</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="Questions/typescript.md">📘 TypeScript Interview Questions</a>
+                    <div class="description">Type system, generics, utility types, and best practices</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="Questions/react.md">⚛️ React Interview Questions</a>
+                    <div class="description">React hooks, state management, performance optimization</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-advanced">Advanced</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="Questions/patterns.md">🔧 Design Patterns</a>
+                    <div class="description">Common design patterns in frontend development</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-advanced">Advanced</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="Questions/performance.md">⚡ Performance Questions</a>
+                    <div class="description">Web performance optimization and core web vitals</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="Questions/security.md">🔒 Security Questions</a>
+                    <div class="description">Security best practices, XSS, CSRF, and more</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="Questions/system-design-frontend.md">🏗️ System Design</a>
+                    <div class="description">Frontend system design and architecture</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-advanced">Advanced</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources & Documentation -->
+        <div class="learning-path">
+            <h2><span class="path-icon">📚</span> Resources & Documentation</h2>
+            <p class="path-description">Additional learning materials, tools, and comprehensive documentation</p>
+            <div class="course-grid">
+                <div class="course-card">
+                    <a href="README.md">📖 Main Documentation</a>
+                    <div class="description">Complete project documentation with resources and tools</div>
+                    <div class="course-meta">
+                        <span class="badge badge-docs">Documentation</span>
+                        <span class="badge badge-beginner">Beginner</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="Questions.md">❓ Questions Collection</a>
+                    <div class="description">Comprehensive collection of all interview questions</div>
+                    <div class="course-meta">
+                        <span class="badge badge-docs">Documentation</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <a href="ArticlesCode/">💻 Code Examples</a>
                     <div class="description">Code from articles and tutorials</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
+                    </div>
                 </div>
-                <div class="link-card">
-                    <a href="Try__Technologies/">Try Technologies</a>
-                    <div class="description">Experimental projects and tech demos</div>
+                <div class="course-card">
+                    <a href="Try__Technologies/">🧪 Experimental Projects</a>
+                    <div class="description">Experimental projects and technology demos</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-advanced">Advanced</span>
+                    </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Built for frontend developers by frontend developers | 🚀 Continuous Learning</p>
         </div>
     </div>
 </body>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox - All Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .example-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .example-section h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .example-section .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .example-section .code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        .demo {
+            background: #fafafa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .demo-label {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Example 1: Center */
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 220px;
+            background: #eeedfe;
+            border: 1px solid #cecbf6;
+            border-radius: 8px;
+        }
+        .center-box {
+            width: 120px;
+            height: 80px;
+            background: #7f77dd;
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        /* Example 2: Equal Columns */
+        .equal-columns-container {
+            display: flex;
+            gap: 16px;
+        }
+        .equal-column {
+            flex: 1;
+            background: #e1f5ee;
+            border: 1px solid #9fe1cb;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            color: #04342c;
+        }
+        
+        /* Example 3: Sidebar */
+        .sidebar-container {
+            display: flex;
+            height: 240px;
+            gap: 16px;
+        }
+        .sidebar {
+            flex: 0 0 200px;
+            background: #faece7;
+            border: 1px solid #f0997b;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            color: #4a1b0c;
+        }
+        .sidebar-content {
+            flex: 1;
+            background: #eeedfe;
+            border: 1px solid #cecbf6;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            color: #26215c;
+        }
+        
+        /* Example 4: Sticky Footer */
+        .sticky-page {
+            display: flex;
+            flex-direction: column;
+            min-height: 300px;
+        }
+        .sticky-header, .sticky-footer {
+            background: #eeedfe;
+            padding: 16px 24px;
+            font-size: 13px;
+            color: #26215c;
+        }
+        .sticky-footer {
+            background: #e1f5ee;
+            color: #04342c;
+        }
+        .sticky-main {
+            flex: 1;
+            padding: 24px;
+            font-size: 13px;
+            color: #333;
+            background: #fafafa;
+        }
+        
+        /* Example 5: Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 20px;
+        }
+        .navbar-logo { font-weight: 600; font-size: 15px; color: #26215c; }
+        .navbar-links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+        .navbar-links a { text-decoration: none; color: #555; font-size: 13px; }
+        
+        /* Example 6: Responsive Cards */
+        .responsive-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .responsive-card {
+            flex: 1 1 200px;
+            background: #fbeaf0;
+            border: 1px solid #ed93b1;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            color: #4b1528;
+            min-height: 80px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+            background: white;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .sidebar-container { flex-direction: column; height: auto; }
+            .sidebar { flex: 0 0 auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 CSS Flexbox Examples</h1>
+        <p>Interactive demonstrations of common Flexbox patterns</p>
+    </div>
+    
+    <div class="container">
+        <!-- Example 1: Center -->
+        <div class="example-section">
+            <h2>1. Center Anything</h2>
+            <p class="description">The most common Flexbox use case - center content both horizontally and vertically.</p>
+            <div class="code">
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo</div>
+                <div class="center-container">
+                    <div class="center-box">Centered box</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example 2: Equal Columns -->
+        <div class="example-section">
+            <h2>2. Equal-Width Columns</h2>
+            <p class="description">Create columns that are equal width regardless of their content size.</p>
+            <div class="code">
+.container {
+  display: flex;
+  gap: 16px;
+}
+.column {
+  flex: 1;
+}
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo</div>
+                <div class="equal-columns-container">
+                    <div class="equal-column">Short content</div>
+                    <div class="equal-column">A column with quite a bit more text in it, but it still stays exactly the same width as its siblings.</div>
+                    <div class="equal-column">Medium length content here</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example 3: Sidebar Layout -->
+        <div class="example-section">
+            <h2>3. Fixed Sidebar + Fluid Content</h2>
+            <p class="description">A sidebar with fixed width that never grows or shrinks, with content that fills remaining space.</p>
+            <div class="code">
+.container {
+  display: flex;
+  gap: 16px;
+}
+.sidebar {
+  flex: 0 0 200px;
+}
+.content {
+  flex: 1;
+}
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo</div>
+                <div class="sidebar-container">
+                    <div class="sidebar">Fixed 200px sidebar — never grows, never shrinks</div>
+                    <div class="sidebar-content">Content fills whatever space is left, and reflows as the window resizes</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example 4: Sticky Footer -->
+        <div class="example-section">
+            <h2>4. Sticky Footer</h2>
+            <p class="description">Footer pinned to bottom even on short pages using flexbox column layout.</p>
+            <div class="code">
+html, body { height: 100%; margin: 0; }
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.main { flex: 1; }
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo</div>
+                <div class="sticky-page">
+                    <div class="sticky-header">Header</div>
+                    <div class="sticky-main">Short page content. The footer stays pinned to the bottom because .main has flex: 1 and consumes all leftover vertical space.</div>
+                    <div class="sticky-footer">Footer — always pinned to the bottom</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example 5: Navbar -->
+        <div class="example-section">
+            <h2>5. Navbar Layout</h2>
+            <p class="description">Classic navigation bar with logo on left and links on right.</p>
+            <div class="code">
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo</div>
+                <nav class="navbar">
+                    <div class="navbar-logo">Brand</div>
+                    <ul class="navbar-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+        <!-- Example 6: Responsive Cards -->
+        <div class="example-section">
+            <h2>6. Responsive Wrapping Cards</h2>
+            <p class="description">Cards that wrap onto new lines based on available space.</p>
+            <div class="code">
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.card {
+  flex: 1 1 200px;
+}
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo - Resize browser to see wrapping</div>
+                <div class="responsive-container">
+                    <div class="responsive-card">Card 1</div>
+                    <div class="responsive-card">Card 2</div>
+                    <div class="responsive-card">Card 3</div>
+                    <div class="responsive-card">Card 4</div>
+                    <div class="responsive-card">Card 5</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>🚀 Flexbox Examples | Resize your browser to see responsive behavior</p>
+    </div>
+</body>
+</html>

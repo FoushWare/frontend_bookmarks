@@ -684,13 +684,21 @@
             modal.classList.add('active');
             
             fetch(url)
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
                 .then(markdown => {
                     modalContent.innerHTML = marked.parse(markdown);
                 })
                 .catch(error => {
-                    modalContent.innerHTML = '<p>Error loading document. Please try again.</p>';
-                    console.error('Error:', error);
+                    console.error('Error loading markdown:', error);
+                    modalContent.innerHTML = `
+                        <p>Error loading document. <a href="${url}" target="_blank">Open in new tab</a></p>
+                        <p><small>Error: ${error.message}</small></p>
+                    `;
                 });
         }
 
@@ -716,14 +724,37 @@
 
         // Update markdown links to use modal
         document.addEventListener('DOMContentLoaded', function() {
-            const markdownLinks = document.querySelectorAll('a[href$=".md"]');
-            markdownLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const url = this.getAttribute('href');
-                    const title = this.textContent.trim();
-                    openMarkdown(url, title);
+            // Intercept all markdown links
+            function interceptMarkdownLinks() {
+                const markdownLinks = document.querySelectorAll('a[href$=".md"]');
+                markdownLinks.forEach(link => {
+                    // Remove existing listener if any
+                    link.removeEventListener('click', handleMarkdownClick);
+                    // Add new listener
+                    link.addEventListener('click', handleMarkdownClick);
                 });
+            }
+
+            function handleMarkdownClick(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const url = this.getAttribute('href');
+                const title = this.textContent.trim();
+                console.log('Opening markdown:', url, title);
+                openMarkdown(url, title);
+            }
+
+            // Initial interception
+            interceptMarkdownLinks();
+
+            // Also intercept dynamically added links
+            const observer = new MutationObserver(function(mutations) {
+                interceptMarkdownLinks();
+            });
+
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
             });
         });
     </script>

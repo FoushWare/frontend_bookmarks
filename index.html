@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Bookmarks</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #34495e;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .link-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            transition: all 0.2s;
+        }
+        .link-card:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+        .link-card a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .link-card a:hover {
+            text-decoration: underline;
+        }
+        .link-card .description {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Frontend Bookmarks</h1>
+        <p class="subtitle">Personal reference collection for frontend development & interview prep</p>
+
+        <div class="section">
+            <h2>CSS Flexbox Examples</h2>
+            <div class="links">
+                <div class="link-card">
+                    <a href="CSS/Layout/Flex/center.html">Center Anything <span class="badge">Live</span></a>
+                    <div class="description">Center content both horizontally and vertically</div>
+                </div>
+                <div class="link-card">
+                    <a href="CSS/Layout/Flex/equal-columns.html">Equal Columns <span class="badge">Live</span></a>
+                    <div class="description">Create equal-width columns regardless of content</div>
+                </div>
+                <div class="link-card">
+                    <a href="CSS/Layout/Flex/sidebar-layout.html">Sidebar Layout <span class="badge">Live</span></a>
+                    <div class="description">Fixed sidebar with flexible content area</div>
+                </div>
+                <div class="link-card">
+                    <a href="CSS/Layout/Flex/sticky-footer.html">Sticky Footer <span class="badge">Live</span></a>
+                    <div class="description">Footer pinned to bottom on short pages</div>
+                </div>
+                <div class="link-card">
+                    <a href="CSS/Layout/Flex/navbar.html">Navbar <span class="badge">Live</span></a>
+                    <div class="description">Logo left, links right navigation</div>
+                </div>
+                <div class="link-card">
+                    <a href="CSS/Layout/Flex/responsive-wrap-cards.html">Responsive Cards <span class="badge">Live</span></a>
+                    <div class="description">Cards that wrap responsively based on width</div>
+                </div>
+                <div class="link-card">
+                    <a href="CSS/Layout/Flex/css-flexbox-reference.md">Flexbox Reference <span class="badge">Docs</span></a>
+                    <div class="description">Complete flexbox reference with interview Q&A</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Documentation</h2>
+            <div class="links">
+                <div class="link-card">
+                    <a href="README.md">README</a>
+                    <div class="description">Project overview and documentation</div>
+                </div>
+                <div class="link-card">
+                    <a href="Questions.md">Questions</a>
+                    <div class="description">Interview questions and answers</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Resources</h2>
+            <div class="links">
+                <div class="link-card">
+                    <a href="CSS/">CSS</a>
+                    <div class="description">CSS reference materials and examples</div>
+                </div>
+                <div class="link-card">
+                    <a href="Questions/">Questions</a>
+                    <div class="description">Interview questions by topic</div>
+                </div>
+                <div class="link-card">
+                    <a href="ArticlesCode/">Articles Code</a>
+                    <div class="description">Code from articles and tutorials</div>
+                </div>
+                <div class="link-card">
+                    <a href="Try__Technologies/">Try Technologies</a>
+                    <div class="description">Experimental projects and tech demos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

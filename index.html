@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frontend Learning Hub</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -272,6 +273,145 @@
             margin-top: 40px;
         }
         
+        /* Markdown Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .modal.active {
+            display: block;
+        }
+        .modal-content {
+            background: white;
+            max-width: 900px;
+            margin: 40px auto;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f8f9fa;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .modal-close:hover {
+            background: #e9ecef;
+            transform: rotate(90deg);
+        }
+        .modal-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+        }
+        .markdown-body {
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        .markdown-body h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .markdown-body h2 {
+            font-size: 2em;
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .markdown-body h3 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin: 20px 0 10px 0;
+        }
+        .markdown-body p {
+            margin: 15px 0;
+        }
+        .markdown-body code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #e74c3c;
+        }
+        .markdown-body pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .markdown-body pre code {
+            background: transparent;
+            color: #ecf0f1;
+            padding: 0;
+        }
+        .markdown-body ul, .markdown-body ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        .markdown-body li {
+            margin: 8px 0;
+        }
+        .markdown-body blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        .markdown-body a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .markdown-body a:hover {
+            text-decoration: underline;
+        }
+        .markdown-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .markdown-body th, .markdown-body td {
+            border: 1px solid #e9ecef;
+            padding: 12px;
+            text-align: left;
+        }
+        .markdown-body th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        .markdown-body img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5em;
@@ -521,6 +661,71 @@
         <div class="footer">
             <p>Built for frontend developers by frontend developers | 🚀 Continuous Learning</p>
         </div>
+
+        <!-- Markdown Modal -->
+        <div class="modal" id="markdownModal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal()">×</button>
+                <h2 class="modal-title" id="modalTitle">Document</h2>
+                <div class="markdown-body" id="modalContent"></div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Function to open markdown files in modal
+        function openMarkdown(url, title) {
+            const modal = document.getElementById('markdownModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+            
+            modalTitle.textContent = title;
+            modalContent.innerHTML = '<p>Loading...</p>';
+            modal.classList.add('active');
+            
+            fetch(url)
+                .then(response => response.text())
+                .then(markdown => {
+                    modalContent.innerHTML = marked.parse(markdown);
+                })
+                .catch(error => {
+                    modalContent.innerHTML = '<p>Error loading document. Please try again.</p>';
+                    console.error('Error:', error);
+                });
+        }
+
+        // Function to close modal
+        function closeModal() {
+            const modal = document.getElementById('markdownModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside content
+        document.getElementById('markdownModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Update markdown links to use modal
+        document.addEventListener('DOMContentLoaded', function() {
+            const markdownLinks = document.querySelectorAll('a[href$=".md"]');
+            markdownLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const url = this.getAttribute('href');
+                    const title = this.textContent.trim();
+                    openMarkdown(url, title);
+                });
+            });
+        });
+    </script>
 </body>
 </html>

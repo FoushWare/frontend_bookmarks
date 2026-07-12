@@ -61,10 +61,7 @@ grid-template-columns: repeat(3, 1fr);
 
 Grid lines are numbered starting from 1. A 3-column grid has 4 vertical lines (1, 2, 3, 4).
 
-```
-Line 1 | Line 2 | Line 3 | Line 4
-  col1  |  col2  |  col3  |
-```
+![Grid lines visualization showing 3 columns with 4 vertical lines](CSS/Layout/Grid/grid-lines.svg)
 
 ---
 
@@ -91,6 +88,8 @@ grid-template-columns: [sidebar-start] 200px [sidebar-end main-start] 1fr [main-
 ### `grid-template-areas`
 
 Names regions of the grid as a visual ASCII-like map.
+
+![Grid template areas visualization showing header, sidebar, main, footer layout](CSS/Layout/Grid/grid-areas.svg)
 
 ```css
 .layout {
@@ -180,6 +179,8 @@ grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 20vw, 250px), 1fr));
 
 `auto-fill` vs `auto-fit` - automatically computes how many tracks fit:
 
+![auto-fill vs auto-fit comparison showing how items behave with empty tracks](CSS/Layout/Grid/auto-fill-fit.svg)
+
 ```css
 /* auto-fill: keeps empty tracks */
 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -266,6 +267,8 @@ Four properties control alignment:
 | `align-items` | Block (vertical) | All items within their cells |
 | `justify-content` | Inline (horizontal) | Grid tracks within container |
 | `align-content` | Block (vertical) | Grid tracks within container |
+
+![Alignment properties visualization showing justify-items and align-items](CSS/Layout/Grid/alignment.svg)
 
 ```css
 .grid {

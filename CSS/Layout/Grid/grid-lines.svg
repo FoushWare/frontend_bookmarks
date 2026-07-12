@@ -1,0 +1,54 @@
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { stroke: #667eea; stroke-width: 2; }
+      .line-label { font-family: system-ui, sans-serif; font-size: 12px; fill: #667eea; font-weight: bold; }
+      .track { fill: #eeedfe; stroke: #cecbf6; stroke-width: 1; }
+      .track-label { font-family: system-ui, sans-serif; font-size: 14px; fill: #26215c; text-anchor: middle; }
+    </style>
+  </defs>
+  
+  <!-- Grid tracks -->
+  <rect x="50" y="50" width="150" height="100" class="track"/>
+  <rect x="200" y="50" width="150" height="100" class="track"/>
+  <rect x="350" y="50" width="150" height="100" class="track"/>
+  
+  <rect x="50" y="150" width="150" height="100" class="track"/>
+  <rect x="200" y="150" width="150" height="100" class="track"/>
+  <rect x="350" y="150" width="150" height="100" class="track"/>
+  
+  <!-- Vertical lines -->
+  <line x1="50" y1="50" x2="50" y2="250" class="line"/>
+  <text x="50" y="40" class="line-label" text-anchor="middle">1</text>
+  
+  <line x1="200" y1="50" x2="200" y2="250" class="line"/>
+  <text x="200" y="40" class="line-label" text-anchor="middle">2</text>
+  
+  <line x1="350" y1="50" x2="350" y2="250" class="line"/>
+  <text x="350" y="40" class="line-label" text-anchor="middle">3</text>
+  
+  <line x1="500" y1="50" x2="500" y2="250" class="line"/>
+  <text x="500" y="40" class="line-label" text-anchor="middle">4</text>
+  
+  <!-- Horizontal lines -->
+  <line x1="50" y1="50" x2="500" y2="50" class="line"/>
+  <text x="40" y="55" class="line-label" text-anchor="end">1</text>
+  
+  <line x1="50" y1="150" x2="500" y2="150" class="line"/>
+  <text x="40" y="155" class="line-label" text-anchor="end">2</text>
+  
+  <line x1="50" y1="250" x2="500" y2="250" class="line"/>
+  <text x="40" y="255" class="line-label" text-anchor="end">3</text>
+  
+  <!-- Track labels -->
+  <text x="125" y="105" class="track-label">Col 1</text>
+  <text x="275" y="105" class="track-label">Col 2</text>
+  <text x="425" y="105" class="track-label">Col 3</text>
+  
+  <text x="125" y="205" class="track-label">Col 1</text>
+  <text x="275" y="205" class="track-label">Col 2</text>
+  <text x="425" y="205" class="track-label">Col 3</text>
+  
+  <!-- Title -->
+  <text x="275" y="280" font-family="system-ui, sans-serif" font-size="16" fill="#333" text-anchor="middle" font-weight="bold">3-column grid has 4 vertical lines</text>
+</svg>

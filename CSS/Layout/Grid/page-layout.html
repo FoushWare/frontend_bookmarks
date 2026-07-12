@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid: Page Layout</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui, sans-serif; }
+        
+        .page {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            min-height: 100vh;
+            gap: 0;
+        }
+        
+        .header {
+            grid-area: header;
+            background: #eeedfe;
+            padding: 20px;
+            color: #26215c;
+            border-bottom: 1px solid #cecbf6;
+        }
+        
+        .sidebar {
+            grid-area: sidebar;
+            background: #faece7;
+            padding: 20px;
+            color: #4a1b0c;
+            border-right: 1px solid #f0997b;
+        }
+        
+        .main {
+            grid-area: main;
+            background: #fafafa;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .footer {
+            grid-area: footer;
+            background: #e1f5ee;
+            padding: 20px;
+            color: #04342c;
+            border-top: 1px solid #9fe1cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="header">Header</header>
+        <aside class="sidebar">Sidebar (200px)</aside>
+        <main class="main">Main Content (flexible)</main>
+        <footer class="footer">Footer</footer>
+    </div>
+</body>
+</html>

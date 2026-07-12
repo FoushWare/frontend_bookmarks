@@ -33,6 +33,8 @@ CSS Grid is a two-dimensional layout system that handles both rows and columns s
 
 The `fr` unit represents a "fraction" of available space. Unlike percentages, `fr` units distribute leftover space after accounting for fixed sizes and gaps.
 
+![fr unit visualization showing fixed column and flexible columns sharing leftover space](CSS/Layout/Grid/fr-unit.svg)
+
 ```css
 /* Two columns: first 200px, second gets remaining space */
 grid-template-columns: 200px 1fr;
@@ -203,6 +205,8 @@ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
 Place items using line numbers.
 
+![Grid placement visualization showing line-based placement with spanning](CSS/Layout/Grid/placement.svg)
+
 ```css
 /* Span from line 1 to line 3 */
 .item {
@@ -296,6 +300,8 @@ Name grid lines for semantic placement.
 ### Subgrid
 
 Nested grid items can adopt parent's track sizing.
+
+![Subgrid visualization showing nested grid inheriting parent's column tracks](CSS/Layout/Grid/subgrid.svg)
 
 ```css
 .outer {

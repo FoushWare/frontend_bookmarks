@@ -70,6 +70,47 @@
             color: #667eea;
             background: #eeedfe;
         }
+        .navbar .dropdown {
+            position: relative;
+        }
+        .navbar .dropdown > a {
+            cursor: pointer;
+        }
+        .navbar .dropdown > a::after {
+            content: ' ▼';
+            font-size: 0.7em;
+            margin-left: 5px;
+        }
+        .navbar .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            min-width: 200px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+        .navbar .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .navbar .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            transition: all 0.3s;
+        }
+        .navbar .dropdown-menu a:hover {
+            background: #f0f0f0;
+            color: #667eea;
+        }
         
         .container {
             max-width: 1400px;
@@ -490,9 +531,14 @@
         <div class="container">
             <a href="#" class="logo">🚀 Learning Hub</a>
             <ul class="nav-links">
-                <li><a href="#css-flexbox">Flexbox</a></li>
-                <li><a href="#css-grid">Grid</a></li>
-                <li><a href="#comparison">Comparison</a></li>
+                <li class="dropdown">
+                    <a>Layout</a>
+                    <div class="dropdown-menu">
+                        <a href="#css-flexbox">Flexbox</a>
+                        <a href="#css-grid">Grid</a>
+                        <a href="#comparison">Comparison</a>
+                    </div>
+                </li>
                 <li><a href="#interview">Interview</a></li>
                 <li><a href="#resources">Resources</a></li>
             </ul>

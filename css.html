@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Mastery - Learning Hub</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+        .navbar .nav-links a:hover {
+            color: #667eea;
+            background: #f0f0f0;
+        }
+        .navbar .nav-links a.active {
+            color: #667eea;
+            background: #eeedfe;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .topic-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .topic-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .topic-card .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+        .topic-card .resources {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .topic-card .resources li {
+            padding: 8px 0;
+            color: #555;
+        }
+        .topic-card .resources li a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .topic-card .resources li a:hover {
+            text-decoration: underline;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .badge-beginner {
+            background: #e1f5ee;
+            color: #04342c;
+        }
+        .badge-intermediate {
+            background: #eeedfe;
+            color: #26215c;
+        }
+        .badge-advanced {
+            background: #faece7;
+            color: #4a1b0c;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">🚀 Learning Hub</a>
+            <ul class="nav-links">
+                <li><a href="html.html">HTML</a></li>
+                <li><a href="css.html" class="active">CSS</a></li>
+                <li><a href="javascript.html">JavaScript</a></li>
+                <li><a href="senior-interview.html">Senior Interview</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <div class="header">
+            <h1>🎨 CSS Mastery</h1>
+            <p>Master modern CSS with Flexbox, Grid, animations, and responsive design</p>
+        </div>
+        
+        <div class="topics-grid">
+            <!-- Flexbox -->
+            <div class="topic-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>CSS Flexbox</h3>
+                <p class="description">Master one-dimensional layouts with Flexbox - perfect for navigation bars, card layouts, and content distribution.</p>
+                <ul class="resources">
+                    <li><a href="CSS/Layout/Flex/css-flexbox-reference.md" onclick="openMarkdown('CSS/Layout/Flex/css-flexbox-reference.md', '📖 Flexbox Reference Guide'); return false;">📖 Flexbox Reference Guide</a></li>
+                    <li><a href="CSS/Layout/Flex/all-examples.html">🎯 All Examples</a></li>
+                    <li><a href="CSS/Layout/Flex/projects.html">💻 Projects</a></li>
+                    <li><a href="CSS/Layout/projects-app.html">🎮 Projects App</a></li>
+                </ul>
+            </div>
+            
+            <!-- Grid -->
+            <div class="topic-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>CSS Grid</h3>
+                <p class="description">Master two-dimensional layouts with Grid - perfect for page layouts, complex structures, and precise positioning.</p>
+                <ul class="resources">
+                    <li><a href="CSS/Layout/Grid/css-grid-reference.md" onclick="openMarkdown('CSS/Layout/Grid/css-grid-reference.md', '📖 Grid Reference Guide'); return false;">📖 Grid Reference Guide</a></li>
+                    <li><a href="CSS/Layout/Grid/all-examples.html">🎯 All Examples</a></li>
+                    <li><a href="CSS/Layout/Grid/projects.html">💻 Projects</a></li>
+                    <li><a href="CSS/Layout/projects-app.html">🎮 Projects App</a></li>
+                </ul>
+            </div>
+            
+            <!-- Comparison -->
+            <div class="topic-card">
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>Flexbox vs Grid</h3>
+                <p class="description">Learn when to use each layout system by seeing them solve the same problems side by side.</p>
+                <ul class="resources">
+                    <li><a href="CSS/Layout/flex-vs-grid-comparison.html">⚖️ Flexbox vs Grid Comparison</a></li>
+                </ul>
+            </div>
+            
+            <!-- Responsive Design -->
+            <div class="topic-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>Responsive Design</h3>
+                <p class="description">Build websites that work beautifully on all devices with media queries, flexible layouts, and mobile-first design.</p>
+                <ul class="resources">
+                    <li><a href="#">Coming Soon)</a></li>
+                </ul>
+            </div>
+            
+            <!-- Animations -->
+            <div class="topic-card">
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>CSS Animations</h3>
+                <p class="description">Create smooth, performant animations with transitions, keyframes, and modern animation techniques.</p>
+                <ul class="resources">
+                    <li><a href="#">Coming Soon</a></li>
+                </ul>
+            </div>
+            
+            <!-- Modern CSS -->
+            <div class="topic-card">
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>Modern CSS</h3>
+                <p class="description">Explore modern CSS features like CSS custom properties, container queries, and new layout techniques.</p>
+                <ul class="resources">
+                    <li><a href="#">Coming Soon</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openMarkdown(path, title) {
+            fetch(path)
+                .then(response => response.text())
+                .then(markdown => {
+                    const html = marked.parse(markdown);
+                    const newWindow = window.open('', '_blank');
+                    newWindow.document.write(`
+                        <!DOCTYPE html>
+                        <html>
+                        <head>
+                            <title>${title}</title>
+                            <style>
+                                body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+                                pre { background: #2c3e50; color: #ecf0f1; padding: 20px; border-radius: 8px; overflow-x: auto; }
+                                code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
+                                pre code { background: none; padding: 0; }
+                                h1, h2, h3 { color: #2c3e50; margin-top: 30px; }
+                                blockquote { border-left: 4px solid #667eea; padding-left: 20px; color: #7f8c8d; }
+                            </style>
+                        </head>
+                        <body>${html}</body>
+                        </html>
+                    `);
+                });
+        }
+    </script>
+</body>
+</html>

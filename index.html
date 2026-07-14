@@ -112,6 +112,52 @@
             color: #667eea;
         }
         
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .category-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+        .category-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        .category-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .category-card p {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        .category-meta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+        .topic-count {
+            color: #95a5a6;
+            font-size: 0.9em;
+        }
+        
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -531,16 +577,10 @@
         <div class="container">
             <a href="#" class="logo">🚀 Learning Hub</a>
             <ul class="nav-links">
-                <li class="dropdown">
-                    <a>Layout</a>
-                    <div class="dropdown-menu">
-                        <a href="#css-flexbox">Flexbox</a>
-                        <a href="#css-grid">Grid</a>
-                        <a href="#comparison">Comparison</a>
-                    </div>
-                </li>
-                <li><a href="#interview">Interview</a></li>
-                <li><a href="#resources">Resources</a></li>
+                <li><a href="html.html">HTML</a></li>
+                <li><a href="css.html">CSS</a></li>
+                <li><a href="javascript.html">JavaScript</a></li>
+                <li><a href="senior-interview.html">Senior Interview</a></li>
             </ul>
         </div>
     </nav>
@@ -570,20 +610,47 @@
             </div>
         </div>
 
-        <!-- Quick Start -->
-        <div class="quick-start">
-            <h2>🎯 Quick Start Guide</h2>
-            <p>New to frontend development? Start with CSS Flexbox fundamentals and work your way through interactive examples.</p>
-            <a href="#css-flexbox" class="quick-start-btn">Start Learning →</a>
-        </div>
-
-        <!-- Navigation -->
-        <div class="nav-tabs">
-            <button class="nav-tab active">All Topics</button>
-            <button class="nav-tab">CSS</button>
-            <button class="nav-tab">JavaScript</button>
-            <button class="nav-tab">React</button>
-            <button class="nav-tab">Interview Prep</button>
+        <!-- Main Categories -->
+        <div class="categories-grid">
+            <div class="category-card" onclick="window.location.href='html.html'">
+                <div class="category-icon">📄</div>
+                <h3>HTML</h3>
+                <p>Master HTML semantics, accessibility, and modern best practices for building structured web pages</p>
+                <div class="category-meta">
+                    <span class="badge badge-beginner">Beginner</span>
+                    <span class="topic-count">5 Topics</span>
+                </div>
+            </div>
+            
+            <div class="category-card" onclick="window.location.href='css.html'">
+                <div class="category-icon">🎨</div>
+                <h3>CSS</h3>
+                <p>Master CSS layouts with Flexbox and Grid, styling, animations, and responsive design</p>
+                <div class="category-meta">
+                    <span class="badge badge-intermediate">Intermediate</span>
+                    <span class="topic-count">12 Topics</span>
+                </div>
+            </div>
+            
+            <div class="category-card" onclick="window.location.href='javascript.html'">
+                <div class="category-icon">⚡</div>
+                <h3>JavaScript</h3>
+                <p>Master JavaScript fundamentals, ES6+, async programming, DOM manipulation, and modern patterns</p>
+                <div class="category-meta">
+                    <span class="badge badge-advanced">Advanced</span>
+                    <span class="topic-count">15 Topics</span>
+                </div>
+            </div>
+            
+            <div class="category-card" onclick="window.location.href='senior-interview.html'">
+                <div class="category-icon">💼</div>
+                <h3>Senior Interview</h3>
+                <p>Prepare for senior developer interviews with advanced questions, system design, and best practices</p>
+                <div class="category-meta">
+                    <span class="badge badge-advanced">Senior</span>
+                    <span class="topic-count">20 Topics</span>
+                </div>
+            </div>
         </div>
 
         <!-- CSS Flexbox Learning Path -->

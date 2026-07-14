@@ -12,12 +12,65 @@
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlickMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #1a1a1a;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding-top: 70px;
         }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+        .navbar .nav-links a:hover {
+            color: #667eea;
+            background: #f0f0f0;
+        }
+        .navbar .nav-links a.active {
+            color: #667eea;
+            background: #eeedfe;
+        }
+        
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -422,10 +475,30 @@
             .course-grid {
                 grid-template-columns: 1fr;
             }
+            .navbar .nav-links {
+                display: none;
+            }
+            .navbar .logo {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">🚀 Learning Hub</a>
+            <ul class="nav-links">
+                <li><a href="#css-flexbox">Flexbox</a></li>
+                <li><a href="#css-grid">Grid</a></li>
+                <li><a href="#comparison">Comparison</a></li>
+                <li><a href="#interview">Interview</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+    
     <div class="container">
         <!-- Hero Section -->
         <div class="hero">
@@ -491,6 +564,14 @@
                         <span class="badge badge-beginner">Beginner</span>
                     </div>
                 </div>
+                <div class="course-card">
+                    <a href="CSS/Layout/Flex/projects.html">💻 Projects</a>
+                    <div class="description">Hands-on projects with interactive code editor, starter code, and solutions - 8 projects from beginner to advanced</div>
+                    <div class="course-meta">
+                        <span class="badge badge-practice">Practice</span>
+                        <span class="badge badge-advanced">All Levels</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -524,6 +605,25 @@
                     <div class="course-meta">
                         <span class="badge badge-practice">Practice</span>
                         <span class="badge badge-advanced">All Levels</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flexbox vs Grid Comparison -->
+        <div class="learning-path" id="comparison">
+            <h2><span class="path-icon">⚖️</span> Flexbox vs Grid Comparison</h2>
+            <p class="path-description">Learn when to use each layout system by seeing them solve the same problems side by side</p>
+            <div class="progress-container">
+                <div class="progress-bar" style="width: 100%"></div>
+            </div>
+            <div class="course-grid">
+                <div class="course-card">
+                    <a href="CSS/Layout/flex-vs-grid-comparison.html">⚖️ Flexbox vs Grid</a>
+                    <div class="description">Side-by-side comparison of Flexbox and Grid solving the same layout problems with code examples and recommendations</div>
+                    <div class="course-meta">
+                        <span class="badge badge-docs">Guide</span>
+                        <span class="badge badge-intermediate">Intermediate</span>
                     </div>
                 </div>
             </div>

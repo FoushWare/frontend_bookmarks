@@ -174,6 +174,8 @@ Setting `flex-shrink: 0` is the fix for "why does my fixed-width sidebar keep ge
 
 The starting size of an item before growing/shrinking is applied — think of it as a `width` (or `height`, in a column) that flexbox uses as its initial reference point.
 
+![flex-basis visualization showing starting size before growth](CSS/Layout/Flex/flex-basis.svg)
+
 ```css
 .item { flex-basis: 200px; }
 .item { flex-basis: auto; } /* default: use the item's own width/content size */

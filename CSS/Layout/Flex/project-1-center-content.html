@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 7: Equal Height Columns</title>
+    <title>Project 1: Center Content</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
@@ -88,32 +88,33 @@
         <div class="container">
             <a href="../../../index.html" class="logo">🚀 Learning Hub</a>
             <div class="nav-links">
-                <a href="../../../index.html#css-grid">← Back to Grid</a>
+                <a href="../../../index.html#css-flexbox">← Back to Flexbox</a>
                 <a href="projects.html">← All Projects</a>
             </div>
         </div>
     </nav>
     
     <div class="header">
-        <div class="breadcrumb"><a href="../index.html">Learning Hub</a> → <a href="projects.html">CSS Grid Projects</a> → Project 7</div>
-        <h1>Project 7: Equal Height Columns</h1>
+        <div class="breadcrumb"><a href="../index.html">Learning Hub</a> → <a href="projects.html">CSS Flexbox Projects</a> → Project 1</div>
+        <h1>Project 1: Center Content</h1>
     </div>
+    
     <div class="container">
         <div class="project-info">
             <h2>Project Statement</h2>
-            <p class="description">Create columns that are always equal height regardless of content length. This is one of Grid's biggest advantages over Flexbox - equal height by default.</p>
+            <p class="description">Perfectly center content both horizontally and vertically using Flexbox. This is one of the most common layout tasks, and Flexbox makes it incredibly simple.</p>
             <div class="requirements">
                 <h3>Requirements:</h3>
                 <ul>
-                    <li>Create a 3-column grid layout</li>
-                    <li>Columns should have different content lengths</li>
-                    <li>All columns must be equal height</li>
-                    <li>Add 20px gap between columns</li>
-                    <li>Style columns with background colors</li>
-                    <li>Observe how Grid handles equal height automatically</li>
+                    <li>Center a box both horizontally and vertically</li>
+                    <li>Use justify-content for horizontal centering</li>
+                    <li>Use align-items for vertical centering</li>
+                    <li>Make the container fill the viewport height</li>
+                    <li>Style the centered box with background color</li>
                 </ul>
             </div>
         </div>
+        
         <div class="editor-container">
             <div class="editor-panel">
                 <div class="panel-header">
@@ -132,62 +133,41 @@
                     <button class="action-btn btn-run" onclick="runCode()">▶ Run Code</button>
                 </div>
             </div>
+            
             <div class="preview-panel">
                 <div class="panel-header"><h3>Live Preview</h3></div>
                 <iframe class="preview-frame" id="previewFrame"></iframe>
             </div>
         </div>
     </div>
+
     <script>
-        const starterHTML = `<div class="columns">
-  <div class="column">
-    <h3>Column 1</h3>
-    <p>Short content</p>
-  </div>
-  <div class="column">
-    <h3>Column 2</h3>
-    <p>This column has much more content than the others. It should still be the same height as the other columns thanks to CSS Grid.</p>
-  </div>
-  <div class="column">
-    <h3>Column 3</h3>
-    <p>Medium content here</p>
-  </div>
+        const starterHTML = `<div class="container">
+  <div class="box">Centered Box</div>
 </div>`;
 
-        const starterCSS = `.columns { gap: 20px; }
-.column { padding: 20px; background: #eeedfe; border-radius: 8px; }
-.column h3 { margin-bottom: 10px; }`;
+        const starterCSS = `.container { min-height: 100vh; }
+.box { width: 200px; height: 120px; background: #eeedfe; }`;
 
-        const solutionHTML = `<div class="columns">
-  <div class="column">
-    <h3>Column 1</h3>
-    <p>Short content</p>
-  </div>
-  <div class="column">
-    <h3>Column 2</h3>
-    <p>This column has much more content than the others. It should still be the same height as the other columns thanks to CSS Grid.</p>
-  </div>
-  <div class="column">
-    <h3>Column 3</h3>
-    <p>Medium content here</p>
-  </div>
+        const solutionHTML = `<div class="container">
+  <div class="box">Perfectly Centered</div>
 </div>`;
 
-        const solutionCSS = `.columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+        const solutionCSS = `.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
-.column {
-  padding: 20px;
+.box {
+  width: 200px;
+  height: 120px;
   background: #eeedfe;
   border: 1px solid #cecbf6;
   border-radius: 8px;
+  padding: 20px;
   color: #26215c;
-}
-.column h3 {
-  margin-bottom: 10px;
-  color: #2c3e50;
+  font-weight: 600;
 }`;
 
         const htmlEditor = document.getElementById('htmlEditor');
@@ -210,7 +190,7 @@
         function runCode() {
             const html = htmlEditor.value;
             const css = cssEditor.value;
-            const fullHtml = `<!DOCTYPE html><html><head><style>* { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: system-ui, sans-serif; padding: 40px; background: #fafafa; } ${css}</style></head><body>${html}</body></html>`;
+            const fullHtml = `<!DOCTYPE html><html><head><style>* { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: system-ui, sans-serif; } ${css}</style></head><body>${html}</body></html>`;
             previewFrame.srcdoc = fullHtml;
         }
         loadStarter();

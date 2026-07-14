@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 7: Equal Height Columns</title>
+    <title>Project 5: Navigation Bar</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
@@ -13,43 +13,12 @@
         .header .breadcrumb a { color: white; text-decoration: none; }
         .header .breadcrumb a:hover { text-decoration: underline; }
         
-        /* Navigation Bar */
-        .navbar {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            padding: 15px 0;
-        }
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .navbar .logo {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #667eea;
-            text-decoration: none;
-        }
-        .navbar .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-        .navbar .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 6px;
-            transition: all 0.3s;
-        }
-        .navbar .nav-links a:hover {
-            background: #f0f0f0;
-            color: #667eea;
-        }
+        .navbar { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); padding: 15px 0; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; padding: 0 20px; max-width: 1400px; margin: 0 auto; }
+        .navbar .logo { font-size: 1.2em; font-weight: bold; color: #667eea; text-decoration: none; }
+        .navbar .nav-links { display: flex; gap: 20px; }
+        .navbar .nav-links a { text-decoration: none; color: #333; font-weight: 500; padding: 8px 16px; border-radius: 6px; transition: all 0.3s; }
+        .navbar .nav-links a:hover { background: #f0f0f0; color: #667eea; }
         .container { max-width: 1400px; margin: 0 auto; padding: 30px 20px; }
         .project-info { background: white; border-radius: 12px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .project-info h2 { color: #2c3e50; margin-bottom: 15px; font-size: 1.8em; }
@@ -83,37 +52,37 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <a href="../../../index.html" class="logo">🚀 Learning Hub</a>
             <div class="nav-links">
-                <a href="../../../index.html#css-grid">← Back to Grid</a>
+                <a href="../../../index.html#css-flexbox">← Back to Flexbox</a>
                 <a href="projects.html">← All Projects</a>
             </div>
         </div>
     </nav>
     
     <div class="header">
-        <div class="breadcrumb"><a href="../index.html">Learning Hub</a> → <a href="projects.html">CSS Grid Projects</a> → Project 7</div>
-        <h1>Project 7: Equal Height Columns</h1>
+        <div class="breadcrumb"><a href="../index.html">Learning Hub</a> → <a href="projects.html">CSS Flexbox Projects</a> → Project 5</div>
+        <h1>Project 5: Navigation Bar</h1>
     </div>
+    
     <div class="container">
         <div class="project-info">
             <h2>Project Statement</h2>
-            <p class="description">Create columns that are always equal height regardless of content length. This is one of Grid's biggest advantages over Flexbox - equal height by default.</p>
+            <p class="description">Build a responsive navbar with logo on one side and navigation links on the other. This is a classic header pattern used in most websites.</p>
             <div class="requirements">
                 <h3>Requirements:</h3>
                 <ul>
-                    <li>Create a 3-column grid layout</li>
-                    <li>Columns should have different content lengths</li>
-                    <li>All columns must be equal height</li>
-                    <li>Add 20px gap between columns</li>
-                    <li>Style columns with background colors</li>
-                    <li>Observe how Grid handles equal height automatically</li>
+                    <li>Use justify-content: space-between</li>
+                    <li>Use align-items for vertical centering</li>
+                    <li>Logo on left, links on right</li>
+                    <li>Add hover effects on links</li>
+                    <li>Style with appropriate colors</li>
                 </ul>
             </div>
         </div>
+        
         <div class="editor-container">
             <div class="editor-panel">
                 <div class="panel-header">
@@ -132,62 +101,64 @@
                     <button class="action-btn btn-run" onclick="runCode()">▶ Run Code</button>
                 </div>
             </div>
+            
             <div class="preview-panel">
                 <div class="panel-header"><h3>Live Preview</h3></div>
                 <iframe class="preview-frame" id="previewFrame"></iframe>
             </div>
         </div>
     </div>
+
     <script>
-        const starterHTML = `<div class="columns">
-  <div class="column">
-    <h3>Column 1</h3>
-    <p>Short content</p>
+        const starterHTML = `<nav class="navbar">
+  <div class="logo">Brand</div>
+  <div class="links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </div>
-  <div class="column">
-    <h3>Column 2</h3>
-    <p>This column has much more content than the others. It should still be the same height as the other columns thanks to CSS Grid.</p>
-  </div>
-  <div class="column">
-    <h3>Column 3</h3>
-    <p>Medium content here</p>
-  </div>
-</div>`;
+</nav>`;
 
-        const starterCSS = `.columns { gap: 20px; }
-.column { padding: 20px; background: #eeedfe; border-radius: 8px; }
-.column h3 { margin-bottom: 10px; }`;
+        const starterCSS = `.navbar { padding: 20px; }
+.logo { font-weight: bold; }
+.links a { margin-left: 20px; }`;
 
-        const solutionHTML = `<div class="columns">
-  <div class="column">
-    <h3>Column 1</h3>
-    <p>Short content</p>
+        const solutionHTML = `<nav class="navbar">
+  <div class="logo">Brand</div>
+  <div class="links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </div>
-  <div class="column">
-    <h3>Column 2</h3>
-    <p>This column has much more content than the others. It should still be the same height as the other columns thanks to CSS Grid.</p>
-  </div>
-  <div class="column">
-    <h3>Column 3</h3>
-    <p>Medium content here</p>
-  </div>
-</div>`;
+</nav>`;
 
-        const solutionCSS = `.columns {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.column {
+        const solutionCSS = `.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
   background: #eeedfe;
   border: 1px solid #cecbf6;
   border-radius: 8px;
-  color: #26215c;
 }
-.column h3 {
-  margin-bottom: 10px;
-  color: #2c3e50;
+.logo {
+  font-weight: bold;
+  color: #26215c;
+  font-size: 1.2em;
+}
+.links {
+  display: flex;
+  gap: 20px;
+}
+.links a {
+  text-decoration: none;
+  color: #26215c;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+.links a:hover {
+  background: #cecbf6;
 }`;
 
         const htmlEditor = document.getElementById('htmlEditor');

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background: #f0f0f0;
+            color: #667eea;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .example-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .example-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .example-section .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .demo-container {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        /* Demo Styles */
+        .block-demo .block {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .inline-demo .inline {
+            background: #764ba2;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+        .inline-block-demo .inline-block {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            margin: 5px;
+            display: inline-block;
+            width: 150px;
+        }
+        .position-demo {
+            position: relative;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 8px;
+        }
+        .position-demo .static {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+        }
+        .position-demo .relative {
+            position: relative;
+            background: #764ba2;
+            color: white;
+            padding: 20px;
+            margin: 10px;
+            top: 20px;
+            left: 20px;
+        }
+        .position-demo .absolute {
+            position: absolute;
+            background: #e74c3c;
+            color: white;
+            padding: 20px;
+            top: 50px;
+            right: 50px;
+        }
+        .position-demo .fixed {
+            position: fixed;
+            background: #27ae60;
+            color: white;
+            padding: 15px;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 8px;
+        }
+        .z-index-demo {
+            position: relative;
+            height: 200px;
+        }
+        .z-index-demo .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        .z-index-demo .box1 {
+            background: #667eea;
+            top: 20px;
+            left: 20px;
+            z-index: 1;
+        }
+        .z-index-demo .box2 {
+            background: #e74c3c;
+            top: 50px;
+            left: 50px;
+            z-index: 2;
+        }
+        .z-index-demo .box3 {
+            background: #27ae60;
+            top: 80px;
+            left: 80px;
+            z-index: 3;
+        }
+        .overflow-demo {
+            width: 300px;
+            height: 100px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .overflow-demo .content {
+            width: 400px;
+            height: 150px;
+            background: #667eea;
+            color: white;
+            padding: 20px;
+        }
+        .overflow-visible { overflow: visible; }
+        .overflow-hidden { overflow: hidden; }
+        .overflow-scroll { overflow: scroll; }
+        .overflow-auto { overflow: auto; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">🚀 Learning Hub</a>
+            <div class="nav-links">
+                <a href="../../css.html">← Back to CSS</a>
+                <a href="layout-reference.md">Reference Guide</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="../../css.html" class="back-link">← Back to CSS</a>
+        
+        <div class="header">
+            <h1>📐 CSS Layout Examples</h1>
+            <p>Interactive examples demonstrating CSS layout concepts</p>
+        </div>
+        
+        <!-- Display Property -->
+        <div class="example-section">
+            <h2>Display Property</h2>
+            <p class="description">Understanding block, inline, and inline-block display values</p>
+            
+            <h3>Block Elements</h3>
+            <div class="demo-container block-demo">
+                <div class="block">Block Element 1</div>
+                <div class="block">Block Element 2</div>
+                <div class="block">Block Element 3</div>
+            </div>
+            <div class="code-block">.block {
+  display: block;
+  background: #667eea;
+  color: white;
+  padding: 20px;
+  margin: 10px 0;
+}</div>
+            
+            <h3>Inline Elements</h3>
+            <div class="demo-container inline-demo">
+                <span class="inline">Inline 1</span>
+                <span class="inline">Inline 2</span>
+                <span class="inline">Inline 3</span>
+            </div>
+            <div class="code-block">.inline {
+  display: inline;
+  background: #764ba2;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+}</div>
+            
+            <h3>Inline-Block Elements</h3>
+            <div class="demo-container inline-block-demo">
+                <div class="inline-block">Inline-Block 1</div>
+                <div class="inline-block">Inline-Block 2</div>
+                <div class="inline-block">Inline-Block 3</div>
+            </div>
+            <div class="code-block">.inline-block {
+  display: inline-block;
+  background: #667eea;
+  color: white;
+  padding: 20px;
+  margin: 5px;
+  width: 150px;
+}</div>
+        </div>
+        
+        <!-- Position Property -->
+        <div class="example-section">
+            <h2>Position Property</h2>
+            <p class="description">Different positioning methods and their effects</p>
+            
+            <div class="demo-container position-demo">
+                <div class="static">Static (Default)</div>
+                <div class="relative">Relative (top: 20px, left: 20px)</div>
+                <div class="absolute">Absolute (top: 50px, right: 50px)</div>
+            </div>
+            <div class="code-block">.static {
+  /* Default positioning */
+}
+
+.relative {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}
+
+.absolute {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}</div>
+            
+            <div class="fixed">Fixed Button (bottom-right)</div>
+        </div>
+        
+        <!-- Z-Index -->
+        <div class="example-section">
+            <h2>Z-Index Stacking</h2>
+            <p class="description">How z-index controls element stacking order</p>
+            
+            <div class="demo-container z-index-demo">
+                <div class="box box1">z-index: 1</div>
+                <div class="box box2">z-index: 2</div>
+                <div class="box box3">z-index: 3</div>
+            </div>
+            <div class="code-block">.box1 { z-index: 1; background: #667eea; }
+.box2 { z-index: 2; background: #e74c3c; }
+.box3 { z-index: 3; background: #27ae60; }</div>
+        </div>
+        
+        <!-- Overflow -->
+        <div class="example-section">
+            <h2>Overflow Property</h2>
+            <p class="description">How different overflow values handle content that exceeds dimensions</p>
+            
+            <h3>Visible (Default)</h3>
+            <div class="demo-container overflow-demo overflow-visible">
+                <div class="content">Content spills outside container</div>
+            </div>
+            
+            <h3>Hidden</h3>
+            <div class="demo-container overflow-demo overflow-hidden">
+                <div class="content">Content is clipped</div>
+            </div>
+            
+            <h3>Scroll</h3>
+            <div class="demo-container overflow-demo overflow-scroll">
+                <div class="content">Scroll with scrollbars</div>
+            </div>
+            
+            <h3>Auto</h3>
+            <div class="demo-container overflow-demo overflow-auto">
+                <div class="content">Scroll when needed</div>
+            </div>
+            
+            <div class="code-block">.overflow-visible { overflow: visible; }
+.overflow-hidden { overflow: hidden; }
+.overflow-scroll { overflow: scroll; }
+.overflow-auto { overflow: auto; }</div>
+        </div>
+        
+        <!-- Common Patterns -->
+        <div class="example-section">
+            <h2>Common Layout Patterns</h2>
+            <p class="description">Practical layout patterns used in real projects</p>
+            
+            <h3>Absolute Inside Relative</h3>
+            <div class="demo-container" style="position: relative; height: 150px; background: #f0f0f0; border-radius: 8px;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #667eea; color: white; padding: 20px; border-radius: 8px;">Centered with Absolute</div>
+            </div>
+            <div class="code-block">.parent {
+  position: relative;
+  height: 150px;
+}
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}</div>
+        </div>
+    </div>
+</body>
+</html>

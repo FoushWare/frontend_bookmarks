@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Images Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background: #f0f0f0;
+            color: #667eea;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .example-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .example-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .example-section .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .demo-container {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        /* Demo Styles */
+        .object-fit-demo .box {
+            width: 200px;
+            height: 150px;
+            margin: 15px;
+            display: inline-block;
+            background: #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .object-fit-demo .box img {
+            width: 100%;
+            height: 100%;
+        }
+        .object-fit-demo .fill { object-fit: fill; }
+        .object-fit-demo .contain { object-fit: contain; }
+        .object-fit-demo .cover { object-fit: cover; }
+        
+        .filter-demo .box {
+            width: 150px;
+            height: 150px;
+            margin: 15px;
+            display: inline-block;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .filter-demo .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .filter-demo .grayscale { filter: grayscale(100%); }
+        .filter-demo .blur { filter: blur(3px); }
+        .filter-demo .brightness { filter: brightness(150%); }
+        .filter-demo .contrast { filter: contrast(150%); }
+        
+        .opacity-demo .box {
+            width: 150px;
+            height: 150px;
+            margin: 15px;
+            display: inline-block;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .opacity-demo .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .opacity-demo .opacity-100 { opacity: 1; }
+        .opacity-demo .opacity-75 { opacity: 0.75; }
+        .opacity-demo .opacity-50 { opacity: 0.5; }
+        .opacity-demo .opacity-25 { opacity: 0.25; }
+        
+        .responsive-demo .box {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .avatar-demo .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">🚀 Learning Hub</a>
+            <div class="nav-links">
+                <a href="../../css.html">← Back to CSS</a>
+                <a href="images-reference.md">Reference Guide</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="../../css.html" class="back-link">← Back to CSS</a>
+        
+        <div class="header">
+            <h1>🖼️ CSS Images Examples</h1>
+            <p>Interactive examples demonstrating CSS image properties and filters</p>
+        </div>
+        
+        <!-- Object Fit -->
+        <div class="example-section">
+            <h2>Object-Fit</h2>
+            <p class="description">How images fit within their containers</p>
+            
+            <div class="demo-container object-fit-demo">
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><rect fill='%23667eea' width='200' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>Fill</text></svg>" class="fill" alt="Fill">
+                </div>
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><rect fill='%23764ba2' width='200' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>Contain</text></svg>" class="contain" alt="Contain">
+                </div>
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='150'><rect fill='%23667eea' width='200' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>Cover</text></svg>" class="cover" alt="Cover">
+                </div>
+            </div>
+            <div class="code-block">.fill { object-fit: fill; }
+.contain { object-fit: contain; }
+.cover { object-fit: cover; }</div>
+        </div>
+        
+        <!-- Filters -->
+        <div class="example-section">
+            <h2>Image Filters</h2>
+            <p class="description">Applying visual effects to images</p>
+            
+            <div class="demo-container filter-demo">
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><rect fill='%23667eea' width='150' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>Original</text></svg>" alt="Original">
+                </div>
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><rect fill='%23667eea' width='150' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>Grayscale</text></svg>" class="grayscale" alt="Grayscale">
+                </div>
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><rect fill='%23667eea' width='150' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>Blur</text></svg>" class="blur" alt="Blur">
+                </div>
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><rect fill='%23667eea' width='150' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>Bright</text></svg>" class="brightness" alt="Brightness">
+                </div>
+            </div>
+            <div class="code-block">.grayscale { filter: grayscale(100%); }
+.blur { filter: blur(3px); }
+.brightness { filter: brightness(150%); }
+.contrast { filter: contrast(150%); }</div>
+        </div>
+        
+        <!-- Opacity -->
+        <div class="example-section">
+            <h2>Opacity</h2>
+            <p class="description">Controlling image transparency</p>
+            
+            <div class="demo-container opacity-demo">
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><rect fill='%23667eea' width='150' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>100%</text></svg>" class="opacity-100" alt="100%">
+                </div>
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><rect fill='%23667eea' width='150' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>75%</text></svg>" class="opacity-75" alt="75%">
+                </div>
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><rect fill='%23667eea' width='150' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>50%</text></svg>" class="opacity-50" alt="50%">
+                </div>
+                <div class="box">
+                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><rect fill='%23667eea' width='150' height='150'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>25%</text></svg>" class="opacity-25" alt="25%">
+                </div>
+            </div>
+            <div class="code-block">.opacity-100 { opacity: 1; }
+.opacity-75 { opacity: 0.75; }
+.opacity-50 { opacity: 0.5; }
+.opacity-25 { opacity: 0.25; }</div>
+        </div>
+        
+        <!-- Responsive Image -->
+        <div class="example-section">
+            <h2>Responsive Image</h2>
+            <p class="description">Image that scales with viewport width</p>
+            
+            <div class="demo-container responsive-demo">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='400'><rect fill='%23667eea' width='800' height='400'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em' font-size='24'>Responsive Image</text></svg>" style="max-width: 100%; height: auto; border-radius: 8px;" alt="Responsive">
+            </div>
+            <div class="code-block">img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}</div>
+        </div>
+        
+        <!-- Circular Avatar -->
+        <div class="example-section">
+            <h2>Circular Avatar</h2>
+            <p class="description">Creating circular profile images</p>
+            
+            <div class="demo-container">
+                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><circle cx='50' cy='50' r='50' fill='%23667eea'/><text x='50%' y='50%' fill='white' text-anchor='middle' dy='.3em'>Avatar</text></svg>" class="avatar" alt="Avatar">
+            </div>
+            <div class="code-block">.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}</div>
+        </div>
+    </div>
+</body>
+</html>

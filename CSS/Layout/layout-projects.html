@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Layout Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background: #f0f0f0;
+            color: #667eea;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .project-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .project-card .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+        .project-card .features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .project-card .features li {
+            padding: 8px 0;
+            color: #555;
+            padding-left: 25px;
+            position: relative;
+        }
+        .project-card .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .badge-beginner {
+            background: #e1f5ee;
+            color: #04342c;
+        }
+        .badge-intermediate {
+            background: #eeedfe;
+            color: #26215c;
+        }
+        .badge-advanced {
+            background: #faece7;
+            color: #4a1b0c;
+        }
+        .project-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .project-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">🚀 Learning Hub</a>
+            <div class="nav-links">
+                <a href="../../css.html">← Back to CSS</a>
+                <a href="layout-reference.md">Reference Guide</a>
+                <a href="layout-examples.html">Examples</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="../../css.html" class="back-link">← Back to CSS</a>
+        
+        <div class="header">
+            <h1>📐 CSS Layout Projects</h1>
+            <p>Hands-on projects to master CSS layout concepts with interactive code editors</p>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- Project 1: Hero Section -->
+            <div class="project-card">
+                <span class="badge badge-beginner">Beginner</span>
+                <h3>Hero Section</h3>
+                <p class="description">Create a full-width hero banner with centered content and background image</p>
+                <ul class="features">
+                    <li>Full-width layout</li>
+                    <li>Centered content using flexbox</li>
+                    <li>Background image with overlay</li>
+                    <li>Responsive design</li>
+                </ul>
+                <a href="layout-project-1-hero.html" class="project-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 2: Card Grid -->
+            <div class="project-card">
+                <span class="badge badge-beginner">Beginner</span>
+                <h3>Card Grid</h3>
+                <p class="description">Build a responsive grid of cards with consistent spacing and hover effects</p>
+                <ul class="features">
+                    <li>Grid layout with gap</li>
+                    <li>Responsive columns</li>
+                    <li>Card hover effects</li>
+                    <li>Equal height cards</li>
+                </ul>
+                <a href="layout-project-2-cards.html" class="project-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 3: Sidebar Layout -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>Sidebar Layout</h3>
+                <p class="description">Create a layout with fixed sidebar and scrollable main content area</p>
+                <ul class="features">
+                    <li>Fixed sidebar with sticky positioning</li>
+                    <li>Scrollable content area</li>
+                    <li>Responsive behavior</li>
+                    <li>Navigation styling</li>
+                </ul>
+                <a href="layout-project-3-sidebar.html" class="project-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 4: Sticky Header -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>Sticky Header</h3>
+                <p class="description">Implement a navigation header that stays visible while scrolling</p>
+                <ul class="features">
+                    <li>Sticky positioning</li>
+                    <li>Navigation links</li>
+                    <li>Z-index management</li>
+                    <li>Smooth scrolling</li>
+                </ul>
+                <a href="layout-project-4-sticky-header.html" class="project-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 5: Floating Button -->
+            <div class="project-card">
+                <span class="badge badge-beginner">Beginner</span>
+                <h3>Floating Button</h3>
+                <p class="description">Create a floating action button that stays fixed in the viewport</p>
+                <ul class="features">
+                    <li>Fixed positioning</li>
+                    <li>Button styling</li>
+                    <li>Hover effects</li>
+                    <li>Accessibility considerations</li>
+                </ul>
+                <a href="layout-project-5-floating-button.html" class="project-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 6: Modal Overlay -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>Modal Overlay</h3>
+                <p class="description">Build a full-screen modal with centered content and backdrop</p>
+                <ul class="features">
+                    <li>Fixed overlay positioning</li>
+                    <li>Centered modal content</li>
+                    <li>Backdrop blur effect</li>
+                    <li>Close button positioning</li>
+                </ul>
+                <a href="layout-project-6-modal.html" class="project-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 7: Notification Badge -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>Notification Badge</h3>
+                <p class="description">Add a notification badge that appears in the corner of an icon</p>
+                <ul class="features">
+                    <li>Absolute positioning</li>
+                    <li>Relative parent context</li>
+                    <li>Badge styling</li>
+                    <li>Positioning calculations</li>
+                </ul>
+                <a href="layout-project-7-badge.html" class="project-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 8: Tooltip -->
+            <div class="project-card">
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>Tooltip</h3>
+                <p class="description">Create a tooltip that appears on hover with proper positioning</p>
+                <ul class="features">
+                    <li>Absolute positioning</li>
+                    <li>Hover states</li>
+                    <li>Arrow positioning</li>
+                    <li>Animation effects</li>
+                </ul>
+                <a href="layout-project-8-tooltip.html" class="project-btn">Start Project →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

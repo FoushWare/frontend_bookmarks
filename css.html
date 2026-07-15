@@ -247,6 +247,56 @@
             opacity: 0.9;
             font-size: 1.1em;
         }
+        
+        /* Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .category-card {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 40px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            border: 2px solid var(--border-color);
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .category-card h3 {
+            font-size: 1.8em;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+        .category-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .category-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .topic-count {
+            color: var(--text-tertiary);
+            font-size: 0.9em;
+        }
+        
+        /* Category Section */
+        .category-section {
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
@@ -271,11 +321,35 @@
             <p>Master modern CSS with Flexbox, Grid, animations, and responsive design</p>
         </div>
         
-        <!-- Pure CSS Section -->
-        <div class="section-header">
-            <h2>🔧 Pure CSS</h2>
-            <p>Master core CSS concepts and properties</p>
+        <!-- Main Categories -->
+        <div class="categories-grid">
+            <div class="category-card" onclick="toggleCategory('pure-css')">
+                <div class="category-icon">🔧</div>
+                <h3>Pure CSS</h3>
+                <p>Master core CSS concepts and properties including Layout, Flexbox, Grid, Sizing, Spacing, Typography, and more</p>
+                <div class="category-meta">
+                    <span class="badge badge-intermediate">Intermediate</span>
+                    <span class="topic-count">25 Topics</span>
+                </div>
+            </div>
+            
+            <div class="category-card" onclick="toggleCategory('tools-frameworks')">
+                <div class="category-icon">🛠️</div>
+                <h3>CSS Tools & Frameworks</h3>
+                <p>Modern CSS preprocessors, frameworks, and component libraries including Sass, TailwindCSS, and Shadcn UI</p>
+                <div class="category-meta">
+                    <span class="badge badge-advanced">Advanced</span>
+                    <span class="topic-count">3 Tools</span>
+                </div>
+            </div>
         </div>
+        
+        <!-- Pure CSS Topics -->
+        <div id="pure-css" class="category-section" style="display: none;">
+            <div class="section-header">
+                <h2>🔧 Pure CSS Topics</h2>
+                <p>Master core CSS concepts and properties</p>
+            </div>
         
         <div class="topics-grid">
             <!-- 1. Layout -->
@@ -779,11 +853,12 @@
             </div>
         </div>
         
-        <!-- CSS Tools & Frameworks Section -->
-        <div class="section-header">
-            <h2>🛠️ CSS Tools & Frameworks</h2>
-            <p>Modern CSS preprocessors, frameworks, and component libraries</p>
-        </div>
+        <!-- CSS Tools & Frameworks Topics -->
+        <div id="tools-frameworks" class="category-section" style="display: none;">
+            <div class="section-header">
+                <h2>🛠️ CSS Tools & Frameworks</h2>
+                <p>Modern CSS preprocessors, frameworks, and component libraries</p>
+            </div>
         
         <div class="topics-grid">
             <!-- Sass -->
@@ -890,6 +965,20 @@
                         </html>
                     `);
                 });
+        }
+        
+        function toggleCategory(categoryId) {
+            // Hide all category sections
+            document.querySelectorAll('.category-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show selected category
+            const selectedSection = document.getElementById(categoryId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+                selectedSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
         
         function toggleTheme() {

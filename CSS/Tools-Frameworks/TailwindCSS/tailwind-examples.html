@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailwindCSS Examples</title>
+    <link rel="stylesheet" href="../../../theme.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        [data-theme="dark"] .navbar {
+            background: rgba(26, 26, 46, 0.98);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .theme-toggle {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .example-section {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        .example-section h2 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .example-section .description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .demo-container {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        /* Demo Styles - Simulating Tailwind classes */
+        .flex { display: flex; }
+        .flex-row { flex-direction: row; }
+        .flex-col { flex-direction: column; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+        .gap-4 { gap: 1rem; }
+        .gap-2 { gap: 0.5rem; }
+        .grid { display: grid; }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .m-4 { margin: 1rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .bg-white { background: white; }
+        .bg-blue-500 { background: #3b82f6; }
+        .bg-blue-600 { background: #2563eb; }
+        .bg-gray-100 { background: #f3f4f6; }
+        .bg-gray-200 { background: #e5e7eb; }
+        .text-white { color: white; }
+        .text-gray-900 { color: #111827; }
+        .text-gray-600 { color: #4b5563; }
+        .text-xl { font-size: 1.25rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-base { font-size: 1rem; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .rounded { border-radius: 0.25rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-full { border-radius: 9999px; }
+        .shadow { border-radius: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
+        .shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .w-full { width: 100%; }
+        .w-1\/2 { width: 50%; }
+        .h-full { height: 100%; }
+        .h-64 { height: 16rem; }
+        .hover\:bg-blue-600:hover { background: #2563eb; }
+        .hover\:scale-105:hover { transform: scale(1.05); }
+        .transition { transition: all 0.3s; }
+        .cursor-pointer { cursor: pointer; }
+        .border { border: 1px solid #e5e7eb; }
+        .border-2 { border: 2px solid #e5e7eb; }
+        .border-blue-500 { border-color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../../index.html" class="logo">🚀 Learning Hub</a>
+            <div class="nav-links">
+                <a href="../../../css.html">← Back to CSS</a>
+                <a href="tailwind-reference.md">Reference Guide</a>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="../../../css.html" class="back-link">← Back to CSS</a>
+        
+        <div class="header">
+            <h1>🎨 TailwindCSS Examples</h1>
+            <p>Interactive examples demonstrating TailwindCSS utility classes</p>
+        </div>
+        
+        <!-- Flexbox -->
+        <div class="example-section">
+            <h2>Flexbox Utilities</h2>
+            <p class="description">Flexbox layout with Tailwind utility classes</p>
+            
+            <div class="demo-container">
+                <div class="flex justify-center items-center gap-4 bg-gray-100 p-4 rounded">
+                    <div class="bg-blue-500 text-white p-4 rounded">Item 1</div>
+                    <div class="bg-blue-500 text-white p-4 rounded">Item 2</div>
+                    <div class="bg-blue-500 text-white p-4 rounded">Item 3</div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="flex justify-center items-center gap-4 bg-gray-100 p-4 rounded"&gt;
+  &lt;div class="bg-blue-500 text-white p-4 rounded"&gt;Item 1&lt;/div&gt;
+  &lt;div class="bg-blue-500 text-white p-4 rounded"&gt;Item 2&lt;/div&gt;
+  &lt;div class="bg-blue-500 text-white p-4 rounded"&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Grid -->
+        <div class="example-section">
+            <h2>Grid Layout</h2>
+            <p class="description">Grid layout with responsive columns</p>
+            
+            <div class="demo-container">
+                <div class="grid grid-cols-3 gap-4">
+                    <div class="bg-white border p-4 rounded">Grid Item 1</div>
+                    <div class="bg-white border p-4 rounded">Grid Item 2</div>
+                    <div class="bg-white border p-4 rounded">Grid Item 3</div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="grid grid-cols-3 gap-4"&gt;
+  &lt;div class="bg-white border p-4 rounded"&gt;Grid Item 1&lt;/div&gt;
+  &lt;div class="bg-white border p-4 rounded"&gt;Grid Item 2&lt;/div&gt;
+  &lt;div class="bg-white border p-4 rounded"&gt;Grid Item 3&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Typography -->
+        <div class="example-section">
+            <h2>Typography</h2>
+            <p class="description">Text styling with Tailwind utilities</p>
+            
+            <div class="demo-container">
+                <div class="bg-white p-6 rounded">
+                    <h1 class="text-xl font-bold mb-2">Heading 1</h1>
+                    <p class="text-base text-gray-600 mb-4">This is a paragraph with base font size and gray color.</p>
+                    <p class="text-lg font-semibold">Large semibold text</p>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="bg-white p-6 rounded"&gt;
+  &lt;h1 class="text-xl font-bold mb-2"&gt;Heading 1&lt;/h1&gt;
+  &lt;p class="text-base text-gray-600 mb-4"&gt;This is a paragraph&lt;/p&gt;
+  &lt;p class="text-lg font-semibold"&gt;Large semibold text&lt;/p&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Spacing -->
+        <div class="example-section">
+            <h2>Spacing Utilities</h2>
+            <p class="description">Padding and margin utilities</p>
+            
+            <div class="demo-container">
+                <div class="bg-gray-100 p-4 rounded">
+                    <div class="bg-white p-4 mb-4 rounded">Margin bottom</div>
+                    <div class="bg-white p-4 rounded">No margin</div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="bg-gray-100 p-4 rounded"&gt;
+  &lt;div class="bg-white p-4 mb-4 rounded"&gt;Margin bottom&lt;/div&gt;
+  &lt;div class="bg-white p-4 rounded"&gt;No margin&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Colors -->
+        <div class="example-section">
+            <h2>Color Utilities</h2>
+            <p class="description">Background and text color utilities</p>
+            
+            <div class="demo-container">
+                <div class="flex gap-4">
+                    <div class="bg-blue-500 text-white p-4 rounded">Blue</div>
+                    <div class="bg-gray-200 text-gray-900 p-4 rounded">Gray</div>
+                    <div class="bg-white border-2 border-blue-500 p-4 rounded">White with border</div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="flex gap-4"&gt;
+  &lt;div class="bg-blue-500 text-white p-4 rounded"&gt;Blue&lt;/div&gt;
+  &lt;div class="bg-gray-200 text-gray-900 p-4 rounded"&gt;Gray&lt;/div&gt;
+  &lt;div class="bg-white border-2 border-blue-500 p-4 rounded"&gt;White&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Border Radius -->
+        <div class="example-section">
+            <h2>Border Radius</h2>
+            <p class="description">Different border radius values</p>
+            
+            <div class="demo-container">
+                <div class="flex gap-4 items-center">
+                    <div class="bg-blue-500 text-white p-4 rounded">Default</div>
+                    <div class="bg-blue-500 text-white p-4 rounded-lg">Large</div>
+                    <div class="bg-blue-500 text-white p-4 rounded-full">Full</div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="flex gap-4 items-center"&gt;
+  &lt;div class="bg-blue-500 text-white p-4 rounded"&gt;Default&lt;/div&gt;
+  &lt;div class="bg-blue-500 text-white p-4 rounded-lg"&gt;Large&lt;/div&gt;
+  &lt;div class="bg-blue-500 text-white p-4 rounded-full"&gt;Full&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Shadows -->
+        <div class="example-section">
+            <h2>Shadows</h2>
+            <p class="description">Different shadow utilities</p>
+            
+            <div class="demo-container">
+                <div class="flex gap-4">
+                    <div class="bg-white p-4 rounded shadow">Default</div>
+                    <div class="bg-white p-4 rounded shadow-md">Medium</div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="flex gap-4"&gt;
+  &lt;div class="bg-white p-4 rounded shadow"&gt;Default&lt;/div&gt;
+  &lt;div class="bg-white p-4 rounded shadow-md"&gt;Medium&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Interactive States -->
+        <div class="example-section">
+            <h2>Interactive States</h2>
+            <p class="description">Hover and active states</p>
+            
+            <div class="demo-container">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition cursor-pointer">
+                    Hover me
+                </button>
+            </div>
+            <div class="code-block">&lt;button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition cursor-pointer"&gt;
+  Hover me
+&lt;/button&gt;</div>
+        </div>
+        
+        <!-- Card Component -->
+        <div class="example-section">
+            <h2>Card Component</h2>
+            <p class="description">Complete card using Tailwind utilities</p>
+            
+            <div class="demo-container">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-bold mb-2">Card Title</h3>
+                    <p class="text-gray-600 mb-4">This is a card component built with TailwindCSS utilities. It includes a title, description, and action button.</p>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition cursor-pointer">
+                        Action
+                    </button>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="bg-white rounded-lg shadow-md p-6"&gt;
+  &lt;h3 class="text-xl font-bold mb-2"&gt;Card Title&lt;/h3&gt;
+  &lt;p class="text-gray-600 mb-4"&gt;Card description&lt;/p&gt;
+  &lt;button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition"&gt;
+    Action
+  &lt;/button&gt;
+&lt;/div&gt;</div>
+        </div>
+        
+        <!-- Button Component -->
+        <div class="example-section">
+            <h2>Button Variants</h2>
+            <p class="description">Different button styles</p>
+            
+            <div class="demo-container">
+                <div class="flex gap-4">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition cursor-pointer">Primary</button>
+                    <button class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-2 px-4 rounded transition cursor-pointer">Secondary</button>
+                    <button class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-2 px-4 rounded transition cursor-pointer">Outline</button>
+                </div>
+            </div>
+            <div class="code-block">&lt;button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition"&gt;Primary&lt;/button&gt;
+&lt;button class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-2 px-4 rounded transition"&gt;Secondary&lt;/button&gt;
+&lt;button class="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-2 px-4 rounded transition"&gt;Outline&lt;/button&gt;</div>
+        </div>
+        
+        <!-- Responsive -->
+        <div class="example-section">
+            <h2>Responsive Design</h2>
+            <p class="description">Responsive utilities with breakpoints</p>
+            
+            <div class="demo-container">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white border p-4 rounded">Responsive Item 1</div>
+                    <div class="bg-white border p-4 rounded">Responsive Item 2</div>
+                </div>
+            </div>
+            <div class="code-block">&lt;div class="grid grid-cols-1 md:grid-cols-2 gap-4"&gt;
+  &lt;div class="bg-white border p-4 rounded"&gt;Item 1&lt;/div&gt;
+  &lt;div class="bg-white border p-4 rounded"&gt;Item 2&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+    </div>
+    <script src="../../../theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadcn UI Examples</title>
+    <link rel="stylesheet" href="../../../theme.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        [data-theme="dark"] .navbar {
+            background: rgba(26, 26, 46, 0.98);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .theme-toggle {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .example-section {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        .example-section h2 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .example-section .description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .demo-container {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        /* Demo Styles - Simulating Shadcn UI components */
+        .shadcn-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .shadcn-button-primary {
+            background: #0f172a;
+            color: white;
+        }
+        .shadcn-button-primary:hover {
+            background: #1e293b;
+        }
+        .shadcn-button-secondary {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+        .shadcn-button-secondary:hover {
+            background: #e2e8f0;
+        }
+        .shadcn-button-outline {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            color: #0f172a;
+        }
+        .shadcn-button-outline:hover {
+            background: #f1f5f9;
+        }
+        .shadcn-card {
+            background: white;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .shadcn-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+        .shadcn-card p {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        .shadcn-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            border: 1px solid #e2e8f0;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+        .shadcn-input:focus {
+            outline: none;
+            border-color: #0f172a;
+            box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.1);
+        }
+        .shadcn-badge {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .shadcn-badge-default {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+        .shadcn-badge-secondary {
+            background: #e2e8f0;
+            color: #475569;
+        }
+        .shadcn-badge-destructive {
+            background: #ef4444;
+            color: white;
+        }
+        .shadcn-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #64748b;
+        }
+        .shadcn-tabs {
+            display: flex;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .shadcn-tab {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        .shadcn-tab.active {
+            border-bottom-color: #0f172a;
+            color: #0f172a;
+        }
+        .shadcn-tab:hover:not(.active) {
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../../index.html" class="logo">🚀 Learning Hub</a>
+            <div class="nav-links">
+                <a href="../../../css.html">← Back to CSS</a>
+                <a href="shadcn-reference.md">Reference Guide</a>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="../../../css.html" class="back-link">← Back to CSS</a>
+        
+        <div class="header">
+            <h1>🧩 Shadcn UI Examples</h1>
+            <p>Interactive examples demonstrating Shadcn UI components</p>
+        </div>
+        
+        <!-- Button Components -->
+        <div class="example-section">
+            <h2>Button Components</h2>
+            <p class="description">Different button variants and sizes</p>
+            
+            <div class="demo-container">
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="shadcn-button shadcn-button-primary">Primary</button>
+                    <button class="shadcn-button shadcn-button-secondary">Secondary</button>
+                    <button class="shadcn-button shadcn-button-outline">Outline</button>
+                    <button class="shadcn-button shadcn-button-primary" style="background: #ef4444;">Destructive</button>
+                </div>
+            </div>
+            <div class="code-block">import { Button } from "@/components/ui/button"
+
+&lt;Button&gt;Default&lt;/Button&gt;
+&lt;Button variant="secondary"&gt;Secondary&lt;/Button&gt;
+&lt;Button variant="outline"&gt;Outline&lt;/Button&gt;
+&lt;Button variant="destructive"&gt;Destructive&lt;/Button&gt;</div>
+        </div>
+        
+        <!-- Card Component -->
+        <div class="example-section">
+            <h2>Card Component</h2>
+            <p class="description">Card with header, content, and footer</p>
+            
+            <div class="demo-container">
+                <div class="shadcn-card">
+                    <h3>Card Title</h3>
+                    <p>Card description text goes here. This is a sample card component from Shadcn UI.</p>
+                </div>
+            </div>
+            <div class="code-block">import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
+
+&lt;Card&gt;
+  &lt;CardHeader&gt;
+    &lt;CardTitle&gt;Card Title&lt;/CardTitle&gt;
+    &lt;CardDescription&gt;Card description&lt;/CardDescription&gt;
+  &lt;/CardHeader&gt;
+  &lt;CardContent&gt;
+    &lt;p&gt;Card content&lt;/p&gt;
+  &lt;/CardContent&gt;
+&lt;/Card&gt;</div>
+        </div>
+        
+        <!-- Input Component -->
+        <div class="example-section">
+            <h2>Input Component</h2>
+            <p class="description">Form input with focus states</p>
+            
+            <div class="demo-container">
+                <div style="max-width: 300px;">
+                    <input type="text" class="shadcn-input" placeholder="Enter your name">
+                </div>
+            </div>
+            <div class="code-block">import { Input } from "@/components/ui/input"
+
+&lt;Input type="text" placeholder="Enter your name" /&gt;</div>
+        </div>
+        
+        <!-- Badge Component -->
+        <div class="example-section">
+            <h2>Badge Component</h2>
+            <p class="description">Different badge variants</p>
+            
+            <div class="demo-container">
+                <div style="display: flex; gap: 10px;">
+                    <span class="shadcn-badge shadcn-badge-default">Default</span>
+                    <span class="shadcn-badge shadcn-badge-secondary">Secondary</span>
+                    <span class="shadcn-badge shadcn-badge-destructive">Destructive</span>
+                </div>
+            </div>
+            <div class="code-block">import { Badge } from "@/components/ui/badge"
+
+&lt;Badge&gt;Default&lt;/Badge&gt;
+&lt;Badge variant="secondary"&gt;Secondary&lt;/Badge&gt;
+&lt;Badge variant="destructive"&gt;Destructive&lt;/Badge&gt;</div>
+        </div>
+        
+        <!-- Avatar Component -->
+        <div class="example-section">
+            <h2>Avatar Component</h2>
+            <p class="description">User avatar with fallback</p>
+            
+            <div class="demo-container">
+                <div style="display: flex; gap: 10px;">
+                    <div class="shadcn-avatar">JD</div>
+                    <div class="shadcn-avatar" style="background: #667eea; color: white;">AB</div>
+                </div>
+            </div>
+            <div class="code-block">import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+&lt;Avatar&gt;
+  &lt;AvatarImage src="https://github.com/shadcn.png" /&gt;
+  &lt;AvatarFallback&gt;CN&lt;/AvatarFallback&gt;
+&lt;/Avatar&gt;</div>
+        </div>
+        
+        <!-- Tabs Component -->
+        <div class="example-section">
+            <h2>Tabs Component</h2>
+            <p class="description">Tab navigation with content panels</p>
+            
+            <div class="demo-container">
+                <div class="shadcn-tabs">
+                    <div class="shadcn-tab active">Account</div>
+                    <div class="shadcn-tab">Password</div>
+                    <div class="shadcn-tab">Settings</div>
+                </div>
+                <div style="padding: 1rem;">
+                    <p>Tab content goes here</p>
+                </div>
+            </div>
+            <div class="code-block">import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+
+&lt;Tabs defaultValue="account"&gt;
+  &lt;TabsList&gt;
+    &lt;TabsTrigger value="account"&gt;Account&lt;/TabsTrigger&gt;
+    &lt;TabsTrigger value="password"&gt;Password&lt;/TabsTrigger&gt;
+  &lt;/TabsList&gt;
+  &lt;TabsContent value="account"&gt;Account content&lt;/TabsContent&gt;
+  &lt;TabsContent value="password"&gt;Password content&lt;/TabsContent&gt;
+&lt;/Tabs&gt;</div>
+        </div>
+        
+        <!-- Form Component -->
+        <div class="example-section">
+            <h2>Form Component</h2>
+            <p class="description">Form with validation using react-hook-form</p>
+            
+            <div class="demo-container">
+                <div style="max-width: 400px;">
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Username</label>
+                        <input type="text" class="shadcn-input" placeholder="Enter username">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-size: 0.875rem; font-weight: 500;">Email</label>
+                        <input type="email" class="shadcn-input" placeholder="Enter email">
+                    </div>
+                    <button class="shadcn-button shadcn-button-primary" style="width: 100%;">Submit</button>
+                </div>
+            </div>
+            <div class="code-block">import { useForm } from "react-hook-form"
+import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+
+const form = useForm({
+  defaultValues: {
+    username: "",
+    email: "",
+  },
+})
+
+&lt;Form {...form}&gt;
+  &lt;FormField
+    control={form.control}
+    name="username"
+    render={({ field }) =&gt; (
+      &lt;FormItem&gt;
+        &lt;FormLabel&gt;Username&lt;/FormLabel&gt;
+        &lt;FormControl&gt;
+          &lt;Input placeholder="Username" {...field} /&gt;
+        &lt;/FormControl&gt;
+      &lt;/FormItem&gt;
+    )}
+  /&gt;
+&lt;/Form&gt;</div>
+        </div>
+        
+        <!-- Dialog Component -->
+        <div class="example-section">
+            <h2>Dialog Component</h2>
+            <p class="description">Modal dialog with backdrop</p>
+            
+            <div class="demo-container">
+                <button class="shadcn-button shadcn-button-primary">Open Dialog</button>
+                <p style="margin-top: 1rem; font-size: 0.875rem; color: #64748b;">Click to open dialog (demo only)</p>
+            </div>
+            <div class="code-block">import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+&lt;Dialog&gt;
+  &lt;DialogTrigger&gt;Open Dialog&lt;/DialogTrigger&gt;
+  &lt;DialogContent&gt;
+    &lt;DialogHeader&gt;
+      &lt;DialogTitle&gt;Dialog Title&lt;/DialogTitle&gt;
+      &lt;DialogDescription&gt;Dialog description&lt;/DialogDescription&gt;
+    &lt;/DialogHeader&gt;
+  &lt;/DialogContent&gt;
+&lt;/Dialog&gt;</div>
+        </div>
+        
+        <!-- Select Component -->
+        <div class="example-section">
+            <h2>Select Component</h2>
+            <p class="description">Dropdown select with options</p>
+            
+            <div class="demo-container">
+                <div style="max-width: 300px;">
+                    <select class="shadcn-input">
+                        <option value="">Select option</option>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="code-block">import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+&lt;Select&gt;
+  &lt;SelectTrigger&gt;
+    &lt;SelectValue placeholder="Select option" /&gt;
+  &lt;/SelectTrigger&gt;
+  &lt;SelectContent&gt;
+    &lt;SelectItem value="option1"&gt;Option 1&lt;/SelectItem&gt;
+    &lt;SelectItem value="option2"&gt;Option 2&lt;/SelectItem&gt;
+  &lt;/SelectContent&gt;
+&lt;/Select&gt;</div>
+        </div>
+        
+        <!-- Complete Card Example -->
+        <div class="example-section">
+            <h2>Complete Card Example</h2>
+            <p class="description">Card with all elements combined</p>
+            
+            <div class="demo-container">
+                <div class="shadcn-card" style="max-width: 400px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3>Pro Plan</h3>
+                        <span class="shadcn-badge shadcn-badge-default">$29/mo</span>
+                    </div>
+                    <p style="margin-bottom: 1.5rem;">Perfect for growing teams with advanced features and priority support.</p>
+                    <ul style="list-style: none; margin-bottom: 1.5rem;">
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">✓ Unlimited projects</li>
+                        <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">✓ Priority support</li>
+                        <li style="padding: 0.5rem 0;">✓ Advanced analytics</li>
+                    </ul>
+                    <button class="shadcn-button shadcn-button-primary" style="width: 100%;">Get Started</button>
+                </div>
+            </div>
+            <div class="code-block">&lt;Card className="max-w-400"&gt;
+  &lt;CardHeader&gt;
+    &lt;div className="flex justify-between items-center"&gt;
+      &lt;CardTitle&gt;Pro Plan&lt;/CardTitle&gt;
+      &lt;Badge&gt;$29/mo&lt;/Badge&gt;
+    &lt;/div&gt;
+    &lt;CardDescription&gt;Perfect for growing teams&lt;/CardDescription&gt;
+  &lt;/CardHeader&gt;
+  &lt;CardContent&gt;
+    &lt;ul className="space-y-2"&gt;
+      &lt;li&gt;✓ Unlimited projects&lt;/li&gt;
+      &lt;li&gt;✓ Priority support&lt;/li&gt;
+      &lt;li&gt;✓ Advanced analytics&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;Button className="w-full"&gt;Get Started&lt;/Button&gt;
+  &lt;/CardContent&gt;
+&lt;/Card&gt;</div>
+        </div>
+    </div>
+    <script src="../../../theme.js"></script>
+</body>
+</html>

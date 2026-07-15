@@ -5,7 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Mastery - Learning Hub</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="theme.css">
     <style>
+        :root {
+            --bg-primary: #f5f5f5;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f8f9fa;
+            --text-primary: #333;
+            --text-secondary: #7f8c8d;
+            --text-tertiary: #555;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-hover: 0 8px 15px rgba(0,0,0,0.15);
+            --accent: #667eea;
+            --accent-hover: #5568d3;
+            --code-bg: #2c3e50;
+            --code-text: #ecf0f1;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-tertiary: #1f2a48;
+            --text-primary: #eaeaea;
+            --text-secondary: #a0a0a0;
+            --text-tertiary: #c0c0c0;
+            --border-color: #2a3a5e;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+            --shadow-hover: 0 8px 15px rgba(0,0,0,0.4);
+            --accent: #667eea;
+            --accent-hover: #7b8bef;
+            --code-bg: #0f0f1a;
+            --code-text: #e0e0e0;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -13,9 +46,10 @@
         }
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
         }
         .navbar {
             background: rgba(255, 255, 255, 0.98);
@@ -25,6 +59,10 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: background 0.3s;
+        }
+        [data-theme="dark"] .navbar {
+            background: rgba(26, 26, 46, 0.98);
         }
         .navbar .container {
             display: flex;
@@ -37,29 +75,46 @@
         .navbar .logo {
             font-size: 1.5em;
             font-weight: bold;
-            color: #667eea;
+            color: var(--accent);
             text-decoration: none;
         }
         .navbar .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
+            align-items: center;
+        }
+        .theme-toggle {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
         }
         .navbar .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-primary);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s, background 0.3s;
             padding: 8px 16px;
             border-radius: 6px;
         }
         .navbar .nav-links a:hover {
-            color: #667eea;
-            background: #f0f0f0;
+            color: var(--accent);
+            background: var(--bg-tertiary);
         }
         .navbar .nav-links a.active {
-            color: #667eea;
-            background: #eeedfe;
+            color: var(--accent);
+            background: var(--bg-tertiary);
         }
         .container {
             max-width: 1400px;
@@ -89,23 +144,23 @@
             margin-bottom: 40px;
         }
         .topic-card {
-            background: white;
+            background: var(--bg-secondary);
             border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
         }
         .topic-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-hover);
         }
         .topic-card h3 {
-            color: #2c3e50;
+            color: var(--text-primary);
             margin-bottom: 15px;
             font-size: 1.5em;
         }
         .topic-card .description {
-            color: #7f8c8d;
+            color: var(--text-secondary);
             margin-bottom: 20px;
             font-size: 1em;
         }
@@ -115,10 +170,10 @@
         }
         .topic-card .resources li {
             padding: 8px 0;
-            color: #555;
+            color: var(--text-tertiary);
         }
         .topic-card .resources li a {
-            color: #667eea;
+            color: var(--accent);
             text-decoration: none;
         }
         .topic-card .resources li a:hover {
@@ -163,8 +218,8 @@
             font-size: 11px;
             padding: 4px 8px;
             border-radius: 4px;
-            background: #f0f0f0;
-            color: #666;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
         }
         .content-type.available {
             background: #e1f5ee;
@@ -173,12 +228,24 @@
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
-            color: #667eea;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 500;
         }
-        .back-link:hover {
-            text-decoration: underline;
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .section-header h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .section-header p {
+            opacity: 0.9;
+            font-size: 1.1em;
         }
     </style>
 </head>
@@ -191,6 +258,7 @@
                 <li><a href="css.html" class="active">CSS</a></li>
                 <li><a href="javascript.html">JavaScript</a></li>
                 <li><a href="senior-interview.html">Senior Interview</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button></li>
             </ul>
         </div>
     </nav>
@@ -201,6 +269,12 @@
         <div class="header">
             <h1>🎨 CSS Mastery</h1>
             <p>Master modern CSS with Flexbox, Grid, animations, and responsive design</p>
+        </div>
+        
+        <!-- Pure CSS Section -->
+        <div class="section-header">
+            <h2>🔧 Pure CSS</h2>
+            <p>Master core CSS concepts and properties</p>
         </div>
         
         <div class="topics-grid">
@@ -704,6 +778,74 @@
                 </div>
             </div>
         </div>
+        
+        <!-- CSS Tools & Frameworks Section -->
+        <div class="section-header">
+            <h2>🛠️ CSS Tools & Frameworks</h2>
+            <p>Modern CSS preprocessors, frameworks, and component libraries</p>
+        </div>
+        
+        <div class="topics-grid">
+            <!-- Sass -->
+            <div class="topic-card">
+                <span class="priority">⭐⭐⭐⭐⭐</span>
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>Sass (SCSS)</h3>
+                <p class="description">CSS preprocessor with variables, nesting, mixins, functions, and modular architecture</p>
+                <ul class="resources">
+                    <li><a href="CSS/Tools-Frameworks/Sass/sass-reference.md" onclick="openMarkdown('CSS/Tools-Frameworks/Sass/sass-reference.md', '📖 Sass Reference Guide'); return false;">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Tools-Frameworks/Sass/sass-examples.html">🎯 Examples</a></li>
+                    <li><a href="CSS/Tools-Frameworks/Sass/sass-interview.md" onclick="openMarkdown('CSS/Tools-Frameworks/Sass/sass-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
+                    <li><a href="CSS/Tools-Frameworks/Sass/sass-projects.html">💻 Projects</a></li>
+                </ul>
+                <div class="content-types">
+                    <span class="content-type available">Reference</span>
+                    <span class="content-type available">Examples</span>
+                    <span class="content-type available">Interview</span>
+                    <span class="content-type available">Projects</span>
+                </div>
+            </div>
+            
+            <!-- TailwindCSS -->
+            <div class="topic-card">
+                <span class="priority">⭐⭐⭐⭐⭐</span>
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>TailwindCSS</h3>
+                <p class="description">Utility-first CSS framework for rapid UI development with custom design system</p>
+                <ul class="resources">
+                    <li><a href="CSS/Tools-Frameworks/TailwindCSS/tailwind-reference.md" onclick="openMarkdown('CSS/Tools-Frameworks/TailwindCSS/tailwind-reference.md', '📖 TailwindCSS Reference Guide'); return false;">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Tools-Frameworks/TailwindCSS/tailwind-examples.html">🎯 Examples</a></li>
+                    <li><a href="CSS/Tools-Frameworks/TailwindCSS/tailwind-interview.md" onclick="openMarkdown('CSS/Tools-Frameworks/TailwindCSS/tailwind-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
+                    <li><a href="CSS/Tools-Frameworks/TailwindCSS/tailwind-projects.html">💻 Projects</a></li>
+                </ul>
+                <div class="content-types">
+                    <span class="content-type available">Reference</span>
+                    <span class="content-type available">Examples</span>
+                    <span class="content-type available">Interview</span>
+                    <span class="content-type available">Projects</span>
+                </div>
+            </div>
+            
+            <!-- Shadcn UI -->
+            <div class="topic-card">
+                <span class="priority">⭐⭐⭐⭐⭐</span>
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>Shadcn UI</h3>
+                <p class="description">Beautiful, accessible React components built with Radix UI and TailwindCSS</p>
+                <ul class="resources">
+                    <li><a href="CSS/Tools-Frameworks/Shadcn-UI/shadcn-reference.md" onclick="openMarkdown('CSS/Tools-Frameworks/Shadcn-UI/shadcn-reference.md', '📖 Shadcn UI Reference Guide'); return false;">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Tools-Frameworks/Shadcn-UI/shadcn-examples.html">🎯 Examples</a></li>
+                    <li><a href="CSS/Tools-Frameworks/Shadcn-UI/shadcn-interview.md" onclick="openMarkdown('CSS/Tools-Frameworks/Shadcn-UI/shadcn-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
+                    <li><a href="CSS/Tools-Frameworks/Shadcn-UI/shadcn-projects.html">💻 Projects</a></li>
+                </ul>
+                <div class="content-types">
+                    <span class="content-type available">Reference</span>
+                    <span class="content-type available">Examples</span>
+                    <span class="content-type available">Interview</span>
+                    <span class="content-type available">Projects</span>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -712,19 +854,36 @@
                 .then(response => response.text())
                 .then(markdown => {
                     const html = marked.parse(markdown);
+                    const theme = document.documentElement.getAttribute('data-theme') || 'light';
                     const newWindow = window.open('', '_blank');
                     newWindow.document.write(`
                         <!DOCTYPE html>
-                        <html>
+                        <html data-theme="${theme}">
                         <head>
                             <title>${title}</title>
                             <style>
-                                body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-                                pre { background: #2c3e50; color: #ecf0f1; padding: 20px; border-radius: 8px; overflow-x: auto; }
-                                code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; }
+                                :root {
+                                    --bg-primary: #f5f5f5;
+                                    --bg-secondary: #ffffff;
+                                    --text-primary: #333;
+                                    --text-secondary: #7f8c8d;
+                                    --code-bg: #2c3e50;
+                                    --code-text: #ecf0f1;
+                                }
+                                [data-theme="dark"] {
+                                    --bg-primary: #1a1a2e;
+                                    --bg-secondary: #16213e;
+                                    --text-primary: #eaeaea;
+                                    --text-secondary: #a0a0a0;
+                                    --code-bg: #0f0f1a;
+                                    --code-text: #e0e0e0;
+                                }
+                                body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; line-height: 1.6; background: var(--bg-primary); color: var(--text-primary); }
+                                pre { background: var(--code-bg); color: var(--code-text); padding: 20px; border-radius: 8px; overflow-x: auto; }
+                                code { background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; }
                                 pre code { background: none; padding: 0; }
-                                h1, h2, h3 { color: #2c3e50; margin-top: 30px; }
-                                blockquote { border-left: 4px solid #667eea; padding-left: 20px; color: #7f8c8d; }
+                                h1, h2, h3 { color: var(--text-primary); margin-top: 30px; }
+                                blockquote { border-left: 4px solid #667eea; padding-left: 20px; color: var(--text-secondary); }
                             </style>
                         </head>
                         <body>${html}</body>
@@ -732,6 +891,32 @@
                     `);
                 });
         }
+        
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+        
+        function updateThemeIcon(theme) {
+            const toggle = document.querySelector('.theme-toggle');
+            if (toggle) {
+                toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+            }
+        }
+        
+        // Initialize theme
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeIcon(theme);
+        })();
     </script>
+    <script src="theme.js"></script>
 </body>
 </html>

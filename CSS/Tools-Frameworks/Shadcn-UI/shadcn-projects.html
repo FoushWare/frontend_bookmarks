@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadcn UI Projects</title>
+    <link rel="stylesheet" href="../../../theme.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+        [data-theme="dark"] .navbar {
+            background: rgba(26, 26, 46, 0.98);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .theme-toggle {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        .project-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        .project-card .description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+        .project-card .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .badge-beginner {
+            background: #e1f5ee;
+            color: #04342c;
+        }
+        .badge-intermediate {
+            background: #eeedfe;
+            color: #26215c;
+        }
+        .badge-advanced {
+            background: #faece7;
+            color: #4a1b0c;
+        }
+        .project-card .features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .project-card .features li {
+            padding: 8px 0;
+            color: var(--text-tertiary);
+            padding-left: 20px;
+            position: relative;
+        }
+        .project-card .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../../index.html" class="logo">🚀 Learning Hub</a>
+            <div class="nav-links">
+                <a href="../../../css.html">← Back to CSS</a>
+                <a href="shadcn-reference.md">Reference Guide</a>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="../../../css.html" class="back-link">← Back to CSS</a>
+        
+        <div class="header">
+            <h1>🧩 Shadcn UI Projects</h1>
+            <p>Hands-on projects to master Shadcn UI component library</p>
+        </div>
+        
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <span class="badge badge-beginner">Beginner</span>
+                <h3>Dashboard Layout</h3>
+                <p class="description">Build a complete dashboard layout with sidebar, header, and content area using Shadcn UI components.</p>
+                <ul class="features">
+                    <li>Sidebar navigation with collapsible menu</li>
+                    <li>Top header with user profile dropdown</li>
+                    <li>Dashboard cards with statistics</li>
+                    <li>Data table with sorting and pagination</li>
+                    <li>Responsive mobile menu</li>
+                </ul>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card">
+                <span class="badge badge-beginner">Beginner</span>
+                <h3>Authentication System</h3>
+                <p class="description">Create a complete authentication system with login, register, and password reset forms.</p>
+                <ul class="features">
+                    <li>Login form with validation</li>
+                    <li>Registration form with password confirmation</li>
+                    <li>Password reset with email flow</li>
+                    <li>Social login integration</li>
+                    <li>Protected route implementation</li>
+                </ul>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>E-commerce Product Page</h3>
+                <p class="description">Build a product page with image gallery, variant selection, and add to cart functionality.</p>
+                <ul class="features">
+                    <li>Product image gallery with zoom</li>
+                    <li>Variant selector (size, color)</li>
+                    <li>Quantity selector with validation</li>
+                    <li>Add to cart with animation</li>
+                    <li>Related products carousel</li>
+                </ul>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>Blog Platform</h3>
+                <p class="description">Create a blog platform with article listing, reading, and commenting features.</p>
+                <ul class="features">
+                    <li>Article list with filtering</li>
+                    <li>Article detail with typography</li>
+                    <li>Comment system with replies</li>
+                    <li>Rich text editor for articles</li>
+                    <li>Author profile pages</li>
+                </ul>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>Settings Page</h3>
+                <p class="description">Build a comprehensive settings page with multiple sections and form validation.</p>
+                <ul class="features">
+                    <li>Profile settings with avatar upload</li>
+                    <li>Account security settings</li>
+                    <li>Notification preferences</li>
+                    <li>Theme and appearance settings</li>
+                    <li>Privacy and data management</li>
+                </ul>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="project-card">
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>Multi-step Form Wizard</h3>
+                <p class="description">Create a multi-step form wizard with progress tracking and validation.</p>
+                <ul class="features">
+                    <li>Step progress indicator</li>
+                    <li>Form validation per step</li>
+                    <li>Back and next navigation</li>
+                    <li>Summary and confirmation</li>
+                    <li>Form data persistence</li>
+                </ul>
+            </div>
+            
+            <!-- Project 7 -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>Chat Application</h3>
+                <p class="description">Build a chat application with real-time messaging and user presence.</p>
+                <ul class="features">
+                    <li>Message list with timestamps</li>
+                    <li>Message input with emoji picker</li>
+                    <li>User presence indicators</li>
+                    <li>Typing indicators</li>
+                    <li>Message read receipts</li>
+                </ul>
+            </div>
+            
+            <!-- Project 8 -->
+            <div class="project-card">
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>Kanban Board</h3>
+                <p class="description">Create a Kanban board with drag-and-drop functionality and task management.</p>
+                <ul class="features">
+                    <li>Drag and drop cards between columns</li>
+                    <li>Task creation and editing</li>
+                    <li>Label and assignment system</li>
+                    <li>Filter and search functionality</li>
+                    <li>Board customization options</li>
+                </ul>
+            </div>
+            
+            <!-- Project 9 -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>Pricing Page</h3>
+                <p class="description">Design a pricing page with multiple tiers, feature comparison, and checkout integration.</p>
+                <ul class="features">
+                    <li>Three-tier pricing structure</li>
+                    <li>Feature comparison table</li>
+                    <li>Toggle monthly/yearly pricing</li>
+                    <li>Highlighted popular plan</li>
+                    <li>Checkout integration</li>
+                </ul>
+            </div>
+            
+            <!-- Project 10 -->
+            <div class="project-card">
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>Admin Panel</h3>
+                <p class="description">Build a comprehensive admin panel with user management and content moderation.</p>
+                <ul class="features">
+                    <li>User management with CRUD operations</li>
+                    <li>Content moderation dashboard</li>
+                    <li>Analytics and reporting</li>
+                    <li>Activity logs and audit trails</li>
+                    <li>Role-based access control</li>
+                </ul>
+            </div>
+            
+            <!-- Project 11 -->
+            <div class="project-card">
+                <span class="badge badge-intermediate">Intermediate</span>
+                <h3>File Manager</h3>
+                <p class="description">Create a file manager with folder navigation, file upload, and preview functionality.</p>
+                <ul class="features">
+                    <li>Folder tree navigation</li>
+                    <li>File upload with drag-and-drop</li>
+                    <li>File preview for images and documents</li>
+                    <li>File sharing and permissions</li>
+                    <li>Search and filter functionality</li>
+                </ul>
+            </div>
+            
+            <!-- Project 12 -->
+            <div class="project-card">
+                <span class="badge badge-advanced">Advanced</span>
+                <h3>Design System Documentation</h3>
+                <p class="description">Create a design system documentation site with component examples and guidelines.</p>
+                <ul class="features">
+                    <li>Component showcase with code examples</li>
+                    <li>Design tokens documentation</li>
+                    <li>Accessibility guidelines</li>
+                    <li>Usage examples and best practices</li>
+                    <li>Interactive component playground</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../../../theme.js"></script>
+</body>
+</html>

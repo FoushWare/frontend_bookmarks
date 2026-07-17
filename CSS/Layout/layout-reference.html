@@ -19,17 +19,10 @@
             line-height: 1.6;
         }
         .navbar {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: background 0.3s;
-        }
-        [data-theme="dark"] .navbar {
-            background: rgba(26, 26, 46, 0.98);
         }
         .navbar .container {
             display: flex;
@@ -84,7 +77,7 @@
             padding: 40px 20px;
         }
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-primary);
             color: white;
             padding: 60px 20px;
             border-radius: 20px;
@@ -134,116 +127,6 @@
             color: white;
             border-color: var(--accent);
         }
-        .markdown-content {
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: var(--shadow);
-            line-height: 1.8;
-        }
-        .markdown-content h1 {
-            font-size: 2.5em;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--border-color);
-        }
-        .markdown-content h2 {
-            font-size: 2em;
-            color: var(--text-primary);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .markdown-content h3 {
-            font-size: 1.5em;
-            color: var(--text-primary);
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .markdown-content h4 {
-            font-size: 1.25em;
-            color: var(--text-primary);
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-        .markdown-content p {
-            margin-bottom: 15px;
-            color: var(--text-secondary);
-        }
-        .markdown-content code {
-            background: var(--code-bg);
-            color: var(--code-text);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-        }
-        .markdown-content pre {
-            background: var(--code-bg);
-            color: var(--code-text);
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-        .markdown-content pre code {
-            background: none;
-            padding: 0;
-            color: var(--code-text);
-        }
-        .markdown-content ul, .markdown-content ol {
-            margin: 15px 0;
-            padding-left: 30px;
-            color: var(--text-secondary);
-        }
-        .markdown-content li {
-            margin: 8px 0;
-        }
-        .markdown-content blockquote {
-            border-left: 4px solid var(--accent);
-            padding-left: 20px;
-            margin: 20px 0;
-            color: var(--text-tertiary);
-            font-style: italic;
-            background: var(--bg-tertiary);
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
-        }
-        .markdown-content a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .markdown-content a:hover {
-            text-decoration: underline;
-        }
-        .markdown-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        .markdown-content th, .markdown-content td {
-            border: 1px solid var(--border-color);
-            padding: 12px;
-            text-align: left;
-        }
-        .markdown-content th {
-            background: var(--bg-tertiary);
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        .markdown-content img {
-            max-width: 100%;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .markdown-content hr {
-            border: none;
-            border-top: 2px solid var(--border-color);
-            margin: 30px 0;
-        }
     </style>
 </head>
 <body>
@@ -252,7 +135,7 @@
             <a href="../../../index.html" class="logo">🚀 Learning Hub</a>
             <div class="nav-links">
                 <a href="../../../css.html">← Back to CSS</a>
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button>
+                <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
             </div>
         </div>
     </nav>

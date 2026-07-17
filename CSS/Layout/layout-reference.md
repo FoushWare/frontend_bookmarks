@@ -28,8 +28,6 @@ display: inline-grid; /* Inline grid container */
 
 ### Block vs Inline vs Inline-Block
 
-![Block vs Inline comparison](CSS/Layout/block-vs-inline.svg)
-
 **Block Elements:**
 - `div`, `p`, `h1-h6`, `ul`, `li`, `section`, `article`
 - Take full available width
@@ -71,8 +69,6 @@ position: sticky;     /* Toggles between relative and fixed */
 ```
 
 ### Positioning Examples
-
-![Positioning comparison](CSS/Layout/positioning-comparison.svg)
 
 #### Static (Default)
 ```css

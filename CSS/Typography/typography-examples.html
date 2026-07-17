@@ -4,7 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSS Typography Examples</title>
+    <link rel="stylesheet" href="../../theme.css">
     <style>
+        :root {
+            --bg-primary: #f5f5f5;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f8f9fa;
+            --text-primary: #333;
+            --text-secondary: #7f8c8d;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --accent: #667eea;
+            --code-bg: #2c3e50;
+            --code-text: #ecf0f1;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-tertiary: #1f2a48;
+            --text-primary: #eaeaea;
+            --text-secondary: #a0a0a0;
+            --border-color: #2a3a5e;
+            --shadow: 0 4px 6px rgba(0,0,0,0.3);
+            --accent: #667eea;
+            --code-bg: #0f0f1a;
+            --code-text: #e0e0e0;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,9 +39,10 @@
         }
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
         }
         .navbar {
             background: rgba(255, 255, 255, 0.98);
@@ -24,6 +52,10 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: background 0.3s;
+        }
+        [data-theme="dark"] .navbar {
+            background: rgba(26, 26, 46, 0.98);
         }
         .navbar .container {
             display: flex;
@@ -36,24 +68,41 @@
         .navbar .logo {
             font-size: 1.5em;
             font-weight: bold;
-            color: #667eea;
+            color: var(--accent);
             text-decoration: none;
         }
         .navbar .nav-links {
             display: flex;
             gap: 20px;
+            align-items: center;
+        }
+        .theme-toggle {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
         }
         .navbar .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-primary);
             font-weight: 500;
             padding: 8px 16px;
             border-radius: 6px;
             transition: all 0.3s;
         }
         .navbar .nav-links a:hover {
-            background: #f0f0f0;
-            color: #667eea;
+            background: var(--bg-tertiary);
+            color: var(--accent);
         }
         .container {
             max-width: 1400px;
@@ -84,25 +133,25 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .example-section h2 {
-            color: #2c3e50;
+            color: var(--text-primary);
             margin-bottom: 20px;
             font-size: 1.8em;
         }
         .example-section .description {
-            color: #7f8c8d;
+            color: var(--text-secondary);
             margin-bottom: 20px;
             font-size: 1.1em;
         }
         .demo-container {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
             border-radius: 8px;
             padding: 30px;
             margin-bottom: 20px;
         }
         .code-block {
-            background: #2c3e50;
-            color: #ecf0f1;
+            background: var(--code-bg);
+            color: var(--code-text);
             padding: 20px;
             border-radius: 8px;
             font-family: 'Courier New', monospace;
@@ -113,7 +162,7 @@
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
-            color: #667eea;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 500;
         }
@@ -217,6 +266,7 @@
             <div class="nav-links">
                 <a href="../../css.html">← Back to CSS</a>
                 <a href="typography-reference.md">Reference Guide</a>
+                <button class="theme-toggle"  aria-label="Toggle theme">🌙</button>
             </div>
         </div>
     </nav>
@@ -365,5 +415,6 @@
 }</div>
         </div>
     </div>
+    <script src="../../theme.js"></script>
 </body>
 </html>

@@ -33,8 +33,6 @@ CSS Grid is a two-dimensional layout system that handles both rows and columns s
 
 The `fr` unit represents a "fraction" of available space. Unlike percentages, `fr` units distribute leftover space after accounting for fixed sizes and gaps.
 
-![fr unit visualization showing fixed column and flexible columns sharing leftover space](CSS/Layout/Grid/fr-unit.svg)
-
 ```css
 /* Two columns: first 200px, second gets remaining space */
 grid-template-columns: 200px 1fr;
@@ -63,8 +61,6 @@ grid-template-columns: repeat(3, 1fr);
 
 Grid lines are numbered starting from 1. A 3-column grid has 4 vertical lines (1, 2, 3, 4).
 
-![Grid lines visualization showing 3 columns with 4 vertical lines](CSS/Layout/Grid/grid-lines.svg)
-
 ---
 
 ## Container Properties
@@ -90,8 +86,6 @@ grid-template-columns: [sidebar-start] 200px [sidebar-end main-start] 1fr [main-
 ### `grid-template-areas`
 
 Names regions of the grid as a visual ASCII-like map.
-
-![Grid template areas visualization showing header, sidebar, main, footer layout](CSS/Layout/Grid/grid-areas.svg)
 
 ```css
 .layout {
@@ -181,8 +175,6 @@ grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 20vw, 250px), 1fr));
 
 `auto-fill` vs `auto-fit` - automatically computes how many tracks fit:
 
-![auto-fill vs auto-fit comparison showing how items behave with empty tracks](CSS/Layout/Grid/auto-fill-fit.svg)
-
 ```css
 /* auto-fill: keeps empty tracks */
 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -204,8 +196,6 @@ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 ### `grid-column` & `grid-row`
 
 Place items using line numbers.
-
-![Grid placement visualization showing line-based placement with spanning](CSS/Layout/Grid/placement.svg)
 
 ```css
 /* Span from line 1 to line 3 */
@@ -272,8 +262,6 @@ Four properties control alignment:
 | `justify-content` | Inline (horizontal) | Grid tracks within container |
 | `align-content` | Block (vertical) | Grid tracks within container |
 
-![Alignment properties visualization showing justify-items and align-items](CSS/Layout/Grid/alignment.svg)
-
 ```css
 .grid {
   justify-items: center; /* items centered in cells */
@@ -300,8 +288,6 @@ Name grid lines for semantic placement.
 ### Subgrid
 
 Nested grid items can adopt parent's track sizing.
-
-![Subgrid visualization showing nested grid inheriting parent's column tracks](CSS/Layout/Grid/subgrid.svg)
 
 ```css
 .outer {

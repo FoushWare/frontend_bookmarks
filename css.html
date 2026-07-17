@@ -7,38 +7,6 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="theme.css">
     <style>
-        :root {
-            --bg-primary: #f5f5f5;
-            --bg-secondary: #ffffff;
-            --bg-tertiary: #f8f9fa;
-            --text-primary: #333;
-            --text-secondary: #7f8c8d;
-            --text-tertiary: #555;
-            --border-color: #e9ecef;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-hover: 0 8px 15px rgba(0,0,0,0.15);
-            --accent: #667eea;
-            --accent-hover: #5568d3;
-            --code-bg: #2c3e50;
-            --code-text: #ecf0f1;
-        }
-        
-        [data-theme="dark"] {
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
-            --bg-tertiary: #1f2a48;
-            --text-primary: #eaeaea;
-            --text-secondary: #a0a0a0;
-            --text-tertiary: #c0c0c0;
-            --border-color: #2a3a5e;
-            --shadow: 0 4px 6px rgba(0,0,0,0.3);
-            --shadow-hover: 0 8px 15px rgba(0,0,0,0.4);
-            --accent: #667eea;
-            --accent-hover: #7b8bef;
-            --code-bg: #0f0f1a;
-            --code-text: #e0e0e0;
-        }
-        
         * {
             margin: 0;
             padding: 0;
@@ -52,17 +20,10 @@
             transition: background 0.3s, color 0.3s;
         }
         .navbar {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: background 0.3s;
-        }
-        [data-theme="dark"] .navbar {
-            background: rgba(26, 26, 46, 0.98);
         }
         .navbar .container {
             display: flex;
@@ -122,7 +83,7 @@
             padding: 40px 20px;
         }
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-primary);
             color: white;
             padding: 60px 20px;
             border-radius: 20px;
@@ -188,16 +149,16 @@
             margin-bottom: 15px;
         }
         .badge-beginner {
-            background: #e1f5ee;
-            color: #04342c;
+            background: #e8f5e9;
+            color: #1b5e20;
         }
         .badge-intermediate {
-            background: #eeedfe;
-            color: #26215c;
+            background: #e3f2fd;
+            color: #0d47a1;
         }
         .badge-advanced {
-            background: #faece7;
-            color: #4a1b0c;
+            background: #fff3e0;
+            color: #e65100;
         }
         .priority {
             color: #f39c12;
@@ -222,8 +183,8 @@
             color: var(--text-secondary);
         }
         .content-type.available {
-            background: #e1f5ee;
-            color: #04342c;
+            background: #e8f5e9;
+            color: #1b5e20;
         }
         .back-link {
             display: inline-block;
@@ -233,7 +194,7 @@
             font-weight: 500;
         }
         .section-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--gradient-primary);
             color: white;
             padding: 30px 20px;
             border-radius: 12px;
@@ -308,7 +269,7 @@
                 <li><a href="css.html" class="active">CSS</a></li>
                 <li><a href="javascript.html">JavaScript</a></li>
                 <li><a href="senior-interview.html">Senior Interview</a></li>
-                <li><button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌙</button></li>
+                <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
             </ul>
         </div>
     </nav>
@@ -323,7 +284,7 @@
         
         <!-- Main Categories -->
         <div class="categories-grid">
-            <div class="category-card" onclick="toggleCategory('pure-css')">
+            <div class="category-card" onclick="window.location.href='css-pure.html'">
                 <div class="category-icon">🔧</div>
                 <h3>Pure CSS</h3>
                 <p>Master core CSS concepts and properties including Layout, Flexbox, Grid, Sizing, Spacing, Typography, and more</p>
@@ -333,591 +294,13 @@
                 </div>
             </div>
             
-            <div class="category-card" onclick="toggleCategory('tools-frameworks')">
+            <div class="category-card" onclick="window.location.href='css-frameworks.html'">
                 <div class="category-icon">🛠️</div>
                 <h3>CSS Tools & Frameworks</h3>
                 <p>Modern CSS preprocessors, frameworks, and component libraries including Sass, TailwindCSS, and Shadcn UI</p>
                 <div class="category-meta">
                     <span class="badge badge-advanced">Advanced</span>
                     <span class="topic-count">3 Tools</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Pure CSS Topics -->
-        <div id="pure-css" class="category-section" style="display: none;">
-            <div class="section-header">
-                <h2>🔧 Pure CSS Topics</h2>
-                <p>Master core CSS concepts and properties</p>
-            </div>
-        
-        <div class="topics-grid">
-            <!-- 1. Layout -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>1. Layout</h3>
-                <p class="description">display, position, z-index, overflow, block vs inline, flex, grid, absolute vs relative vs fixed vs sticky, stacking context</p>
-                <ul class="resources">
-                    <li><a href="CSS/Layout/layout-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="CSS/Layout/layout-examples.html">🎯 Examples</a></li>
-                    <li><a href="CSS/Layout/layout-interview.md" onclick="openMarkdown('CSS/Layout/layout-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
-                    <li><a href="CSS/Layout/layout-projects.html">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 2. Flexbox -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>2. Flexbox</h3>
-                <p class="description">Master every flex property: flex-direction, justify-content, align-items, flex-wrap, gap, flex-grow, flex-shrink, flex-basis, align-self, order</p>
-                <ul class="resources">
-                    <li><a href="CSS/Layout/Flex/css-flexbox-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="CSS/Layout/Flex/all-examples.html">🎯 Examples</a></li>
-                    <li><a href="CSS/Layout/Flex/flexbox-interview.md" onclick="openMarkdown('CSS/Layout/Flex/flexbox-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
-                    <li><a href="CSS/Layout/Flex/projects.html">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type available">Reference</span>
-                    <span class="content-type available">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type available">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 3. CSS Grid -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>3. CSS Grid</h3>
-                <p class="description">grid-template-columns, grid-template-rows, grid-template-areas, grid-column, grid-row, place-items, auto-fit, auto-fill, minmax, repeat, fr</p>
-                <ul class="resources">
-                    <li><a href="CSS/Layout/Grid/css-grid-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="CSS/Layout/Grid/all-examples.html">🎯 Examples</a></li>
-                    <li><a href="CSS/Layout/Grid/grid-interview.md" onclick="openMarkdown('CSS/Layout/Grid/grid-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
-                    <li><a href="CSS/Layout/Grid/projects.html">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type available">Reference</span>
-                    <span class="content-type available">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type available">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 4. Sizing -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-beginner">Beginner</span>
-                <h3>4. Sizing</h3>
-                <p class="description">width, height, min-width, max-width, min-height, max-height, aspect-ratio, box-sizing, px, %, vw, vh, rem, em, fr</p>
-                <ul class="resources">
-                    <li><a href="CSS/Sizing/sizing-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 5. Spacing -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-beginner">Beginner</span>
-                <h3>5. Spacing</h3>
-                <p class="description">margin, padding, gap, margin collapsing, auto margins, spacing systems</p>
-                <ul class="resources">
-                    <li><a href="CSS/Spacing/spacing-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 6. Typography -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>6. Typography</h3>
-                <p class="description">font-family, font-size, font-weight, line-height, letter-spacing, text-align, text-transform, ellipsis, nowrap, multiline clamp</p>
-                <ul class="resources">
-                    <li><a href="CSS/Typography/typography-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 7. Background -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐☆</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>7. Background</h3>
-                <p class="description">background, background-color, background-image, background-size, background-position, gradients: linear-gradient, radial-gradient, conic-gradient</p>
-                <ul class="resources">
-                    <li><a href="CSS/Background/background-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 8. Border -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐☆</span>
-                <span class="badge badge-beginner">Beginner</span>
-                <h3>8. Border</h3>
-                <p class="description">border, border-radius, outline, box-shadow, cards, buttons, inputs</p>
-                <ul class="resources">
-                    <li><a href="CSS/Border/border-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 9. Images -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐☆</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>9. Images</h3>
-                <p class="description">object-fit, object-position, filter, opacity, cover, contain, fill</p>
-                <ul class="resources">
-                    <li><a href="CSS/Images/images-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 10. Responsive Design -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>10. Responsive Design</h3>
-                <p class="description">@media, clamp, min, max, calc, 100vh, 100dvh, mobile-first design</p>
-                <ul class="resources">
-                    <li><a href="CSS/Responsive/responsive-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 11. Transforms -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐☆</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>11. Transforms</h3>
-                <p class="description">transform, translate, scale, rotate, skew, transform-origin</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 12. Animation -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐☆</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>12. Animation</h3>
-                <p class="description">transition, animation, @keyframes, ease, linear, cubic-bezier</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 13. Cursor & Interaction -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐☆</span>
-                <span class="badge badge-beginner">Beginner</span>
-                <h3>13. Cursor & Interaction</h3>
-                <p class="description">cursor, pointer-events, user-select, resize</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 14. Lists & Tables -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐☆</span>
-                <span class="badge badge-beginner">Beginner</span>
-                <h3>14. Lists & Tables</h3>
-                <p class="description">list-style, border-collapse, table-layout</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 15. Modern CSS -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐☆</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>15. Modern CSS</h3>
-                <p class="description">clamp, min, max, calc, :is, :where, :has</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 16. Pseudo Classes -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐☆</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>16. Pseudo Classes</h3>
-                <p class="description">:hover, :focus, :focus-visible, :active, :first-child, :last-child, :nth-child, :not, :disabled, :checked</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 17. Pseudo Elements -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐☆</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>17. Pseudo Elements</h3>
-                <p class="description">::before, ::after, ::placeholder, ::selection</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 18. Advanced Effects -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐☆</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>18. Advanced Effects</h3>
-                <p class="description">mask-image, clip-path, backdrop-filter, mix-blend-mode, filter</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 19. Overflow Tricks -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐☆</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>19. Overflow Tricks</h3>
-                <p class="description">overflow, overflow-x, overflow-y, text-overflow, white-space, scroll-behavior, scroll-snap</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 20. Useful Functions -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>20. Useful Functions</h3>
-                <p class="description">calc, clamp, min, max, var, env</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 21. Variables -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐☆</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>21. Variables</h3>
-                <p class="description">--primary, --spacing, --radius, --shadow, CSS custom properties</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 22. Positioning Tricks -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>22. Positioning Tricks</h3>
-                <p class="description">Absolute inside Relative, center with transform, sticky header, floating badge, floating button, ribbon, notification bubble</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 23. Common Design Patterns -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>23. Common Design Patterns</h3>
-                <p class="description">Hero banner, navbar, footer, pricing cards, feature cards, testimonial slider, timeline, FAQ accordion, login page, dashboard, sidebar, modal, drawer, tooltip, popover, carousel, masonry gallery</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 24. Advanced Layout Problems -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>24. Advanced Layout Problems</h3>
-                <p class="description">Equal-height cards, sticky footer, full-height layouts, two-column responsive, complex hero, floating mockup, image overlapping, decorative backgrounds, responsive grids, scrollable containers, fixed sidebar, multi-step forms</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-            
-            <!-- 25. Browser Rendering -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>25. Browser Rendering</h3>
-                <p class="description">Box model, normal document flow, formatting contexts (BFC), stacking contexts, specificity, cascade, inheritance, containing blocks, percentage values, reflow vs repaint vs compositing</p>
-                <ul class="resources">
-                    <li><a href="#">📖 Reference Guide</a></li>
-                    <li><a href="#">🎯 Examples</a></li>
-                    <li><a href="#">❓ Interview Questions</a></li>
-                    <li><a href="#">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type">Reference</span>
-                    <span class="content-type">Examples</span>
-                    <span class="content-type">Interview</span>
-                    <span class="content-type">Projects</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- CSS Tools & Frameworks Topics -->
-        <div id="tools-frameworks" class="category-section" style="display: none;">
-            <div class="section-header">
-                <h2>🛠️ CSS Tools & Frameworks</h2>
-                <p>Modern CSS preprocessors, frameworks, and component libraries</p>
-            </div>
-        
-        <div class="topics-grid">
-            <!-- Sass -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>Sass (SCSS)</h3>
-                <p class="description">CSS preprocessor with variables, nesting, mixins, functions, and modular architecture</p>
-                <ul class="resources">
-                    <li><a href="CSS/Tools-Frameworks/Sass/sass-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="CSS/Tools-Frameworks/Sass/sass-examples.html">🎯 Examples</a></li>
-                    <li><a href="CSS/Tools-Frameworks/Sass/sass-interview.md" onclick="openMarkdown('CSS/Tools-Frameworks/Sass/sass-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
-                    <li><a href="CSS/Tools-Frameworks/Sass/sass-projects.html">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type available">Reference</span>
-                    <span class="content-type available">Examples</span>
-                    <span class="content-type available">Interview</span>
-                    <span class="content-type available">Projects</span>
-                </div>
-            </div>
-            
-            <!-- TailwindCSS -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-intermediate">Intermediate</span>
-                <h3>TailwindCSS</h3>
-                <p class="description">Utility-first CSS framework for rapid UI development with custom design system</p>
-                <ul class="resources">
-                    <li><a href="CSS/Tools-Frameworks/TailwindCSS/tailwind-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="CSS/Tools-Frameworks/TailwindCSS/tailwind-examples.html">🎯 Examples</a></li>
-                    <li><a href="CSS/Tools-Frameworks/TailwindCSS/tailwind-interview.md" onclick="openMarkdown('CSS/Tools-Frameworks/TailwindCSS/tailwind-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
-                    <li><a href="CSS/Tools-Frameworks/TailwindCSS/tailwind-projects.html">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type available">Reference</span>
-                    <span class="content-type available">Examples</span>
-                    <span class="content-type available">Interview</span>
-                    <span class="content-type available">Projects</span>
-                </div>
-            </div>
-            
-            <!-- Shadcn UI -->
-            <div class="topic-card">
-                <span class="priority">⭐⭐⭐⭐⭐</span>
-                <span class="badge badge-advanced">Advanced</span>
-                <h3>Shadcn UI</h3>
-                <p class="description">Beautiful, accessible React components built with Radix UI and TailwindCSS</p>
-                <ul class="resources">
-                    <li><a href="CSS/Tools-Frameworks/Shadcn-UI/shadcn-reference.html">📖 Reference Guide</a></li>
-                    <li><a href="CSS/Tools-Frameworks/Shadcn-UI/shadcn-examples.html">🎯 Examples</a></li>
-                    <li><a href="CSS/Tools-Frameworks/Shadcn-UI/shadcn-interview.md" onclick="openMarkdown('CSS/Tools-Frameworks/Shadcn-UI/shadcn-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
-                    <li><a href="CSS/Tools-Frameworks/Shadcn-UI/shadcn-projects.html">💻 Projects</a></li>
-                </ul>
-                <div class="content-types">
-                    <span class="content-type available">Reference</span>
-                    <span class="content-type available">Examples</span>
-                    <span class="content-type available">Interview</span>
-                    <span class="content-type available">Projects</span>
                 </div>
             </div>
         </div>
@@ -965,20 +348,6 @@
                         </html>
                     `);
                 });
-        }
-        
-        function toggleCategory(categoryId) {
-            // Hide all category sections
-            document.querySelectorAll('.category-section').forEach(section => {
-                section.style.display = 'none';
-            });
-            
-            // Show selected category
-            const selectedSection = document.getElementById(categoryId);
-            if (selectedSection) {
-                selectedSection.style.display = 'block';
-                selectedSection.scrollIntoView({ behavior: 'smooth' });
-            }
         }
         
         function toggleTheme() {

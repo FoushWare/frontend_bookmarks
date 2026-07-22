@@ -9,21 +9,20 @@
 ```
 css-flexbox-reference/
 ├── css-flexbox-reference.md
-├── assets/
-│   ├── axes.svg
-│   ├── justify-content.svg
-│   ├── align-items.svg
-│   └── flex-grow.svg
-└── examples/
-    ├── center.html
-    ├── equal-columns.html
-    ├── sidebar-layout.html
-    ├── sticky-footer.html
-    ├── navbar.html
-    └── responsive-wrap-cards.html
+├── axes.svg
+├── justify-content.svg
+├── align-items.svg
+├── flex-grow.svg
+├── flex-basis.svg
+├── center.html
+├── equal-columns.html
+├── sidebar-layout.html
+├── sticky-footer.html
+├── navbar.html
+└── responsive-wrap-cards.html
 ```
 
-Every `examples/*.html` file is self-contained — no build step, no dependencies. Open any of them directly in a browser (double-click, or drag into a tab) to see it live, then edit and refresh to experiment.
+Every `.html` file is self-contained — no build step, no dependencies. Open any of them directly in a browser (double-click, or drag into a tab) to see it live, then edit and refresh to experiment.
 
 ---
 
@@ -215,7 +214,7 @@ Caution: reordering visually but not in the DOM can create mismatches for keyboa
 
 This is the flexbox answer to "how do I center a div" — arguably the most-searched CSS question there is.
 
-▶ Live example: [`examples/center.html`](examples/center.html)
+▶ Live example: [`center.html`](center.html)
 
 ### Equal-width columns regardless of content
 
@@ -224,7 +223,7 @@ This is the flexbox answer to "how do I center a div" — arguably the most-sear
 .column { flex: 1; }
 ```
 
-▶ Live example: [`examples/equal-columns.html`](examples/equal-columns.html)
+▶ Live example: [`equal-columns.html`](equal-columns.html)
 
 ### Sidebar with fixed width + content that fills the rest
 
@@ -234,7 +233,7 @@ This is the flexbox answer to "how do I center a div" — arguably the most-sear
 .content { flex: 1; }         /* takes all remaining space */
 ```
 
-▶ Live example: [`examples/sidebar-layout.html`](examples/sidebar-layout.html)
+▶ Live example: [`sidebar-layout.html`](sidebar-layout.html)
 
 ### Responsive row that wraps into a grid-like layout
 
@@ -249,7 +248,7 @@ This is the flexbox answer to "how do I center a div" — arguably the most-sear
 }
 ```
 
-▶ Live example: [`examples/responsive-wrap-cards.html`](examples/responsive-wrap-cards.html) — resize the browser window to see the wrap happen
+▶ Live example: [`responsive-wrap-cards.html`](responsive-wrap-cards.html) — resize the browser window to see the wrap happen
 
 ### Sticky footer (footer pinned to bottom even on short pages)
 
@@ -263,7 +262,7 @@ html, body { height: 100%; margin: 0; }
 .main { flex: 1; } /* pushes footer down by consuming all leftover vertical space */
 ```
 
-▶ Live example: [`examples/sticky-footer.html`](examples/sticky-footer.html)
+▶ Live example: [`sticky-footer.html`](sticky-footer.html)
 
 ### Navbar: logo left, links right
 
@@ -275,7 +274,7 @@ html, body { height: 100%; margin: 0; }
 }
 ```
 
-▶ Live example: [`examples/navbar.html`](examples/navbar.html)
+▶ Live example: [`navbar.html`](navbar.html)
 
 ---
 

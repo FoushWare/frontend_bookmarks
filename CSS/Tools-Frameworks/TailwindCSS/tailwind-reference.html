@@ -290,6 +290,15 @@
 
     <script src="../../../theme.js"></script>
     <script>
+        // Initialize theme before loading markdown
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            console.log('Theme initialized to:', theme);
+        })();
+
         // Load markdown content
         fetch('tailwind-reference.md')
             .then(response => response.text())

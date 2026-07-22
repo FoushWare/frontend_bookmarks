@@ -3,10 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Flexbox: responsive wrapping cards</title>
+<link rel="stylesheet" href="../../../../theme.css">
 <style>
-  body { font-family: system-ui, sans-serif; margin: 0; padding: 40px; background: #fafafa; }
-  h1 { font-size: 16px; color: #333; margin-bottom: 8px; }
-  p { font-size: 13px; color: #666; margin-top: 0; }
+  body {
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: 40px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background 0.3s, color 0.3s;
+  }
+  h1 {
+    font-size: 16px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .code-block {
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+    font-size: 14px;
+    border: 1px solid var(--border-color);
+  }
 
   .container {
     display: flex;
@@ -15,18 +42,41 @@
   }
   .card {
     flex: 1 1 200px;
-    background: #fbeaf0;
-    border: 1px solid #ed93b1;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 16px;
     font-size: 13px;
-    color: #4b1528;
+    color: var(--text-secondary);
     min-height: 80px;
+  }
+  .theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 1000;
   }
 </style>
 </head>
 <body>
-  <h1>display: flex; flex-wrap: wrap; gap: 16px; — each card: flex: 1 1 200px;</h1>
+  <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
+  <h1>Flexbox: Responsive Wrapping Cards</h1>
+  <div class="code-block">
+    display: flex;<br>
+    flex-wrap: wrap;<br>
+    gap: 16px;<br>
+    — each card: flex: 1 1 200px;
+  </div>
   <p>Resize the browser window narrower — cards reflow onto new lines once they can't fit at ~200px each.</p>
   <div class="container">
     <div class="card">Card 1</div>
@@ -35,5 +85,6 @@
     <div class="card">Card 4</div>
     <div class="card">Card 5</div>
   </div>
+  <script src="../../../../theme.js"></script>
 </body>
 </html>

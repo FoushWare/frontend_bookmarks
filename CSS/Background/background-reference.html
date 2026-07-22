@@ -17,12 +17,22 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
         }
         .navbar {
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        [data-theme="dark"] .navbar {
+            background: rgba(28, 28, 30, 0.8);
+            border-bottom: 1px solid var(--border-color);
         }
         .navbar .container {
             display: flex;
@@ -126,6 +136,121 @@
             background: var(--accent);
             color: white;
             border-color: var(--accent);
+        }
+        .markdown-content {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .markdown-content h1,
+        .markdown-content h2,
+        .markdown-content h3,
+        .markdown-content h4,
+        .markdown-content h5,
+        .markdown-content h6 {
+            color: var(--text-primary);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .markdown-content h1 {
+            font-size: 2em;
+        }
+        .markdown-content h2 {
+            font-size: 1.75em;
+        }
+        .markdown-content h3 {
+            font-size: 1.5em;
+        }
+        .markdown-content h4 {
+            font-size: 1.25em;
+        }
+        .markdown-content p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+        .markdown-content code {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', 'Source Code Pro', monospace;
+            font-size: 0.9em;
+            border: 1px solid var(--border-color);
+        }
+        .markdown-content pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+        .markdown-content pre code {
+            background: none;
+            padding: 0;
+            color: var(--code-text);
+            border: none;
+            font-size: 0.95em;
+        }
+        .markdown-content ul,
+        .markdown-content ol {
+            margin: 15px 0;
+            padding-left: 30px;
+            color: var(--text-secondary);
+        }
+        .markdown-content li {
+            margin: 8px 0;
+        }
+        .markdown-content blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin: 20px 0;
+            color: var(--text-tertiary);
+            font-style: italic;
+            background: var(--bg-tertiary);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        .markdown-content a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .markdown-content a:hover {
+            text-decoration: underline;
+        }
+        .markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .markdown-content th,
+        .markdown-content td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        .markdown-content th {
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .markdown-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        .markdown-content hr {
+            border: none;
+            border-top: 2px solid var(--border-color);
+            margin: 30px 0;
         }
     </style>
 </head>

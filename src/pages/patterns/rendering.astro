@@ -405,32 +405,13 @@ import Layout from '../../layouts/Layout.astro';
     </div>
   </div>
 
-  <script>
-    (function() {
-      console.log('Loading Mermaid v9...');
-      // Load Mermaid script (older stable version)
-      var script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.min.js';
-      script.async = true;
-      script.onload = function() {
-        console.log('Mermaid script loaded');
-        try {
-          // Initialize Mermaid with startOnLoad
-          mermaid.initialize({ 
-            startOnLoad: true, 
-            theme: 'default',
-            securityLevel: 'loose'
-          });
-          console.log('Mermaid initialized');
-        } catch (error) {
-          console.error('Mermaid initialization error:', error);
-        }
-      };
-      script.onerror = function() {
-        console.error('Failed to load Mermaid script');
-      };
-      document.head.appendChild(script);
-    })();
+  <script client:load>
+    import mermaid from 'mermaid';
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: 'default',
+      securityLevel: 'loose'
+    });
   </script>
 </Layout>
 

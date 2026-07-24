@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid: Basic Grid</title>
+    <style>
+        body { font-family: system-ui, sans-serif; margin: 0; padding: 40px; background: #fafafa; }
+        h1 { font-size: 16px; color: #333; margin-bottom: 8px; }
+        p { font-size: 13px; color: #666; margin-top: 0; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            grid-template-rows: 80px auto;
+            gap: 16px;
+        }
+        .item {
+            background: #eeedfe;
+            border: 1px solid #cecbf6;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            color: #26215c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .item:nth-child(1) { background: #e1f5ee; border-color: #9fe1cb; color: #04342c; }
+        .item:nth-child(2) { background: #faece7; border-color: #f0997b; color: #4a1b0c; }
+        .item:nth-child(3) { background: #fbeaf0; border-color: #ed93b1; color: #4b1528; }
+    </style>
+</head>
+<body>
+    <h1>display: grid; grid-template-columns: 200px 1fr 1fr;</h1>
+    <p>Fixed column + two flexible columns that share remaining space</p>
+    <div class="grid">
+        <div class="item">Fixed 200px</div>
+        <div class="item">Flexible 1fr</div>
+        <div class="item">Flexible 1fr</div>
+        <div class="item">Row 2, Col 1</div>
+        <div class="item">Row 2, Col 2</div>
+        <div class="item">Row 2, Col 3</div>
+    </div>
+</body>
+</html>

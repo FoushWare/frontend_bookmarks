@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Frontend Learning Hub">
+  <div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>🚀 Frontend Learning Hub</h1>
+      <p class="subtitle">Master modern frontend development with interactive examples, interview prep, and comprehensive resources</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">6+</div>
+          <div class="stat-label">Live Examples</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">9+</div>
+          <div class="stat-label">Interview Topics</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Questions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Learning</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Categories -->
+    <div class="categories-grid">
+      <a href="/html" class="category-card">
+        <div class="category-icon">📄</div>
+        <h3>HTML</h3>
+        <p>Master HTML semantics, accessibility, and modern best practices for building structured web pages</p>
+        <div class="category-meta">
+          <span class="badge badge-beginner">Beginner</span>
+          <span class="topic-count">5 Topics</span>
+        </div>
+      </a>
+
+      <a href="/css" class="category-card">
+        <div class="category-icon">🎨</div>
+        <h3>CSS</h3>
+        <p>Master CSS layouts with Flexbox and Grid, styling, animations, and responsive design</p>
+        <div class="category-meta">
+          <span class="badge badge-intermediate">Intermediate</span>
+          <span class="topic-count">12 Topics</span>
+        </div>
+      </a>
+
+      <a href="/javascript" class="category-card">
+        <div class="category-icon">⚡</div>
+        <h3>JavaScript</h3>
+        <p>Master JavaScript fundamentals, ES6+, async programming, DOM manipulation, and modern patterns</p>
+        <div class="category-meta">
+          <span class="badge badge-advanced">Advanced</span>
+          <span class="topic-count">15 Topics</span>
+        </div>
+      </a>
+
+      <a href="/patterns" class="category-card">
+        <div class="category-icon">🧩</div>
+        <h3>Patterns</h3>
+        <p>Master design patterns, rendering patterns, and architectural patterns for building scalable applications</p>
+        <div class="category-meta">
+          <span class="badge badge-advanced">Advanced</span>
+          <span class="topic-count">10+ Patterns</span>
+        </div>
+      </a>
+
+      <a href="/senior-interview" class="category-card">
+        <div class="category-icon">💼</div>
+        <h3>Senior Interview</h3>
+        <p>Prepare for senior developer interviews with advanced questions, system design, and best practices</p>
+        <div class="category-meta">
+          <span class="badge badge-advanced">Senior</span>
+          <span class="topic-count">20 Topics</span>
+        </div>
+      </a>
+
+      <a href="/frontend-mentor" class="category-card">
+        <div class="category-icon">🎨</div>
+        <h3>Frontend Mentor</h3>
+        <p>Practice your frontend skills with real-world design challenges from Frontend Mentor</p>
+        <div class="category-meta">
+          <span class="badge badge-intermediate">Intermediate</span>
+          <span class="topic-count">2 Challenges</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Built for frontend developers by frontend developers | 🚀 Continuous Learning</p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding-top: 70px;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .hero {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 60px 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3.5em;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero .subtitle {
+    font-size: 1.3em;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #667eea;
+  }
+
+  .stat-label {
+    color: #7f8c8d;
+    font-size: 0.9em;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 60px 0;
+  }
+
+  .category-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+  }
+
+  .category-icon {
+    font-size: 4em;
+    margin-bottom: 20px;
+  }
+
+  .category-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+  }
+
+  .category-card p {
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    font-size: 1em;
+    line-height: 1.6;
+  }
+
+  .category-meta {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+
+  .badge-beginner {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .badge-intermediate {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .badge-advanced {
+    background: #f8d7da;
+    color: #721c24;
+  }
+
+  .badge-senior {
+    background: #667eea;
+    color: white;
+  }
+
+  .topic-count {
+    color: #95a5a6;
+    font-size: 0.9em;
+  }
+
+  .footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5em;
+    }
+    .hero-stats {
+      gap: 20px;
+    }
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

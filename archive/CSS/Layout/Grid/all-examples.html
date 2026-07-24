@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid - All Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .example-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .example-section h2 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .example-section .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .example-section .code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+        .demo {
+            background: #fafafa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .demo-label {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Example 1: Basic Grid */
+        .basic-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr 1fr;
+            grid-template-rows: 80px auto;
+            gap: 16px;
+        }
+        .basic-grid-item {
+            background: #eeedfe;
+            border: 1px solid #cecbf6;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            color: #26215c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .basic-grid-item:nth-child(1) { background: #e1f5ee; border-color: #9fe1cb; color: #04342c; }
+        .basic-grid-item:nth-child(2) { background: #faece7; border-color: #f0997b; color: #4a1b0c; }
+        .basic-grid-item:nth-child(3) { background: #fbeaf0; border-color: #ed93b1; color: #4b1528; }
+        
+        /* Example 2: Responsive Cards */
+        .responsive-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .responsive-card {
+            background: #eeedfe;
+            border: 1px solid #cecbf6;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            color: #26215c;
+            min-height: 100px;
+        }
+        .responsive-card:nth-child(1) { background: #e1f5ee; border-color: #9fe1cb; color: #04342c; }
+        .responsive-card:nth-child(2) { background: #faece7; border-color: #f0997b; color: #4a1b0c; }
+        .responsive-card:nth-child(3) { background: #fbeaf0; border-color: #ed93b1; color: #4b1528; }
+        .responsive-card:nth-child(4) { background: #e8f4fd; border-color: #a8d4f5; color: #0a3d5c; }
+        
+        /* Example 3: Page Layout */
+        .page-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            min-height: 300px;
+            gap: 0;
+        }
+        .page-header {
+            grid-area: header;
+            background: #eeedfe;
+            padding: 16px;
+            color: #26215c;
+            border-bottom: 1px solid #cecbf6;
+            font-size: 13px;
+        }
+        .page-sidebar {
+            grid-area: sidebar;
+            background: #faece7;
+            padding: 16px;
+            color: #4a1b0c;
+            border-right: 1px solid #f0997b;
+            font-size: 13px;
+        }
+        .page-main {
+            grid-area: main;
+            background: #fafafa;
+            padding: 16px;
+            color: #333;
+            font-size: 13px;
+        }
+        .page-footer {
+            grid-area: footer;
+            background: #e1f5ee;
+            padding: 16px;
+            color: #04342c;
+            border-top: 1px solid #9fe1cb;
+            font-size: 13px;
+        }
+        
+        /* Example 4: Center Content */
+        .center-container {
+            display: grid;
+            place-items: center;
+            min-height: 200px;
+            background: #fafafa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+        }
+        .center-box {
+            width: 150px;
+            height: 80px;
+            background: #eeedfe;
+            border: 1px solid #cecbf6;
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 13px;
+            color: #26215c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+            background: white;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .page-layout {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "sidebar"
+                    "footer";
+            }
+            .page-sidebar { border-right: none; border-top: 1px solid #f0997b; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 CSS Grid Examples</h1>
+        <p>Interactive demonstrations of common Grid patterns</p>
+    </div>
+    
+    <div class="container">
+        <!-- Example 1: Basic Grid -->
+        <div class="example-section">
+            <h2>1. Basic Grid Layout</h2>
+            <p class="description">Fixed column with flexible columns that share remaining space.</p>
+            <div class="code">
+.grid {
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  grid-template-rows: 80px auto;
+  gap: 16px;
+}
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo</div>
+                <div class="basic-grid">
+                    <div class="basic-grid-item">Fixed 200px</div>
+                    <div class="basic-grid-item">Flexible 1fr</div>
+                    <div class="basic-grid-item">Flexible 1fr</div>
+                    <div class="basic-grid-item">Row 2, Col 1</div>
+                    <div class="basic-grid-item">Row 2, Col 2</div>
+                    <div class="basic-grid-item">Row 2, Col 3</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example 2: Responsive Cards -->
+        <div class="example-section">
+            <h2>2. Responsive Card Grid</h2>
+            <p class="description">Auto-fitting cards with no media queries - cards automatically reflow based on available space.</p>
+            <div class="code">
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo - Resize browser to see reflow</div>
+                <div class="responsive-cards">
+                    <div class="responsive-card">Card 1</div>
+                    <div class="responsive-card">Card 2</div>
+                    <div class="responsive-card">Card 3</div>
+                    <div class="responsive-card">Card 4</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example 3: Page Layout -->
+        <div class="example-section">
+            <h2>3. Page Shell Layout</h2>
+            <p class="description">Complete page layout with header, sidebar, main content, and footer using grid-template-areas.</p>
+            <div class="code">
+.page {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  min-height: 100vh;
+}
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo</div>
+                <div class="page-layout">
+                    <header class="page-header">Header</header>
+                    <aside class="page-sidebar">Sidebar (200px)</aside>
+                    <main class="page-main">Main Content (flexible)</main>
+                    <footer class="page-footer">Footer</footer>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Example 4: Center Content -->
+        <div class="example-section">
+            <h2>4. Center Content</h2>
+            <p class="description">Perfect centering using place-items shorthand.</p>
+            <div class="code">
+.container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+            </div>
+            <div class="demo">
+                <div class="demo-label">Live Demo</div>
+                <div class="center-container">
+                    <div class="center-box">Centered</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>🚀 CSS Grid Examples | Resize browser to see responsive behavior</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Patterns - Learning Hub">
+  <div class="container">
+    <div class="header">
+      <h1>🧩 Patterns</h1>
+      <p>Master design patterns, rendering patterns, and architectural patterns for building scalable applications</p>
+    </div>
+
+    <div class="patterns-grid">
+      <a href="/patterns/rendering" class="pattern-card">
+        <div class="pattern-icon">🧩</div>
+        <h3>Modern Web Rendering</h3>
+        <p>A reference guide covering how web rendering evolved, when to use each strategy, and the full journey a React app takes from local dev to painted pixels</p>
+        <div class="pattern-meta">
+          <span class="badge badge-rendering">Rendering</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+  }
+
+  .header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+  }
+
+  .patterns-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .pattern-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
+  }
+
+  .pattern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .pattern-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+  }
+
+  .pattern-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #1d1d1f;
+  }
+
+  .pattern-card p {
+    color: #6e6e73;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .pattern-meta {
+    display: flex;
+    gap: 10px;
+  }
+
+  .badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+
+  .badge-rendering {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+
+  .badge-design {
+    background: #f3e5f5;
+    color: #7b1fa2;
+  }
+
+  .badge-architectural {
+    background: #e8f5e9;
+    color: #388e3c;
+  }
+</style>

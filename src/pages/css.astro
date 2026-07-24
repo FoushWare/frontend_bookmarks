@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CSS - Learning Hub">
+  <div class="container">
+    <div class="header">
+      <h1>🎨 CSS</h1>
+      <p>Master CSS layouts with Flexbox and Grid, styling, animations, and responsive design</p>
+    </div>
+    <div class="content">
+      <p>CSS content will be migrated here soon.</p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+  }
+
+  .content {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+</style>

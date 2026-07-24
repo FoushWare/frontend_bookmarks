@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Frontend Mentor - Learning Hub">
+  <div class="container">
+    <div class="header">
+      <h1>🎨 Frontend Mentor Challenges</h1>
+      <p>Practice your frontend skills with real-world design challenges from Frontend Mentor</p>
+    </div>
+
+    <div class="challenges-grid">
+      <a href="/frontend-mentor/challenges/hotel-booking-confirmation" class="challenge-card">
+        <div class="challenge-icon">🏨</div>
+        <h3>Hotel Booking Confirmation Page</h3>
+        <p>A responsive hotel booking confirmation page with modern design and interactive elements</p>
+        <div class="challenge-meta">
+          <span class="badge badge-intermediate">Intermediate</span>
+          <span class="tech-stack">HTML, CSS, JavaScript</span>
+        </div>
+      </a>
+
+      <a href="/frontend-mentor/challenges/rss-feed-reader" class="challenge-card">
+        <div class="challenge-icon">📰</div>
+        <h3>RSS Feed Reader</h3>
+        <p>An RSS feed reader application to fetch and display news from various sources</p>
+        <div class="challenge-meta">
+          <span class="badge badge-advanced">Advanced</span>
+          <span class="tech-stack">Coming Soon</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+  }
+
+  .header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+  }
+
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+  }
+
+  .challenge-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
+  }
+
+  .challenge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .challenge-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+  }
+
+  .challenge-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #1d1d1f;
+  }
+
+  .challenge-card p {
+    color: #6e6e73;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .challenge-meta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+
+  .badge-intermediate {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .badge-advanced {
+    background: #f8d7da;
+    color: #721c24;
+  }
+
+  .tech-stack {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+</style>

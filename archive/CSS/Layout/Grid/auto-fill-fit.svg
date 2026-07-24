@@ -1,0 +1,58 @@
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .card { fill: #eeedfe; stroke: #cecbf6; stroke-width: 2; rx: 4; }
+      .card-empty { fill: #f8f9fa; stroke: #dee2e6; stroke-width: 2; stroke-dasharray: 5,5; rx: 4; }
+      .label { font-family: system-ui, sans-serif; font-size: 12px; fill: #26215c; text-anchor: middle; }
+      .section-label { font-family: system-ui, sans-serif; font-size: 14px; fill: #333; font-weight: bold; }
+      .code { font-family: 'Courier New', monospace; font-size: 11px; fill: #333; }
+    </style>
+  </defs>
+  
+  <!-- auto-fill section -->
+  <g transform="translate(50, 30)">
+    <text x="100" y="0" class="section-label" text-anchor="middle">auto-fill</text>
+    
+    <rect x="0" y="15" width="60" height="40" class="card"/>
+    <text x="30" y="40" class="label">Item</text>
+    
+    <rect x="70" y="15" width="60" height="40" class="card"/>
+    <text x="100" y="40" class="label">Item</text>
+    
+    <rect x="140" y="15" width="60" height="40" class="card"/>
+    <text x="170" y="40" class="label">Item</text>
+    
+    <rect x="210" y="15" width="60" height="40" class="card-empty"/>
+    <text x="240" y="40" class="label" fill="#999">empty</text>
+    
+    <rect x="280" y="15" width="60" height="40" class="card-empty"/>
+    <text x="310" y="40" class="label" fill="#999">empty</text>
+    
+    <text x="175" y="75" class="label" font-size="11">Items stay at minmax size</text>
+  </g>
+  
+  <!-- auto-fit section -->
+  <g transform="translate(50, 150)">
+    <text x="100" y="0" class="section-label" text-anchor="middle">auto-fit</text>
+    
+    <rect x="0" y="15" width="85" height="40" class="card"/>
+    <text x="42" y="40" class="label">Item</text>
+    
+    <rect x="95" y="15" width="85" height="40" class="card"/>
+    <text x="137" y="40" class="label">Item</text>
+    
+    <rect x="190" y="15" width="85" height="40" class="card"/>
+    <text x="232" y="40" class="label">Item</text>
+    
+    <text x="175" y="75" class="label" font-size="11">Items stretch to fill space</text>
+  </g>
+  
+  <!-- Code example -->
+  <g transform="translate(350, 30)">
+    <rect x="0" y="0" width="200" height="100" fill="#2c3e50" rx="4"/>
+    <text x="10" y="20" class="code" fill="#ecf0f1">grid-template-columns:</text>
+    <text x="10" y="35" class="code" fill="#ecf0f1">  repeat(auto-fill,</text>
+    <text x="10" y="50" class="code" fill="#ecf0f1">    minmax(200px, 1fr)</text>
+    <text x="10" y="65" class="code" fill="#ecf0f1">  );</text>
+  </g>
+</svg>

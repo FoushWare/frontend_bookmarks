@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox vs Grid Comparison</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .comparison-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .comparison-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .comparison-section .description {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .comparison-panel {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .comparison-panel h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .comparison-panel h3 .badge {
+            font-size: 0.7em;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: white;
+        }
+        .badge-flex {
+            background: #667eea;
+        }
+        .badge-grid {
+            background: #764ba2;
+        }
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .preview-box {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 30px;
+            min-height: 150px;
+        }
+        .pros-cons {
+            margin-top: 20px;
+        }
+        .pros-cons h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .pros-cons ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .pros-cons li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .pros-cons li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        .cons li:before {
+            content: "✗";
+            color: #e74c3c;
+        }
+        .when-to-use {
+            background: #e1f5ee;
+            border-left: 4px solid #04342c;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .when-to-use h4 {
+            color: #04342c;
+            margin-bottom: 10px;
+        }
+        .when-to-use p {
+            color: #04342c;
+            font-size: 0.95em;
+        }
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚖️ Flexbox vs Grid Comparison</h1>
+        <p>Learn when to use each layout system by seeing them solve the same problems</p>
+    </div>
+    
+    <div class="container">
+        <!-- Comparison 1: Center Content -->
+        <div class="comparison-section">
+            <h2>1. Center Content</h2>
+            <p class="description">Perfectly center an element both horizontally and vertically</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-panel">
+                    <h3>Flexbox <span class="badge badge-flex">Recommended</span></h3>
+                    <div class="code-block">.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}</div>
+                    <div class="preview-box" style="display: flex; justify-content: center; align-items: center; min-height: 150px;">
+                        <div style="background: #eeedfe; padding: 20px; border-radius: 8px;">Centered</div>
+                    </div>
+                    <div class="pros-cons">
+                        <h4>✓ Pros</h4>
+                        <ul>
+                            <li>Simple and intuitive</li>
+                            <li>Works for single elements</li>
+                            <li>Less code</li>
+                        </ul>
+                    </div>
+                    <div class="when-to-use">
+                        <h4>When to use Flexbox</h4>
+                        <p>Best for centering single elements or small groups of items</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-panel">
+                    <h3>Grid</h3>
+                    <div class="code-block">.container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}</div>
+                    <div class="preview-box" style="display: grid; place-items: center; min-height: 150px;">
+                        <div style="background: #eeedfe; padding: 20px; border-radius: 8px;">Centered</div>
+                    </div>
+                    <div class="pros-cons">
+                        <h4>✓ Pros</h4>
+                        <ul>
+                            <li>Even shorter with place-items</li>
+                            <li>Works for 2D layouts too</li>
+                        </ul>
+                    </div>
+                    <div class="when-to-use">
+                        <h4>When to use Grid</h4>
+                        <p>Use if you're already using Grid for the layout, or need 2D centering</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison 2: Equal Columns -->
+        <div class="comparison-section">
+            <h2>2. Equal Columns</h2>
+            <p class="description">Create equal-width columns that share available space</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-panel">
+                    <h3>Flexbox <span class="badge badge-flex">Recommended</span></h3>
+                    <div class="code-block">.columns {
+  display: flex;
+  gap: 20px;
+}
+.column {
+  flex: 1;
+}</div>
+                    <div class="preview-box" style="display: flex; gap: 10px;">
+                        <div style="flex: 1; background: #eeedfe; padding: 10px; border-radius: 4px;">1</div>
+                        <div style="flex: 1; background: #eeedfe; padding: 10px; border-radius: 4px;">2</div>
+                        <div style="flex: 1; background: #eeedfe; padding: 10px; border-radius: 4px;">3</div>
+                    </div>
+                    <div class="pros-cons">
+                        <h4>✓ Pros</h4>
+                        <ul>
+                            <li>Simple with flex: 1</li>
+                            <li>Great for 1D layouts</li>
+                            <li>Responsive by default</li>
+                        </ul>
+                    </div>
+                    <div class="when-to-use">
+                        <h4>When to use Flexbox</h4>
+                        <p>Best for simple row/column layouts where items just need equal width</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-panel">
+                    <h3>Grid</h3>
+                    <div class="code-block">.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}</div>
+                    <div class="preview-box" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                        <div style="background: #eeedfe; padding: 10px; border-radius: 4px;">1</div>
+                        <div style="background: #eeedfe; padding: 10px; border-radius: 4px;">2</div>
+                        <div style="background: #eeedfe; padding: 10px; border-radius: 4px;">3</div>
+                    </div>
+                    <div class="pros-cons">
+                        <h4>✓ Pros</h4>
+                        <ul>
+                            <li>Explicit control over columns</li>
+                            <li>Easy to change column count</li>
+                            <li>Equal height by default</li>
+                        </ul>
+                    </div>
+                    <div class="when-to-use">
+                        <h4>When to use Grid</h4>
+                        <p>Best when you need precise control over column structure or 2D layouts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison 3: Page Layout -->
+        <div class="comparison-section">
+            <h2>3. Page Layout (Header, Sidebar, Main, Footer)</h2>
+            <p class="description">Build a complete page layout with multiple regions</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-panel">
+                    <h3>Flexbox</h3>
+                    <div class="code-block">.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content {
+  display: flex;
+  flex: 1;
+}
+.sidebar {
+  flex: 0 0 200px;
+}
+.main {
+  flex: 1;
+}</div>
+                    <div class="preview-box" style="display: flex; flex-direction: column; gap: 5px;">
+                        <div style="background: #eeedfe; padding: 10px; border-radius: 4px;">Header</div>
+                        <div style="display: flex; flex: 1; gap: 5px;">
+                            <div style="flex: 0 0 40px; background: #faece7; padding: 10px; border-radius: 4px;">Side</div>
+                            <div style="flex: 1; background: #e1f5ee; padding: 10px; border-radius: 4px;">Main</div>
+                        </div>
+                        <div style="background: #eeedfe; padding: 10px; border-radius: 4px;">Footer</div>
+                    </div>
+                    <div class="pros-cons cons">
+                        <h4>✗ Cons</h4>
+                        <ul>
+                            <li>Nested flex containers</li>
+                            <li>More complex structure</li>
+                            <li>Harder to visualize</li>
+                        </ul>
+                    </div>
+                    <div class="when-to-use">
+                        <h4>When to use Flexbox</h4>
+                        <p>Only if you need to support very old browsers without Grid support</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-panel">
+                    <h3>Grid <span class="badge badge-grid">Recommended</span></h3>
+                    <div class="code-block">.page {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}</div>
+                    <div class="preview-box" style="display: grid; grid-template-areas: 'header header' 'sidebar main' 'footer footer'; grid-template-columns: 40px 1fr; grid-template-rows: auto 1fr auto; gap: 5px;">
+                        <div style="grid-area: header; background: #eeedfe; padding: 10px; border-radius: 4px;">Header</div>
+                        <div style="grid-area: sidebar; background: #faece7; padding: 10px; border-radius: 4px;">Side</div>
+                        <div style="grid-area: main; background: #e1f5ee; padding: 10px; border-radius: 4px;">Main</div>
+                        <div style="grid-area: footer; background: #eeedfe; padding: 10px; border-radius: 4px;">Footer</div>
+                    </div>
+                    <div class="pros-cons">
+                        <h4>✓ Pros</h4>
+                        <ul>
+                            <li>Single container</li>
+                            <li>Semantic grid-template-areas</li>
+                            <li>Easy to visualize layout</li>
+                            <li>2D control</li>
+                        </ul>
+                    </div>
+                    <div class="when-to-use">
+                        <h4>When to use Grid</h4>
+                        <p>Best for page layouts - it's designed for 2D layouts and is much cleaner</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison 4: Responsive Cards -->
+        <div class="comparison-section">
+            <h2>4. Responsive Card Grid</h2>
+            <p class="description">Create a responsive grid of cards that wraps based on viewport</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-panel">
+                    <h3>Flexbox <span class="badge badge-flex">Recommended</span></h3>
+                    <div class="code-block">.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  flex: 1 1 250px;
+}</div>
+                    <div class="preview-box" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                        <div style="flex: 1 1 80px; background: #eeedfe; padding: 10px; border-radius: 4px;">Card</div>
+                        <div style="flex: 1 1 80px; background: #eeedfe; padding: 10px; border-radius: 4px;">Card</div>
+                        <div style="flex: 1 1 80px; background: #eeedfe; padding: 10px; border-radius: 4px;">Card</div>
+                        <div style="flex: 1 1 80px; background: #eeedfe; padding: 10px; border-radius: 4px;">Card</div>
+                    </div>
+                    <div class="pros-cons">
+                        <h4>✓ Pros</h4>
+                        <ul>
+                            <li>Simple responsive behavior</li>
+                            <li>No media queries needed</li>
+                            <li>Cards grow to fill space</li>
+                        </ul>
+                    </div>
+                    <div class="when-to-use">
+                        <h4>When to use Flexbox</h4>
+                        <p>Best for card grids where items just need to wrap and fill available space</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-panel">
+                    <h3>Grid</h3>
+                    <div class="code-block">.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}</div>
+                    <div class="preview-box" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 10px;">
+                        <div style="background: #eeedfe; padding: 10px; border-radius: 4px;">Card</div>
+                        <div style="background: #eeedfe; padding: 10px; border-radius: 4px;">Card</div>
+                        <div style="background: #eeedfe; padding: 10px; border-radius: 4px;">Card</div>
+                        <div style="background: #eeedfe; padding: 10px; border-radius: 4px;">Card</div>
+                    </div>
+                    <div class="pros-cons">
+                        <h4>✓ Pros</h4>
+                        <ul>
+                            <li>More precise control</li>
+                            <li>Equal height by default</li>
+                            <li>auto-fit vs auto-fill options</li>
+                        </ul>
+                    </div>
+                    <div class="when-to-use">
+                        <h4>When to use Grid</h4>
+                        <p>Best when you need equal height cards or more control over the grid structure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="comparison-section">
+            <h2>📋 Quick Decision Guide</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <h3 style="color: #667eea; margin-bottom: 15px;">Use Flexbox When:</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>1D layouts</strong> (row OR column)</li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>Content distribution</strong> (space-between, center)</li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>Navigation bars</strong> and headers</li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>Aligning items</strong> in a container</li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>Simple card grids</strong> that wrap</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: #764ba2; margin-bottom: 15px;">Use Grid When:</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>2D layouts</strong> (rows AND columns)</li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>Page layouts</strong> (header, sidebar, main, footer)</li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>Complex grids</strong> with overlapping items</li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>Precise alignment</strong> across both axes</li>
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative;">✓ <strong>Equal height</strong> items by default</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

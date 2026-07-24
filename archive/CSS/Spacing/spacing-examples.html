@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Spacing Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        .navbar .nav-links a:hover {
+            background: #f0f0f0;
+            color: #667eea;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .example-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .example-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .example-section .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .demo-container {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        /* Demo Styles */
+        .margin-demo .box {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .padding-demo .box {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .gap-demo {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .gap-demo .box {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+        }
+        .margin-collapse-demo {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .margin-collapse-demo .box {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .auto-margin-demo {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .auto-margin-demo .box {
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+        .spacing-system-demo {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .spacing-system-demo .box {
+            background: #667eea;
+            color: white;
+            padding: var(--spacing-md);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">🚀 Learning Hub</a>
+            <div class="nav-links">
+                <a href="../../css.html">← Back to CSS</a>
+                <a href="spacing-reference.md">Reference Guide</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <a href="../../css.html" class="back-link">← Back to CSS</a>
+        
+        <div class="header">
+            <h1>📐 CSS Spacing Examples</h1>
+            <p>Interactive examples demonstrating margin, padding, and gap properties</p>
+        </div>
+        
+        <!-- Margin -->
+        <div class="example-section">
+            <h2>Margin</h2>
+            <p class="description">Space outside elements - creates separation between elements</p>
+            
+            <div class="demo-container margin-demo">
+                <div class="box">Box 1 - margin-bottom: 20px</div>
+                <div class="box">Box 2 - margin-bottom: 20px</div>
+                <div class="box">Box 3 - no margin</div>
+            </div>
+            <div class="code-block">.box {
+  margin-bottom: 20px;
+}</div>
+        </div>
+        
+        <!-- Padding -->
+        <div class="example-section">
+            <h2>Padding</h2>
+            <p class="description">Space inside elements - creates breathing room for content</p>
+            
+            <div class="demo-container padding-demo">
+                <div class="box">Box with padding: 20px</div>
+                <div class="box" style="padding: 40px;">Box with padding: 40px</div>
+            </div>
+            <div class="code-block">.box {
+  padding: 20px;
+}
+.box-large {
+  padding: 40px;
+}</div>
+        </div>
+        
+        <!-- Gap -->
+        <div class="example-section">
+            <h2>Gap Property</h2>
+            <p class="description">Space between flex or grid items - modern alternative to margins</p>
+            
+            <div class="demo-container">
+                <div class="gap-demo">
+                    <div class="box">Item 1</div>
+                    <div class="box">Item 2</div>
+                    <div class="box">Item 3</div>
+                </div>
+            </div>
+            <div class="code-block">.container {
+  display: flex;
+  gap: 20px;
+}</div>
+        </div>
+        
+        <!-- Margin Collapse -->
+        <div class="example-section">
+            <h2>Margin Collapse</h2>
+            <p class="description">Adjacent margins combine into a single margin (larger value wins)</p>
+            
+            <div class="demo-container margin-collapse-demo">
+                <div class="box" style="margin-bottom: 30px;">Box 1 - margin-bottom: 30px</div>
+                <div class="box" style="margin-top: 20px;">Box 2 - margin-top: 20px</div>
+                <p style="margin-top: 10px; color: #666;">Result: 30px gap (larger margin wins)</p>
+            </div>
+            <div class="code-block">/* Margins collapse - only 30px space between boxes */
+.box1 { margin-bottom: 30px; }
+.box2 { margin-top: 20px; }</div>
+        </div>
+        
+        <!-- Auto Margin -->
+        <div class="example-section">
+            <h2>Auto Margin for Centering</h2>
+            <p class="description">Using margin: auto to center block elements horizontally</p>
+            
+            <div class="demo-container auto-margin-demo">
+                <div class="box">Centered with margin: 0 auto</div>
+            </div>
+            <div class="code-block">.box {
+  width: 200px;
+  margin: 0 auto;
+}</div>
+        </div>
+        
+        <!-- Spacing System -->
+        <div class="example-section">
+            <h2>Spacing System with CSS Variables</h2>
+            <p class="description">Using CSS custom properties for consistent spacing</p>
+            
+            <div class="demo-container" style="--spacing-xs: 4px; --spacing-sm: 8px; --spacing-md: 16px; --spacing-lg: 24px; --spacing-xl: 32px;">
+                <div class="spacing-system-demo">
+                    <div class="box" style="--spacing-md: 8px;">Small padding</div>
+                    <div class="box" style="--spacing-md: 16px;">Medium padding</div>
+                    <div class="box" style="--spacing-md: 24px;">Large padding</div>
+                </div>
+            </div>
+            <div class="code-block">:root {
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+.box {
+  padding: var(--spacing-md);
+}</div>
+        </div>
+        
+        <!-- Shorthand Properties -->
+        <div class="example-section">
+            <h2>Shorthand Properties</h2>
+            <p class="description">Different ways to write margin and padding</p>
+            
+            <div class="code-block">/* All sides */
+margin: 20px;
+padding: 20px;
+
+/* Top/bottom, left/right */
+margin: 10px 20px;
+padding: 10px 20px;
+
+/* Top, left/right, bottom */
+margin: 10px 20px 30px;
+padding: 10px 20px 30px;
+
+/* Top, right, bottom, left (clockwise) */
+margin: 10px 20px 30px 40px;
+padding: 10px 20px 30px 40px;</div>
+        </div>
+    </div>
+</body>
+</html>

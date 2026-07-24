@@ -1,0 +1,41 @@
+<svg width="600" height="350" viewBox="0 0 600 350" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .area { stroke: #cecbf6; stroke-width: 2; }
+      .area-header { fill: #eeedfe; }
+      .area-sidebar { fill: #faece7; }
+      .area-main { fill: #e1f5ee; }
+      .area-footer { fill: #fbeaf0; }
+      .label { font-family: system-ui, sans-serif; font-size: 14px; fill: #26215c; text-anchor: middle; font-weight: bold; }
+      .code { font-family: 'Courier New', monospace; font-size: 11px; fill: #333; }
+    </style>
+  </defs>
+  
+  <!-- Grid layout visualization -->
+  <g transform="translate(50, 50)">
+    <!-- Header -->
+    <rect x="0" y="0" width="500" height="60" class="area area-header"/>
+    <text x="250" y="35" class="label">header</text>
+    
+    <!-- Sidebar -->
+    <rect x="0" y="60" width="150" height="150" class="area area-sidebar"/>
+    <text x="75" y="140" class="label">sidebar</text>
+    
+    <!-- Main -->
+    <rect x="150" y="60" width="350" height="150" class="area area-main"/>
+    <text x="325" y="140" class="label">main</text>
+    
+    <!-- Footer -->
+    <rect x="0" y="210" width="500" height="60" class="area area-footer"/>
+    <text x="250" y="245" class="label">footer</text>
+  </g>
+  
+  <!-- Code example -->
+  <g transform="translate(50, 280)">
+    <rect x="0" y="0" width="500" height="60" fill="#2c3e50" rx="4"/>
+    <text x="10" y="20" class="code" fill="#ecf0f1">grid-template-areas:</text>
+    <text x="10" y="35" class="code" fill="#ecf0f1">  "header header"</text>
+    <text x="10" y="50" class="code" fill="#ecf0f1">  "sidebar main"</text>
+    <text x="200" y="35" class="code" fill="#ecf0f1">  "footer footer";</text>
+  </g>
+</svg>

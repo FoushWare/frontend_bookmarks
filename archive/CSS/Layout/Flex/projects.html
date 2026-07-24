@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Flexbox - Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        .project-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        .project-card .difficulty {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .difficulty-beginner {
+            background: #e1f5ee;
+            color: #04342c;
+        }
+        .difficulty-intermediate {
+            background: #eeedfe;
+            color: #26215c;
+        }
+        .difficulty-advanced {
+            background: #faece7;
+            color: #4a1b0c;
+        }
+        .project-card .description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+        .project-card .features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .project-card .features li {
+            padding: 8px 0;
+            color: #555;
+            font-size: 0.9em;
+        }
+        .project-card .features li:before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+        .project-card .start-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .project-card .start-btn:hover {
+            background: #5568d3;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2em; }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>💻 CSS Flexbox Projects</h1>
+        <p>Hands-on practice with interactive code editor, starter code, and solutions</p>
+    </div>
+    
+    <div class="container">
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card" onclick="window.location.href='project-1-center-content.html'">
+                <h3>Center Content</h3>
+                <span class="difficulty difficulty-beginner">Beginner</span>
+                <p class="description">Perfectly center content both horizontally and vertically using Flexbox.</p>
+                <ul class="features">
+                    <li>Use justify-content and align-items</li>
+                    <li>Center single elements</li>
+                    <li>Center multiple items</li>
+                    <li>Common UI pattern mastery</li>
+                </ul>
+                <a href="project-1-center-content.html" class="start-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="project-card" onclick="window.location.href='project-2-equal-columns.html'">
+                <h3>Equal Columns</h3>
+                <span class="difficulty difficulty-beginner">Beginner</span>
+                <p class="description">Create equal-width columns that share available space using flex property.</p>
+                <ul class="features">
+                    <li>Use flex: 1 for equal width</li>
+                    <li>Handle different content lengths</li>
+                    <li>Responsive column layout</li>
+                    <li>Flex shorthand mastery</li>
+                </ul>
+                <a href="project-2-equal-columns.html" class="start-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project-card" onclick="window.location.href='project-3-sidebar-layout.html'">
+                <h3>Sidebar Layout</h3>
+                <span class="difficulty difficulty-intermediate">Intermediate</span>
+                <p class="description">Build a layout with fixed sidebar and flexible content area.</p>
+                <ul class="features">
+                    <li>Fixed width sidebar with flex: 0 0 200px</li>
+                    <li>Flexible content with flex: 1</li>
+                    <li>Prevent sidebar shrinking</li>
+                    <li>Common dashboard pattern</li>
+                </ul>
+                <a href="project-3-sidebar-layout.html" class="start-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 4 -->
+            <div class="project-card" onclick="window.location.href='project-4-sticky-footer.html'">
+                <h3>Sticky Footer</h3>
+                <span class="difficulty difficulty-beginner">Beginner</span>
+                <p class="description">Create a footer that stays at the bottom even with minimal content.</p>
+                <ul class="features">
+                    <li>Use flex-direction: column</li>
+                    <li>flex: 1 for main content</li>
+                    <li>Footer always at bottom</li>
+                    <li>Classic layout pattern</li>
+                </ul>
+                <a href="project-4-sticky-footer.html" class="start-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 5 -->
+            <div class="project-card" onclick="window.location.href='project-5-navbar.html'">
+                <h3>Navigation Bar</h3>
+                <span class="difficulty difficulty-beginner">Beginner</span>
+                <p class="description">Build a responsive navbar with logo on one side and links on the other.</p>
+                <ul class="features">
+                    <li>justify-content: space-between</li>
+                    <li>align-items for vertical centering</li>
+                    <li>Responsive navigation</li>
+                    <li>Common header pattern</li>
+                </ul>
+                <a href="project-5-navbar.html" class="start-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 6 -->
+            <div class="project-card" onclick="window.location.href='project-6-responsive-cards.html'">
+                <h3>Responsive Cards</h3>
+                <span class="difficulty difficulty-intermediate">Intermediate</span>
+                <p class="description">Create responsive card layout that wraps based on viewport width.</p>
+                <ul class="features">
+                    <li>flex-wrap: wrap for wrapping</li>
+                    <li>flex-basis for minimum width</li>
+                    <li>Responsive without media queries</li>
+                    <li>Card grid pattern</li>
+                </ul>
+                <a href="project-6-responsive-cards.html" class="start-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 7 -->
+            <div class="project-card" onclick="window.location.href='project-7-flex-grow.html'">
+                <h3>Flex Grow Ratios</h3>
+                <span class="difficulty difficulty-intermediate">Intermediate</span>
+                <p class="description">Master flex-grow to distribute space in different ratios.</p>
+                <ul class="features">
+                    <li>flex-grow: 1, 2, 3 ratios</li>
+                    <li>Distribute leftover space</li>
+                    <li>Proportional sizing</li>
+                    <li>Advanced flex patterns</li>
+                </ul>
+                <a href="project-7-flex-grow.html" class="start-btn">Start Project →</a>
+            </div>
+            
+            <!-- Project 8 -->
+            <div class="project-card" onclick="window.location.href='project-8-flex-shrink.html'">
+                <h3>Flex Shrink Control</h3>
+                <span class="difficulty difficulty-advanced">Advanced</span>
+                <p class="description">Control how items shrink when space is limited.</p>
+                <ul class="features">
+                    <li>flex-shrink: 0 to prevent shrinking</li>
+                    <li>Fixed width preservation</li>
+                    <li>Overflow handling</li>
+                    <li>Advanced flex control</li>
+                </ul>
+                <a href="project-8-flex-shrink.html" class="start-btn">Start Project →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rendering Pattern - Patterns</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <link rel="stylesheet" href="../../theme.css">
     <style>
         * {
@@ -294,6 +295,16 @@
         [data-theme="dark"] .video-section h3 {
             color: #f5f5f7;
         }
+        .mermaid {
+            text-align: center;
+            margin: 20px 0;
+            background: #f5f5f7;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        [data-theme="dark"] .mermaid {
+            background: #2c2c2e;
+        }
     </style>
 </head>
 <body>
@@ -308,6 +319,11 @@
     </nav>
 
     <div class="container">
+        <div class="header">
+            <h1>🎨 Rendering Pattern</h1>
+            <p>Understanding Client-Side Rendering, Server-Side Rendering, and Static Site Generation</p>
+        </div>
+
         <div class="video-section">
             <h3>📹 Modern Web Rendering Overview</h3>
             <div class="video-container">
@@ -316,11 +332,6 @@
                     Your browser does not support the video tag.
                 </video>
             </div>
-        </div>
-
-        <div class="header">
-            <h1>🎨 Rendering Pattern</h1>
-            <p>Understanding Client-Side Rendering, Server-Side Rendering, and Static Site Generation</p>
         </div>
 
         <div class="markdown-content" id="content">
@@ -340,10 +351,32 @@
 
     <script src="../../theme.js"></script>
     <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'default',
+            securityLevel: 'loose'
+        });
+
+        // Custom renderer for marked to handle mermaid code blocks
+        const renderer = new marked.Renderer();
+        renderer.code = function(code, language) {
+            if (language === 'mermaid') {
+                return `<div class="mermaid">${code}</div>`;
+            }
+            return `<pre><code class="${language}">${code}</code></pre>`;
+        };
+
+        marked.setOptions({
+            renderer: renderer
+        });
+
         fetch('rendering-pattern.md')
             .then(response => response.text())
             .then(markdown => {
                 document.getElementById('content').innerHTML = marked.parse(markdown);
+                // Render mermaid diagrams after content is loaded
+                mermaid.init(undefined, document.querySelectorAll('.mermaid'));
             })
             .catch(error => {
                 document.getElementById('content').innerHTML = '<p>Error loading content.</p>';

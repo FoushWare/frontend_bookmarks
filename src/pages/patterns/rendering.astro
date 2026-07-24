@@ -63,6 +63,10 @@ import Layout from '../../layouts/Layout.astro';
       <p>That's it. That's the whole key word. Everything else (CSR, SSR, SSG, ISR,
       RSC) is just a different combination of answers to those two questions.</p>
 
+      <div class="image-container">
+        <img src="/rendering/images/0-what-is-rendering.png" alt="What is rendering diagram" />
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -96,6 +100,10 @@ import Layout from '../../layouts/Layout.astro';
       <p>Each step didn't replace the last — it added a new tool. Modern frameworks
       (Next.js, Remix) let you mix all five <strong>per route, even per component</strong>.</p>
 
+      <div class="image-container">
+        <img src="/rendering/images/1-timeline-overview.png" alt="Timeline overview of rendering evolution" />
+      </div>
+
       <div class="mermaid">
         timeline
             title Evolution of Web Rendering
@@ -118,6 +126,10 @@ import Layout from '../../layouts/Layout.astro';
       <p>The server is basically a file host: it hands back an empty <code>&lt;div id="root"&gt;</code>
       and a JavaScript bundle. The browser's CPU does all the work — fetching data,
       building the DOM, painting pixels.</p>
+
+      <div class="image-container">
+        <img src="/rendering/images/2-csr-flow.png" alt="Client-side rendering flow diagram" />
+      </div>
 
       <div class="mermaid">
         sequenceDiagram
@@ -149,6 +161,10 @@ import Layout from '../../layouts/Layout.astro';
       <p>The server generates full HTML <strong>on every request</strong>, solving the blank-screen
       problem.</p>
 
+      <div class="image-container">
+        <img src="/rendering/images/3-ssr-flow.png" alt="Server-side rendering flow diagram" />
+      </div>
+
       <div class="mermaid">
         sequenceDiagram
             participant B as Browser
@@ -175,6 +191,10 @@ import Layout from '../../layouts/Layout.astro';
 
       <p>Rendering moves to <strong>build time</strong>. HTML is "frozen" and served from a CDN
       edge — no server compute per request.</p>
+
+      <div class="image-container">
+        <img src="/rendering/images/4-ssg-isr-flow.png" alt="SSG and ISR flow diagram" />
+      </div>
 
       <div class="mermaid">
         flowchart LR
@@ -214,6 +234,10 @@ import Layout from '../../layouts/Layout.astro';
 
       <p>Not just "SSR v2." RSC lets server and client components work in true
       synergy: server components never ship to the browser at all.</p>
+
+      <div class="image-container">
+        <img src="/rendering/images/5-rsc-diagram.png" alt="React Server Components diagram" />
+      </div>
 
       <div class="mermaid">
         flowchart TD
@@ -316,6 +340,10 @@ import Layout from '../../layouts/Layout.astro';
       <h2 id="9-the-full-request-journey">9. The Full Request Journey</h2>
 
       <p>From <code>npm run dev</code> to painted pixels in the user's browser.</p>
+
+      <div class="image-container">
+        <img src="/rendering/images/6-request-journey.png" alt="Full request journey diagram" />
+      </div>
 
       <div class="mermaid">
         flowchart TD
@@ -587,6 +615,18 @@ import Layout from '../../layouts/Layout.astro';
   .markdown-content .mermaid {
     margin: 30px 0;
     text-align: center;
+  }
+
+  .image-container {
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .links {

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Patterns - Learning Hub</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="theme.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+        .navbar {
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .navbar .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .navbar .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+        .theme-toggle {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s;
+        }
+        .theme-toggle:hover {
+            border-color: var(--accent);
+        }
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s, background 0.3s;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+        .navbar .nav-links a:hover {
+            color: var(--accent);
+            background: var(--bg-tertiary);
+        }
+        .navbar .nav-links a.active {
+            color: var(--accent);
+            background: var(--bg-tertiary);
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .patterns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .pattern-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .pattern-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .pattern-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pattern-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .pattern-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        .badge-rendering {
+            background: #667eea;
+            color: white;
+        }
+        .badge-design {
+            background: #f093fb;
+            color: white;
+        }
+        .badge-architectural {
+            background: #4facfe;
+            color: white;
+        }
+        .section-title {
+            color: var(--text-primary);
+            margin: 40px 0 20px 0;
+            font-size: 2em;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">🚀 Learning Hub</a>
+            <ul class="nav-links">
+                <li><a href="html.html">HTML</a></li>
+                <li><a href="css.html">CSS</a></li>
+                <li><a href="javascript.html">JavaScript</a></li>
+                <li><a href="patterns.html" class="active">Patterns</a></li>
+                <li><a href="senior-interview.html">Senior Interview</a></li>
+                <li><button class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>🧩 Design Patterns</h1>
+            <p>Master design patterns, rendering patterns, and architectural patterns for building scalable applications</p>
+        </div>
+
+        <h2 class="section-title">Rendering Patterns</h2>
+        <div class="patterns-grid">
+            <div class="pattern-card" onclick="window.location.href='Patterns/Rendering/rendering-pattern.html'">
+                <h3>🎨 Rendering Pattern</h3>
+                <p>Learn about client-side rendering, server-side rendering, and static site generation with React and modern frameworks</p>
+                <div class="pattern-meta">
+                    <span class="badge badge-rendering">Rendering</span>
+                    <span class="badge badge-architectural">Architectural</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Design Patterns</h2>
+        <div class="patterns-grid">
+            <div class="pattern-card">
+                <h3>🏗️ Singleton Pattern</h3>
+                <p>Ensure a class has only one instance and provide a global point of access to it</p>
+                <div class="pattern-meta">
+                    <span class="badge badge-design">Design</span>
+                </div>
+            </div>
+            <div class="pattern-card">
+                <h3>📦 Factory Pattern</h3>
+                <p>Create objects without specifying the exact class of object that will be created</p>
+                <div class="pattern-meta">
+                    <span class="badge badge-design">Design</span>
+                </div>
+            </div>
+            <div class="pattern-card">
+                <h3>🔌 Observer Pattern</h3>
+                <p>Define a one-to-many dependency between objects so that when one object changes state, all dependents are notified</p>
+                <div class="pattern-meta">
+                    <span class="badge badge-design">Design</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Architectural Patterns</h2>
+        <div class="patterns-grid">
+            <div class="pattern-card">
+                <h3>🏛️ MVC Pattern</h3>
+                <p>Model-View-Controller architectural pattern for separating concerns in applications</p>
+                <div class="pattern-meta">
+                    <span class="badge badge-architectural">Architectural</span>
+                </div>
+            </div>
+            <div class="pattern-card">
+                <h3>📊 Redux Pattern</h3>
+                <p>Predictable state container for JavaScript apps with a single source of truth</p>
+                <div class="pattern-meta">
+                    <span class="badge badge-architectural">Architectural</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="theme.js"></script>
+</body>
+</html>

@@ -194,6 +194,146 @@
             background: #e8f5e9;
             color: #1b5e20;
         }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+        .modal.active {
+            display: block;
+        }
+        .modal-content {
+            background: var(--bg-secondary);
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            color: var(--text-primary);
+        }
+        .modal-close:hover {
+            background: var(--border-color);
+            transform: rotate(90deg);
+        }
+        .modal-title {
+            font-size: 2em;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--accent);
+        }
+        .modal-body {
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+        .modal-body h1 {
+            font-size: 2.5em;
+            color: var(--text-primary);
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+        }
+        .modal-body h2 {
+            font-size: 2em;
+            color: var(--text-primary);
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .modal-body h3 {
+            font-size: 1.5em;
+            color: var(--text-primary);
+            margin: 20px 0 10px 0;
+        }
+        .modal-body p {
+            margin: 15px 0;
+        }
+        .modal-body code {
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+        .modal-body pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .modal-body pre code {
+            background: transparent;
+            color: #d4d4d4;
+            padding: 0;
+        }
+        .modal-body ul, .modal-body ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        .modal-body li {
+            margin: 8px 0;
+        }
+        .modal-body blockquote {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin: 20px 0;
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+        .modal-body a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .modal-body a:hover {
+            text-decoration: underline;
+        }
+        .modal-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .modal-body th, .modal-body td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        .modal-body th {
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .modal-body img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -232,9 +372,9 @@
                 <h3>1. Layout</h3>
                 <p class="description">display, position, z-index, overflow, block vs inline, flex, grid, absolute vs relative vs fixed vs sticky, stacking context</p>
                 <ul class="resources">
-                    <li><a href="CSS/Layout/layout-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Layout/layout-reference.html" onclick="openModal('CSS/Layout/layout-reference.html', 'Layout Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="CSS/Layout/layout-examples.html">🎯 Examples</a></li>
-                    <li><a href="CSS/Layout/layout-interview.md" onclick="openMarkdown('CSS/Layout/layout-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
+                    <li><a href="CSS/Layout/layout-interview.md" onclick="openModal('CSS/Layout/layout-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
                     <li><a href="CSS/Layout/layout-projects.html">💻 Projects</a></li>
                 </ul>
                 <div class="content-types">
@@ -252,9 +392,9 @@
                 <h3>2. Flexbox</h3>
                 <p class="description">Master every flex property: flex-direction, justify-content, align-items, flex-wrap, gap, flex-grow, flex-shrink, flex-basis, align-self, order</p>
                 <ul class="resources">
-                    <li><a href="CSS/Layout/Flex/css-flexbox-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Layout/Flex/css-flexbox-reference.html" onclick="openModal('CSS/Layout/Flex/css-flexbox-reference.html', 'Flexbox Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="CSS/Layout/Flex/all-examples.html">🎯 Examples</a></li>
-                    <li><a href="CSS/Layout/Flex/flexbox-interview.md" onclick="openMarkdown('CSS/Layout/Flex/flexbox-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
+                    <li><a href="CSS/Layout/Flex/flexbox-interview.md" onclick="openModal('CSS/Layout/Flex/flexbox-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
                     <li><a href="CSS/Layout/Flex/projects.html">💻 Projects</a></li>
                 </ul>
                 <div class="content-types">
@@ -272,9 +412,9 @@
                 <h3>3. CSS Grid</h3>
                 <p class="description">grid-template-columns, grid-template-rows, grid-template-areas, grid-column, grid-row, place-items, auto-fit, auto-fill, minmax, repeat, fr</p>
                 <ul class="resources">
-                    <li><a href="CSS/Layout/Grid/css-grid-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Layout/Grid/css-grid-reference.html" onclick="openModal('CSS/Layout/Grid/css-grid-reference.html', 'CSS Grid Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="CSS/Layout/Grid/all-examples.html">🎯 Examples</a></li>
-                    <li><a href="CSS/Layout/Grid/grid-interview.md" onclick="openMarkdown('CSS/Layout/Grid/grid-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
+                    <li><a href="CSS/Layout/Grid/grid-interview.md" onclick="openModal('CSS/Layout/Grid/grid-interview.md', '❓ Interview Questions'); return false;">❓ Interview Questions</a></li>
                     <li><a href="CSS/Layout/Grid/projects.html">💻 Projects</a></li>
                 </ul>
                 <div class="content-types">
@@ -292,7 +432,7 @@
                 <h3>4. Sizing</h3>
                 <p class="description">width, height, min-width, max-width, min-height, max-height, aspect-ratio, box-sizing, px, %, vw, vh, rem, em, fr</p>
                 <ul class="resources">
-                    <li><a href="CSS/Sizing/sizing-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Sizing/sizing-reference.html" onclick="openModal('CSS/Sizing/sizing-reference.html', 'Sizing Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="#">🎯 Examples</a></li>
                     <li><a href="#">❓ Interview Questions</a></li>
                     <li><a href="#">💻 Projects</a></li>
@@ -312,7 +452,7 @@
                 <h3>5. Spacing</h3>
                 <p class="description">margin, padding, gap, margin collapsing, auto margins, spacing systems</p>
                 <ul class="resources">
-                    <li><a href="CSS/Spacing/spacing-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Spacing/spacing-reference.html" onclick="openModal('CSS/Spacing/spacing-reference.html', 'Spacing Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="#">🎯 Examples</a></li>
                     <li><a href="#">❓ Interview Questions</a></li>
                     <li><a href="#">💻 Projects</a></li>
@@ -332,7 +472,7 @@
                 <h3>6. Typography</h3>
                 <p class="description">font-family, font-size, font-weight, line-height, letter-spacing, text-align, text-transform, ellipsis, nowrap, multiline clamp</p>
                 <ul class="resources">
-                    <li><a href="CSS/Typography/typography-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Typography/typography-reference.html" onclick="openModal('CSS/Typography/typography-reference.html', 'Typography Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="#">🎯 Examples</a></li>
                     <li><a href="#">❓ Interview Questions</a></li>
                     <li><a href="#">💻 Projects</a></li>
@@ -352,7 +492,7 @@
                 <h3>7. Background</h3>
                 <p class="description">background, background-color, background-image, background-size, background-position, gradients: linear-gradient, radial-gradient, conic-gradient</p>
                 <ul class="resources">
-                    <li><a href="CSS/Background/background-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Background/background-reference.html" onclick="openModal('CSS/Background/background-reference.html', 'Background Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="#">🎯 Examples</a></li>
                     <li><a href="#">❓ Interview Questions</a></li>
                     <li><a href="#">💻 Projects</a></li>
@@ -372,7 +512,7 @@
                 <h3>8. Border</h3>
                 <p class="description">border, border-radius, outline, box-shadow, cards, buttons, inputs</p>
                 <ul class="resources">
-                    <li><a href="CSS/Border/border-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Border/border-reference.html" onclick="openModal('CSS/Border/border-reference.html', 'Border Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="#">🎯 Examples</a></li>
                     <li><a href="#">❓ Interview Questions</a></li>
                     <li><a href="#">💻 Projects</a></li>
@@ -392,7 +532,7 @@
                 <h3>9. Images</h3>
                 <p class="description">object-fit, object-position, filter, opacity, cover, contain, fill</p>
                 <ul class="resources">
-                    <li><a href="CSS/Images/images-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Images/images-reference.html" onclick="openModal('CSS/Images/images-reference.html', 'Images Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="#">🎯 Examples</a></li>
                     <li><a href="#">❓ Interview Questions</a></li>
                     <li><a href="#">💻 Projects</a></li>
@@ -412,7 +552,7 @@
                 <h3>10. Responsive Design</h3>
                 <p class="description">@media, clamp, min, max, calc, 100vh, 100dvh, mobile-first design</p>
                 <ul class="resources">
-                    <li><a href="CSS/Responsive/responsive-reference.html">📖 Reference Guide</a></li>
+                    <li><a href="CSS/Responsive/responsive-reference.html" onclick="openModal('CSS/Responsive/responsive-reference.html', 'Responsive Design Reference'); return false;">📖 Reference Guide</a></li>
                     <li><a href="#">🎯 Examples</a></li>
                     <li><a href="#">❓ Interview Questions</a></li>
                     <li><a href="#">💻 Projects</a></li>
@@ -427,49 +567,79 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal" id="contentModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h2 class="modal-title" id="modalTitle">Reference</h2>
+            <div class="modal-body" id="modalBody">
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+
     <script src="theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        function openMarkdown(path, title) {
-            fetch(path)
-                .then(response => response.text())
-                .then(markdown => {
-                    const html = marked.parse(markdown);
-                    const theme = document.documentElement.getAttribute('data-theme') || 'light';
-                    const newWindow = window.open('', '_blank');
-                    newWindow.document.write(`
-                        <!DOCTYPE html>
-                        <html data-theme="${theme}">
-                        <head>
-                            <title>${title}</title>
-                            <style>
-                                :root {
-                                    --bg-primary: #f5f5f5;
-                                    --bg-secondary: #ffffff;
-                                    --text-primary: #333;
-                                    --text-secondary: #7f8c8d;
-                                    --code-bg: #2c3e50;
-                                    --code-text: #ecf0f1;
-                                }
-                                [data-theme="dark"] {
-                                    --bg-primary: #1a1a2e;
-                                    --bg-secondary: #16213e;
-                                    --text-primary: #eaeaea;
-                                    --text-secondary: #a0a0a0;
-                                    --code-bg: #0f0f1a;
-                                    --code-text: #e0e0e0;
-                                }
-                                body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; line-height: 1.6; background: var(--bg-primary); color: var(--text-primary); }
-                                pre { background: var(--code-bg); color: var(--code-text); padding: 20px; border-radius: 8px; overflow-x: auto; }
-                                code { background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; }
-                                pre code { background: none; padding: 0; }
-                                h1, h2, h3 { color: var(--text-primary); margin-top: 30px; }
-                                blockquote { border-left: 4px solid #667eea; padding-left: 20px; color: var(--text-secondary); }
-                            </style>
-                        </head>
-                        <body>${html}</body>
-                        </html>
-                    `);
+        function openModal(url, title) {
+            const modal = document.getElementById('contentModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalTitle.textContent = title;
+            modalBody.innerHTML = '<p>Loading...</p>';
+            modal.classList.add('active');
+            
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(content => {
+                    // Check if it's a markdown file
+                    if (url.endsWith('.md')) {
+                        modalBody.innerHTML = marked.parse(content);
+                    } else {
+                        // It's an HTML file, extract the body content
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(content, 'text/html');
+                        const bodyContent = doc.querySelector('.markdown-content') || doc.body;
+                        modalBody.innerHTML = bodyContent.innerHTML;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading content:', error);
+                    modalBody.innerHTML = `
+                        <p>Error loading content. <a href="${url}" target="_blank">Open in new tab</a></p>
+                        <p><small>Error: ${error.message}</small></p>
+                    `;
                 });
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('contentModal');
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside content
+        document.getElementById('contentModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        function openMarkdown(path, title) {
+            openModal(path, title);
+            return false;
         }
     </script>
 </body>

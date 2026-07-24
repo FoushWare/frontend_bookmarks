@@ -218,7 +218,7 @@ import Layout from '../../layouts/Layout.astro';
 
       <div class="mermaid">
         flowchart LR
-            A[User Request] --> B{Page cached?}
+            A[User Request] --> B[(Page cached?)]
             B -->|Yes, fresh| C[Serve static HTML instantly]
             B -->|Yes, stale| D[Serve stale HTML immediately]
             D --> E[Regenerate in background]
@@ -352,7 +352,7 @@ import Layout from '../../layouts/Layout.astro';
             end
 
             subgraph CI["2 · CI/CD Pipeline (e.g. Jenkins)"]
-                B{Build step}
+                B[(Build step)]
                 B -->|SSG| C[Fetch data now,<br/>render static HTML files]
                 B -->|SSR| D[Compile server logic,<br/>wait for real requests]
             end

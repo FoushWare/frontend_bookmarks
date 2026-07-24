@@ -8,8 +8,61 @@ import Layout from '../layouts/Layout.astro';
       <h1>⚡ JavaScript</h1>
       <p>Master JavaScript fundamentals, ES6+, async programming, DOM manipulation, and modern patterns</p>
     </div>
-    <div class="content">
-      <p>JavaScript content will be migrated here soon.</p>
+
+    <div class="topics-grid">
+      <a href="/javascript/fundamentals" class="topic-card">
+        <div class="topic-icon">📚</div>
+        <h3>Fundamentals</h3>
+        <p>Master variables, data types, operators, and basic concepts</p>
+        <div class="topic-meta">
+          <span class="badge badge-beginner">Beginner</span>
+        </div>
+      </a>
+
+      <a href="/javascript/es6" class="topic-card">
+        <div class="topic-icon">✨</div>
+        <h3>ES6+</h3>
+        <p>Master modern JavaScript features, arrow functions, destructuring</p>
+        <div class="topic-meta">
+          <span class="badge badge-intermediate">Intermediate</span>
+        </div>
+      </a>
+
+      <a href="/javascript/async" class="topic-card">
+        <div class="topic-icon">⏳</div>
+        <h3>Async Programming</h3>
+        <p>Master promises, async/await, and asynchronous patterns</p>
+        <div class="topic-meta">
+          <span class="badge badge-advanced">Advanced</span>
+        </div>
+      </a>
+
+      <a href="/javascript/dom" class="topic-card">
+        <div class="topic-icon">🌐</div>
+        <h3>DOM Manipulation</h3>
+        <p>Master DOM selection, manipulation, and event handling</p>
+        <div class="topic-meta">
+          <span class="badge badge-intermediate">Intermediate</span>
+        </div>
+      </a>
+
+      <a href="/javascript/functional" class="topic-card">
+        <div class="topic-icon">🔧</div>
+        <h3>Functional Programming</h3>
+        <p>Master map, filter, reduce, and functional patterns</p>
+        <div class="topic-meta">
+          <span class="badge badge-advanced">Advanced</span>
+        </div>
+      </a>
+
+      <a href="/javascript/oop" class="topic-card">
+        <div class="topic-icon">🏗️</div>
+        <h3>OOP</h3>
+        <p>Master classes, prototypes, and object-oriented patterns</p>
+        <div class="topic-meta">
+          <span class="badge badge-intermediate">Intermediate</span>
+        </div>
+      </a>
     </div>
   </div>
 </Layout>
@@ -35,10 +88,74 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 15px;
   }
 
-  .content {
+  .header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .topic-card {
     background: white;
-    border-radius: 12px;
-    padding: 40px;
+    border-radius: 16px;
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
+  }
+
+  .topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .topic-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+  }
+
+  .topic-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #1d1d1f;
+  }
+
+  .topic-card p {
+    color: #6e6e73;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .topic-meta {
+    display: flex;
+    gap: 10px;
+  }
+
+  .badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+
+  .badge-beginner {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .badge-intermediate {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .badge-advanced {
+    background: #f8d7da;
+    color: #721c24;
   }
 </style>

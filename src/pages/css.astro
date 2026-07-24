@@ -8,8 +8,97 @@ import Layout from '../layouts/Layout.astro';
       <h1>🎨 CSS</h1>
       <p>Master CSS layouts with Flexbox and Grid, styling, animations, and responsive design</p>
     </div>
-    <div class="content">
-      <p>CSS content will be migrated here soon.</p>
+
+    <div class="topics-grid">
+      <a href="/css/flexbox" class="topic-card">
+        <div class="topic-icon">📦</div>
+        <h3>Flexbox</h3>
+        <p>Master flexible box layout for one-dimensional layouts</p>
+        <div class="topic-meta">
+          <span class="badge badge-intermediate">Intermediate</span>
+        </div>
+      </a>
+
+      <a href="/css/grid" class="topic-card">
+        <div class="topic-icon">🔲</div>
+        <h3>Grid</h3>
+        <p>Master CSS grid for two-dimensional layouts</p>
+        <div class="topic-meta">
+          <span class="badge badge-intermediate">Intermediate</span>
+        </div>
+      </a>
+
+      <a href="/css/background" class="topic-card">
+        <div class="topic-icon">🖼️</div>
+        <h3>Background</h3>
+        <p>Master background properties and techniques</p>
+        <div class="topic-meta">
+          <span class="badge badge-beginner">Beginner</span>
+        </div>
+      </a>
+
+      <a href="/css/border" class="topic-card">
+        <div class="topic-icon">🔲</div>
+        <h3>Border</h3>
+        <p>Master border properties and styling</p>
+        <div class="topic-meta">
+          <span class="badge badge-beginner">Beginner</span>
+        </div>
+      </a>
+
+      <a href="/css/images" class="topic-card">
+        <div class="topic-icon">🖼️</div>
+        <h3>Images</h3>
+        <p>Master image styling and optimization</p>
+        <div class="topic-meta">
+          <span class="badge badge-beginner">Beginner</span>
+        </div>
+      </a>
+
+      <a href="/css/spacing" class="topic-card">
+        <div class="topic-icon">📏</div>
+        <h3>Spacing</h3>
+        <p>Master padding, margin, and spacing techniques</p>
+        <div class="topic-meta">
+          <span class="badge badge-beginner">Beginner</span>
+        </div>
+      </a>
+
+      <a href="/css/sizing" class="topic-card">
+        <div class="topic-icon">📐</div>
+        <h3>Sizing</h3>
+        <p>Master width, height, and sizing properties</p>
+        <div class="topic-meta">
+          <span class="badge badge-beginner">Beginner</span>
+        </div>
+      </a>
+
+      <a href="/css/typography" class="topic-card">
+        <div class="topic-icon">🔤</div>
+        <h3>Typography</h3>
+        <p>Master fonts, text styling, and typography</p>
+        <div class="topic-meta">
+          <span class="badge badge-beginner">Beginner</span>
+        </div>
+      </a>
+
+      <a href="/css/responsive" class="topic-card">
+        <div class="topic-icon">📱</div>
+        <h3>Responsive</h3>
+        <p>Master responsive design and media queries</p>
+        <div class="topic-meta">
+          <span class="badge badge-intermediate">Intermediate</span>
+        </div>
+      </a>
+
+      <a href="/css/frameworks" class="topic-card">
+        <div class="topic-icon">🛠️</div>
+        <h3>Frameworks & Tools</h3>
+        <p>Master Tailwind CSS, Sass, and other frameworks</p>
+        <div class="topic-meta">
+          <span class="badge badge-advanced">Advanced</span>
+        </div>
+      </a>
     </div>
   </div>
 </Layout>
@@ -35,10 +124,74 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 15px;
   }
 
-  .content {
+  .header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .topic-card {
     background: white;
-    border-radius: 12px;
-    padding: 40px;
+    border-radius: 16px;
+    padding: 30px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e5e5;
+  }
+
+  .topic-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .topic-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+  }
+
+  .topic-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #1d1d1f;
+  }
+
+  .topic-card p {
+    color: #6e6e73;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+
+  .topic-meta {
+    display: flex;
+    gap: 10px;
+  }
+
+  .badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+  }
+
+  .badge-beginner {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .badge-intermediate {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .badge-advanced {
+    background: #f8d7da;
+    color: #721c24;
   }
 </style>

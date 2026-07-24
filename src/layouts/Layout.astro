@@ -35,17 +35,15 @@ const { title = 'Learning Hub' } = Astro.props;
       <slot />
     </main>
 
-    <script src="/theme.js"></script>
+    <script src="/theme.js" is:inline></script>
   </body>
 </html>
 
 <style>
-  :global {
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   .navbar {

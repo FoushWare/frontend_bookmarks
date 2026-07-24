@@ -407,40 +407,21 @@ import Layout from '../../layouts/Layout.astro';
 
   <script>
     (function() {
-      console.log('Loading Mermaid...');
-      // Load Mermaid script
+      console.log('Loading Mermaid v9...');
+      // Load Mermaid script (older stable version)
       var script = document.createElement('script');
-      script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+      script.src = 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.min.js';
       script.async = true;
       script.onload = function() {
         console.log('Mermaid script loaded');
         try {
-          // Initialize Mermaid without startOnLoad
+          // Initialize Mermaid with startOnLoad
           mermaid.initialize({ 
-            startOnLoad: false, 
+            startOnLoad: true, 
             theme: 'default',
             securityLevel: 'loose'
           });
           console.log('Mermaid initialized');
-          
-          // Manually render all mermaid diagrams
-          var mermaidDivs = document.querySelectorAll('.mermaid');
-          console.log('Found', mermaidDivs.length, 'mermaid divs');
-          
-          mermaidDivs.forEach(function(div, index) {
-            console.log('Processing mermaid div', index);
-            var graphDefinition = div.textContent;
-            console.log('Graph definition:', graphDefinition.substring(0, 50));
-            
-            mermaid.render('mermaid-' + index, graphDefinition)
-              .then(function(result) {
-                console.log('Rendered mermaid diagram', index);
-                div.innerHTML = result.svg;
-              })
-              .catch(function(error) {
-                console.error('Error rendering mermaid diagram', index, error);
-              });
-          });
         } catch (error) {
           console.error('Mermaid initialization error:', error);
         }

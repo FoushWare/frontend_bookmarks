@@ -44,12 +44,16 @@ Keep this distinction in mind through the rest of the guide — every
 strategy below is just a variation on *where* the HTML gets built and
 *whose compute* pays for it.
 
+![Diagram explaining that rendering means generating HTML, either on the server using the server's CPU, or in the browser using the client's CPU](../../assets/images/0-what-is-rendering.png)
+
 ---
 
 ## 1. The Rendering Spectrum
 
 Each step didn't replace the last — it added a new tool. Modern frameworks
 (Next.js, Remix) let you mix all five **per route, even per component**.
+
+![Timeline overview of CSR, SSR, SSG, ISR, and RSC with relative performance bars](../../assets/images/1-timeline-overview.png)
 
 ```mermaid
 timeline
@@ -73,6 +77,8 @@ timeline
 The server is basically a file host: it hands back an empty `<div id="root">` 
 and a JavaScript bundle. The browser's CPU does all the work — fetching data,
 building the DOM, painting pixels.
+
+![CSR request flow between browser and server](../../assets/images/2-csr-flow.png)
 
 ```mermaid
 sequenceDiagram
@@ -102,6 +108,8 @@ bundle download + sequential fetches.
 The server generates full HTML **on every request**, solving the blank-screen
 problem.
 
+![SSR request flow between browser, server, and database](../../assets/images/3-ssr-flow.png)
+
 ```mermaid
 sequenceDiagram
     participant B as Browser
@@ -128,6 +136,8 @@ burns CPU/RAM per visitor.
 
 Rendering moves to **build time**. HTML is "frozen" and served from a CDN
 edge — no server compute per request.
+
+![SSG build-time flow and ISR background regeneration loop](../../assets/images/4-ssg-isr-flow.png)
 
 ```mermaid
 flowchart LR
@@ -167,6 +177,8 @@ still needs periodic freshness.
 
 Not just "SSR v2." RSC lets server and client components work in true
 synergy: server components never ship to the browser at all.
+
+![RSC diagram showing server component, RSC payload, and client merge](../../assets/images/5-rsc-diagram.png)
 
 ```mermaid
 flowchart TD
@@ -220,6 +232,8 @@ flowchart TD
 ## 9. The Full Request Journey
 
 From `npm run dev` to painted pixels in the user's browser.
+
+![Full request journey from local dev through CI/CD, Docker, network handshake, to the Critical Rendering Path](../../assets/images/6-request-journey.png)
 
 ```mermaid
 flowchart TD

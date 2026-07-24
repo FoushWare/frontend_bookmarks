@@ -268,6 +268,32 @@
         [data-theme="dark"] .markdown-content hr {
             border-top-color: #38383a;
         }
+        .video-container {
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+        }
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        .video-section {
+            background: #f5f5f7;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        [data-theme="dark"] .video-section {
+            background: #2c2c2e;
+        }
+        .video-section h3 {
+            color: #1d1d1f;
+            margin-bottom: 15px;
+        }
+        [data-theme="dark"] .video-section h3 {
+            color: #f5f5f7;
+        }
     </style>
 </head>
 <body>
@@ -282,6 +308,16 @@
     </nav>
 
     <div class="container">
+        <div class="video-section">
+            <h3>📹 Modern Web Rendering Overview</h3>
+            <div class="video-container">
+                <video controls>
+                    <source src="../../assets/video/Modern_Web_Rendering.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
         <div class="header">
             <h1>🎨 Rendering Pattern</h1>
             <p>Understanding Client-Side Rendering, Server-Side Rendering, and Static Site Generation</p>
@@ -289,6 +325,16 @@
 
         <div class="markdown-content" id="content">
             <p>Loading...</p>
+        </div>
+
+        <div class="video-section">
+            <h3>📹 The Full Request Journey</h3>
+            <div class="video-container">
+                <video controls>
+                    <source src="../../assets/video/React_Request_Journey.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
     </div>
 

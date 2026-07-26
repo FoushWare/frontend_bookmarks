@@ -1,0 +1,57 @@
+---
+interface Props {
+  finalCss: string;
+  starterCss: string;
+}
+
+const { finalCss, starterCss } = Astro.props;
+---
+
+<div class="final-solution">
+  <button class="final-button" id="showFinal">Show Final Result</button>
+</div>
+
+<style>
+  .final-solution {
+    margin-bottom: 30px;
+  }
+
+  .final-button {
+    width: 100%;
+    padding: 15px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background 0.3s;
+  }
+
+  .final-button:hover {
+    background: #45a049;
+  }
+</style>
+
+<script define:vars={{ finalCss, starterCss }}>
+  const showFinalButton = document.getElementById('showFinal');
+  const cssEditor = document.getElementById('cssEditor');
+  let finalShown = false;
+
+  showFinalButton.addEventListener('click', () => {
+    if (!finalShown) {
+      cssEditor.value = finalCss;
+      // Trigger input event to update preview
+      cssEditor.dispatchEvent(new Event('input'));
+      showFinalButton.textContent = 'Reset to Starter Code';
+      finalShown = true;
+    } else {
+      cssEditor.value = starterCss;
+      // Trigger input event to update preview
+      cssEditor.dispatchEvent(new Event('input'));
+      showFinalButton.textContent = 'Show Final Result';
+      finalShown = false;
+    }
+  });
+</script>

@@ -1,174 +1,19 @@
 ---
 import Layout from '../../layouts/Layout.astro';
----
+import ChallengeHeader from '../../components/challenges/ChallengeHeader.astro';
+import ReferenceImage from '../../components/challenges/ReferenceImage.astro';
+import RequirementsChecklist from '../../components/challenges/RequirementsChecklist.astro';
+import LearningTips from '../../components/challenges/LearningTips.astro';
+import CommonMistakes from '../../components/challenges/CommonMistakes.astro';
+import HintsSystem from '../../components/challenges/HintsSystem.astro';
+import StretchGoals from '../../components/challenges/StretchGoals.astro';
+import FinalSolution from '../../components/challenges/FinalSolution.astro';
+import ChallengeNavigation from '../../components/challenges/ChallengeNavigation.astro';
+import CodeEditor from '../../components/challenges/CodeEditor.astro';
+import PreviewControls from '../../components/challenges/PreviewControls.astro';
+import PreviewPanel from '../../components/challenges/PreviewPanel.astro';
 
-<Layout title="CSS Grid Layout Challenge - Interactive Learning">
-  <div class="challenge-container">
-    <!-- Left Panel - Learning -->
-    <aside class="learning-panel">
-      <div class="challenge-header">
-        <div class="challenge-meta">
-          <span class="challenge-number">Challenge #14</span>
-          <span class="difficulty-badge intermediate">Intermediate</span>
-        </div>
-        <h1>CSS Grid Layout Challenge</h1>
-        <div class="challenge-info">
-          <span class="topic-tag">CSS Grid</span>
-          <span class="time-tag">40 minutes</span>
-        </div>
-      </div>
-
-      <div class="reference-image">
-        <h3>Reference Design</h3>
-        <div class="image-placeholder">
-          <div class="preview-grid">
-            <div class="preview-header">Header</div>
-            <div class="preview-main">
-              <div class="preview-content">Content</div>
-              <div class="preview-sidebar">Sidebar</div>
-            </div>
-            <div class="preview-footer">Footer</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="challenge-description">
-        <h3>Description</h3>
-        <p>Create a responsive layout with a header, main content area, sidebar, and footer using CSS Grid. The sidebar should have a fixed width while the content area grows to fill available space.</p>
-      </div>
-
-      <div class="learning-objectives">
-        <h3>Learning Objectives</h3>
-        <ul>
-          <li>Understand CSS Grid layout system</li>
-          <li>Use grid-template-columns for column sizing</li>
-          <li>Implement responsive grid layouts</li>
-          <li>Use grid-template-areas for semantic layout</li>
-        </ul>
-      </div>
-
-      <div class="requirements-section">
-        <h3>Requirements</h3>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 0%"></div>
-        </div>
-        <div class="progress-text">0 / 7 completed (0%)</div>
-        <div class="requirements-list">
-          <label class="requirement-item">
-            <input type="checkbox" data-index="0" />
-            <span>Use CSS Grid</span>
-          </label>
-          <label class="requirement-item">
-            <input type="checkbox" data-index="1" />
-            <span>Create two columns</span>
-          </label>
-          <label class="requirement-item">
-            <input type="checkbox" data-index="2" />
-            <span>Use gap for spacing</span>
-          </label>
-          <label class="requirement-item">
-            <input type="checkbox" data-index="3" />
-            <span>Make layout responsive</span>
-          </label>
-          <label class="requirement-item">
-            <input type="checkbox" data-index="4" />
-            <span>Sidebar width 280px</span>
-          </label>
-          <label class="requirement-item">
-            <input type="checkbox" data-index="5" />
-            <span>Footer spans full width</span>
-          </label>
-          <label class="requirement-item">
-            <input type="checkbox" data-index="6" />
-            <span>Header spans full width</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="learning-tips">
-        <h3>Learning Tips</h3>
-        <div class="tip-card">
-          <p>One column should remain fixed while the other expands to fill available space. Think about which CSS unit achieves this.</p>
-        </div>
-      </div>
-
-      <div class="common-mistakes">
-        <h3>Common Mistakes</h3>
-        <details class="mistake-card">
-          <summary>Forgetting display: grid</summary>
-          <p>Always remember to set display: grid on the container before using grid properties.</p>
-        </details>
-        <details class="mistake-card">
-          <summary>Using Flexbox when Grid is more appropriate</summary>
-          <p>For two-dimensional layouts with both rows and columns, Grid is usually the better choice.</p>
-        </details>
-        <details class="mistake-card">
-          <summary>Incorrect use of fr units</summary>
-          <p>The fr unit distributes remaining space, not total space. Mix with fixed units carefully.</p>
-        </details>
-      </div>
-
-      <div class="hints-section">
-        <h3>Hints</h3>
-        <div class="hint-container">
-          <div class="hint" data-hint="1">
-            <p>Which layout system is better suited here? Grid or Flexbox?</p>
-          </div>
-          <div class="hint hidden" data-hint="2">
-            <p>Consider using a two-column grid.</p>
-          </div>
-          <div class="hint hidden" data-hint="3">
-            <p>The sidebar has a fixed width while the content grows.</p>
-          </div>
-          <div class="hint hidden" data-hint="4">
-            <p>Think about using grid-template-columns.</p>
-          </div>
-          <div class="hint hidden" data-hint="5">
-            <p>Remember to add spacing with gap.</p>
-          </div>
-          <div class="hint hidden" data-hint="6">
-            <p>Align the footer across the entire page using grid-template-areas.</p>
-          </div>
-        </div>
-        <button class="hint-button" id="revealHint">Reveal Next Hint</button>
-      </div>
-
-      <div class="stretch-goals">
-        <h3>Stretch Goals</h3>
-        <ul>
-          <li>Add dark mode support</li>
-          <li>Animate hover effects</li>
-          <li>Improve accessibility</li>
-          <li>Add print styles</li>
-          <li>Support RTL layouts</li>
-        </ul>
-      </div>
-
-      <div class="final-solution">
-        <button class="final-button" id="showFinal">Show Final Result</button>
-      </div>
-
-      <div class="navigation">
-        <button class="nav-button prev">← Previous</button>
-        <button class="nav-button next">Next →</button>
-      </div>
-    </aside>
-
-    <!-- Right Panel - Code Editor & Preview -->
-    <main class="editor-panel">
-      <div class="preview-controls">
-        <button class="size-button active" data-size="desktop">Desktop</button>
-        <button class="size-button" data-size="tablet">Tablet</button>
-        <button class="size-button" data-size="mobile">Mobile</button>
-      </div>
-
-      <div class="editor-section">
-        <div class="editor-tabs">
-          <button class="tab-button active" data-tab="html">HTML</button>
-          <button class="tab-button" data-tab="css">CSS</button>
-        </div>
-        <div class="editor-container">
-          <textarea id="htmlEditor" class="code-editor" spellcheck="false"><div class="container">
+const starterHtml = `<div class="container">
   <header>Header</header>
   
   <main>
@@ -177,8 +22,9 @@ import Layout from '../../layouts/Layout.astro';
   </main>
   
   <footer>Footer</footer>
-</div></textarea>
-          <textarea id="cssEditor" class="code-editor hidden" spellcheck="false">.container {
+</div>`;
+
+const starterCss = `.container {
   
 }
 
@@ -200,141 +46,9 @@ header {
 
 footer {
   
-}</textarea>
-        </div>
-      </div>
+}`;
 
-      <div class="preview-section">
-        <h3>Live Preview</h3>
-        <div class="preview-container" id="previewContainer">
-          <iframe id="previewFrame" class="preview-frame"></iframe>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <script>
-    // Editor functionality
-    const htmlEditor = document.getElementById('htmlEditor');
-    const cssEditor = document.getElementById('cssEditor');
-    const previewFrame = document.getElementById('previewFrame');
-    const previewContainer = document.getElementById('previewContainer');
-
-    // Tab switching
-    const tabButtons = document.querySelectorAll('.tab-button');
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        const tab = button.dataset.tab;
-        if (tab === 'html') {
-          htmlEditor.classList.remove('hidden');
-          cssEditor.classList.add('hidden');
-        } else {
-          htmlEditor.classList.add('hidden');
-          cssEditor.classList.remove('hidden');
-        }
-      });
-    });
-
-    // Preview size switching
-    const sizeButtons = document.querySelectorAll('.size-button');
-    sizeButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        sizeButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        const size = button.dataset.size;
-        previewContainer.className = 'preview-container';
-        
-        switch(size) {
-          case 'desktop':
-            previewContainer.style.maxWidth = '100%';
-            break;
-          case 'tablet':
-            previewContainer.style.maxWidth = '768px';
-            break;
-          case 'mobile':
-            previewContainer.style.maxWidth = '375px';
-            break;
-        }
-      });
-    });
-
-    // Live preview update
-    function updatePreview() {
-      const html = htmlEditor.value;
-      const css = cssEditor.value;
-      
-      const previewContent = `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <style>
-            * { margin: 0; padding: 0; box-sizing: border-box; }
-            body { font-family: Arial, sans-serif; padding: 20px; }
-            ${css}
-          </style>
-        </head>
-        <body>
-          ${html}
-        </body>
-        </html>
-      `;
-      
-      previewFrame.srcdoc = previewContent;
-    }
-
-    htmlEditor.addEventListener('input', updatePreview);
-    cssEditor.addEventListener('input', updatePreview);
-
-    // Initial preview
-    updatePreview();
-
-    // Requirements checklist
-    const requirementItems = document.querySelectorAll('.requirement-item input');
-    const progressFill = document.querySelector('.progress-fill');
-    const progressText = document.querySelector('.progress-text');
-
-    requirementItems.forEach(item => {
-      item.addEventListener('change', () => {
-        const checked = document.querySelectorAll('.requirement-item input:checked').length;
-        const total = requirementItems.length;
-        const percentage = Math.round((checked / total) * 100);
-        
-        progressFill.style.width = percentage + '%';
-        progressText.textContent = `${checked} / ${total} completed (${percentage}%)`;
-      });
-    });
-
-    // Hints system
-    const hintButton = document.getElementById('revealHint');
-    const hints = document.querySelectorAll('.hint');
-    let currentHint = 1;
-
-    hintButton.addEventListener('click', () => {
-      if (currentHint < hints.length) {
-        const nextHint = document.querySelector(`.hint[data-hint="${currentHint + 1}"]`);
-        if (nextHint) {
-          nextHint.classList.remove('hidden');
-          currentHint++;
-          
-          if (currentHint >= hints.length) {
-            hintButton.textContent = 'All hints revealed';
-            hintButton.disabled = true;
-          }
-        }
-      }
-    });
-
-    // Final solution
-    const showFinalButton = document.getElementById('showFinal');
-    let finalShown = false;
-
-    showFinalButton.addEventListener('click', () => {
-      if (!finalShown) {
-        cssEditor.value = `.container {
+const finalCss = `.container {
   display: grid;
   grid-template-columns: 280px 1fr;
   grid-template-rows: auto 1fr auto;
@@ -386,38 +100,141 @@ footer {
       "footer";
   }
 }`;
-        updatePreview();
-        showFinalButton.textContent = 'Reset to Starter Code';
-        finalShown = true;
-      } else {
-        cssEditor.value = `.container {
-  
-}
 
-main {
-  
-}
+const requirements = [
+  "Use CSS Grid",
+  "Create two columns",
+  "Use gap for spacing",
+  "Make layout responsive",
+  "Sidebar width 280px",
+  "Footer spans full width",
+  "Header spans full width"
+];
 
-.content {
-  
-}
+const hints = [
+  "Which layout system is better suited here? Grid or Flexbox?",
+  "Consider using a two-column grid.",
+  "The sidebar has a fixed width while the content grows.",
+  "Think about using grid-template-columns.",
+  "Remember to add spacing with gap.",
+  "Align the footer across the entire page using grid-template-areas."
+];
 
-aside {
-  
-}
+const tips = [
+  "One column should remain fixed while the other expands to fill available space. Think about which CSS unit achieves this."
+];
 
-header {
-  
-}
+const mistakes = [
+  { title: "Forgetting display: grid", description: "Always remember to set display: grid on the container before using grid properties." },
+  { title: "Using Flexbox when Grid is more appropriate", description: "For two-dimensional layouts with both rows and columns, Grid is usually the better choice." },
+  { title: "Incorrect use of fr units", description: "The fr unit distributes remaining space, not total space. Mix with fixed units carefully." }
+];
 
-footer {
-  
-}`;
-        updatePreview();
-        showFinalButton.textContent = 'Show Final Result';
-        finalShown = false;
-      }
-    });
+const stretchGoals = [
+  "Add dark mode support",
+  "Animate hover effects",
+  "Improve accessibility",
+  "Add print styles",
+  "Support RTL layouts"
+];
+---
+
+<Layout title="CSS Grid Layout Challenge - Interactive Learning">
+  <div class="challenge-container">
+    <!-- Left Panel - Learning -->
+    <aside class="learning-panel">
+      <ChallengeHeader 
+        title="CSS Grid Layout Challenge"
+        challengeNumber="14"
+        difficulty="intermediate"
+        topic="CSS Grid"
+        time="40 minutes"
+      />
+
+      <ReferenceImage title="Reference Design">
+        <div class="preview-grid">
+          <div class="preview-header">Header</div>
+          <div class="preview-main">
+            <div class="preview-content">Content</div>
+            <div class="preview-sidebar">Sidebar</div>
+          </div>
+          <div class="preview-footer">Footer</div>
+        </div>
+      </ReferenceImage>
+
+      <div class="challenge-description">
+        <h3>Description</h3>
+        <p>Create a responsive layout with a header, main content area, sidebar, and footer using CSS Grid. The sidebar should have a fixed width while the content area grows to fill available space.</p>
+      </div>
+
+      <div class="learning-objectives">
+        <h3>Learning Objectives</h3>
+        <ul>
+          <li>Understand CSS Grid layout system</li>
+          <li>Use grid-template-columns for column sizing</li>
+          <li>Implement responsive grid layouts</li>
+          <li>Use grid-template-areas for semantic layout</li>
+        </ul>
+      </div>
+
+      <RequirementsChecklist requirements={requirements} />
+
+
+      <LearningTips tips={tips} />
+
+      <CommonMistakes mistakes={mistakes} />
+
+      <HintsSystem hints={hints} />
+
+      <StretchGoals goals={stretchGoals} />
+
+      <FinalSolution finalCss={finalCss} starterCss={starterCss} />
+
+      <ChallengeNavigation nextUrl="/frontend_bookmarks/challenges/flexbox-navbar" />
+    </aside>
+
+    <!-- Right Panel - Code Editor & Preview -->
+    <main class="editor-panel">
+      <PreviewControls />
+      <CodeEditor htmlCode={starterHtml} cssCode={starterCss} />
+      <PreviewPanel />
+    </main>
+  </div>
+
+  <script>
+    // Live preview update
+    const htmlEditor = document.getElementById('htmlEditor');
+    const cssEditor = document.getElementById('cssEditor');
+    const previewFrame = document.getElementById('previewFrame');
+
+    function updatePreview() {
+      const html = htmlEditor.value;
+      const css = cssEditor.value;
+      
+      const previewContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: Arial, sans-serif; padding: 20px; }
+            ${css}
+          </style>
+        </head>
+        <body>
+          ${html}
+        </body>
+        </html>
+      `;
+      
+      previewFrame.srcdoc = previewContent;
+    }
+
+    htmlEditor.addEventListener('input', updatePreview);
+    cssEditor.addEventListener('input', updatePreview);
+
+    // Initial preview
+    updatePreview();
   </script>
 </Layout>
 
@@ -441,71 +258,6 @@ footer {
     display: flex;
     flex-direction: column;
     background: #1e1e1e;
-  }
-
-  .challenge-header {
-    margin-bottom: 30px;
-  }
-
-  .challenge-meta {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-
-  .challenge-number {
-    color: #858585;
-    font-size: 0.9em;
-  }
-
-  .difficulty-badge {
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.8em;
-    font-weight: 600;
-  }
-
-  .difficulty-badge.beginner {
-    background: #4caf50;
-    color: white;
-  }
-
-  .difficulty-badge.intermediate {
-    background: #ff9800;
-    color: white;
-  }
-
-  .difficulty-badge.advanced {
-    background: #f44336;
-    color: white;
-  }
-
-  .challenge-header h1 {
-    color: #ffffff;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-  }
-
-  .challenge-info {
-    display: flex;
-    gap: 10px;
-  }
-
-  .topic-tag, .time-tag {
-    padding: 4px 12px;
-    background: #3c3c3c;
-    color: #d4d4d4;
-    border-radius: 12px;
-    font-size: 0.85em;
-  }
-
-  .reference-image {
-    margin-bottom: 30px;
-  }
-
-  .reference-image h3 {
-    color: #ffffff;
-    margin-bottom: 15px;
   }
 
   .image-placeholder {
@@ -568,24 +320,12 @@ footer {
   }
 
   .challenge-description,
-  .learning-objectives,
-  .requirements-section,
-  .learning-tips,
-  .common-mistakes,
-  .hints-section,
-  .stretch-goals,
-  .final-solution,
-  .navigation {
+  .learning-objectives {
     margin-bottom: 30px;
   }
 
   .challenge-description h3,
-  .learning-objectives h3,
-  .requirements-section h3,
-  .learning-tips h3,
-  .common-mistakes h3,
-  .hints-section h3,
-  .stretch-goals h3 {
+  .learning-objectives h3 {
     color: #ffffff;
     margin-bottom: 15px;
   }
@@ -612,292 +352,6 @@ footer {
     position: absolute;
     left: 0;
     color: #667eea;
-  }
-
-  .progress-bar {
-    height: 8px;
-    background: #3c3c3c;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    overflow: hidden;
-  }
-
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #667eea, #764ba2);
-    transition: width 0.3s ease;
-  }
-
-  .progress-text {
-    color: #858585;
-    font-size: 0.9em;
-    margin-bottom: 15px;
-  }
-
-  .requirements-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .requirement-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #d4d4d4;
-    cursor: pointer;
-  }
-
-  .requirement-item input {
-    accent-color: #667eea;
-  }
-
-  .tip-card {
-    background: #2d2d2d;
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 4px solid #667eea;
-  }
-
-  .tip-card p {
-    color: #d4d4d4;
-    line-height: 1.6;
-  }
-
-  .mistake-card {
-    background: #2d2d2d;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    cursor: pointer;
-  }
-
-  .mistake-card summary {
-    color: #d4d4d4;
-    font-weight: 500;
-  }
-
-  .mistake-card p {
-    color: #858585;
-    margin-top: 10px;
-    line-height: 1.6;
-  }
-
-  .hint-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-
-  .hint {
-    background: #2d2d2d;
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 4px solid #ff9800;
-  }
-
-  .hint.hidden {
-    display: none;
-  }
-
-  .hint p {
-    color: #d4d4d4;
-    line-height: 1.6;
-  }
-
-  .hint-button {
-    width: 100%;
-    padding: 12px;
-    background: #667eea;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background 0.3s;
-  }
-
-  .hint-button:hover:not(:disabled) {
-    background: #5568d3;
-  }
-
-  .hint-button:disabled {
-    background: #3c3c3c;
-    cursor: not-allowed;
-  }
-
-  .stretch-goals ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .stretch-goals li {
-    color: #858585;
-    padding: 8px 0;
-    padding-left: 20px;
-    position: relative;
-  }
-
-  .stretch-goals li::before {
-    content: '★';
-    position: absolute;
-    left: 0;
-    color: #ff9800;
-  }
-
-  .final-button {
-    width: 100%;
-    padding: 15px;
-    background: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: 600;
-    transition: background 0.3s;
-  }
-
-  .final-button:hover {
-    background: #45a049;
-  }
-
-  .navigation {
-    display: flex;
-    gap: 10px;
-  }
-
-  .nav-button {
-    flex: 1;
-    padding: 12px;
-    background: #3c3c3c;
-    color: #d4d4d4;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-
-  .nav-button:hover {
-    background: #4c4c4c;
-  }
-
-  .preview-controls {
-    display: flex;
-    gap: 10px;
-    padding: 15px 30px;
-    background: #252526;
-    border-bottom: 1px solid #3c3c3c;
-  }
-
-  .size-button {
-    padding: 8px 16px;
-    background: #3c3c3c;
-    color: #d4d4d4;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .size-button.active {
-    background: #667eea;
-    color: white;
-  }
-
-  .size-button:hover:not(.active) {
-    background: #4c4c4c;
-  }
-
-  .editor-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #3c3c3c;
-  }
-
-  .editor-tabs {
-    display: flex;
-    background: #252526;
-    border-bottom: 1px solid #3c3c3c;
-  }
-
-  .tab-button {
-    padding: 12px 20px;
-    background: transparent;
-    color: #858585;
-    border: none;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-
-  .tab-button.active {
-    color: #ffffff;
-    border-bottom-color: #667eea;
-  }
-
-  .tab-button:hover:not(.active) {
-    color: #d4d4d4;
-  }
-
-  .editor-container {
-    flex: 1;
-    position: relative;
-  }
-
-  .code-editor {
-    width: 100%;
-    height: 100%;
-    background: #1e1e1e;
-    color: #d4d4d4;
-    border: none;
-    padding: 20px;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    line-height: 1.6;
-    resize: none;
-    outline: none;
-  }
-
-  .code-editor.hidden {
-    display: none;
-  }
-
-  .preview-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-  }
-
-  .preview-section h3 {
-    padding: 15px 30px;
-    background: #f5f5f5;
-    border-bottom: 1px solid #e0e0e0;
-    color: #333;
-    margin: 0;
-  }
-
-  .preview-container {
-    flex: 1;
-    padding: 30px;
-    background: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: auto;
-    transition: max-width 0.3s ease;
-  }
-
-  .preview-frame {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   @media (max-width: 1024px) {

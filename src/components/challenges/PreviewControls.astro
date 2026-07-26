@@ -1,0 +1,65 @@
+---
+---
+
+<div class="preview-controls">
+  <button class="size-button active" data-size="desktop">Desktop</button>
+  <button class="size-button" data-size="tablet">Tablet</button>
+  <button class="size-button" data-size="mobile">Mobile</button>
+</div>
+
+<style>
+  .preview-controls {
+    display: flex;
+    gap: 10px;
+    padding: 15px 30px;
+    background: #252526;
+    border-bottom: 1px solid #3c3c3c;
+  }
+
+  .size-button {
+    padding: 8px 16px;
+    background: #3c3c3c;
+    color: #d4d4d4;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .size-button.active {
+    background: #667eea;
+    color: white;
+  }
+
+  .size-button:hover:not(.active) {
+    background: #4c4c4c;
+  }
+</style>
+
+<script>
+  // Preview size switching
+  const sizeButtons = document.querySelectorAll('.size-button');
+  const previewContainer = document.getElementById('previewContainer');
+
+  sizeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      sizeButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      const size = button.dataset.size;
+      previewContainer.className = 'preview-container';
+      
+      switch(size) {
+        case 'desktop':
+          previewContainer.style.maxWidth = '100%';
+          break;
+        case 'tablet':
+          previewContainer.style.maxWidth = '768px';
+          break;
+        case 'mobile':
+          previewContainer.style.maxWidth = '375px';
+          break;
+      }
+    });
+  });
+</script>

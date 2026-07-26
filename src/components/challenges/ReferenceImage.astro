@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  content: any;
+}
+
+const { title, content } = Astro.props;
+---
+
+<div class="reference-image">
+  <h3>{title}</h3>
+  <div class="image-placeholder">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .reference-image {
+    margin-bottom: 30px;
+  }
+
+  .reference-image h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+
+  .image-placeholder {
+    background: #2d2d2d;
+    border-radius: 8px;
+    padding: 20px;
+    border: 2px dashed #3c3c3c;
+  }
+</style>

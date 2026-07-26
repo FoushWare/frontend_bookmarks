@@ -1,0 +1,99 @@
+---
+interface Props {
+  htmlCode: string;
+  cssCode: string;
+}
+
+const { htmlCode, cssCode } = Astro.props;
+---
+
+<div class="editor-section">
+  <div class="editor-tabs">
+    <button class="tab-button active" data-tab="html">HTML</button>
+    <button class="tab-button" data-tab="css">CSS</button>
+  </div>
+  <div class="editor-container">
+    <textarea id="htmlEditor" class="code-editor" spellcheck="false">{htmlCode}</textarea>
+    <textarea id="cssEditor" class="code-editor hidden" spellcheck="false">{cssCode}</textarea>
+  </div>
+</div>
+
+<style>
+  .editor-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #3c3c3c;
+  }
+
+  .editor-tabs {
+    display: flex;
+    background: #252526;
+    border-bottom: 1px solid #3c3c3c;
+  }
+
+  .tab-button {
+    padding: 12px 20px;
+    background: transparent;
+    color: #858585;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .tab-button.active {
+    color: #ffffff;
+    border-bottom-color: #667eea;
+  }
+
+  .tab-button:hover:not(.active) {
+    color: #d4d4d4;
+  }
+
+  .editor-container {
+    flex: 1;
+    position: relative;
+  }
+
+  .code-editor {
+    width: 100%;
+    height: 100%;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border: none;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+  }
+
+  .code-editor.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  // Tab switching logic
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const htmlEditor = document.getElementById('htmlEditor');
+  const cssEditor = document.getElementById('cssEditor');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      const tab = button.dataset.tab;
+      if (tab === 'html') {
+        htmlEditor.classList.remove('hidden');
+        cssEditor.classList.add('hidden');
+      } else {
+        htmlEditor.classList.add('hidden');
+        cssEditor.classList.remove('hidden');
+      }
+    });
+  });
+</script>

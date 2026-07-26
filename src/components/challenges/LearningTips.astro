@@ -1,0 +1,40 @@
+---
+interface Props {
+  tips: string[];
+}
+
+const { tips } = Astro.props;
+---
+
+<div class="learning-tips">
+  <h3>Learning Tips</h3>
+  {tips.map(tip => (
+    <div class="tip-card">
+      <p>{tip}</p>
+    </div>
+  ))}
+</div>
+
+<style>
+  .learning-tips {
+    margin-bottom: 30px;
+  }
+
+  .learning-tips h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+
+  .tip-card {
+    background: #2d2d2d;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin-bottom: 10px;
+  }
+
+  .tip-card p {
+    color: #d4d4d4;
+    line-height: 1.6;
+  }
+</style>

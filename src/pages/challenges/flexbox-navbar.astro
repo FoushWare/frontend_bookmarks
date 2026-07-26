@@ -1,0 +1,910 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Flexbox Navbar Challenge - Interactive Learning">
+  <div class="challenge-container">
+    <!-- Left Panel - Learning -->
+    <aside class="learning-panel">
+      <div class="challenge-header">
+        <div class="challenge-meta">
+          <span class="challenge-number">Challenge #15</span>
+          <span class="difficulty-badge beginner">Beginner</span>
+        </div>
+        <h1>Flexbox Navbar Challenge</h1>
+        <div class="challenge-info">
+          <span class="topic-tag">Flexbox</span>
+          <span class="time-tag">25 minutes</span>
+        </div>
+      </div>
+
+      <div class="reference-image">
+        <h3>Reference Design</h3>
+        <div class="image-placeholder">
+          <div class="preview-navbar">
+            <div class="preview-logo">🚀 Logo</div>
+            <div class="preview-links">
+              <span>Home</span>
+              <span>About</span>
+              <span>Services</span>
+              <span>Contact</span>
+            </div>
+            <div class="preview-actions">
+              <span>Login</span>
+              <span>Sign Up</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge-description">
+        <h3>Description</h3>
+        <p>Build a responsive navigation bar with a logo, navigation links, and action buttons using Flexbox. The layout should distribute space evenly and align items properly.</p>
+      </div>
+
+      <div class="learning-objectives">
+        <h3>Learning Objectives</h3>
+        <ul>
+          <li>Understand Flexbox layout system</li>
+          <li>Use justify-content for horizontal alignment</li>
+          <li>Use align-items for vertical alignment</li>
+          <li>Implement responsive navigation with flex-wrap</li>
+        </ul>
+      </div>
+
+      <div class="requirements-section">
+        <h3>Requirements</h3>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 / 6 completed (0%)</div>
+        <div class="requirements-list">
+          <label class="requirement-item">
+            <input type="checkbox" data-index="0" />
+            <span>Use Flexbox</span>
+          </label>
+          <label class="requirement-item">
+            <input type="checkbox" data-index="1" />
+            <span>Space between logo and links</span>
+          </label>
+          <label class="requirement-item">
+            <input type="checkbox" data-index="2" />
+            <span>Center items vertically</span>
+          </label>
+          <label class="requirement-item">
+            <input type="checkbox" data-index="3" />
+            <span>Equal spacing between links</span>
+          </label>
+          <label class="requirement-item">
+            <input type="checkbox" data-index="4" />
+            <span>Make responsive</span>
+          </label>
+          <label class="requirement-item">
+            <input type="checkbox" data-index="5" />
+            <span>Add hover effects</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="learning-tips">
+        <h3>Learning Tips</h3>
+        <div class="tip-card">
+          <p>Think about which justify-content value creates space between elements while keeping them at the edges.</p>
+        </div>
+      </div>
+
+      <div class="common-mistakes">
+        <h3>Common Mistakes</h3>
+        <details class="mistake-card">
+          <summary>Forgetting display: flex</summary>
+          <p>Always remember to set display: flex on the container before using flexbox properties.</p>
+        </details>
+        <details class="mistake-card">
+          <summary>Using margin instead of gap</summary>
+          <p>Modern flexbox supports the gap property for spacing between items, which is cleaner than margins.</p>
+        </details>
+        <details class="mistake-card">
+          <summary>Not handling mobile view</summary>
+          <p>Remember to use flex-wrap or media queries to handle navigation on smaller screens.</p>
+        </details>
+      </div>
+
+      <div class="hints-section">
+        <h3>Hints</h3>
+        <div class="hint-container">
+          <div class="hint" data-hint="1">
+            <p>Which justify-content value puts elements at the edges with space between?</p>
+          </div>
+          <div class="hint hidden" data-hint="2">
+            <p>Consider using justify-content: space-between.</p>
+          </div>
+          <div class="hint hidden" data-hint="3">
+            <p>For vertical centering, use align-items: center.</p>
+          </div>
+          <div class="hint hidden" data-hint="4">
+            <p>Add gap to create consistent spacing between items.</p>
+          </div>
+          <div class="hint hidden" data-hint="5">
+            <p>Use flex-wrap for responsive behavior on mobile.</p>
+          </div>
+        </div>
+        <button class="hint-button" id="revealHint">Reveal Next Hint</button>
+      </div>
+
+      <div class="stretch-goals">
+        <h3>Stretch Goals</h3>
+        <ul>
+          <li>Add mobile hamburger menu</li>
+          <li>Create dropdown menus</li>
+          <li>Add smooth scroll behavior</li>
+          <li>Implement sticky positioning</li>
+          <li>Add active state indicators</li>
+        </ul>
+      </div>
+
+      <div class="final-solution">
+        <button class="final-button" id="showFinal">Show Final Result</button>
+      </div>
+
+      <div class="navigation">
+        <a href="/frontend_bookmarks/challenges/css-grid-layout" class="nav-button prev">← Previous</a>
+        <a href="/frontend_bookmarks/challenges/grid-card-layout" class="nav-button next">Next →</a>
+      </div>
+    </aside>
+
+    <!-- Right Panel - Code Editor & Preview -->
+    <main class="editor-panel">
+      <div class="preview-controls">
+        <button class="size-button active" data-size="desktop">Desktop</button>
+        <button class="size-button" data-size="tablet">Tablet</button>
+        <button class="size-button" data-size="mobile">Mobile</button>
+      </div>
+
+      <div class="editor-section">
+        <div class="editor-tabs">
+          <button class="tab-button active" data-tab="html">HTML</button>
+          <button class="tab-button" data-tab="css">CSS</button>
+        </div>
+        <div class="editor-container">
+          <textarea id="htmlEditor" class="code-editor" spellcheck="false"><nav class="navbar">
+  <div class="logo">🚀 Logo</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="#" class="btn-login">Login</a>
+    <a href="#" class="btn-signup">Sign Up</a>
+  </div>
+</nav></textarea>
+          <textarea id="cssEditor" class="code-editor hidden" spellcheck="false">.navbar {
+  
+}
+
+.logo {
+  
+}
+
+.nav-links {
+  
+}
+
+.nav-actions {
+  
+}
+
+.btn-login,
+.btn-signup {
+  
+}</textarea>
+        </div>
+      </div>
+
+      <div class="preview-section">
+        <h3>Live Preview</h3>
+        <div class="preview-container" id="previewContainer">
+          <iframe id="previewFrame" class="preview-frame"></iframe>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Editor functionality
+    const htmlEditor = document.getElementById('htmlEditor');
+    const cssEditor = document.getElementById('cssEditor');
+    const previewFrame = document.getElementById('previewFrame');
+    const previewContainer = document.getElementById('previewContainer');
+
+    // Tab switching
+    const tabButtons = document.querySelectorAll('.tab-button');
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const tab = button.dataset.tab;
+        if (tab === 'html') {
+          htmlEditor.classList.remove('hidden');
+          cssEditor.classList.add('hidden');
+        } else {
+          htmlEditor.classList.add('hidden');
+          cssEditor.classList.remove('hidden');
+        }
+      });
+    });
+
+    // Preview size switching
+    const sizeButtons = document.querySelectorAll('.size-button');
+    sizeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        sizeButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const size = button.dataset.size;
+        previewContainer.className = 'preview-container';
+        
+        switch(size) {
+          case 'desktop':
+            previewContainer.style.maxWidth = '100%';
+            break;
+          case 'tablet':
+            previewContainer.style.maxWidth = '768px';
+            break;
+          case 'mobile':
+            previewContainer.style.maxWidth = '375px';
+            break;
+        }
+      });
+    });
+
+    // Live preview update
+    function updatePreview() {
+      const html = htmlEditor.value;
+      const css = cssEditor.value;
+      
+      const previewContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: Arial, sans-serif; padding: 20px; }
+            a { text-decoration: none; }
+            ${css}
+          </style>
+        </head>
+        <body>
+          ${html}
+        </body>
+        </html>
+      `;
+      
+      previewFrame.srcdoc = previewContent;
+    }
+
+    htmlEditor.addEventListener('input', updatePreview);
+    cssEditor.addEventListener('input', updatePreview);
+
+    // Initial preview
+    updatePreview();
+
+    // Requirements checklist
+    const requirementItems = document.querySelectorAll('.requirement-item input');
+    const progressFill = document.querySelector('.progress-fill');
+    const progressText = document.querySelector('.progress-text');
+
+    requirementItems.forEach(item => {
+      item.addEventListener('change', () => {
+        const checked = document.querySelectorAll('.requirement-item input:checked').length;
+        const total = requirementItems.length;
+        const percentage = Math.round((checked / total) * 100);
+        
+        progressFill.style.width = percentage + '%';
+        progressText.textContent = `${checked} / ${total} completed (${percentage}%)`;
+      });
+    });
+
+    // Hints system
+    const hintButton = document.getElementById('revealHint');
+    const hints = document.querySelectorAll('.hint');
+    let currentHint = 1;
+
+    hintButton.addEventListener('click', () => {
+      if (currentHint < hints.length) {
+        const nextHint = document.querySelector(`.hint[data-hint="${currentHint + 1}"]`);
+        if (nextHint) {
+          nextHint.classList.remove('hidden');
+          currentHint++;
+          
+          if (currentHint >= hints.length) {
+            hintButton.textContent = 'All hints revealed';
+            hintButton.disabled = true;
+          }
+        }
+      }
+    });
+
+    // Final solution
+    const showFinalButton = document.getElementById('showFinal');
+    let finalShown = false;
+
+    showFinalButton.addEventListener('click', () => {
+      if (!finalShown) {
+        cssEditor.value = `.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #667eea;
+  color: white;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-login,
+.btn-signup {
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.btn-login {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-login:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-signup {
+  background: white;
+  color: #667eea;
+}
+
+.btn-signup:hover {
+  background: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+  }
+  
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}`;
+        updatePreview();
+        showFinalButton.textContent = 'Reset to Starter Code';
+        finalShown = true;
+      } else {
+        cssEditor.value = `.navbar {
+  
+}
+
+.logo {
+  
+}
+
+.nav-links {
+  
+}
+
+.nav-actions {
+  
+}
+
+.btn-login,
+.btn-signup {
+  
+}`;
+        updatePreview();
+        showFinalButton.textContent = 'Show Final Result';
+        finalShown = false;
+      }
+    });
+  </script>
+</Layout>
+
+<style>
+  .challenge-container {
+    display: flex;
+    min-height: 100vh;
+    background: #1e1e1e;
+  }
+
+  .learning-panel {
+    width: 400px;
+    background: #252526;
+    padding: 30px;
+    overflow-y: auto;
+    border-right: 1px solid #3c3c3c;
+  }
+
+  .editor-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #1e1e1e;
+  }
+
+  .challenge-header {
+    margin-bottom: 30px;
+  }
+
+  .challenge-meta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .challenge-number {
+    color: #858585;
+    font-size: 0.9em;
+  }
+
+  .difficulty-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+
+  .difficulty-badge.beginner {
+    background: #4caf50;
+    color: white;
+  }
+
+  .difficulty-badge.intermediate {
+    background: #ff9800;
+    color: white;
+  }
+
+  .difficulty-badge.advanced {
+    background: #f44336;
+    color: white;
+  }
+
+  .challenge-header h1 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+
+  .challenge-info {
+    display: flex;
+    gap: 10px;
+  }
+
+  .topic-tag, .time-tag {
+    padding: 4px 12px;
+    background: #3c3c3c;
+    color: #d4d4d4;
+    border-radius: 12px;
+    font-size: 0.85em;
+  }
+
+  .reference-image {
+    margin-bottom: 30px;
+  }
+
+  .reference-image h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+
+  .image-placeholder {
+    background: #2d2d2d;
+    border-radius: 8px;
+    padding: 20px;
+    border: 2px dashed #3c3c3c;
+  }
+
+  .preview-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #667eea;
+    color: white;
+    border-radius: 8px;
+    gap: 10px;
+  }
+
+  .preview-logo {
+    font-weight: bold;
+  }
+
+  .preview-links {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9em;
+  }
+
+  .preview-actions {
+    display: flex;
+    gap: 8px;
+    font-size: 0.85em;
+  }
+
+  .challenge-description,
+  .learning-objectives,
+  .requirements-section,
+  .learning-tips,
+  .common-mistakes,
+  .hints-section,
+  .stretch-goals,
+  .final-solution,
+  .navigation {
+    margin-bottom: 30px;
+  }
+
+  .challenge-description h3,
+  .learning-objectives h3,
+  .requirements-section h3,
+  .learning-tips h3,
+  .common-mistakes h3,
+  .hints-section h3,
+  .stretch-goals h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+
+  .challenge-description p {
+    color: #d4d4d4;
+    line-height: 1.6;
+  }
+
+  .learning-objectives ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .learning-objectives li {
+    color: #d4d4d4;
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .learning-objectives li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: #3c3c3c;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.3s ease;
+  }
+
+  .progress-text {
+    color: #858585;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+  }
+
+  .requirements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .requirement-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d4d4d4;
+    cursor: pointer;
+  }
+
+  .requirement-item input {
+    accent-color: #667eea;
+  }
+
+  .tip-card {
+    background: #2d2d2d;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+  }
+
+  .tip-card p {
+    color: #d4d4d4;
+    line-height: 1.6;
+  }
+
+  .mistake-card {
+    background: #2d2d2d;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .mistake-card summary {
+    color: #d4d4d4;
+    font-weight: 500;
+  }
+
+  .mistake-card p {
+    color: #858585;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  .hint-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .hint {
+    background: #2d2d2d;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #ff9800;
+  }
+
+  .hint.hidden {
+    display: none;
+  }
+
+  .hint p {
+    color: #d4d4d4;
+    line-height: 1.6;
+  }
+
+  .hint-button {
+    width: 100%;
+    padding: 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+  }
+
+  .hint-button:hover:not(:disabled) {
+    background: #5568d3;
+  }
+
+  .hint-button:disabled {
+    background: #3c3c3c;
+    cursor: not-allowed;
+  }
+
+  .stretch-goals ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .stretch-goals li {
+    color: #858585;
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .stretch-goals li::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    color: #ff9800;
+  }
+
+  .final-button {
+    width: 100%;
+    padding: 15px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background 0.3s;
+  }
+
+  .final-button:hover {
+    background: #45a049;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 10px;
+  }
+
+  .nav-button {
+    flex: 1;
+    padding: 12px;
+    background: #3c3c3c;
+    color: #d4d4d4;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s;
+  }
+
+  .nav-button:hover {
+    background: #4c4c4c;
+  }
+
+  .preview-controls {
+    display: flex;
+    gap: 10px;
+    padding: 15px 30px;
+    background: #252526;
+    border-bottom: 1px solid #3c3c3c;
+  }
+
+  .size-button {
+    padding: 8px 16px;
+    background: #3c3c3c;
+    color: #d4d4d4;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .size-button.active {
+    background: #667eea;
+    color: white;
+  }
+
+  .size-button:hover:not(.active) {
+    background: #4c4c4c;
+  }
+
+  .editor-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #3c3c3c;
+  }
+
+  .editor-tabs {
+    display: flex;
+    background: #252526;
+    border-bottom: 1px solid #3c3c3c;
+  }
+
+  .tab-button {
+    padding: 12px 20px;
+    background: transparent;
+    color: #858585;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .tab-button.active {
+    color: #ffffff;
+    border-bottom-color: #667eea;
+  }
+
+  .tab-button:hover:not(.active) {
+    color: #d4d4d4;
+  }
+
+  .editor-container {
+    flex: 1;
+    position: relative;
+  }
+
+  .code-editor {
+    width: 100%;
+    height: 100%;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border: none;
+    padding: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+  }
+
+  .code-editor.hidden {
+    display: none;
+  }
+
+  .preview-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+  }
+
+  .preview-section h3 {
+    padding: 15px 30px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+    color: #333;
+    margin: 0;
+  }
+
+  .preview-container {
+    flex: 1;
+    padding: 30px;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: auto;
+    transition: max-width 0.3s ease;
+  }
+
+  .preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 1024px) {
+    .challenge-container {
+      flex-direction: column;
+    }
+
+    .learning-panel {
+      width: 100%;
+      max-height: 50vh;
+    }
+
+    .editor-panel {
+      height: 50vh;
+    }
+  }
+</style>

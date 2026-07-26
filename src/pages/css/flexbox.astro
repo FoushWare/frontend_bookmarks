@@ -8,8 +8,199 @@ import Layout from '../../layouts/Layout.astro';
       <h1>📦 Flexbox</h1>
       <p>Master flexible box layout for one-dimensional layouts</p>
     </div>
-    <div class="content">
-      <p>Flexbox content will be migrated from the archive. The original files are available in the archive/CSS/Layout/Flex folder.</p>
+
+    <div class="markdown-content">
+      <h1>Flexbox Reference Guide</h1>
+
+      <p>A practical, visual reference for CSS Flexbox — one-dimensional layout along a <strong>main axis</strong> and a <strong>cross axis</strong>.</p>
+
+      <blockquote>
+        <p>Flexbox lays out children of a container in a single row or column, distributing space and alignment along that line. For two-dimensional layout (rows <em>and</em> columns together), reach for <a href="/frontend_bookmarks/css/grid">Grid</a> instead.</p>
+      </blockquote>
+
+      <hr />
+
+      <h2>1. The Two Axes</h2>
+
+      <p>Every flex container has:</p>
+      <ul>
+        <li>A <strong>main axis</strong> — the direction items are laid out (controlled by <code>flex-direction</code>)</li>
+        <li>A <strong>cross axis</strong> — perpendicular to the main axis</li>
+      </ul>
+
+      <p>Everything in flexbox (<code>justify-content</code>, <code>align-items</code>, <code>flex-grow</code>, etc.) is defined <strong>relative to these axes</strong>, not literally "horizontal/vertical." This is the single most important mental model to hold onto.</p>
+
+      <pre><code class="language-css">.container &#123;
+  display: flex;
+&#125;</code></pre>
+
+      <hr />
+
+      <h2>2. flex-direction</h2>
+
+      <p>Sets the main axis and the order items flow along it.</p>
+
+      <div class="image-container">
+        <img src="/frontend_bookmarks/css-flex-grid/flex-direction.svg" alt="flex-direction diagram" />
+      </div>
+
+      <pre><code class="language-css">.container &#123; flex-direction: row; &#125;            /* default: left → right */
+.container &#123; flex-direction: row-reverse; &#125;    /* right → left */
+.container &#123; flex-direction: column; &#125;         /* top → bottom */
+.container &#123; flex-direction: column-reverse; &#125; /* bottom → top */</code></pre>
+
+      <p><strong>RTL note:</strong> in a <code>dir="rtl"</code> context, <code>row</code> still points along the main axis, but the <em>start</em> edge flips — <code>row</code> visually goes right → left. This is why logical properties (<code>margin-inline-start</code>, <code>inset-inline-end</code>) are safer than <code>margin-left</code>/<code>right</code> in bilingual apps.</p>
+
+      <hr />
+
+      <h2>3. justify-content — alignment along the main axis</h2>
+
+      <div class="image-container">
+        <img src="/frontend_bookmarks/css-flex-grid/flex-justify-content.svg" alt="justify-content diagram" />
+      </div>
+
+      <pre><code class="language-css">.container &#123; justify-content: flex-start; &#125;    /* default: pack at start */
+.container &#123; justify-content: flex-end; &#125;      /* pack at end */
+.container &#123; justify-content: center; &#125;        /* pack at center */
+.container &#123; justify-content: space-between; &#125; /* first/last flush, gaps equal */
+.container &#123; justify-content: space-around; &#125;  /* equal space around each item */
+.container &#123; justify-content: space-evenly; &#125;  /* equal space between AND at edges */</code></pre>
+
+      <p><strong>Rule of thumb:</strong> if you're positioning items <em>along the direction they flow</em>, it's <code>justify-content</code>.</p>
+
+      <hr />
+
+      <h2>4. align-items — alignment along the cross axis</h2>
+
+      <div class="image-container">
+        <img src="/frontend_bookmarks/css-flex-grid/flex-align-items.svg" alt="align-items diagram" />
+      </div>
+
+      <pre><code class="language-css">.container &#123; align-items: flex-start; &#125; /* top of the cross axis */
+.container &#123; align-items: center; &#125;     /* centered on the cross axis */
+.container &#123; align-items: flex-end; &#125;   /* bottom of the cross axis */
+.container &#123; align-items: stretch; &#125;    /* default: fill the cross axis */
+.container &#123; align-items: baseline; &#125;   /* align by text baseline */</code></pre>
+
+      <p><strong>Rule of thumb:</strong> if you're positioning items <em>perpendicular to the direction they flow</em> (e.g. vertically centering a row of items), it's <code>align-items</code>.</p>
+
+      <p>Need to override just one item? Use <code>align-self</code> on that child instead of <code>align-items</code> on the container:</p>
+
+      <pre><code class="language-css">.special-child &#123; align-self: flex-end; &#125;</code></pre>
+
+      <hr />
+
+      <h2>5. flex-wrap</h2>
+
+      <p>By default, flex items try to fit on one line, shrinking if needed. <code>flex-wrap: wrap</code> lets them flow onto multiple lines — this is what makes flex layouts responsive.</p>
+
+      <div class="image-container">
+        <img src="/frontend_bookmarks/css-flex-grid/flex-wrap.svg" alt="flex-wrap diagram" />
+      </div>
+
+      <pre><code class="language-css">.container &#123; flex-wrap: nowrap; &#125;       /* default: single line, items shrink */
+.container &#123; flex-wrap: wrap; &#125;         /* overflow moves to new lines */
+.container &#123; flex-wrap: wrap-reverse; &#125; /* wraps, but stacks new lines above */</code></pre>
+
+      <p>Shorthand combining direction + wrap:</p>
+
+      <pre><code class="language-css">.container &#123; flex-flow: row wrap; &#125;</code></pre>
+
+      <p>When wrapping is active, <code>align-content</code> controls how the <em>lines themselves</em> are spaced on the cross axis (it's to lines what <code>align-items</code> is to items within a line).</p>
+
+      <hr />
+
+      <h2>6. flex-grow, flex-shrink, flex-basis</h2>
+
+      <p>These three control how an individual item's <strong>size</strong> behaves — set on the <em>children</em>, not the container.</p>
+
+      <div class="image-container">
+        <img src="/frontend_bookmarks/css-flex-grid/flex-grow-shrink-basis.svg" alt="flex-grow-shrink-basis diagram" />
+      </div>
+
+      <pre><code class="language-css">.item &#123;
+  flex-grow: 1;    /* share of extra space this item takes, relative to siblings */
+  flex-shrink: 1;  /* how much this item shrinks when space is tight, relative to siblings */
+  flex-basis: 200px; /* starting size before grow/shrink kicks in (like width, but axis-aware) */
+&#125;
+
+/* shorthand — almost always prefer this over the longhands */
+.item &#123; flex: 1 1 200px; &#125;
+
+/* common shorthand patterns */
+.item &#123; flex: 1; &#125;      /* flex: 1 1 0%  → grow and shrink equally, ignore natural size */
+.item &#123; flex: auto; &#125;   /* flex: 1 1 auto → grow and shrink, base size = content size */
+.item &#123; flex: none; &#125;   /* flex: 0 0 auto → rigid, never grows or shrinks */</code></pre>
+
+      <p><strong>Why <code>flex: 1</code> and not <code>flex-grow: 1</code> alone?</strong> <code>flex-grow</code> only distributes <em>extra</em> space — it says nothing about shrinking. In a real layout with unpredictable content, you almost always want the shorthand so grow, shrink, and basis are set together intentionally instead of relying on individual defaults.</p>
+
+      <hr />
+
+      <h2>7. gap</h2>
+
+      <p>Modern, and much cleaner than margin hacks for spacing between items:</p>
+
+      <pre><code class="language-css">.container &#123;
+  display: flex;
+  gap: 16px;          /* same gap row and column */
+  gap: 16px 24px;      /* row-gap column-gap */
+&#125;</code></pre>
+
+      <p><code>gap</code> respects <code>flex-wrap</code> correctly (no extra gap dangling at the container's edge, unlike margins), and it's logical-property-safe by nature — no LTR/RTL adjustment needed.</p>
+
+      <hr />
+
+      <h2>8. Common Patterns</h2>
+
+      <h3>Perfect centering (both axes)</h3>
+      <pre><code class="language-css">.container &#123;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+&#125;</code></pre>
+
+      <h3>Space-between navbar (logo left, links right)</h3>
+      <pre><code class="language-css">.navbar &#123;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+&#125;</code></pre>
+
+      <h3>Sticky footer (footer pinned to bottom even with little content)</h3>
+      <pre><code class="language-css">.page &#123;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+&#125;
+.main-content &#123; flex: 1; &#125; /* grows to push footer down */</code></pre>
+
+      <h3>Equal-width columns regardless of content length</h3>
+      <pre><code class="language-css">.row &#123; display: flex; gap: 12px; &#125;
+.row > .column &#123; flex: 1; &#125; /* each column grows/shrinks equally */</code></pre>
+
+      <h3>RTL-safe row (mirrors automatically)</h3>
+      <pre><code class="language-css">.row &#123;
+  display: flex;
+  flex-direction: row; /* engine flips start/end automatically under dir="rtl" */
+  gap: 12px;
+&#125;
+.icon &#123; margin-inline-end: 8px; &#125; /* not margin-right */</code></pre>
+
+      <hr />
+
+      <h2>9. Quick Debugging Checklist</h2>
+
+      <ul>
+        <li>Item not growing? Check <code>flex-grow</code> isn't <code>0</code> (the default) and the parent actually has extra space to distribute.</li>
+        <li>Item not shrinking below its content size? Set <code>min-width: 0</code> (or <code>min-height: 0</code> for column) — flex items default to <code>min-width: auto</code>, which can block shrinking.</li>
+        <li>Alignment doing nothing? Confirm you're setting it on the <strong>container</strong>, not the item (except <code>align-self</code>).</li>
+        <li>Gap not appearing? Check <code>flex-wrap</code> is set if you expect multi-line gaps, and confirm no browser prefix issues (gap in flexbox needs a reasonably modern browser — universally supported today).</li>
+      </ul>
+
+      <hr />
+
+      <p><em>Related: <a href="/frontend_bookmarks/css/grid">CSS Grid Reference</a></em></p>
+
       <div class="links">
         <a href="/frontend_bookmarks/css" class="back-link">← Back to CSS</a>
       </div>
@@ -38,11 +229,109 @@ import Layout from '../../layouts/Layout.astro';
     margin-bottom: 15px;
   }
 
-  .content {
+  .markdown-content {
     background: white;
     border-radius: 12px;
     padding: 40px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    line-height: 1.8;
+    color: #2c3e50;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .markdown-content h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin: 30px 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+  }
+
+  .markdown-content h2 {
+    font-size: 2em;
+    color: #34495e;
+    margin: 25px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .markdown-content h3 {
+    font-size: 1.5em;
+    color: #34495e;
+    margin: 20px 0 10px 0;
+  }
+
+  .markdown-content p {
+    margin: 15px 0;
+  }
+
+  .markdown-content code {
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+  }
+
+  .markdown-content pre {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+
+  .markdown-content pre code {
+    background: transparent;
+    color: #ecf0f1;
+    padding: 0;
+  }
+
+  .markdown-content ul, .markdown-content ol {
+    margin: 15px 0;
+    padding-left: 30px;
+  }
+
+  .markdown-content li {
+    margin: 8px 0;
+  }
+
+  .markdown-content blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 20px;
+    margin: 20px 0;
+    color: #7f8c8d;
+    font-style: italic;
+  }
+
+  .markdown-content a {
+    color: #667eea;
+    text-decoration: none;
+  }
+
+  .markdown-content a:hover {
+    text-decoration: underline;
+  }
+
+  .markdown-content hr {
+    border: none;
+    border-top: 2px solid #e9ecef;
+    margin: 30px 0;
+  }
+
+  .image-container {
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .links {

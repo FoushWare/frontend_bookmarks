@@ -1,0 +1,27 @@
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .box { fill:#4f86f7; stroke:#2955b8; stroke-width:2; }
+    .container { fill:#eef2fb; stroke:#94a8d8; stroke-width:2; stroke-dasharray:6,4; }
+    .label { fill:#1a1a2e; font-size:16px; font-weight:600; }
+    .num { fill:#ffffff; font-size:16px; font-weight:700; }
+  </style>
+
+  <text x="20" y="25" class="label">flex-wrap: nowrap (default) - items shrink to fit on one line</text>
+  <rect x="20" y="35" width="400" height="70" class="container" rx="6"/>
+  <rect x="30" y="45" width="90" height="50" class="box" rx="4"/><text x="65" y="76" class="num">1</text>
+  <rect x="128" y="45" width="90" height="50" class="box" rx="4"/><text x="163" y="76" class="num">2</text>
+  <rect x="226" y="45" width="90" height="50" class="box" rx="4"/><text x="261" y="76" class="num">3</text>
+  <rect x="324" y="45" width="86" height="50" class="box" rx="4"/><text x="357" y="76" class="num">4</text>
+
+  <text x="440" y="25" class="label">flex-wrap: wrap - items flow to a new line</text>
+  <rect x="440" y="35" width="340" height="140" class="container" rx="6"/>
+  <rect x="450" y="45" width="90" height="50" class="box" rx="4"/><text x="485" y="76" class="num">1</text>
+  <rect x="550" y="45" width="90" height="50" class="box" rx="4"/><text x="585" y="76" class="num">2</text>
+  <rect x="650" y="45" width="90" height="50" class="box" rx="4"/><text x="685" y="76" class="num">3</text>
+  <rect x="450" y="105" width="90" height="50" class="box" rx="4"/><text x="485" y="136" class="num">4</text>
+
+  <text x="20" y="230" class="label" font-size="14" font-weight="400">nowrap keeps everything on the main axis in a single row/column,</text>
+  <text x="20" y="252" class="label" font-size="14" font-weight="400">shrinking items (via flex-shrink) if the container is too small.</text>
+  <text x="20" y="284" class="label" font-size="14" font-weight="400">wrap allows overflowing items to move onto additional lines,</text>
+  <text x="20" y="306" class="label" font-size="14" font-weight="400">stacked along the cross axis - this is what makes flex layouts responsive.</text>
+</svg>

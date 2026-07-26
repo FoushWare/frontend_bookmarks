@@ -1,0 +1,50 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .box { fill:#4f86f7; stroke:#2955b8; stroke-width:2; }
+    .container { fill:#eef2fb; stroke:#94a8d8; stroke-width:2; stroke-dasharray:6,4; }
+    .label { fill:#1a1a2e; font-size:16px; font-weight:600; }
+    .num { fill:#ffffff; font-size:18px; font-weight:700; }
+    .arrow { stroke:#e0533d; stroke-width:3; marker-end:url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e0533d" />
+    </marker>
+  </defs>
+
+  <!-- row -->
+  <text x="20" y="25" class="label">flex-direction: row (default)</text>
+  <rect x="20" y="35" width="360" height="90" class="container" rx="6"/>
+  <rect x="30" y="55" width="50" height="50" class="box" rx="4"/><text x="48" y="86" class="num">1</text>
+  <rect x="90" y="55" width="50" height="50" class="box" rx="4"/><text x="108" y="86" class="num">2</text>
+  <rect x="150" y="55" width="50" height="50" class="box" rx="4"/><text x="168" y="86" class="num">3</text>
+  <line x1="220" y1="80" x2="360" y2="80" class="arrow"/>
+
+  <!-- row-reverse -->
+  <text x="420" y="25" class="label">flex-direction: row-reverse</text>
+  <rect x="420" y="35" width="360" height="90" class="container" rx="6"/>
+  <rect x="730" y="55" width="50" height="50" class="box" rx="4"/><text x="748" y="86" class="num">1</text>
+  <rect x="670" y="55" width="50" height="50" class="box" rx="4"/><text x="688" y="86" class="num">2</text>
+  <rect x="610" y="55" width="50" height="50" class="box" rx="4"/><text x="628" y="86" class="num">3</text>
+  <line x1="580" y1="80" x2="440" y2="80" class="arrow"/>
+
+  <!-- column -->
+  <text x="20" y="175" class="label">flex-direction: column</text>
+  <rect x="20" y="185" width="150" height="180" class="container" rx="6"/>
+  <rect x="45" y="195" width="100" height="45" class="box" rx="4"/><text x="90" y="223" class="num">1</text>
+  <rect x="45" y="250" width="100" height="45" class="box" rx="4"/><text x="90" y="278" class="num">2</text>
+  <rect x="45" y="305" width="100" height="45" class="box" rx="4"/><text x="90" y="333" class="num">3</text>
+  <line x1="95" y1="240" x2="95" y2="305" class="arrow"/>
+
+  <!-- column-reverse -->
+  <text x="220" y="175" class="label">flex-direction: column-reverse</text>
+  <rect x="220" y="185" width="150" height="180" class="container" rx="6"/>
+  <rect x="245" y="305" width="100" height="45" class="box" rx="4"/><text x="290" y="333" class="num">1</text>
+  <rect x="245" y="250" width="100" height="45" class="box" rx="4"/><text x="290" y="278" class="num">2</text>
+  <rect x="245" y="195" width="100" height="45" class="box" rx="4"/><text x="290" y="223" class="num">3</text>
+  <line x1="295" y1="305" x2="295" y2="240" class="arrow"/>
+
+  <text x="420" y="175" class="label" font-weight="400" font-size="14">Numbers show DOM order.</text>
+  <text x="420" y="200" class="label" font-weight="400" font-size="14">Arrows show the main axis</text>
+  <text x="420" y="222" class="label" font-weight="400" font-size="14">direction items are placed along.</text>
+</svg>

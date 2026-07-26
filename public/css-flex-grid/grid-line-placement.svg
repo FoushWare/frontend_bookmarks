@@ -1,0 +1,51 @@
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .cell { fill:#eef2fb; stroke:#94a8d8; stroke-width:1.5; }
+    .item { fill:#f7a24f; stroke:#b8622a; stroke-width:2; opacity:0.9; }
+    .label { fill:#1a1a2e; font-size:16px; font-weight:600; }
+    .code { fill:#1a1a2e; font-size:13px; font-weight:700; }
+    .line { stroke:#e0533d; stroke-width:1.5; stroke-dasharray:3,3; }
+    .linenum { fill:#e0533d; font-size:13px; font-weight:700; }
+  </style>
+
+  <text x="20" y="25" class="label">grid-column: 2 / 4;  grid-row: 1 / 3;</text>
+
+  <!-- 4x3 grid of 120px cells starting at (60,50) -->
+  <g>
+    <rect x="60"  y="50" width="120" height="80" class="cell"/>
+    <rect x="180" y="50" width="120" height="80" class="cell"/>
+    <rect x="300" y="50" width="120" height="80" class="cell"/>
+    <rect x="420" y="50" width="120" height="80" class="cell"/>
+
+    <rect x="60"  y="130" width="120" height="80" class="cell"/>
+    <rect x="180" y="130" width="120" height="80" class="cell"/>
+    <rect x="300" y="130" width="120" height="80" class="cell"/>
+    <rect x="420" y="130" width="120" height="80" class="cell"/>
+
+    <rect x="60"  y="210" width="120" height="80" class="cell"/>
+    <rect x="180" y="210" width="120" height="80" class="cell"/>
+    <rect x="300" y="210" width="120" height="80" class="cell"/>
+    <rect x="420" y="210" width="120" height="80" class="cell"/>
+  </g>
+
+  <!-- the placed item spanning column lines 2-4, row lines 1-3 -->
+  <rect x="180" y="50" width="240" height="160" class="item" rx="4"/>
+  <text x="270" y="135" class="code" fill="#ffffff" font-size="15">grid-column: 2 / 4</text>
+  <text x="270" y="155" class="code" fill="#ffffff" font-size="15">grid-row: 1 / 3</text>
+
+  <!-- column line numbers -->
+  <text x="56"  y="45" class="linenum">1</text>
+  <text x="176" y="45" class="linenum">2</text>
+  <text x="296" y="45" class="linenum">3</text>
+  <text x="416" y="45" class="linenum">4</text>
+  <text x="536" y="45" class="linenum">5</text>
+
+  <!-- row line numbers -->
+  <text x="35" y="55"  class="linenum">1</text>
+  <text x="35" y="135" class="linenum">2</text>
+  <text x="35" y="215" class="linenum">3</text>
+  <text x="35" y="295" class="linenum">4</text>
+
+  <text x="20" y="290" class="label" font-size="14" font-weight="400">Grid lines are numbered, not the tracks themselves. An item placed</text>
+  <text x="20" y="312" class="label" font-size="14" font-weight="400">from line 2 to line 4 spans the two columns between those lines.</text>
+</svg>

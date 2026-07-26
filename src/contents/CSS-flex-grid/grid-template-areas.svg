@@ -1,0 +1,33 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .header { fill:#4f86f7; stroke:#2955b8; stroke-width:2; }
+    .sidebar { fill:#7bc67e; stroke:#3a8a3e; stroke-width:2; }
+    .main { fill:#f7a24f; stroke:#b8622a; stroke-width:2; }
+    .footer { fill:#c084f5; stroke:#7e3fbf; stroke-width:2; }
+    .label { fill:#1a1a2e; font-size:16px; font-weight:600; }
+    .code { fill:#ffffff; font-size:16px; font-weight:700; }
+    .snippet { fill:#1a1a2e; font-size:14px; font-family: 'Courier New', monospace; }
+  </style>
+
+  <text x="20" y="25" class="label">grid-template-areas: "header header" "sidebar main" "footer footer"</text>
+
+  <rect x="20" y="40" width="480" height="70" class="header" rx="4"/><text x="230" y="82" class="code">header</text>
+  <rect x="20" y="116" width="150" height="140" class="sidebar" rx="4"/><text x="55" y="192" class="code">sidebar</text>
+  <rect x="176" y="116" width="324" height="140" class="main" rx="4"/><text x="300" y="192" class="code">main</text>
+  <rect x="20" y="262" width="480" height="70" class="footer" rx="4"/><text x="230" y="303" class="code">footer</text>
+
+  <rect x="540" y="40" width="240" height="292" fill="#f5f5f8" stroke="#c9c9d6" stroke-width="1" rx="6"/>
+  <text x="555" y="65" class="snippet">.layout {</text>
+  <text x="570" y="88" class="snippet">grid-template-areas:</text>
+  <text x="580" y="111" class="snippet">"header header"</text>
+  <text x="580" y="134" class="snippet">"sidebar main"</text>
+  <text x="580" y="157" class="snippet">"footer footer";</text>
+  <text x="555" y="180" class="snippet">}</text>
+  <text x="555" y="215" class="snippet">.hd { grid-area: header; }</text>
+  <text x="555" y="238" class="snippet">.sb { grid-area: sidebar; }</text>
+  <text x="555" y="261" class="snippet">.mn { grid-area: main; }</text>
+  <text x="555" y="284" class="snippet">.ft { grid-area: footer; }</text>
+
+  <text x="20" y="355" class="label" font-size="14" font-weight="400">Each quoted string is a row; each word is a column cell. Repeating a</text>
+  <text x="20" y="377" class="label" font-size="14" font-weight="400">name (like "header header") makes that item span multiple columns.</text>
+</svg>

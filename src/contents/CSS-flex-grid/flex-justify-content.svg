@@ -1,0 +1,41 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .box { fill:#4f86f7; stroke:#2955b8; stroke-width:2; }
+    .container { fill:#eef2fb; stroke:#94a8d8; stroke-width:2; stroke-dasharray:6,4; }
+    .label { fill:#1a1a2e; font-size:16px; font-weight:600; }
+    .axis { stroke:#c8c8c8; stroke-width:1.5; stroke-dasharray:3,3; }
+  </style>
+
+  <!-- flex-start -->
+  <text x="20" y="25" class="label">justify-content: flex-start</text>
+  <rect x="20" y="35" width="760" height="60" class="container" rx="6"/>
+  <line x1="30" y1="35" x2="30" y2="95" class="axis"/>
+  <rect x="35" y="45" width="60" height="40" class="box" rx="4"/>
+  <rect x="105" y="45" width="60" height="40" class="box" rx="4"/>
+  <rect x="175" y="45" width="60" height="40" class="box" rx="4"/>
+
+  <!-- flex-end -->
+  <text x="20" y="130" class="label">justify-content: flex-end</text>
+  <rect x="20" y="140" width="760" height="60" class="container" rx="6"/>
+  <rect x="565" y="150" width="60" height="40" class="box" rx="4"/>
+  <rect x="635" y="150" width="60" height="40" class="box" rx="4"/>
+  <rect x="705" y="150" width="60" height="40" class="box" rx="4"/>
+
+  <!-- center -->
+  <text x="20" y="235" class="label">justify-content: center</text>
+  <rect x="20" y="245" width="760" height="60" class="container" rx="6"/>
+  <rect x="300" y="255" width="60" height="40" class="box" rx="4"/>
+  <rect x="370" y="255" width="60" height="40" class="box" rx="4"/>
+  <rect x="440" y="255" width="60" height="40" class="box" rx="4"/>
+
+  <!-- space-between -->
+  <text x="20" y="340" class="label">justify-content: space-between</text>
+  <rect x="20" y="350" width="760" height="60" class="container" rx="6"/>
+  <rect x="30" y="360" width="60" height="40" class="box" rx="4"/>
+  <rect x="370" y="360" width="60" height="40" class="box" rx="4"/>
+  <rect x="710" y="360" width="60" height="40" class="box" rx="4"/>
+
+  <!-- space-around -->
+  <text x="20" y="445" class="label">justify-content: space-around</text>
+  <rect x="20" y="455" width="760" height="15" class="container" rx="6" opacity="0"/>
+</svg>

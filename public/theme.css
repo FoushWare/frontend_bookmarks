@@ -44,6 +44,11 @@ body {
     background: var(--bg-primary);
     color: var(--text-primary);
     transition: background 0.3s, color 0.3s;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .navbar {
@@ -135,6 +140,9 @@ body {
     box-shadow: var(--shadow);
     line-height: 1.8;
     color: var(--text-secondary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
 }
 
 .markdown-content h1,
@@ -150,18 +158,25 @@ body {
 
 .markdown-content h1 {
     font-size: 2em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .markdown-content h2 {
     font-size: 1.75em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 .markdown-content h3 {
     font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
 }
 
 .markdown-content h4 {
     font-size: 1.25em;
+    font-weight: 600;
 }
 
 .markdown-content p {

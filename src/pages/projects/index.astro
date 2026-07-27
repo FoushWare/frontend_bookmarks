@@ -1,0 +1,249 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="CSS Projects">
+  <div class="projects-container">
+    <div class="projects-header">
+      <h1>🎨 CSS Projects</h1>
+      <p>Interactive projects to master CSS properties and concepts</p>
+    </div>
+
+    <div class="topics-grid">
+      <a href="/frontend_bookmarks/projects/flexbox" class="topic-card">
+        <div class="topic-icon">📦</div>
+        <h2>Flexbox</h2>
+        <p>Master flexible box layout with interactive projects</p>
+        <div class="topic-stats">
+          <span>3 Projects</span>
+          <span>8 Total</span>
+        </div>
+      </a>
+
+      <a href="/frontend_bookmarks/projects/grid" class="topic-card">
+        <div class="topic-icon">🔲</div>
+        <h2>Grid</h2>
+        <p>Master CSS grid for two-dimensional layouts</p>
+        <div class="topic-stats">
+          <span>2 Projects</span>
+          <span>8 Total</span>
+        </div>
+      </a>
+
+      <a href="/frontend_bookmarks/projects/background" class="topic-card coming-soon">
+        <div class="topic-icon">🖼️</div>
+        <h2>Background</h2>
+        <p>Master background properties and techniques</p>
+        <div class="topic-stats">
+          <span>0 Projects</span>
+          <span>Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="/frontend_bookmarks/projects/border" class="topic-card coming-soon">
+        <div class="topic-icon">🔲</div>
+        <h2>Border</h2>
+        <p>Master border properties and styling</p>
+        <div class="topic-stats">
+          <span>0 Projects</span>
+          <span>Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="/frontend_bookmarks/projects/images" class="topic-card coming-soon">
+        <div class="topic-icon">🖼️</div>
+        <h2>Images</h2>
+        <p>Master image styling and optimization</p>
+        <div class="topic-stats">
+          <span>0 Projects</span>
+          <span>Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="/frontend_bookmarks/projects/spacing" class="topic-card coming-soon">
+        <div class="topic-icon">📏</div>
+        <h2>Spacing</h2>
+        <p>Master padding, margin, and spacing techniques</p>
+        <div class="topic-stats">
+          <span>0 Projects</span>
+          <span>Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="/frontend_bookmarks/projects/sizing" class="topic-card coming-soon">
+        <div class="topic-icon">📐</div>
+        <h2>Sizing</h2>
+        <p>Master width, height, and sizing properties</p>
+        <div class="topic-stats">
+          <span>0 Projects</span>
+          <span>Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="/frontend_bookmarks/projects/typography" class="topic-card coming-soon">
+        <div class="topic-icon">🔤</div>
+        <h2>Typography</h2>
+        <p>Master fonts, text styling, and typography</p>
+        <div class="topic-stats">
+          <span>0 Projects</span>
+          <span>Coming Soon</span>
+        </div>
+      </a>
+
+      <a href="/frontend_bookmarks/projects/responsive" class="topic-card coming-soon">
+        <div class="topic-icon">📱</div>
+        <h2>Responsive</h2>
+        <p>Master responsive design and media queries</p>
+        <div class="topic-stats">
+          <span>0 Projects</span>
+          <span>Coming Soon</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="info-section">
+      <div class="info-card">
+        <h3>🎯 How It Works</h3>
+        <p>Each project focuses on a specific CSS property. You'll see the property description, try different values interactively, and build your understanding through hands-on practice.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>📚 Progressive Learning</h3>
+        <p>Start with basic properties and work your way up to advanced concepts. Each project builds on the previous ones, helping you develop a deep understanding of CSS.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>🔄 Interactive Practice</h3>
+        <p>Use the live code editor to experiment with different property values and see the results instantly. Learn by doing, not just reading.</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .projects-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .projects-header h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+
+  .projects-header p {
+    color: #666;
+    font-size: 1.2em;
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+
+  .topic-card {
+    background: white;
+    border-radius: 16px;
+    padding: 35px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+  }
+
+  .topic-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+  }
+
+  .topic-card.coming-soon {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .topic-card.coming-soon:hover {
+    transform: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+  }
+
+  .topic-icon {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+  }
+
+  .topic-card h2 {
+    font-size: 1.6em;
+    margin-bottom: 12px;
+    color: #333;
+  }
+
+  .topic-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .topic-stats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .topic-stats span {
+    padding: 6px 14px;
+    background: #f5f5f5;
+    color: #666;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+  .info-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  .info-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 16px;
+  }
+
+  .info-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+  }
+
+  .info-card p {
+    line-height: 1.6;
+    opacity: 0.95;
+  }
+
+  @media (max-width: 768px) {
+    .projects-header h1 {
+      font-size: 2.2em;
+    }
+
+    .topics-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .info-section {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

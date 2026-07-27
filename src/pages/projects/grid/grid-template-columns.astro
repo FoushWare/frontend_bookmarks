@@ -1,0 +1,318 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ChallengeHeader from '../../../components/challenges/ChallengeHeader.astro';
+import ReferenceImage from '../../../components/challenges/ReferenceImage.astro';
+import CodeEditor from '../../../components/challenges/CodeEditor.astro';
+import PreviewControls from '../../../components/challenges/PreviewControls.astro';
+import PreviewPanel from '../../../components/challenges/PreviewPanel.astro';
+import FinalSolution from '../../../components/challenges/FinalSolution.astro';
+
+const starterHtml = `<div class="container">
+  <div class="box box1">Box 1</div>
+  <div class="box box2">Box 2</div>
+  <div class="box box3">Box 3</div>
+  <div class="box box4">Box 4</div>
+</div>`;
+
+const starterCss = `.container {
+  display: grid;
+  /* Add grid-template-columns here */
+}
+
+.box {
+  background: #667eea;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+}`;
+
+const finalCss = `.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.box {
+  background: #667eea;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+}`;
+
+const description = `
+The <code>grid-template-columns</code> property defines the number and size of columns in a grid layout.
+
+<strong>Common values:</strong>
+- <code>repeat(4, 1fr)</code>: 4 equal columns
+- <code>200px 1fr</code>: Fixed width column + flexible column
+- <code>1fr 2fr 1fr</code>: ProPORTIONAL columns (middle is 2x wider)
+- <code>repeat(auto-fit, minmax(200px, 1fr))</code>: Responsive auto-fit columns
+- <code>auto</code>: Automatically sized column
+`;
+
+const examples = [
+  { value: 'repeat(4, 1fr)', description: '4 equal columns' },
+  { value: '200px 1fr', description: 'Fixed + flexible' },
+  { value: '1fr 2fr 1fr', description: 'Proportional' },
+  { value: 'repeat(auto-fit, minmax(200px, 1fr))', description: 'Responsive auto-fit' },
+  { value: 'auto auto auto auto', description: 'Auto sized' }
+];
+---
+
+<Layout title="Grid grid-template-columns Project">
+  <div class="project-container">
+    <aside class="learning-panel">
+      <ChallengeHeader 
+        title="grid-template-columns"
+        challengeNumber="Grid #1"
+        difficulty="beginner"
+        topic="Grid"
+        time="15 minutes"
+      />
+
+      <div class="property-description">
+        <h3>Property Description</h3>
+        <div class="description-content" set:html={description} />
+      </div>
+
+      <ReferenceImage title="Expected Result">
+        <div class="preview-result">
+          <div class="result-box">Box 1</div>
+          <div class="result-box">Box 2</div>
+          <div class="result-box">Box 3</div>
+          <div class="result-box">Box 4</div>
+        </div>
+      </ReferenceImage>
+
+      <div class="examples-section">
+        <h3>Try Different Values</h3>
+        <div class="examples-list">
+          {examples.map(example => (
+            <button class="example-button" data-value={example.value}>
+              <code>{example.value}</code>
+              <span>{example.description}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <FinalSolution finalCss={finalCss} starterCss={starterCss} />
+
+      <div class="navigation">
+        <a href="/frontend_bookmarks/projects/grid" class="nav-button">← Back to Grid Projects</a>
+      </div>
+    </aside>
+
+    <main class="editor-panel">
+      <PreviewControls />
+      <CodeEditor htmlCode={starterHtml} cssCode={starterCss} />
+      <PreviewPanel />
+    </main>
+  </div>
+
+  <script>
+    const htmlEditor = document.getElementById('htmlEditor');
+    const cssEditor = document.getElementById('cssEditor');
+    const previewFrame = document.getElementById('previewFrame');
+
+    function updatePreview() {
+      const html = htmlEditor.value;
+      const css = cssEditor.value;
+      
+      const previewContent = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body { font-family: Arial, sans-serif; padding: 20px; }
+            ${css}
+          </style>
+        </head>
+        <body>
+          ${html}
+        </body>
+        </html>
+      `;
+      
+      previewFrame.srcdoc = previewContent;
+    }
+
+    htmlEditor.addEventListener('input', updatePreview);
+    cssEditor.addEventListener('input', updatePreview);
+
+    const exampleButtons = document.querySelectorAll('.example-button');
+    exampleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const value = button.dataset.value;
+        const cssEditor = document.getElementById('cssEditor');
+        
+        let currentCss = cssEditor.value;
+        if (currentCss.includes('grid-template-columns')) {
+          currentCss = currentCss.replace(/grid-template-columns:\s*[^;]+;?/, `grid-template-columns: ${value};`);
+        } else {
+          currentCss = currentCss.replace(/\/\* Add grid-template-columns here \*\//, `grid-template-columns: ${value};`);
+        }
+        
+        cssEditor.value = currentCss;
+        updatePreview();
+      });
+    });
+
+    updatePreview();
+  </script>
+</Layout>
+
+<style>
+  .project-container {
+    display: flex;
+    min-height: 100vh;
+    background: #1e1e1e;
+  }
+
+  .learning-panel {
+    width: 400px;
+    background: #252526;
+    padding: 30px;
+    overflow-y: auto;
+    border-right: 1px solid #3c3c3c;
+  }
+
+  .editor-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #1e1e1e;
+  }
+
+  .property-description {
+    margin-bottom: 30px;
+  }
+
+  .property-description h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+
+  .description-content {
+    color: #d4d4d4;
+    line-height: 1.6;
+  }
+
+  .description-content code {
+    background: #3c3c3c;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #ff9800;
+  }
+
+  .description-content strong {
+    color: #ffffff;
+  }
+
+  .preview-result {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 8px;
+  }
+
+  .result-box {
+    background: #667eea;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+
+  .examples-section {
+    margin-bottom: 30px;
+  }
+
+  .examples-section h3 {
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+
+  .examples-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .example-button {
+    background: #3c3c3c;
+    color: #d4d4d4;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .example-button:hover {
+    background: #4c4c4c;
+  }
+
+  .example-button code {
+    background: #2d2d2d;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #ff9800;
+  }
+
+  .example-button span {
+    font-size: 0.9em;
+  }
+
+  .navigation {
+    margin-bottom: 30px;
+  }
+
+  .nav-button {
+    width: 100%;
+    padding: 12px;
+    background: #3c3c3c;
+    color: #d4d4d4;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s;
+  }
+
+  .nav-button:hover {
+    background: #4c4c4c;
+  }
+
+  @media (max-width: 1024px) {
+    .project-container {
+      flex-direction: column;
+    }
+
+    .learning-panel {
+      width: 100%;
+      max-height: 50vh;
+    }
+
+    .editor-panel {
+      height: 50vh;
+    }
+  }
+</style>

@@ -22,15 +22,30 @@ const { title = 'Learning Hub' } = Astro.props;
       <div class="container">
         <a href="/frontend_bookmarks/" class="logo">🚀 Learning Hub</a>
         <ul class="nav-links">
-          <li><a href="/frontend_bookmarks/html">HTML</a></li>
-          <li><a href="/frontend_bookmarks/css">CSS</a></li>
-          <li><a href="/frontend_bookmarks/javascript">JavaScript</a></li>
-          <li><a href="/frontend_bookmarks/patterns">Patterns</a></li>
-          <li><a href="/frontend_bookmarks/questions">Questions</a></li>
-          <li><a href="/frontend_bookmarks/challenges">Challenges</a></li>
-          <li><a href="/frontend_bookmarks/projects">Projects</a></li>
-          <li><a href="/frontend_bookmarks/frontend-mentor">Frontend Mentor</a></li>
-          <li><a href="/frontend_bookmarks/senior-interview">Senior Interview</a></li>
+          <li class="nav-item dropdown">
+            <a href="/frontend_bookmarks/html" class="nav-link">Fundamentals</a>
+            <ul class="dropdown-menu">
+              <li><a href="/frontend_bookmarks/html">HTML</a></li>
+              <li><a href="/frontend_bookmarks/css">CSS</a></li>
+              <li><a href="/frontend_bookmarks/javascript">JavaScript</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="/frontend_bookmarks/patterns" class="nav-link">Practice</a>
+            <ul class="dropdown-menu">
+              <li><a href="/frontend_bookmarks/patterns">Patterns</a></li>
+              <li><a href="/frontend_bookmarks/questions">Questions</a></li>
+              <li><a href="/frontend_bookmarks/challenges">Challenges</a></li>
+              <li><a href="/frontend_bookmarks/projects">Projects</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="/frontend_bookmarks/frontend-mentor" class="nav-link">Resources</a>
+            <ul class="dropdown-menu">
+              <li><a href="/frontend_bookmarks/frontend-mentor">Frontend Mentor</a></li>
+              <li><a href="/frontend_bookmarks/senior-interview">Senior Interview</a></li>
+            </ul>
+          </li>
         </ul>
         <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
       </div>
@@ -80,6 +95,7 @@ const { title = 'Learning Hub' } = Astro.props;
     display: flex;
     align-items: center;
     gap: 10px;
+    white-space: nowrap;
   }
 
   .navbar .nav-links {
@@ -89,18 +105,74 @@ const { title = 'Learning Hub' } = Astro.props;
     align-items: center;
   }
 
-  .navbar .nav-links a {
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
     text-decoration: none;
     color: #333;
     font-weight: 500;
     transition: color 0.3s;
     padding: 8px 16px;
     border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 
-  .navbar .nav-links a:hover {
+  .nav-link:hover {
     color: #667eea;
     background: #f0f0f0;
+  }
+
+  .nav-link::after {
+    content: '▼';
+    font-size: 0.7em;
+    margin-left: 4px;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 8px 0;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    list-style: none;
+    z-index: 1001;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-menu li {
+    margin: 0;
+  }
+
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .dropdown-menu a:hover {
+    color: #667eea;
+    background: #f8f9fa;
+    padding-left: 24px;
   }
 
   .theme-toggle {

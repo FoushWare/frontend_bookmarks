@@ -162,6 +162,26 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
           line-height: 1.6;
         }
 
+        .target-preview {
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid #e0e0e0;
+        }
+
+        .target-preview h4 {
+          margin: 0 0 10px 0;
+          color: #333;
+          font-size: 1em;
+        }
+
+        .target-iframe {
+          width: 100%;
+          height: 200px;
+          border: 1px solid #e0e0e0;
+          border-radius: 6px;
+          background: white;
+        }
+
         .mode-toggle {
           display: flex;
           gap: 10px;
@@ -189,14 +209,13 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
 
         .workspace-grid {
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr;
           gap: 20px;
           margin-bottom: 20px;
         }
 
         .editor-section,
-        .preview-section,
-        .target-section {
+        .preview-section {
           background: white;
           border-radius: 8px;
           padding: 15px;
@@ -235,8 +254,7 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
           background: #5568d3;
         }
 
-        .preview-section h3,
-        .target-section h3 {
+        .preview-section h3 {
           margin: 0 0 10px 0;
           color: #333;
         }
@@ -401,6 +419,14 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
           <p className="expected-result">
             <strong>Expected result:</strong> {project.expectedResult}
           </p>
+          <div className="target-preview">
+            <h4>Target Preview</h4>
+            <iframe
+              srcDoc={targetSrcDoc}
+              className="target-iframe"
+              title="Target Preview"
+            />
+          </div>
         </div>
 
         {/* Mode Toggle */}
@@ -450,16 +476,6 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
               srcDoc={srcDoc}
               className="preview-iframe"
               title="Live Preview"
-            />
-          </div>
-
-          {/* Target Preview */}
-          <div className="target-section">
-            <h3>Target</h3>
-            <iframe
-              srcDoc={targetSrcDoc}
-              className="preview-iframe"
-              title="Target Preview"
             />
           </div>
         </div>

@@ -207,8 +207,8 @@ const { title = 'Learning Hub' } = Astro.props;
     background: var(--bg-tertiary, #f0f0f0);
     border: 2px solid var(--border-color, #e0e0e0);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -219,6 +219,8 @@ const { title = 'Learning Hub' } = Astro.props;
 
   .theme-toggle:hover {
     border-color: var(--accent);
+    background: var(--accent);
+    color: white;
   }
 
   .theme-toggle svg {
@@ -226,7 +228,7 @@ const { title = 'Learning Hub' } = Astro.props;
   }
 
   .theme-toggle:hover svg {
-    transform: scale(1.1);
+    transform: rotate(15deg) scale(1.1);
   }
 
   .mobile-menu-toggle {

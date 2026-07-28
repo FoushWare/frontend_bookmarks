@@ -12,6 +12,9 @@ function updateThemeIcon(theme) {
     const toggle = document.querySelector('.theme-toggle');
     if (toggle) {
         toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        console.log('Theme icon updated to:', toggle.textContent);
+    } else {
+        console.log('Theme toggle button not found for icon update');
     }
 }
 

@@ -15,7 +15,7 @@ function updateThemeIcon(theme) {
     }
 }
 
-// Initialize theme and setup event listener
+// Initialize theme
 (function() {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -23,8 +23,10 @@ function updateThemeIcon(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     updateThemeIcon(theme);
     console.log('Theme initialized to:', theme);
-    
-    // Setup event listener for theme toggle button
+})();
+
+// Setup event listener with multiple fallbacks
+document.addEventListener('DOMContentLoaded', function() {
     function setupThemeToggle() {
         const toggleBtn = document.querySelector('.theme-toggle');
         if (toggleBtn) {
@@ -32,18 +34,29 @@ function updateThemeIcon(theme) {
             toggleBtn.addEventListener('click', function(e) {
                 console.log('Theme toggle clicked');
                 e.preventDefault();
+                e.stopPropagation();
                 toggleTheme();
             });
         } else {
-            console.log('Theme toggle button not found on this page');
+            console.log('Theme toggle button not found, retrying...');
+            // Retry after a short delay for React hydration
+            setTimeout(setupThemeToggle, 100);
         }
     }
-    
-    // Check if DOM is already loaded
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupThemeToggle);
-    } else {
-        // DOM is already ready, setup immediately
-        setupThemeToggle();
+    setupThemeToggle();
+});
+
+// Also try immediately in case DOM is already loaded
+setTimeout(function() {
+    const toggleBtn = document.querySelector('.theme-toggle');
+    if (toggleBtn && !toggleBtn.hasAttribute('data-theme-listener')) {
+        console.log('Setting up theme toggle immediately');
+        toggleBtn.setAttribute('data-theme-listener', 'true');
+        toggleBtn.addEventListener('click', function(e) {
+            console.log('Theme toggle clicked (immediate)');
+            e.preventDefault();
+            e.stopPropagation();
+            toggleTheme();
+        });
     }
-})();
+}, 500);

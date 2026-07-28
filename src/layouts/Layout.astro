@@ -60,25 +60,8 @@ const { title = 'Learning Hub' } = Astro.props;
       <slot />
     </main>
 
+    <script src="/theme.js" is:inline></script>
     <script is:inline>
-      function toggleTheme() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-        console.log('Theme toggled to:', newTheme);
-      }
-
-      function updateThemeIcon(theme) {
-        const toggle = document.querySelector('.theme-toggle');
-        if (toggle) {
-          toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-          console.log('Theme icon updated to:', toggle.textContent);
-        }
-      }
-
       function toggleMobileMenu() {
         const navLinks = document.querySelector('.nav-links');
         const menuToggle = document.querySelector('.mobile-menu-toggle');
@@ -99,25 +82,6 @@ const { title = 'Learning Hub' } = Astro.props;
           });
         });
       });
-
-      // Initialize theme
-      (function() {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-        updateThemeIcon(theme);
-        console.log('Theme initialized to:', theme);
-
-        // Setup theme toggle event listener
-        const themeToggle = document.querySelector('.theme-toggle');
-        if (themeToggle) {
-          themeToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            toggleTheme();
-          });
-        }
-      })();
     </script>
   </body>
 </html>

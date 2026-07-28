@@ -21,6 +21,11 @@ const { title = 'Learning Hub' } = Astro.props;
     <nav class="navbar">
       <div class="container">
         <a href="/frontend_bookmarks/" class="logo">🚀 Learning Hub</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <ul class="nav-links">
           <li class="nav-item dropdown">
             <a href="/frontend_bookmarks/html" class="nav-link">Fundamentals</a>
@@ -47,7 +52,7 @@ const { title = 'Learning Hub' } = Astro.props;
             </ul>
           </li>
         </ul>
-        <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">🌙</button>
+        <button class="theme-toggle" aria-label="Toggle theme">🌙</button>
       </div>
     </nav>
 
@@ -55,7 +60,65 @@ const { title = 'Learning Hub' } = Astro.props;
       <slot />
     </main>
 
-    <script src="/theme.js" is:inline></script>
+    <script is:inline>
+      function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+        console.log('Theme toggled to:', newTheme);
+      }
+
+      function updateThemeIcon(theme) {
+        const toggle = document.querySelector('.theme-toggle');
+        if (toggle) {
+          toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+          console.log('Theme icon updated to:', toggle.textContent);
+        }
+      }
+
+      function toggleMobileMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      }
+
+      // Handle dropdown clicks on mobile
+      document.addEventListener('DOMContentLoaded', function() {
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+          const link = item.querySelector('.nav-link');
+          link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+              e.preventDefault();
+              item.classList.toggle('active');
+            }
+          });
+        });
+      });
+
+      // Initialize theme
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        updateThemeIcon(theme);
+        console.log('Theme initialized to:', theme);
+
+        // Setup theme toggle event listener
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (themeToggle) {
+          themeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleTheme();
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
 
@@ -193,13 +256,118 @@ const { title = 'Learning Hub' } = Astro.props;
     border-color: #667eea;
   }
 
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+  }
+
+  .mobile-menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
   main {
     padding-top: 80px;
   }
 
   @media (max-width: 768px) {
-    .navbar .nav-links {
-      display: none;
+    .mobile-menu-toggle {
+      display: flex;
     }
+
+    .navbar .nav-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: white;
+      flex-direction: column;
+      padding: 20px;
+      gap: 0;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .nav-links.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-item {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .nav-link {
+      width: 100%;
+      padding: 15px;
+      justify-content: space-between;
+    }
+
+    .dropdown-menu {
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      box-shadow: none;
+      padding: 0;
+      min-width: 100%;
+      display: none;
+      background: #f5f5f5;
+      border-radius: 0;
+    }
+
+    .nav-item.active .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      padding: 12px 20px;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 70px;
+      right: 20px;
+    }
+  }
+
+  [data-theme="dark"] .mobile-menu-toggle span {
+    background: #f5f5f7;
+  }
+
+  [data-theme="dark"] .navbar .nav-links {
+    background: #1c1c1e;
+  }
+
+  [data-theme="dark"] .dropdown-menu {
+    background: #2c2c2e;
   }
 </style>

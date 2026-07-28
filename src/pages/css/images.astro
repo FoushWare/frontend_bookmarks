@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ResourceGuide from '../../components/ResourceGuide.astro';
 ---
 
 <Layout title="Images - CSS">
@@ -8,6 +9,69 @@ import Layout from '../../layouts/Layout.astro';
       <h1>🖼️ Images</h1>
       <p>Master image styling and optimization</p>
     </div>
+
+    <ResourceGuide sections={[
+      {
+        title: 'Practice Projects',
+        icon: '🛠️',
+        links: [
+          {
+            title: 'Image Projects',
+            url: '/frontend_bookmarks/projects/images',
+            description: 'Interactive coding challenges to master image handling'
+          }
+        ]
+      },
+      {
+        title: 'Gaming Practice',
+        icon: '🎮',
+        links: [
+          {
+            title: 'Image Optimization Game',
+            url: 'https://squoosh.app',
+            description: 'Learn image optimization through interactive tool'
+          },
+          {
+            title: 'Image Sprite Generator',
+            url: 'https://spritegen.website-performance.org',
+            description: 'Learn CSS sprites through interactive generator'
+          }
+        ]
+      },
+      {
+        title: 'Examples & Demos',
+        icon: '📚',
+        links: [
+          {
+            title: 'CSS-Tricks Image Guide',
+            url: 'https://css-tricks.com/almanac/properties/o/object-fit',
+            description: 'Comprehensive guide to image properties'
+          },
+          {
+            title: 'Responsive Images',
+            url: 'https://ericportis.com/posts/2014/srcset-sizes',
+            description: 'Understanding responsive images'
+          }
+        ]
+      },
+      {
+        title: 'References',
+        icon: '📖',
+        links: [
+          {
+            title: 'MDN Image Documentation',
+            url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/image',
+            description: 'Official documentation on image properties'
+          },
+          {
+            title: 'Can I Use Object Fit',
+            url: 'https://caniuse.com/object-fit',
+            description: 'Browser compatibility information'
+          }
+        ]
+      }
+    ]} />
+
     <div class="content">
       <p>Images content will be migrated from the archive. The original files are available in the archive/CSS/Images folder.</p>
       <div class="links">

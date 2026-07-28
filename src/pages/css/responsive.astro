@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ResourceGuide from '../../components/ResourceGuide.astro';
 ---
 
 <Layout title="Responsive - CSS">
@@ -8,6 +9,69 @@ import Layout from '../../layouts/Layout.astro';
       <h1>📱 Responsive</h1>
       <p>Master responsive design and media queries</p>
     </div>
+
+    <ResourceGuide sections={[
+      {
+        title: 'Practice Projects',
+        icon: '🛠️',
+        links: [
+          {
+            title: 'Responsive Projects',
+            url: '/frontend_bookmarks/projects/responsive',
+            description: 'Interactive coding challenges to master responsive design'
+          }
+        ]
+      },
+      {
+        title: 'Gaming Practice',
+        icon: '🎮',
+        links: [
+          {
+            title: 'Flexbox Froggy',
+            url: 'https://flexboxfroggy.com',
+            description: 'Learn flexbox while helping a frog reach its lilypad'
+          },
+          {
+            title: 'CSS Grid Garden',
+            url: 'https://cssgridgarden.com',
+            description: 'Learn grid layout while growing a carrot garden'
+          }
+        ]
+      },
+      {
+        title: 'Examples & Demos',
+        icon: '📚',
+        links: [
+          {
+            title: 'Responsive Design Patterns',
+            url: 'https://bradfrost.github.io/this-is-responsive/patterns.html',
+            description: 'Collection of responsive design patterns'
+          },
+          {
+            title: 'Media Queries for Standard Devices',
+            url: 'https://css-tricks.com/snippets/css/media-queries-for-standard-devices',
+            description: 'Common media query breakpoints'
+          }
+        ]
+      },
+      {
+        title: 'References',
+        icon: '📖',
+        links: [
+          {
+            title: 'MDN Responsive Design',
+            url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design',
+            description: 'Official documentation on responsive design'
+          },
+          {
+            title: 'Can I Use Media Queries',
+            url: 'https://caniuse.com/css-mediaqueries',
+            description: 'Browser compatibility information'
+          }
+        ]
+      }
+    ]} />
+
     <div class="content">
       <p>Responsive content will be migrated from the archive. The original files are available in the archive/CSS/Responsive folder.</p>
       <div class="links">

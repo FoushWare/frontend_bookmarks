@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ResourceGuide from '../../components/ResourceGuide.astro';
 ---
 
 <Layout title="Grid - CSS">
@@ -8,6 +9,68 @@ import Layout from '../../layouts/Layout.astro';
       <h1>🔲 CSS Grid</h1>
       <p>Master CSS grid for two-dimensional layouts</p>
     </div>
+
+    <ResourceGuide sections={[
+      {
+        title: 'Practice Projects',
+        icon: '🛠️',
+        links: [
+          {
+            title: 'Grid Projects',
+            url: '/frontend_bookmarks/projects/grid',
+            description: 'Interactive coding challenges to master grid concepts'
+          }
+        ]
+      },
+      {
+        title: 'Gaming Practice',
+        icon: '🎮',
+        links: [
+          {
+            title: 'CSS Grid Garden',
+            url: 'https://cssgridgarden.com',
+            description: 'Learn grid layout while growing a carrot garden'
+          },
+          {
+            title: 'Grid Attack',
+            url: 'https://gridattack.mikeengel.io',
+            description: 'Learn CSS Grid through a space shooter game'
+          }
+        ]
+      },
+      {
+        title: 'Examples & Demos',
+        icon: '📚',
+        links: [
+          {
+            title: 'CSS-Tricks Grid Guide',
+            url: 'https://css-tricks.com/snippets/css/complete-guide-grid',
+            description: 'Comprehensive guide with visual examples'
+          },
+          {
+            title: 'Grid by Example',
+            url: 'https://gridbyexample.com',
+            description: 'Collection of grid layout examples and patterns'
+          }
+        ]
+      },
+      {
+        title: 'References',
+        icon: '📖',
+        links: [
+          {
+            title: 'MDN Grid Documentation',
+            url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout',
+            description: 'Official documentation with browser support'
+          },
+          {
+            title: 'Can I Use Grid',
+            url: 'https://caniuse.com/css-grid',
+            description: 'Browser compatibility information'
+          }
+        ]
+      }
+    ]} />
 
     <div class="markdown-content">
       <h1>CSS Grid Reference Guide</h1>

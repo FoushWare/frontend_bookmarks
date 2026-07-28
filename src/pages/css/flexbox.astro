@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ResourceGuide from '../../components/ResourceGuide.astro';
 ---
 
 <Layout title="Flexbox - CSS">
@@ -8,6 +9,68 @@ import Layout from '../../layouts/Layout.astro';
       <h1>📦 Flexbox</h1>
       <p>Master flexible box layout for one-dimensional layouts</p>
     </div>
+
+    <ResourceGuide sections={[
+      {
+        title: 'Practice Projects',
+        icon: '🛠️',
+        links: [
+          {
+            title: 'Flexbox Projects',
+            url: '/frontend_bookmarks/projects/flexbox',
+            description: 'Interactive coding challenges to master flexbox concepts'
+          }
+        ]
+      },
+      {
+        title: 'Gaming Practice',
+        icon: '🎮',
+        links: [
+          {
+            title: 'Flexbox Froggy',
+            url: 'https://flexboxfroggy.com',
+            description: 'Learn flexbox while helping a frog reach its lilypad'
+          },
+          {
+            title: 'Flexbox Defense',
+            url: 'http://flexboxdefense.com',
+            description: 'Learn flexbox by building a tower defense game'
+          }
+        ]
+      },
+      {
+        title: 'Examples & Demos',
+        icon: '📚',
+        links: [
+          {
+            title: 'CSS-Tricks Flexbox Guide',
+            url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox',
+            description: 'Comprehensive guide with visual examples'
+          },
+          {
+            title: 'Flexbox Patterns',
+            url: 'https://hugogiraudel.com/snippets/flexbox-patterns',
+            description: 'Common flexbox layout patterns'
+          }
+        ]
+      },
+      {
+        title: 'References',
+        icon: '📖',
+        links: [
+          {
+            title: 'MDN Flexbox Documentation',
+            url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout',
+            description: 'Official documentation with browser support'
+          },
+          {
+            title: 'Can I Use Flexbox',
+            url: 'https://caniuse.com/flexbox',
+            description: 'Browser compatibility information'
+          }
+        ]
+      }
+    ]} />
 
     <div class="markdown-content">
       <h1>Flexbox Reference Guide</h1>

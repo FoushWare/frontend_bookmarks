@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ResourceGuide from '../../components/ResourceGuide.astro';
 ---
 
 <Layout title="Spacing - CSS">
@@ -8,6 +9,69 @@ import Layout from '../../layouts/Layout.astro';
       <h1>📏 Spacing</h1>
       <p>Master padding, margin, and spacing techniques</p>
     </div>
+
+    <ResourceGuide sections={[
+      {
+        title: 'Practice Projects',
+        icon: '🛠️',
+        links: [
+          {
+            title: 'Spacing Projects',
+            url: '/frontend_bookmarks/projects/spacing',
+            description: 'Interactive coding challenges to master spacing'
+          }
+        ]
+      },
+      {
+        title: 'Gaming Practice',
+        icon: '🎮',
+        links: [
+          {
+            title: 'Flexbox Froggy',
+            url: 'https://flexboxfroggy.com',
+            description: 'Learn spacing through flexbox layout'
+          },
+          {
+            title: 'CSS Grid Garden',
+            url: 'https://cssgridgarden.com',
+            description: 'Learn spacing through grid layout'
+          }
+        ]
+      },
+      {
+        title: 'Examples & Demos',
+        icon: '📚',
+        links: [
+          {
+            title: 'CSS-Tricks Spacing Guide',
+            url: 'https://css-tricks.com/fun-hacks-margin-collapsing',
+            description: 'Understanding margin collapsing and spacing'
+          },
+          {
+            title: 'Modern CSS Spacing',
+            url: 'https://web.dev/learn/css/margin',
+            description: 'Modern spacing techniques'
+          }
+        ]
+      },
+      {
+        title: 'References',
+        icon: '📖',
+        links: [
+          {
+            title: 'MDN Spacing Documentation',
+            url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Margin_collapsing',
+            description: 'Official documentation on spacing'
+          },
+          {
+            title: 'Can I Use Gap',
+            url: 'https://caniuse.com/flexbox-gap',
+            description: 'Browser compatibility for gap property'
+          }
+        ]
+      }
+    ]} />
+
     <div class="content">
       <p>Spacing content will be migrated from the archive. The original files are available in the archive/CSS/Spacing folder.</p>
       <div class="links">

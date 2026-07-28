@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ResourceGuide from '../../components/ResourceGuide.astro';
 ---
 
 <Layout title="Background - CSS">
@@ -8,6 +9,69 @@ import Layout from '../../layouts/Layout.astro';
       <h1>🖼️ Background</h1>
       <p>Master background properties and techniques</p>
     </div>
+
+    <ResourceGuide sections={[
+      {
+        title: 'Practice Projects',
+        icon: '🛠️',
+        links: [
+          {
+            title: 'Background Projects',
+            url: '/frontend_bookmarks/projects/background',
+            description: 'Interactive coding challenges to master backgrounds'
+          }
+        ]
+      },
+      {
+        title: 'Gaming Practice',
+        icon: '🎮',
+        links: [
+          {
+            title: 'CSS Gradient Generator',
+            url: 'https://cssgradient.io',
+            description: 'Interactive tool to learn CSS gradients'
+          },
+          {
+            title: 'Pattern Generator',
+            url: 'https://bennettfeely.com/clippy',
+            description: 'Learn clip-path and background patterns'
+          }
+        ]
+      },
+      {
+        title: 'Examples & Demos',
+        icon: '📚',
+        links: [
+          {
+            title: 'CSS-Tricks Background Guide',
+            url: 'https://css-tricks.com/almanac/properties/b/background',
+            description: 'Comprehensive guide to background properties'
+          },
+          {
+            title: 'CSS Gradient Patterns',
+            url: 'https://lea.verou.me/css3patterns',
+            description: 'Collection of CSS gradient patterns'
+          }
+        ]
+      },
+      {
+        title: 'References',
+        icon: '📖',
+        links: [
+          {
+            title: 'MDN Background Documentation',
+            url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/background',
+            description: 'Official documentation on background properties'
+          },
+          {
+            title: 'Can I Use Background',
+            url: 'https://caniuse.com/background-img-opts',
+            description: 'Browser compatibility information'
+          }
+        ]
+      }
+    ]} />
+
     <div class="content">
       <p>Background content will be migrated from the archive. The original files are available in the archive/CSS/Background folder.</p>
       <div class="links">

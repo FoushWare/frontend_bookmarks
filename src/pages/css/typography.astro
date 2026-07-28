@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ResourceGuide from '../../components/ResourceGuide.astro';
 ---
 
 <Layout title="Typography - CSS">
@@ -8,6 +9,69 @@ import Layout from '../../layouts/Layout.astro';
       <h1>🔤 Typography</h1>
       <p>Master fonts, text styling, and typography</p>
     </div>
+
+    <ResourceGuide sections={[
+      {
+        title: 'Practice Projects',
+        icon: '🛠️',
+        links: [
+          {
+            title: 'Typography Projects',
+            url: '/frontend_bookmarks/projects/typography',
+            description: 'Interactive coding challenges to master typography'
+          }
+        ]
+      },
+      {
+        title: 'Gaming Practice',
+        icon: '🎮',
+        links: [
+          {
+            title: 'Type Method',
+            url: 'https://typemethod.com',
+            description: 'Learn typography through interactive exercises'
+          },
+          {
+            title: 'Kern Type',
+            url: 'http://kerntype.method.ac',
+            description: 'Learn kerning through a game'
+          }
+        ]
+      },
+      {
+        title: 'Examples & Demos',
+        icon: '📚',
+        links: [
+          {
+            title: 'CSS-Tricks Typography Guide',
+            url: 'https://css-tricks.com/complete-guide-to-typography',
+            description: 'Comprehensive guide to web typography'
+          },
+          {
+            title: 'Web Font Loader',
+            url: 'https://github.com/typekit/webfontloader',
+            description: 'Web font loading library and examples'
+          }
+        ]
+      },
+      {
+        title: 'References',
+        icon: '📖',
+        links: [
+          {
+            title: 'MDN Typography Documentation',
+            url: 'https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text',
+            description: 'Official documentation on text styling'
+          },
+          {
+            title: 'Google Fonts',
+            url: 'https://fonts.google.com',
+            description: 'Free web fonts library'
+          }
+        ]
+      }
+    ]} />
+
     <div class="content">
       <p>Typography content will be migrated from the archive. The original files are available in the archive/CSS/Typography folder.</p>
       <div class="links">

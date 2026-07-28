@@ -1,3 +1,9 @@
+// SVG icons for theme toggle
+const icons = {
+    moon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`,
+    sun: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`
+};
+
 function toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-theme');
@@ -5,61 +11,48 @@ function toggleTheme() {
     html.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
-    console.log('Theme toggled to:', newTheme);
 }
 
 function updateThemeIcon(theme) {
     const toggle = document.querySelector('.theme-toggle');
     if (toggle) {
-        toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-        console.log('Theme icon updated to:', toggle.textContent);
-    } else {
-        console.log('Theme toggle button not found for icon update');
+        toggle.innerHTML = theme === 'dark' ? icons.sun : icons.moon;
     }
 }
 
-// Initialize theme
+// Initialize theme immediately to prevent flash
 (function() {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = savedTheme || (prefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', theme);
-    updateThemeIcon(theme);
-    console.log('Theme initialized to:', theme);
+    
+    // Update icon after DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => updateThemeIcon(theme));
+    } else {
+        updateThemeIcon(theme);
+    }
 })();
 
-// Setup event listener with multiple fallbacks
-document.addEventListener('DOMContentLoaded', function() {
-    function setupThemeToggle() {
+// Setup event listener immediately
+const toggleBtn = document.querySelector('.theme-toggle');
+if (toggleBtn) {
+    toggleBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleTheme();
+    });
+} else {
+    // Fallback: wait for DOM if button not found immediately
+    document.addEventListener('DOMContentLoaded', function() {
         const toggleBtn = document.querySelector('.theme-toggle');
         if (toggleBtn) {
-            console.log('Theme toggle button found');
             toggleBtn.addEventListener('click', function(e) {
-                console.log('Theme toggle clicked');
                 e.preventDefault();
                 e.stopPropagation();
                 toggleTheme();
             });
-        } else {
-            console.log('Theme toggle button not found, retrying...');
-            // Retry after a short delay for React hydration
-            setTimeout(setupThemeToggle, 100);
         }
-    }
-    setupThemeToggle();
-});
-
-// Also try immediately in case DOM is already loaded
-setTimeout(function() {
-    const toggleBtn = document.querySelector('.theme-toggle');
-    if (toggleBtn && !toggleBtn.hasAttribute('data-theme-listener')) {
-        console.log('Setting up theme toggle immediately');
-        toggleBtn.setAttribute('data-theme-listener', 'true');
-        toggleBtn.addEventListener('click', function(e) {
-            console.log('Theme toggle clicked (immediate)');
-            e.preventDefault();
-            e.stopPropagation();
-            toggleTheme();
-        });
-    }
-}, 500);
+    });
+}

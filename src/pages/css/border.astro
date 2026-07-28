@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ResourceGuide from '../../components/ResourceGuide.astro';
 ---
 
 <Layout title="Border - CSS">
@@ -8,6 +9,69 @@ import Layout from '../../layouts/Layout.astro';
       <h1>🔲 Border</h1>
       <p>Master border properties and styling</p>
     </div>
+
+    <ResourceGuide sections={[
+      {
+        title: 'Practice Projects',
+        icon: '🛠️',
+        links: [
+          {
+            title: 'Border Projects',
+            url: '/frontend_bookmarks/projects/border',
+            description: 'Interactive coding challenges to master borders'
+          }
+        ]
+      },
+      {
+        title: 'Gaming Practice',
+        icon: '🎮',
+        links: [
+          {
+            title: 'CSS Gradient Generator',
+            url: 'https://cssgradient.io',
+            description: 'Learn border-radius with gradient tools'
+          },
+          {
+            title: 'Border Radius Generator',
+            url: 'https://border-radius.com',
+            description: 'Interactive border-radius generator'
+          }
+        ]
+      },
+      {
+        title: 'Examples & Demos',
+        icon: '📚',
+        links: [
+          {
+            title: 'CSS-Tricks Border Guide',
+            url: 'https://css-tricks.com/almanac/properties/b/border',
+            description: 'Comprehensive guide to border properties'
+          },
+          {
+            title: 'Border Radius Tricks',
+            url: 'https://css-tricks.com/snippets/css/border-radius',
+            description: 'Creative border-radius techniques'
+          }
+        ]
+      },
+      {
+        title: 'References',
+        icon: '📖',
+        links: [
+          {
+            title: 'MDN Border Documentation',
+            url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/border',
+            description: 'Official documentation on border properties'
+          },
+          {
+            title: 'Can I Use Border Radius',
+            url: 'https://caniuse.com/border-radius',
+            description: 'Browser compatibility information'
+          }
+        ]
+      }
+    ]} />
+
     <div class="content">
       <p>Border content will be migrated from the archive. The original files are available in the archive/CSS/Border folder.</p>
       <div class="links">

@@ -111,10 +111,11 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
         }
 
         .problem-statement {
-          background: #f5f5f5;
+          background: var(--bg-tertiary);
           padding: 20px;
           border-radius: 8px;
           margin-bottom: 20px;
+          border: 1px solid var(--border-color);
         }
 
         .statement-header {
@@ -126,7 +127,7 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
 
         .statement-header h2 {
           margin: 0;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .difficulty-badge {
@@ -152,34 +153,34 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
         }
 
         .instructions {
-          color: #666;
+          color: var(--text-secondary);
           line-height: 1.6;
           margin-bottom: 10px;
         }
 
         .expected-result {
-          color: #333;
+          color: var(--text-primary);
           line-height: 1.6;
         }
 
         .target-preview {
           margin-top: 20px;
           padding-top: 20px;
-          border-top: 1px solid #e0e0e0;
+          border-top: 1px solid var(--border-color);
         }
 
         .target-preview h4 {
           margin: 0 0 10px 0;
-          color: #333;
+          color: var(--text-primary);
           font-size: 1em;
         }
 
         .target-iframe {
           width: 100%;
           height: 200px;
-          border: 1px solid #e0e0e0;
+          border: 1px solid var(--border-color);
           border-radius: 6px;
-          background: white;
+          background: var(--bg-secondary);
         }
 
         .mode-toggle {
@@ -190,21 +191,23 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
 
         .mode-button {
           padding: 10px 20px;
-          background: #e0e0e0;
-          border: none;
+          background: var(--bg-tertiary);
+          border: 1px solid var(--border-color);
           border-radius: 6px;
           cursor: pointer;
           font-size: 1em;
           transition: background 0.3s;
+          color: var(--text-primary);
         }
 
         .mode-button.active {
-          background: #667eea;
+          background: var(--accent);
           color: white;
+          border-color: var(--accent);
         }
 
         .mode-button:hover:not(.active) {
-          background: #d0d0d0;
+          background: var(--bg-secondary);
         }
 
         .workspace-grid {
@@ -216,10 +219,11 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
 
         .editor-section,
         .preview-section {
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 8px;
           padding: 15px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: var(--shadow);
+          border: 1px solid var(--border-color);
         }
 
         .editor-header {
@@ -231,7 +235,7 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
 
         .editor-header h3 {
           margin: 0;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .editor-controls {
@@ -241,7 +245,7 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
 
         .editor-controls button {
           padding: 6px 12px;
-          background: #667eea;
+          background: var(--accent);
           color: white;
           border: none;
           border-radius: 4px;
@@ -251,27 +255,28 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
         }
 
         .editor-controls button:hover {
-          background: #5568d3;
+          background: var(--accent-hover);
         }
 
         .preview-section h3 {
           margin: 0 0 10px 0;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .preview-iframe {
           width: 100%;
           height: 400px;
-          border: 1px solid #e0e0e0;
+          border: 1px solid var(--border-color);
           border-radius: 4px;
-          background: white;
+          background: var(--bg-secondary);
         }
 
         .test-results {
-          background: #f5f5f5;
+          background: var(--bg-tertiary);
           padding: 20px;
           border-radius: 8px;
           margin-bottom: 20px;
+          border: 1px solid var(--border-color);
         }
 
         .test-header {
@@ -283,7 +288,7 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
 
         .test-header h3 {
           margin: 0;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .test-summary {
@@ -291,13 +296,15 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
           border-radius: 12px;
           font-size: 0.9em;
           font-weight: 600;
-          background: #e0e0e0;
-          color: #666;
+          background: var(--bg-secondary);
+          color: var(--text-secondary);
+          border: 1px solid var(--border-color);
         }
 
         .test-summary.passed {
           background: #4caf50;
           color: white;
+          border-color: #4caf50;
         }
 
         .success-banner {
@@ -320,8 +327,9 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
           display: flex;
           gap: 10px;
           padding: 10px;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 6px;
+          border: 1px solid var(--border-color);
         }
 
         .test-item.passed {
@@ -345,18 +353,19 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
         }
 
         .test-description {
-          color: #666;
+          color: var(--text-secondary);
         }
 
         .hints-section {
-          background: #fff3e0;
+          background: var(--bg-tertiary);
           padding: 20px;
           border-radius: 8px;
+          border: 1px solid var(--border-color);
         }
 
         .hints-section h3 {
           margin: 0 0 15px 0;
-          color: #333;
+          color: var(--text-primary);
         }
 
         .hints-list {
@@ -370,8 +379,9 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
           display: flex;
           gap: 10px;
           padding: 10px;
-          background: white;
+          background: var(--bg-secondary);
           border-radius: 6px;
+          border: 1px solid var(--border-color);
         }
 
         .hint-number {
@@ -380,7 +390,7 @@ export function ProjectWorkspace({ project }: ProjectWorkspaceProps) {
         }
 
         .hint-text {
-          color: #666;
+          color: var(--text-secondary);
           line-height: 1.6;
         }
 

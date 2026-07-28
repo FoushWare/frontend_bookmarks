@@ -1,5 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import ProjectGrid from '../../../components/ProjectGrid.astro';
+import { flexboxProjects } from '../../../data/flexbox-projects';
 ---
 
 <Layout title="Flexbox Projects">
@@ -9,92 +11,7 @@ import Layout from '../../../layouts/Layout.astro';
       <p>Interactive projects to master Flexbox properties one at a time</p>
     </div>
 
-    <div class="projects-grid">
-      <a href="/frontend_bookmarks/projects/flexbox/justify-content" class="project-card">
-        <div class="card-icon">↔️</div>
-        <h2>justify-content</h2>
-        <p>Learn horizontal alignment in flex containers</p>
-        <div class="card-meta">
-          <span class="difficulty beginner">Beginner</span>
-          <span class="time">10 min</span>
-        </div>
-      </a>
-
-      <a href="/frontend_bookmarks/projects/flexbox/align-items" class="project-card">
-        <div class="card-icon">↕️</div>
-        <h2>align-items</h2>
-        <p>Learn vertical alignment in flex containers</p>
-        <div class="card-meta">
-          <span class="difficulty beginner">Beginner</span>
-          <span class="time">10 min</span>
-        </div>
-      </a>
-
-      <a href="/frontend_bookmarks/projects/flexbox/flex-direction" class="project-card">
-        <div class="card-icon">🔄</div>
-        <h2>flex-direction</h2>
-        <p>Learn how to control the direction of flex items</p>
-        <div class="card-meta">
-          <span class="difficulty beginner">Beginner</span>
-          <span class="time">10 min</span>
-        </div>
-      </a>
-
-      <a href="/frontend_bookmarks/projects/flexbox/flex-wrap" class="project-card coming-soon">
-        <div class="card-icon">🔀</div>
-        <h2>flex-wrap</h2>
-        <p>Learn how to wrap flex items to multiple lines</p>
-        <div class="card-meta">
-          <span class="difficulty beginner">Beginner</span>
-          <span class="time">10 min</span>
-          <span class="status">Coming Soon</span>
-        </div>
-      </a>
-
-      <a href="/frontend_bookmarks/projects/flexbox/flex-grow" class="project-card coming-soon">
-        <div class="card-icon">📈</div>
-        <h2>flex-grow</h2>
-        <p>Learn how to make flex items grow to fill space</p>
-        <div class="card-meta">
-          <span class="difficulty intermediate">Intermediate</span>
-          <span class="time">15 min</span>
-          <span class="status">Coming Soon</span>
-        </div>
-      </a>
-
-      <a href="/frontend_bookmarks/projects/flexbox/flex-shrink" class="project-card coming-soon">
-        <div class="card-icon">📉</div>
-        <h2>flex-shrink</h2>
-        <p>Learn how to control flex item shrinking</p>
-        <div class="card-meta">
-          <span class="difficulty intermediate">Intermediate</span>
-          <span class="time">15 min</span>
-          <span class="status">Coming Soon</span>
-        </div>
-      </a>
-
-      <a href="/frontend_bookmarks/projects/flexbox/gap" class="project-card coming-soon">
-        <div class="card-icon">↔️</div>
-        <h2>gap</h2>
-        <p>Learn how to add spacing between flex items</p>
-        <div class="card-meta">
-          <span class="difficulty beginner">Beginner</span>
-          <span class="time">5 min</span>
-          <span class="status">Coming Soon</span>
-        </div>
-      </a>
-
-      <a href="/frontend_bookmarks/projects/flexbox/order" class="project-card coming-soon">
-        <div class="card-icon">🔢</div>
-        <h2>order</h2>
-        <p>Learn how to reorder flex items visually</p>
-        <div class="card-meta">
-          <span class="difficulty intermediate">Intermediate</span>
-          <span class="time">10 min</span>
-          <span class="status">Coming Soon</span>
-        </div>
-      </a>
-    </div>
+    <ProjectGrid projects={flexboxProjects} basePath="/frontend_bookmarks/projects/flexbox" />
 
     <div class="back-navigation">
       <a href="/frontend_bookmarks/projects" class="back-button">← Back to All Projects</a>
@@ -125,102 +42,6 @@ import Layout from '../../../layouts/Layout.astro';
     font-size: 1.1em;
   }
 
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin-bottom: 40px;
-  }
-
-  .project-card {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-  }
-
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    border-color: #667eea;
-  }
-
-  .project-card.coming-soon {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-
-  .project-card.coming-soon:hover {
-    transform: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-color: transparent;
-  }
-
-  .card-icon {
-    font-size: 3em;
-    margin-bottom: 15px;
-  }
-
-  .project-card h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #333;
-  }
-
-  .project-card p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .card-meta {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .difficulty {
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    font-weight: 600;
-  }
-
-  .difficulty.beginner {
-    background: #4caf50;
-    color: white;
-  }
-
-  .difficulty.intermediate {
-    background: #ff9800;
-    color: white;
-  }
-
-  .difficulty.advanced {
-    background: #f44336;
-    color: white;
-  }
-
-  .time {
-    padding: 4px 12px;
-    background: #f5f5f5;
-    color: #666;
-    border-radius: 12px;
-    font-size: 0.85em;
-  }
-
-  .status {
-    padding: 4px 12px;
-    background: #9e9e9e;
-    color: white;
-    border-radius: 12px;
-    font-size: 0.85em;
-  }
-
   .back-navigation {
     text-align: center;
   }
@@ -240,10 +61,6 @@ import Layout from '../../../layouts/Layout.astro';
   }
 
   @media (max-width: 768px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-
     .projects-header h1 {
       font-size: 2em;
     }

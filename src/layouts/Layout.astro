@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from '../components/ThemeToggle';
+import Logo from '../components/Logo';
 
 interface Props {
   title?: string;
@@ -22,7 +23,10 @@ const { title = 'Learning Hub' } = Astro.props;
   <body>
     <nav class="navbar">
       <div class="container">
-        <a href="/frontend_bookmarks/" class="logo">🚀 Learning Hub</a>
+        <a href="/frontend_bookmarks/" class="logo">
+          <Logo client:load />
+          <span>Learning Hub</span>
+        </a>
         <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="toggleMobileMenu()">
           <span></span>
           <span></span>
@@ -99,11 +103,12 @@ const { title = 'Learning Hub' } = Astro.props;
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--bg-primary, rgba(255, 255, 255, 0.98));
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     padding: 15px 0;
+    transition: background 0.3s;
   }
 
   .navbar .container {
@@ -118,12 +123,20 @@ const { title = 'Learning Hub' } = Astro.props;
   .navbar .logo {
     font-size: 1.5em;
     font-weight: bold;
-    color: #667eea;
+    color: var(--accent, #667eea);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 10px;
     white-space: nowrap;
+  }
+
+  .navbar .logo svg {
+    color: var(--accent, #667eea);
+  }
+
+  .navbar .logo span {
+    color: var(--text-primary, #333);
   }
 
   .navbar .nav-links {
@@ -139,7 +152,7 @@ const { title = 'Learning Hub' } = Astro.props;
 
   .nav-link {
     text-decoration: none;
-    color: #333;
+    color: var(--text-primary, #333);
     font-weight: 500;
     transition: color 0.3s;
     padding: 8px 16px;
@@ -150,8 +163,8 @@ const { title = 'Learning Hub' } = Astro.props;
   }
 
   .nav-link:hover {
-    color: #667eea;
-    background: #f0f0f0;
+    color: var(--accent, #667eea);
+    background: var(--bg-tertiary, #f0f0f0);
   }
 
   .nav-link::after {
@@ -164,7 +177,7 @@ const { title = 'Learning Hub' } = Astro.props;
     position: absolute;
     top: 100%;
     left: 0;
-    background: white;
+    background: var(--bg-primary, white);
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     padding: 8px 0;
@@ -191,21 +204,21 @@ const { title = 'Learning Hub' } = Astro.props;
     display: block;
     padding: 10px 20px;
     text-decoration: none;
-    color: #333;
+    color: var(--text-primary, #333);
     font-weight: 500;
     transition: all 0.2s;
     white-space: nowrap;
   }
 
   .dropdown-menu a:hover {
-    color: #667eea;
-    background: #f8f9fa;
+    color: var(--accent, #667eea);
+    background: var(--bg-tertiary, #f8f9fa);
     padding-left: 24px;
   }
 
   .theme-toggle {
-    background: var(--bg-tertiary, #f0f0f0);
-    border: 2px solid var(--border-color, #e0e0e0);
+    background: transparent;
+    border: none;
     border-radius: 50%;
     width: 44px;
     height: 44px;
@@ -213,22 +226,16 @@ const { title = 'Learning Hub' } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s;
+    transition: transform 0.3s;
     color: var(--text-primary);
   }
 
   .theme-toggle:hover {
-    border-color: var(--accent);
-    background: var(--accent);
-    color: white;
+    transform: scale(1.1);
   }
 
   .theme-toggle svg {
     transition: transform 0.3s ease;
-  }
-
-  .theme-toggle:hover svg {
-    transform: rotate(15deg) scale(1.1);
   }
 
   .mobile-menu-toggle {
@@ -247,7 +254,7 @@ const { title = 'Learning Hub' } = Astro.props;
   .mobile-menu-toggle span {
     width: 30px;
     height: 3px;
-    background: #333;
+    background: var(--text-primary, #333);
     border-radius: 3px;
     transition: all 0.3s ease;
   }
@@ -278,7 +285,7 @@ const { title = 'Learning Hub' } = Astro.props;
       top: 60px;
       left: 0;
       right: 0;
-      background: white;
+      background: var(--bg-primary, white);
       flex-direction: column;
       padding: 20px;
       gap: 0;
@@ -315,7 +322,7 @@ const { title = 'Learning Hub' } = Astro.props;
       padding: 0;
       min-width: 100%;
       display: none;
-      background: #f5f5f5;
+      background: var(--bg-tertiary, #f5f5f5);
       border-radius: 0;
     }
 
@@ -334,15 +341,4 @@ const { title = 'Learning Hub' } = Astro.props;
     }
   }
 
-  [data-theme="dark"] .mobile-menu-toggle span {
-    background: #f5f5f7;
-  }
-
-  [data-theme="dark"] .navbar .nav-links {
-    background: #1c1c1e;
-  }
-
-  [data-theme="dark"] .dropdown-menu {
-    background: #2c2c2e;
-  }
 </style>

@@ -26,7 +26,7 @@ const { title = 'Learning Hub' } = Astro.props;
       <div class="flex justify-between items-center px-5 max-w-[1400px] mx-auto">
         <a href="/frontend_bookmarks/" class="text-[1.4em] font-bold text-primary-600 no-underline flex items-center gap-3 whitespace-nowrap -tracking-[0.5px]">
           <Logo client:load />
-          <span class="bg-gradient-to-br from-primary-500 to-primary-700 bg-clip-text text-transparent">Learning Hub</span>
+          <span class="bg-gradient-to-br from-primary-500 to-primary-700 bg-clip-text text-transparent font-bold">Learning Hub</span>
         </a>
         <button class="md:hidden flex flex-col justify-around w-[30px] h-[25px] bg-transparent border-0 cursor-pointer p-0 z-[1002]" aria-label="Toggle menu" onclick="toggleMobileMenu()">
           <span class="w-[30px] h-[3px] bg-text-primary rounded-[3px] transition-all duration-300 origin-center"></span>
@@ -36,7 +36,7 @@ const { title = 'Learning Hub' } = Astro.props;
         <ul class="hidden md:flex gap-[30px] list-none items-center" id="nav-links">
           <li class="relative group">
             <a href="/frontend_bookmarks/html" class="no-underline text-text-primary font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-primary-600 hover:bg-bg-tertiary after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Fundamentals</a>
-            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-primary rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-secondary rounded-xl shadow-xl py-2 min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
               <li><a href="/frontend_bookmarks/html" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">HTML</a></li>
               <li><a href="/frontend_bookmarks/css" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">CSS</a></li>
               <li><a href="/frontend_bookmarks/javascript" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">JavaScript</a></li>
@@ -45,7 +45,7 @@ const { title = 'Learning Hub' } = Astro.props;
           </li>
           <li class="relative group">
             <a href="/frontend_bookmarks/questions" class="no-underline text-text-primary font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-primary-600 hover:bg-bg-tertiary after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Practice</a>
-            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-primary rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-secondary rounded-xl shadow-xl py-2 min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
               <li><a href="/frontend_bookmarks/questions" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Questions</a></li>
               <li><a href="/frontend_bookmarks/challenges" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Challenges</a></li>
               <li><a href="/frontend_bookmarks/projects" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Projects</a></li>
@@ -53,7 +53,7 @@ const { title = 'Learning Hub' } = Astro.props;
           </li>
           <li class="relative group">
             <a href="/frontend_bookmarks/frontend-mentor" class="no-underline text-text-primary font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-primary-600 hover:bg-bg-tertiary after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Resources</a>
-            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-primary rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-secondary rounded-xl shadow-xl py-2 min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
               <li><a href="/frontend_bookmarks/frontend-mentor" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Frontend Mentor</a></li>
               <li><a href="/frontend_bookmarks/senior-interview" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Senior Interview</a></li>
             </ul>
@@ -62,7 +62,7 @@ const { title = 'Learning Hub' } = Astro.props;
         <ul class="md:hidden fixed top-[60px] left-0 right-0 bg-bg-primary flex-col p-5 gap-0 -translate-y-full opacity-0 invisible transition-all duration-300 shadow-lg list-none" id="nav-links-mobile">
           <li class="relative group">
             <a href="/frontend_bookmarks/html" class="no-underline text-text-primary font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-primary-600 hover:bg-bg-tertiary after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Fundamentals</a>
-            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-primary rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-secondary rounded-xl shadow-xl py-2 min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
               <li><a href="/frontend_bookmarks/html" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">HTML</a></li>
               <li><a href="/frontend_bookmarks/css" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">CSS</a></li>
               <li><a href="/frontend_bookmarks/javascript" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">JavaScript</a></li>
@@ -71,7 +71,7 @@ const { title = 'Learning Hub' } = Astro.props;
           </li>
           <li class="relative group">
             <a href="/frontend_bookmarks/questions" class="no-underline text-text-primary font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-primary-600 hover:bg-bg-tertiary after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Practice</a>
-            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-primary rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-secondary rounded-xl shadow-xl py-2 min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
               <li><a href="/frontend_bookmarks/questions" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Questions</a></li>
               <li><a href="/frontend_bookmarks/challenges" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Challenges</a></li>
               <li><a href="/frontend_bookmarks/projects" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Projects</a></li>
@@ -79,7 +79,7 @@ const { title = 'Learning Hub' } = Astro.props;
           </li>
           <li class="relative group">
             <a href="/frontend_bookmarks/frontend-mentor" class="no-underline text-text-primary font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-primary-600 hover:bg-bg-tertiary after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Resources</a>
-            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-primary rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-bg-secondary rounded-xl shadow-xl py-2 min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-border group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
               <li><a href="/frontend_bookmarks/frontend-mentor" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Frontend Mentor</a></li>
               <li><a href="/frontend_bookmarks/senior-interview" class="block px-[18px] py-[10px] no-underline text-text-primary font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-primary-600 hover:bg-bg-tertiary hover:pl-[22px]">Senior Interview</a></li>
             </ul>

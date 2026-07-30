@@ -40,6 +40,9 @@ import JavascriptQuestions from './pages/questions/Javascript'
 import PatternsQuestions from './pages/questions/Patterns'
 import Performance from './pages/questions/Performance'
 import ReactQuestions from './pages/questions/React'
+// Projects subpages
+import FlexboxIndex from './pages/projects/FlexboxIndex'
+import GridIndex from './pages/projects/GridIndex'
 
 function App() {
   return (
@@ -81,6 +84,8 @@ function App() {
           <Route path="/questions/react" element={<ReactQuestions />} />
           <Route path="/challenges" element={<Challenges />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/flexbox" element={<FlexboxIndex />} />
+          <Route path="/projects/grid" element={<GridIndex />} />
           <Route path="/frontend-mentor" element={<FrontendMentor />} />
           <Route path="/senior-interview" element={<Questions />} />
         </Routes>

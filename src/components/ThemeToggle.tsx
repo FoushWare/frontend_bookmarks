@@ -46,7 +46,7 @@ export function ThemeToggle() {
   return (
     <div className="theme-toggle-pill" role="radiogroup" aria-label="Theme preference">
       {options.map((opt) => (
-        <div
+        <button
           key={opt}
           role="radio"
           tabIndex={0}
@@ -57,7 +57,7 @@ export function ThemeToggle() {
           onKeyDown={(e) => mounted && handleKeyDown(e, opt)}
         >
           {icons[opt]}
-        </div>
+        </button>
       ))}
     </div>
   );

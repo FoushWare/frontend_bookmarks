@@ -34,40 +34,30 @@ const options: ThemePref[] = ['light', 'dark', 'system'];
 
 export function ThemeToggle() {
   const { pref, mounted, setThemePref } = useThemePreference();
+  const activePref = mounted ? pref : 'system';
 
-  if (!mounted) {
-    return (
-      <div className="theme-toggle-pill" role="radiogroup" aria-label="Theme preference">
-        {options.map((opt) => (
-          <button
-            key={opt}
-            type="button"
-            role="radio"
-            aria-checked={opt === 'system'}
-            aria-label={opt}
-            className={`theme-toggle-btn${opt === 'system' ? ' active' : ''}`}
-          >
-            {icons[opt]}
-          </button>
-        ))}
-      </div>
-    );
-  }
+  const handleKeyDown = (e: React.KeyboardEvent, opt: ThemePref) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setThemePref(opt);
+    }
+  };
 
   return (
     <div className="theme-toggle-pill" role="radiogroup" aria-label="Theme preference">
       {options.map((opt) => (
-        <button
+        <div
           key={opt}
-          type="button"
           role="radio"
-          aria-checked={pref === opt}
+          tabIndex={0}
+          aria-checked={activePref === opt}
           aria-label={opt}
-          className={`theme-toggle-btn${pref === opt ? ' active' : ''}`}
-          onClick={() => setThemePref(opt)}
+          className={`theme-toggle-btn${activePref === opt ? ' active' : ''}`}
+          onClick={() => mounted && setThemePref(opt)}
+          onKeyDown={(e) => mounted && handleKeyDown(e, opt)}
         >
           {icons[opt]}
-        </button>
+        </div>
       ))}
     </div>
   );

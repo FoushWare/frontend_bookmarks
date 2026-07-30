@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export function MobileMenuToggle() {
   const [isOpen, setIsOpen] = useState(false);

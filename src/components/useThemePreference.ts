@@ -15,7 +15,7 @@ export function useThemePreference() {
   useEffect(() => {
     setMounted(true);
     const saved = localStorage.getItem('theme') as ThemePref | null;
-    const initialPref = saved || 'system';
+    const initialPref = saved ?? 'system';
     const initialResolved = initialPref === 'system' ? resolveSystemTheme() : initialPref;
     setPref(initialPref);
     setResolved(initialResolved);

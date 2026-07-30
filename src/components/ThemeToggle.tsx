@@ -35,7 +35,24 @@ const options: ThemePref[] = ['light', 'dark', 'system'];
 export function ThemeToggle() {
   const { pref, mounted, setThemePref } = useThemePreference();
 
-  if (!mounted) return null;
+  if (!mounted) {
+    return (
+      <div className="theme-toggle-pill" role="radiogroup" aria-label="Theme preference">
+        {options.map((opt) => (
+          <button
+            key={opt}
+            type="button"
+            role="radio"
+            aria-checked={opt === 'system'}
+            aria-label={opt}
+            className={`theme-toggle-btn${opt === 'system' ? ' active' : ''}`}
+          >
+            {icons[opt]}
+          </button>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="theme-toggle-pill" role="radiogroup" aria-label="Theme preference">

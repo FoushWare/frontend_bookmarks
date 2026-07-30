@@ -19,6 +19,8 @@
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --surface-2: #f0f0f0;
+    --surface-3: #e0e0e0;
 }
 
 [data-theme="dark"] {
@@ -40,6 +42,8 @@
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
     --gradient-tertiary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --surface-2: #1c1c1e;
+    --surface-3: #2c2c2e;
 }
 
 body {

@@ -23,6 +23,7 @@ export default {
         'border': 'var(--border)',
         'text-primary': 'var(--text-primary)',
         'text-secondary': 'var(--text-secondary)',
+        'primary': 'var(--primary)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

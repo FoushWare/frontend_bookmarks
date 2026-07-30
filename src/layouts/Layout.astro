@@ -232,27 +232,35 @@ const { title = 'Learning Hub' } = Astro.props;
     padding-left: 22px;
   }
 
-  .theme-toggle {
-    background: transparent;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
+  .theme-toggle-pill {
+    display: inline-flex;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    background: var(--bg-tertiary, #f0f0f0);
+  }
+
+  .theme-toggle-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
-    color: var(--text-primary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: var(--text-secondary, #8a8a92);
+    transition: background 0.15s ease, color 0.15s ease;
   }
 
-  .theme-toggle:hover {
-    transform: scale(1.05);
+  .theme-toggle-btn.active {
+    background: var(--bg-primary, white);
+    color: var(--text-primary, #333);
+  }
+
+  .theme-toggle-btn:hover {
     color: var(--accent, #667eea);
-  }
-
-  .theme-toggle svg {
-    transition: transform 0.2s ease;
   }
 
   .mobile-menu-toggle {

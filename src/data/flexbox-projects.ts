@@ -402,5 +402,346 @@ export const flexboxProjects: Project[] = [
   <div class="w-25 h-25 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold">Box 3</div>
 </div>`
     }
+  },
+  {
+    id: 'flex-wrap',
+    title: 'flex-wrap',
+    difficulty: 'beginner',
+    instructions: 'Use flex-wrap to allow flex items to wrap to multiple lines when they exceed the container width.',
+    expectedResult: 'Six boxes that wrap to multiple lines when the container is too narrow.',
+    hints: [
+      'Use flex-wrap: wrap to allow items to wrap.',
+      'The default value is nowrap (items stay on one line).',
+      'You can also use wrap-reverse to reverse the wrapping order.'
+    ],
+    tests: [
+      {
+        id: 'flex-display',
+        description: 'Container has display: flex',
+        check: (doc) => {
+          const container = doc.querySelector('.container');
+          if (!container) return false;
+          const styles = window.getComputedStyle(container);
+          return styles.display === 'flex';
+        }
+      },
+      {
+        id: 'wrap-enabled',
+        description: 'Items can wrap',
+        check: (doc) => {
+          const container = doc.querySelector('.container');
+          if (!container) return false;
+          const styles = window.getComputedStyle(container);
+          return styles.flexWrap === 'wrap';
+        }
+      },
+      {
+        id: 'six-items',
+        description: 'Six boxes are present',
+        check: (doc) => {
+          const boxes = doc.querySelectorAll('.box');
+          return boxes.length === 6;
+        }
+      }
+    ],
+    css: {
+      starterHtml: `<div class="container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+  <div class="box">Box 4</div>
+  <div class="box">Box 5</div>
+  <div class="box">Box 6</div>
+</div>`,
+      starterCode: `.container {
+  display: flex;
+  width: 300px;
+  /* Add flex-wrap here */
+}
+
+.box {
+  width: 100px;
+  height: 50px;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}`,
+      solutionCode: `.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.box {
+  width: 100px;
+  height: 50px;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+}`
+    },
+    tailwind: {
+      starterHtml: `<div class="container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+  <div class="box">Box 4</div>
+  <div class="box">Box 5</div>
+  <div class="box">Box 6</div>
+</div>`,
+      starterCode: `<div class="container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+  <div class="box">Box 4</div>
+  <div class="box">Box 5</div>
+  <div class="box">Box 6</div>
+</div>`,
+      solutionCode: `<div class="flex flex-wrap w-75 p-5 bg-gray-100 rounded-lg">
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 1</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 2</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 3</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 4</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 5</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 6</div>
+</div>`
+    }
+  },
+  {
+    id: 'align-content',
+    title: 'align-content',
+    difficulty: 'intermediate',
+    instructions: 'Use align-content to distribute space between flex lines when items wrap to multiple lines.',
+    expectedResult: 'Six boxes in multiple lines with space evenly distributed between the lines.',
+    hints: [
+      'Use align-content: space-between to distribute space between lines.',
+      'This property only works when flex-wrap is enabled.',
+      'It controls the spacing between flex lines, not individual items.'
+    ],
+    tests: [
+      {
+        id: 'flex-display',
+        description: 'Container has display: flex',
+        check: (doc) => {
+          const container = doc.querySelector('.container');
+          if (!container) return false;
+          const styles = window.getComputedStyle(container);
+          return styles.display === 'flex';
+        }
+      },
+      {
+        id: 'wrap-enabled',
+        description: 'Items can wrap',
+        check: (doc) => {
+          const container = doc.querySelector('.container');
+          if (!container) return false;
+          const styles = window.getComputedStyle(container);
+          return styles.flexWrap === 'wrap';
+        }
+      },
+      {
+        id: 'align-content',
+        description: 'Lines have space-between',
+        check: (doc) => {
+          const container = doc.querySelector('.container');
+          if (!container) return false;
+          const styles = window.getComputedStyle(container);
+          return styles.alignContent === 'space-between';
+        }
+      }
+    ],
+    css: {
+      starterHtml: `<div class="container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+  <div class="box">Box 4</div>
+  <div class="box">Box 5</div>
+  <div class="box">Box 6</div>
+</div>`,
+      starterCode: `.container {
+  display: flex;
+  flex-wrap: wrap;
+  height: 300px;
+  /* Add align-content here */
+}
+
+.box {
+  width: 100px;
+  height: 50px;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}`,
+      solutionCode: `.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  height: 300px;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.box {
+  width: 100px;
+  height: 50px;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+}`
+    },
+    tailwind: {
+      starterHtml: `<div class="container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+  <div class="box">Box 4</div>
+  <div class="box">Box 5</div>
+  <div class="box">Box 6</div>
+</div>`,
+      starterCode: `<div class="container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+  <div class="box">Box 4</div>
+  <div class="box">Box 5</div>
+  <div class="box">Box 6</div>
+</div>`,
+      solutionCode: `<div class="flex flex-wrap content-between h-75 p-5 bg-gray-100 rounded-lg">
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 1</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 2</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 3</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 4</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 5</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 6</div>
+</div>`
+    }
+  },
+  {
+    id: 'flex-grow',
+    title: 'flex-grow',
+    difficulty: 'intermediate',
+    instructions: 'Use flex-grow to make a flex item grow to fill available space. Make the second box grow to fill the remaining space.',
+    expectedResult: 'Three boxes where the second box takes up all available space between the first and third boxes.',
+    hints: [
+      'Use flex-grow: 1 on the second box to make it grow.',
+      'The default value is 0 (no growth).',
+      'Multiple items can grow; they share available space proportionally.'
+    ],
+    tests: [
+      {
+        id: 'flex-display',
+        description: 'Container has display: flex',
+        check: (doc) => {
+          const container = doc.querySelector('.container');
+          if (!container) return false;
+          const styles = window.getComputedStyle(container);
+          return styles.display === 'flex';
+        }
+      },
+      {
+        id: 'grow-enabled',
+        description: 'Second box has flex-grow',
+        check: (doc) => {
+          const box2 = doc.querySelector('.box2');
+          if (!box2) return false;
+          const styles = window.getComputedStyle(box2);
+          return styles.flexGrow === '1';
+        }
+      },
+      {
+        id: 'three-items',
+        description: 'Three boxes are present',
+        check: (doc) => {
+          const boxes = doc.querySelectorAll('.box');
+          return boxes.length === 3;
+        }
+      }
+    ],
+    css: {
+      starterHtml: `<div class="container">
+  <div class="box box1">Box 1</div>
+  <div class="box box2">Box 2</div>
+  <div class="box box3">Box 3</div>
+</div>`,
+      starterCode: `.container {
+  display: flex;
+}
+
+.box {
+  width: 100px;
+  height: 50px;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.box2 {
+  /* Add flex-grow here */
+}`,
+      solutionCode: `.container {
+  display: flex;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.box {
+  width: 100px;
+  height: 50px;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.box2 {
+  flex-grow: 1;
+}`
+    },
+    tailwind: {
+      starterHtml: `<div class="container">
+  <div class="box box1">Box 1</div>
+  <div class="box box2">Box 2</div>
+  <div class="box box3">Box 3</div>
+</div>`,
+      starterCode: `<div class="container">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+</div>`,
+      solutionCode: `<div class="flex p-5 bg-gray-100 rounded-lg">
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 1</div>
+  <div class="flex-1 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 2</div>
+  <div class="w-25 h-12 bg-indigo-500 text-white flex items-center justify-center rounded-lg font-bold m-1">Box 3</div>
+</div>`
+    }
   }
 ];

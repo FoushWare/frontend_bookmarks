@@ -12,7 +12,19 @@ export default defineConfig({
     server: {
       watch: {
         usePolling: true,
+        interval: 50,
+        ignored: ['**/node_modules/**', '**/.git/**', '**/dist/**'],
       },
+      hmr: {
+        overlay: true,
+        clientPort: 4321,
+      },
+    },
+    build: {
+      emptyOutDir: true,
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom'],
     },
   },
 });

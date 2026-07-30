@@ -44,7 +44,7 @@ export function ThemeToggle() {
   };
 
   return (
-    <div className="inline-flex gap-[10px] p-[6px] rounded-[999px] bg-[var(--surface-2,#17171b)] border border-[var(--border,#2c2c33)]" role="radiogroup" aria-label="Theme preference">
+    <div className="inline-flex gap-[10px] p-[6px] rounded-[999px] bg-surface-2 border border-border" role="radiogroup" aria-label="Theme preference">
       {options.map((opt) => (
         <button
           key={opt}
@@ -52,7 +52,7 @@ export function ThemeToggle() {
           tabIndex={0}
           aria-checked={activePref === opt}
           aria-label={opt}
-          className={`flex items-center justify-center w-9 h-9 rounded-full cursor-pointer text-[var(--text-secondary,#8a8a92)] transition-all duration-150 ${activePref === opt ? 'bg-[var(--surface-3,#2a2a30)] text-[var(--text-primary,#f2f2f5)]' : ''} focus-visible:outline-2 focus-visible:outline-[var(--text-primary,#f2f2f5)] focus-visible:outline-offset-2`}
+          className={`flex items-center justify-center w-9 h-9 rounded-full cursor-pointer text-text-secondary transition-all duration-150 ${activePref === opt ? 'bg-surface-3 text-text-primary' : ''} focus-visible:outline-2 focus-visible:outline-text-primary focus-visible:outline-offset-2`}
           onClick={() => mounted && setThemePref(opt)}
           onKeyDown={(e) => mounted && handleKeyDown(e, opt)}
         >

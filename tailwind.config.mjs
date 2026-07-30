@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  darkMode: 'class',
+  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        // Teal primary color palette
         primary: {
           50: '#f0fdfa',
           100: '#ccfbf1',
@@ -17,41 +17,15 @@ export default {
           800: '#115e59',
           900: '#134e4a',
         },
-        // Surface colors for light/dark themes
-        surface: {
-          light: '#ffffff',
-          DEFAULT: '#f8fafc',
-          dark: '#0f172a',
-          'dark-card': '#1e293b',
-        },
-        // Theme colors using CSS variables
-        bg: {
-          primary: 'var(--bg-primary)',
-          secondary: 'var(--bg-secondary)',
-          tertiary: 'var(--bg-tertiary)',
-        },
-        text: {
-          primary: 'var(--text-primary)',
-          secondary: 'var(--text-secondary)',
-          tertiary: 'var(--text-tertiary)',
-        },
-        border: 'var(--border-color)',
-        accent: 'var(--accent)',
-        'accent-hover': 'var(--accent-hover)',
-        surface: {
-          2: 'var(--surface-2)',
-          3: 'var(--surface-3)',
-        },
-        code: {
-          bg: 'var(--code-bg)',
-          text: 'var(--code-text)',
-        },
+        'bg-primary': 'var(--bg-primary)',
+        'surface': 'var(--surface)',
+        'surface-2': 'var(--surface-2)',
+        'border': 'var(--border)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
-      },
-      spacing: {
-        '18': '4.5rem',
       },
     },
   },

@@ -49,7 +49,7 @@ export function NavLinks({ isMobile = false }: NavLinksProps) {
   return (
     <ul className={baseClasses} id={isMobile ? 'nav-links-mobile' : 'nav-links'}>
       {navSections.map((section) => (
-        <NavDropdown key={section.title} title={section.title} items={section.items} />
+        <NavDropdown key={section.title} title={section.title} items={section.items} isMobile={isMobile} />
       ))}
     </ul>
   );

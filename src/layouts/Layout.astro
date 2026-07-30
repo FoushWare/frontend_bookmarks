@@ -1,6 +1,7 @@
 ---
 import ThemeToggle from '../components/ThemeToggle';
 import Logo from '../components/Logo';
+import '../styles.css';
 
 interface Props {
   title?: string;
@@ -20,41 +21,67 @@ const { title = 'Learning Hub' } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <nav class="navbar">
-      <div class="container">
-        <a href="/frontend_bookmarks/" class="logo">
+  <body class="bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 font-['Inter',sans-serif] text-base leading-relaxed antialiased">
+    <nav class="fixed top-0 left-0 right-0 bg-[var(--bg-primary)]/95 backdrop-blur-md shadow-sm z-50 py-3 transition-all duration-300">
+      <div class="flex justify-between items-center px-5 max-w-[1400px] mx-auto">
+        <a href="/frontend_bookmarks/" class="text-[1.4em] font-bold text-[var(--accent)] no-underline flex items-center gap-3 whitespace-nowrap -tracking-[0.5px]">
           <Logo client:load />
-          <span>Learning Hub</span>
+          <span class="bg-gradient-to-br from-[var(--accent)] to-[#764ba2] bg-clip-text text-transparent">Learning Hub</span>
         </a>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="md:hidden flex flex-col justify-around w-[30px] h-[25px] bg-transparent border-0 cursor-pointer p-0 z-[1002]" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <span class="w-[30px] h-[3px] bg-[var(--text-primary)] rounded-[3px] transition-all duration-300 origin-center"></span>
+          <span class="w-[30px] h-[3px] bg-[var(--text-primary)] rounded-[3px] transition-all duration-300 origin-center"></span>
+          <span class="w-[30px] h-[3px] bg-[var(--text-primary)] rounded-[3px] transition-all duration-300 origin-center"></span>
         </button>
-        <ul class="nav-links">
-          <li class="nav-item dropdown">
-            <a href="/frontend_bookmarks/html" class="nav-link">Fundamentals</a>
-            <ul class="dropdown-menu">
-              <li><a href="/frontend_bookmarks/html">HTML</a></li>
-              <li><a href="/frontend_bookmarks/css">CSS</a></li>
-              <li><a href="/frontend_bookmarks/javascript">JavaScript</a></li>
-              <li><a href="/frontend_bookmarks/patterns">Patterns</a></li>
+        <ul class="hidden md:flex gap-[30px] list-none items-center" id="nav-links">
+          <li class="relative group">
+            <a href="/frontend_bookmarks/html" class="no-underline text-[var(--text-primary)] font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Fundamentals</a>
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-[var(--bg-primary)] rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-[var(--border-color)] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+              <li><a href="/frontend_bookmarks/html" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">HTML</a></li>
+              <li><a href="/frontend_bookmarks/css" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">CSS</a></li>
+              <li><a href="/frontend_bookmarks/javascript" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">JavaScript</a></li>
+              <li><a href="/frontend_bookmarks/patterns" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Patterns</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a href="/frontend_bookmarks/questions" class="nav-link">Practice</a>
-            <ul class="dropdown-menu">
-              <li><a href="/frontend_bookmarks/questions">Questions</a></li>
-              <li><a href="/frontend_bookmarks/challenges">Challenges</a></li>
-              <li><a href="/frontend_bookmarks/projects">Projects</a></li>
+          <li class="relative group">
+            <a href="/frontend_bookmarks/questions" class="no-underline text-[var(--text-primary)] font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Practice</a>
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-[var(--bg-primary)] rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-[var(--border-color)] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+              <li><a href="/frontend_bookmarks/questions" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Questions</a></li>
+              <li><a href="/frontend_bookmarks/challenges" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Challenges</a></li>
+              <li><a href="/frontend_bookmarks/projects" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Projects</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a href="/frontend_bookmarks/frontend-mentor" class="nav-link">Resources</a>
-            <ul class="dropdown-menu">
-              <li><a href="/frontend_bookmarks/frontend-mentor">Frontend Mentor</a></li>
-              <li><a href="/frontend_bookmarks/senior-interview">Senior Interview</a></li>
+          <li class="relative group">
+            <a href="/frontend_bookmarks/frontend-mentor" class="no-underline text-[var(--text-primary)] font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Resources</a>
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-[var(--bg-primary)] rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-[var(--border-color)] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+              <li><a href="/frontend_bookmarks/frontend-mentor" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Frontend Mentor</a></li>
+              <li><a href="/frontend_bookmarks/senior-interview" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Senior Interview</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="md:hidden fixed top-[60px] left-0 right-0 bg-[var(--bg-primary)] flex-col p-5 gap-0 -translate-y-full opacity-0 invisible transition-all duration-300 shadow-lg list-none" id="nav-links-mobile">
+          <li class="relative group">
+            <a href="/frontend_bookmarks/html" class="no-underline text-[var(--text-primary)] font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Fundamentals</a>
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-[var(--bg-primary)] rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-[var(--border-color)] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+              <li><a href="/frontend_bookmarks/html" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">HTML</a></li>
+              <li><a href="/frontend_bookmarks/css" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">CSS</a></li>
+              <li><a href="/frontend_bookmarks/javascript" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">JavaScript</a></li>
+              <li><a href="/frontend_bookmarks/patterns" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Patterns</a></li>
+            </ul>
+          </li>
+          <li class="relative group">
+            <a href="/frontend_bookmarks/questions" class="no-underline text-[var(--text-primary)] font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Practice</a>
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-[var(--bg-primary)] rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-[var(--border-color)] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+              <li><a href="/frontend_bookmarks/questions" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Questions</a></li>
+              <li><a href="/frontend_bookmarks/challenges" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Challenges</a></li>
+              <li><a href="/frontend_bookmarks/projects" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Projects</a></li>
+            </ul>
+          </li>
+          <li class="relative group">
+            <a href="/frontend_bookmarks/frontend-mentor" class="no-underline text-[var(--text-primary)] font-medium transition-all duration-200 px-[14px] py-2 rounded-lg flex items-center gap-1 relative hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] after:content-['▼'] after:text-[0.65em] after:ml-[6px] after:opacity-50 after:transition-transform after:duration-200 group-hover:after:rotate-180 group-hover:after:opacity-100">Resources</a>
+            <ul class="absolute top-[calc(100%+8px)] left-0 bg-[var(--bg-primary)] rounded-xl shadow-lg py-[6px] min-w-[180px] opacity-0 invisible -translate-y-2 transition-all duration-250 ease list-none z-[1001] border border-[var(--border-color)] group-hover:opacity-100 group-hover:visible group-hover:translate-y-0">
+              <li><a href="/frontend_bookmarks/frontend-mentor" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Frontend Mentor</a></li>
+              <li><a href="/frontend_bookmarks/senior-interview" class="block px-[18px] py-[10px] no-underline text-[var(--text-primary)] font-medium transition-all duration-200 whitespace-nowrap text-[0.95em] hover:text-[var(--accent)] hover:bg-[var(--bg-tertiary)] hover:pl-[22px]">Senior Interview</a></li>
             </ul>
           </li>
         </ul>
@@ -62,308 +89,21 @@ const { title = 'Learning Hub' } = Astro.props;
       </div>
     </nav>
 
-    <main>
+    <main class="pt-20">
       <slot />
     </main>
 
     <script is:inline>
       function toggleMobileMenu() {
-        const navLinks = document.querySelector('.nav-links');
+        const navLinks = document.getElementById('nav-links-mobile');
         const menuToggle = document.querySelector('.mobile-menu-toggle');
-        navLinks.classList.toggle('active');
+        navLinks.classList.toggle('translate-y-0');
+        navLinks.classList.toggle('opacity-100');
+        navLinks.classList.toggle('visible');
+        navLinks.classList.toggle('-translate-y-full');
+        navLinks.classList.toggle('opacity-0');
         menuToggle.classList.toggle('active');
       }
-
-      // Handle dropdown clicks on mobile
-      document.addEventListener('DOMContentLoaded', function() {
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-          const link = item.querySelector('.nav-link');
-          link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-              e.preventDefault();
-              item.classList.toggle('active');
-            }
-          });
-        });
-      });
     </script>
   </body>
 </html>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: var(--bg-primary, rgba(255, 255, 255, 0.95));
-    backdrop-filter: blur(12px);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-    z-index: 1000;
-    padding: 12px 0;
-    transition: background 0.3s, box-shadow 0.3s;
-  }
-
-  .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .navbar .logo {
-    font-size: 1.4em;
-    font-weight: 700;
-    color: var(--accent, #667eea);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    white-space: nowrap;
-    letter-spacing: -0.5px;
-  }
-
-  .navbar .logo svg {
-    color: var(--accent, #667eea);
-    flex-shrink: 0;
-  }
-
-  .navbar .logo span {
-    color: var(--text-primary, #333);
-    background: linear-gradient(135deg, var(--accent, #667eea) 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .navbar .nav-links {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    align-items: center;
-  }
-
-  .nav-item {
-    position: relative;
-  }
-
-  .nav-link {
-    text-decoration: none;
-    color: var(--text-primary, #333);
-    font-weight: 500;
-    transition: all 0.2s;
-    padding: 8px 14px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    position: relative;
-  }
-
-  .nav-link:hover {
-    color: var(--accent, #667eea);
-    background: var(--bg-tertiary, #f0f0f0);
-  }
-
-  .nav-link::after {
-    content: '▼';
-    font-size: 0.65em;
-    margin-left: 6px;
-    opacity: 0.5;
-    transition: transform 0.2s;
-  }
-
-  .nav-item:hover .nav-link::after {
-    transform: rotate(180deg);
-    opacity: 1;
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    background: var(--bg-primary, white);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-    padding: 6px 0;
-    min-width: 180px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
-    transition: all 0.25s ease;
-    list-style: none;
-    z-index: 1001;
-    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
-  }
-
-  .nav-item:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  .dropdown-menu li {
-    margin: 0;
-  }
-
-  .dropdown-menu a {
-    display: block;
-    padding: 10px 18px;
-    text-decoration: none;
-    color: var(--text-primary, #333);
-    font-weight: 500;
-    transition: all 0.2s;
-    white-space: nowrap;
-    font-size: 0.95em;
-  }
-
-  .dropdown-menu a:hover {
-    color: var(--accent, #667eea);
-    background: var(--bg-tertiary, #f8f9fa);
-    padding-left: 22px;
-  }
-
-  .theme-toggle-pill {
-    display: inline-flex;
-    gap: 10px;
-    padding: 6px;
-    border-radius: 999px;
-    background: var(--surface-2, #17171b);
-    border: 1px solid var(--border, #2c2c33);
-  }
-
-  .theme-toggle-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    color: var(--text-secondary, #8a8a92);
-    transition: background 0.15s ease, color 0.15s ease;
-  }
-
-  .theme-toggle-btn.active {
-    background: var(--surface-3, #2a2a30);
-    color: var(--text-primary, #f2f2f5);
-  }
-
-  .theme-toggle-btn:focus-visible {
-    outline: 2px solid var(--text-primary, #f2f2f5);
-    outline-offset: 2px;
-  }
-
-  .mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1002;
-  }
-
-  .mobile-menu-toggle span {
-    width: 30px;
-    height: 3px;
-    background: var(--text-primary, #333);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-  }
-
-  .mobile-menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-  }
-
-  .mobile-menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .mobile-menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-  }
-
-  main {
-    padding-top: 80px;
-  }
-
-  @media (max-width: 768px) {
-    .mobile-menu-toggle {
-      display: flex;
-    }
-
-    .navbar .nav-links {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      background: var(--bg-primary, white);
-      flex-direction: column;
-      padding: 20px;
-      gap: 0;
-      transform: translateY(-100%);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar .nav-links.active {
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .nav-item {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-
-    .nav-link {
-      width: 100%;
-      padding: 15px;
-      justify-content: space-between;
-    }
-
-    .dropdown-menu {
-      position: static;
-      transform: none;
-      opacity: 1;
-      visibility: visible;
-      box-shadow: none;
-      padding: 0;
-      min-width: 100%;
-      display: none;
-      background: var(--bg-tertiary, #f5f5f5);
-      border-radius: 0;
-    }
-
-    .nav-item.active .dropdown-menu {
-      display: block;
-    }
-
-    .dropdown-menu a {
-      padding: 12px 20px;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 70px;
-      right: 20px;
-    }
-  }
-
-</style>

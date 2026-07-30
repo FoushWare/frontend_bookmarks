@@ -19,7 +19,11 @@ export function useThemePreference() {
     const initialResolved = initialPref === 'system' ? resolveSystemTheme() : initialPref;
     setPref(initialPref);
     setResolved(initialResolved);
-    document.documentElement.setAttribute('data-theme', initialResolved);
+    if (initialResolved === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
 
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
     const onChange = () => {
@@ -27,7 +31,11 @@ export function useThemePreference() {
         if (current === 'system') {
           const next = resolveSystemTheme();
           setResolved(next);
-          document.documentElement.setAttribute('data-theme', next);
+          if (next === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
         }
         return current;
       });
@@ -41,7 +49,11 @@ export function useThemePreference() {
     localStorage.setItem('theme', next);
     const nextResolved = next === 'system' ? resolveSystemTheme() : next;
     setResolved(nextResolved);
-    document.documentElement.setAttribute('data-theme', nextResolved);
+    if (nextResolved === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }, []);
 
   return { pref, resolved, mounted, setThemePref };

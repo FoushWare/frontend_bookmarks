@@ -52,7 +52,7 @@ export function ThemeToggle() {
           tabIndex={0}
           aria-checked={activePref === opt}
           aria-label={opt}
-          className={`flex items-center justify-center w-9 h-9 rounded-full cursor-pointer text-text-secondary transition-all duration-150 ${activePref === opt ? 'bg-surface-3 text-text-primary' : ''} focus-visible:outline-2 focus-visible:outline-text-primary focus-visible:outline-offset-2`}
+          className={`flex items-center justify-center w-9 h-9 rounded-full cursor-pointer text-text-secondary transition-all duration-150 ${activePref === opt ? 'bg-primary-600 text-white' : ''} focus-visible:outline-2 focus-visible:outline-primary-600 focus-visible:outline-offset-2`}
           onClick={() => mounted && setThemePref(opt)}
           onKeyDown={(e) => mounted && handleKeyDown(e, opt)}
         >

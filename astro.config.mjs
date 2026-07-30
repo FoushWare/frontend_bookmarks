@@ -8,4 +8,11 @@ export default defineConfig({
   base: '/frontend_bookmarks',
   output: 'static',
   integrations: [react()],
+  vite: {
+    server: {
+      watch: {
+        usePolling: true,
+      },
+    },
+  },
 });

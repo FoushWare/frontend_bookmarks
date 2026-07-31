@@ -1,23 +1,13 @@
 ---
 interface Props {
-  title: string;
-  challengeNumber: string;
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
-  topic: string;
-  time: string;
-  learningPanel: any;
-  editorPanel: any;
+  title?: string;
+  challengeNumber?: string;
+  difficulty?: 'beginner' | 'intermediate' | 'advanced';
+  topic?: string;
+  time?: string;
+  learningPanel?: any;
+  editorPanel?: any;
 }
-
-const { 
-  title, 
-  challengeNumber, 
-  difficulty, 
-  topic, 
-  time,
-  learningPanel,
-  editorPanel
-} = Astro.props;
 ---
 
 <div class="challenge-container">

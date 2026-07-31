@@ -18,7 +18,7 @@ const { title = 'Learning Hub' } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <link rel="stylesheet" href="/frontend_bookmarks/theme.css" />
+    <link rel="stylesheet" href="/theme.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@ const { title = 'Learning Hub' } = Astro.props;
   <body class="bg-bg-primary text-text-primary transition-colors duration-300 font-sans text-base leading-relaxed antialiased">
     <nav class="fixed top-0 left-0 right-0 bg-bg-primary/90 backdrop-blur-lg shadow-md z-50 py-3 transition-all duration-300">
       <div class="flex justify-between items-center px-5 max-w-[1400px] mx-auto">
-        <a href="/frontend_bookmarks/" class="text-[1.4em] font-bold text-primary-600 no-underline flex items-center gap-3 whitespace-nowrap -tracking-[0.5px]">
+        <a href="/" class="text-[1.4em] font-bold text-primary-600 no-underline flex items-center gap-3 whitespace-nowrap -tracking-[0.5px]">
           <Logo client:load />
           <span class="bg-gradient-to-br from-primary-600 to-primary-400 bg-clip-text text-transparent font-bold">Learning Hub</span>
         </a>

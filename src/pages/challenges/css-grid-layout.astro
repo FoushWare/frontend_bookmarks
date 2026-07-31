@@ -190,7 +190,7 @@ const stretchGoals = [
 
       <FinalSolution finalCss={finalCss} starterCss={starterCss} />
 
-      <ChallengeNavigation nextUrl="/frontend_bookmarks/challenges/flexbox-navbar" />
+      <ChallengeNavigation nextUrl="/challenges/flexbox-navbar" />
     </aside>
 
     <!-- Right Panel - Code Editor & Preview -->
@@ -203,11 +203,12 @@ const stretchGoals = [
 
   <script>
     // Live preview update
-    const htmlEditor = document.getElementById('htmlEditor');
-    const cssEditor = document.getElementById('cssEditor');
-    const previewFrame = document.getElementById('previewFrame');
+    const htmlEditor = document.getElementById('htmlEditor') as HTMLTextAreaElement | null;
+    const cssEditor = document.getElementById('cssEditor') as HTMLTextAreaElement | null;
+    const previewFrame = document.getElementById('previewFrame') as HTMLIFrameElement | null;
 
     function updatePreview() {
+      if (!htmlEditor || !cssEditor || !previewFrame) return;
       const html = htmlEditor.value;
       const css = cssEditor.value;
       
@@ -230,8 +231,10 @@ const stretchGoals = [
       previewFrame.srcdoc = previewContent;
     }
 
-    htmlEditor.addEventListener('input', updatePreview);
-    cssEditor.addEventListener('input', updatePreview);
+    if (htmlEditor && cssEditor) {
+      htmlEditor.addEventListener('input', updatePreview);
+      cssEditor.addEventListener('input', updatePreview);
+    }
 
     // Initial preview
     updatePreview();

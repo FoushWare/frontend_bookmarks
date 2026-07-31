@@ -7,7 +7,7 @@
     "level": "intermediate",
     "referenceUrl": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
     "examplesUrl": "https://flexboxfroggy.com/",
-    "projectsUrl": "/frontend_bookmarks/projects/flexbox"
+    "projectsUrl": "/projects/flexbox"
   },
   {
     "slug": "grid",
@@ -17,7 +17,7 @@
     "level": "intermediate",
     "referenceUrl": "https://css-tricks.com/snippets/css/complete-guide-grid/",
     "examplesUrl": "https://cssgridgarden.com/",
-    "projectsUrl": "/frontend_bookmarks/projects/grid"
+    "projectsUrl": "/projects/grid"
   },
   {
     "slug": "background",
@@ -27,7 +27,7 @@
     "level": "beginner",
     "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/background",
     "examplesUrl": "https://cssgradient.io/",
-    "projectsUrl": "https://github.com/FoushWare/frontend_bookmarks"
+    "projectsUrl": "https://github.com/FoushWare"
   },
   {
     "slug": "border",
@@ -37,7 +37,7 @@
     "level": "beginner",
     "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/border",
     "examplesUrl": "https://border-radius.com/",
-    "projectsUrl": "https://github.com/FoushWare/frontend_bookmarks"
+    "projectsUrl": "https://github.com/FoushWare"
   },
   {
     "slug": "images",
@@ -47,7 +47,7 @@
     "level": "beginner",
     "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-image",
     "examplesUrl": "https://css-tricks.com/almanac/properties/o/object-fit/",
-    "projectsUrl": "https://github.com/FoushWare/frontend_bookmarks"
+    "projectsUrl": "https://github.com/FoushWare"
   },
   {
     "slug": "spacing",
@@ -57,7 +57,7 @@
     "level": "beginner",
     "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/margin",
     "examplesUrl": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
-    "projectsUrl": "https://github.com/FoushWare/frontend_bookmarks"
+    "projectsUrl": "https://github.com/FoushWare"
   },
   {
     "slug": "sizing",
@@ -67,7 +67,7 @@
     "level": "beginner",
     "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/width",
     "examplesUrl": "https://css-tricks.com/almanac/properties/s/size/",
-    "projectsUrl": "https://github.com/FoushWare/frontend_bookmarks"
+    "projectsUrl": "https://github.com/FoushWare"
   },
   {
     "slug": "typography",
@@ -77,7 +77,7 @@
     "level": "beginner",
     "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/font",
     "examplesUrl": "https://fonts.google.com/",
-    "projectsUrl": "https://github.com/FoushWare/frontend_bookmarks"
+    "projectsUrl": "https://github.com/FoushWare"
   },
   {
     "slug": "responsive",
@@ -87,7 +87,7 @@
     "level": "intermediate",
     "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries",
     "examplesUrl": "https://responsivedesign.is/",
-    "projectsUrl": "https://github.com/FoushWare/frontend_bookmarks"
+    "projectsUrl": "https://github.com/FoushWare"
   },
   {
     "slug": "frameworks",
@@ -97,6 +97,6 @@
     "level": "advanced",
     "referenceUrl": "https://tailwindcss.com/docs",
     "examplesUrl": "https://tailwindui.com/",
-    "projectsUrl": "https://github.com/FoushWare/frontend_bookmarks"
+    "projectsUrl": "https://github.com/FoushWare"
   }
 ]

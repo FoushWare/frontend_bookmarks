@@ -74,8 +74,8 @@ const { requirements } = Astro.props;
 <script>
   // Requirements checklist logic
   const requirementItems = document.querySelectorAll('.requirement-item input');
-  const progressFill = document.querySelector('.progress-fill');
-  const progressText = document.querySelector('.progress-text');
+  const progressFill = document.querySelector('.progress-fill') as HTMLElement | null;
+  const progressText = document.querySelector('.progress-text') as HTMLElement | null;
 
   requirementItems.forEach(item => {
     item.addEventListener('change', () => {
@@ -83,8 +83,8 @@ const { requirements } = Astro.props;
       const total = requirementItems.length;
       const percentage = Math.round((checked / total) * 100);
       
-      progressFill.style.width = percentage + '%';
-      progressText.textContent = `${checked} / ${total} completed (${percentage}%)`;
+      if (progressFill) progressFill.style.width = percentage + '%';
+      if (progressText) progressText.textContent = `${checked} / ${total} completed (${percentage}%)`;
     });
   });
 </script>

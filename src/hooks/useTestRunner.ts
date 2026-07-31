@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import type { TestCase } from '../types/project';
 
 export function useTestRunner(tests: TestCase[], iframeRef: React.RefObject<HTMLIFrameElement | null>) {

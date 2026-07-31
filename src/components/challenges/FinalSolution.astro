@@ -34,24 +34,24 @@ const { finalCss, starterCss } = Astro.props;
   }
 </style>
 
-<script define:vars={{ finalCss, starterCss }}>
+<script is:inline define:vars={{ finalCss, starterCss }}>
   const showFinalButton = document.getElementById('showFinal');
   const cssEditor = document.getElementById('cssEditor');
   let finalShown = false;
 
-  showFinalButton.addEventListener('click', () => {
-    if (!finalShown) {
-      cssEditor.value = finalCss;
-      // Trigger input event to update preview
-      cssEditor.dispatchEvent(new Event('input'));
-      showFinalButton.textContent = 'Reset to Starter Code';
-      finalShown = true;
-    } else {
-      cssEditor.value = starterCss;
-      // Trigger input event to update preview
-      cssEditor.dispatchEvent(new Event('input'));
-      showFinalButton.textContent = 'Show Final Result';
-      finalShown = false;
-    }
-  });
+  if (showFinalButton && cssEditor) {
+    showFinalButton.addEventListener('click', () => {
+      if (!finalShown) {
+        cssEditor.value = finalCss;
+        cssEditor.dispatchEvent(new Event('input'));
+        showFinalButton.textContent = 'Reset to Starter Code';
+        finalShown = true;
+      } else {
+        cssEditor.value = starterCss;
+        cssEditor.dispatchEvent(new Event('input'));
+        showFinalButton.textContent = 'Show Final Result';
+        finalShown = false;
+      }
+    });
+  }
 </script>

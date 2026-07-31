@@ -1,5 +1,5 @@
+"use client";
 import { useState, useEffect, useCallback } from 'react';
-
 export type ThemePref = 'light' | 'dark' | 'system';
 type ResolvedTheme = 'light' | 'dark';
 
@@ -8,14 +8,14 @@ function resolveSystemTheme(): ResolvedTheme {
 }
 
 export function useThemePreference() {
-  const [pref, setPref] = useState<ThemePref>('system');
-  const [resolved, setResolved] = useState<ResolvedTheme>('light');
+  const [pref, setPref] = useState<ThemePref>('dark');
+  const [resolved, setResolved] = useState<ResolvedTheme>('dark');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const saved = localStorage.getItem('theme') as ThemePref | null;
-    const initialPref = saved ?? 'system';
+    const initialPref = saved ?? 'dark';
     const initialResolved = initialPref === 'system' ? resolveSystemTheme() : initialPref;
     setPref(initialPref);
     setResolved(initialResolved);

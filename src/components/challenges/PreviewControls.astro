@@ -39,26 +39,29 @@
 <script>
   // Preview size switching
   const sizeButtons = document.querySelectorAll('.size-button');
-  const previewContainer = document.getElementById('previewContainer');
+  const previewContainer = document.getElementById('previewContainer') as HTMLElement | null;
 
-  sizeButtons.forEach(button => {
+  sizeButtons.forEach(btnEl => {
+    const button = btnEl as HTMLElement;
     button.addEventListener('click', () => {
       sizeButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
       
       const size = button.dataset.size;
-      previewContainer.className = 'preview-container';
-      
-      switch(size) {
-        case 'desktop':
-          previewContainer.style.maxWidth = '100%';
-          break;
-        case 'tablet':
-          previewContainer.style.maxWidth = '768px';
-          break;
-        case 'mobile':
-          previewContainer.style.maxWidth = '375px';
-          break;
+      if (previewContainer) {
+        previewContainer.className = 'preview-container';
+        
+        switch(size) {
+          case 'desktop':
+            previewContainer.style.maxWidth = '100%';
+            break;
+          case 'tablet':
+            previewContainer.style.maxWidth = '768px';
+            break;
+          case 'mobile':
+            previewContainer.style.maxWidth = '375px';
+            break;
+        }
       }
     });
   });

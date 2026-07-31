@@ -75,22 +75,24 @@ const { hints } = Astro.props;
 
 <script>
   // Hints system logic
-  const hintButton = document.getElementById('revealHint');
+  const hintButton = document.getElementById('revealHint') as HTMLButtonElement | null;
   const hints = document.querySelectorAll('.hint');
   let currentHint = 1;
 
-  hintButton.addEventListener('click', () => {
-    if (currentHint < hints.length) {
-      const nextHint = document.querySelector(`.hint[data-hint="${currentHint + 1}"]`);
-      if (nextHint) {
-        nextHint.classList.remove('hidden');
-        currentHint++;
-        
-        if (currentHint >= hints.length) {
-          hintButton.textContent = 'All hints revealed';
-          hintButton.disabled = true;
+  if (hintButton) {
+    hintButton.addEventListener('click', () => {
+      if (currentHint < hints.length) {
+        const nextHint = document.querySelector(`.hint[data-hint="${currentHint + 1}"]`);
+        if (nextHint) {
+          nextHint.classList.remove('hidden');
+          currentHint++;
+          
+          if (currentHint >= hints.length) {
+            hintButton.textContent = 'All hints revealed';
+            hintButton.disabled = true;
+          }
         }
       }
-    }
-  });
+    });
+  }
 </script>

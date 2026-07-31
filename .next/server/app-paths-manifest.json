@@ -1,0 +1,7 @@
+{
+  "/projects/flexbox/[id]/page": "app/projects/flexbox/[id]/page.js",
+  "/css/[topic]/page": "app/css/[topic]/page.js",
+  "/projects/grid/[id]/page": "app/projects/grid/[id]/page.js",
+  "/css/page": "app/css/page.js",
+  "/page": "app/page.js"
+}

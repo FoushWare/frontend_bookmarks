@@ -2,7 +2,6 @@
 import Layout from '../../../layouts/Layout.astro';
 import ProjectWorkspace from '../../../components/ProjectWorkspace';
 import { gridProjects } from '../../../data/grid-projects';
-import type { Project } from '../../../types/project';
 
 export function getStaticPaths() {
   return gridProjects.map((project) => ({
@@ -14,7 +13,7 @@ const { id } = Astro.params;
 const project = gridProjects.find(p => p.id === id);
 
 if (!project) {
-  return Astro.redirect('/frontend_bookmarks/projects/grid');
+  return Astro.redirect('/projects/grid');
 }
 ---
 

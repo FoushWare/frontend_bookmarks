@@ -78,21 +78,24 @@ const { htmlCode, cssCode } = Astro.props;
 <script>
   // Tab switching logic
   const tabButtons = document.querySelectorAll('.tab-button');
-  const htmlEditor = document.getElementById('htmlEditor');
-  const cssEditor = document.getElementById('cssEditor');
+  const htmlEditor = document.getElementById('htmlEditor') as HTMLElement | null;
+  const cssEditor = document.getElementById('cssEditor') as HTMLElement | null;
 
-  tabButtons.forEach(button => {
+  tabButtons.forEach(btnEl => {
+    const button = btnEl as HTMLElement;
     button.addEventListener('click', () => {
       tabButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
       
       const tab = button.dataset.tab;
-      if (tab === 'html') {
-        htmlEditor.classList.remove('hidden');
-        cssEditor.classList.add('hidden');
-      } else {
-        htmlEditor.classList.add('hidden');
-        cssEditor.classList.remove('hidden');
+      if (htmlEditor && cssEditor) {
+        if (tab === 'html') {
+          htmlEditor.classList.remove('hidden');
+          cssEditor.classList.add('hidden');
+        } else {
+          htmlEditor.classList.add('hidden');
+          cssEditor.classList.remove('hidden');
+        }
       }
     });
   });

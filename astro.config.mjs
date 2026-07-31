@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import react from '@astrojs/react';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,17 +9,7 @@ export default defineConfig({
   output: 'static',
   integrations: [react()],
   vite: {
-    server: {
-      watch: {
-        usePolling: true,
-        interval: 50,
-        ignored: ['**/node_modules/**', '**/.git/**', '**/dist/**'],
-      },
-      hmr: {
-        overlay: true,
-        clientPort: 4321,
-      },
-    },
+    plugins: [tailwindcss()],
     build: {
       emptyOutDir: true,
     },

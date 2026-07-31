@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+"use client";
+import Link from 'next/link';
+import React from 'react';
 
 function Html() {
   return (
@@ -12,7 +13,7 @@ function Html() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <Link to="/html/semantics" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/html/semantics" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">🏗️</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">Semantics</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -21,7 +22,7 @@ function Html() {
           <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">Beginner</span>
         </Link>
 
-        <Link to="/html/accessibility" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/html/accessibility" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">♿</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">Accessibility</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -30,7 +31,7 @@ function Html() {
           <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">Intermediate</span>
         </Link>
 
-        <Link to="/html/forms" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/html/forms" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">📝</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">Forms</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -39,7 +40,7 @@ function Html() {
           <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">Intermediate</span>
         </Link>
 
-        <Link to="/html/media" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/html/media" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">🎬</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">Media</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -48,7 +49,7 @@ function Html() {
           <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">Beginner</span>
         </Link>
 
-        <Link to="/html/seo" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/html/seo" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">🔍</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">SEO</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -58,7 +59,7 @@ function Html() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default Html
+export default Html;

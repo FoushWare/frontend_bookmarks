@@ -1,21 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import cssTopics from '../data/css-topics.json'
+"use client";
+import Link from 'next/link';
+import cssTopics from '../data/css-topics.json';
 
 const getBadgeColor = (level: string) => {
   switch (level) {
     case 'beginner':
-      return 'bg-green-100 text-green-800'
+      return 'bg-green-100 text-green-800';
     case 'intermediate':
-      return 'bg-yellow-100 text-yellow-800'
+      return 'bg-yellow-100 text-yellow-800';
     case 'advanced':
-      return 'bg-red-100 text-red-800'
+      return 'bg-red-100 text-red-800';
     default:
-      return 'bg-gray-100 text-gray-800'
+      return 'bg-gray-100 text-gray-800';
   }
-}
+};
 
-function Css() {
+export default function Css() {
   return (
     <div className="container mx-auto max-w-[1400px] px-5 py-10">
       <div className="bg-gradient-to-br from-primary-600 to-primary-400 text-white p-[60px_20px] rounded-2xl mb-10 text-center">
@@ -28,28 +28,28 @@ function Css() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {cssTopics.map((topic) => (
           <div key={topic.slug} className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-200 flex flex-col">
-            <Link to={`/css/${topic.slug}`} className="flex-1 text-inherit no-underline">
+            <Link href={`/css/${topic.slug}`} className="flex-1 text-inherit no-underline">
               <div className="text-3xl mb-4">{topic.icon}</div>
               <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">{topic.title}</h3>
               <p className="text-gray-600 leading-relaxed mb-4">{topic.description}</p>
-              <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium mb-5 ${getBadgeColor(topic.level)}`}>
+              <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getBadgeColor(topic.level)}`}> 
                 {topic.level.charAt(0).toUpperCase() + topic.level.slice(1)}
               </span>
             </Link>
             <div className="flex gap-2 flex-wrap pt-4 border-t border-gray-200">
               {topic.referenceUrl && (
-                <a href={topic.referenceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors text-gray-700 no-underline">
-                  <span>📖</span> Reference
+                <a href={topic.referenceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium text-gray-700 no-underline hover:bg-gray-200 transition-colors">
+                  📖 Reference
                 </a>
               )}
               {topic.examplesUrl && (
-                <a href={topic.examplesUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors text-gray-700 no-underline">
-                  <span>💡</span> Examples
+                <a href={topic.examplesUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium text-gray-700 no-underline hover:bg-gray-200 transition-colors">
+                  💡 Examples
                 </a>
               )}
               {topic.projectsUrl && (
-                <a href={topic.projectsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors text-gray-700 no-underline">
-                  <span>🚀</span> Projects
+                <a href={topic.projectsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 px-4 py-2 bg-gray-100 rounded-lg text-sm font-medium text-gray-700 no-underline hover:bg-gray-200 transition-colors">
+                  🚀 Projects
                 </a>
               )}
             </div>
@@ -57,7 +57,5 @@ function Css() {
         ))}
       </div>
     </div>
-  )
+  );
 }
-
-export default Css

@@ -6,15 +6,40 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/projects/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/page.js"
+    ],
+    "/projects/flexbox/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/projects/flexbox/page.js"
+    ],
     "/projects/flexbox/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/projects/flexbox/[id]/page.js"
     ],
-    "/projects/page": [
+    "/html/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/projects/page.js"
+      "static/chunks/app/html/page.js"
+    ],
+    "/html/[topic]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/html/[topic]/page.js"
+    ],
+    "/css/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/css/page.js"
+    ],
+    "/css/[topic]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/css/[topic]/page.js"
     ],
     "/projects/grid/page": [
       "static/chunks/webpack.js",
@@ -26,20 +51,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/projects/grid/[id]/page.js"
     ],
-    "/page": [
+    "/patterns/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/patterns/page.js"
     ],
-    "/css/page": [
+    "/patterns/rendering/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/css/page.js"
-    ],
-    "/css/[topic]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/css/[topic]/page.js"
+      "static/chunks/app/patterns/rendering/page.js"
     ]
   }
 }

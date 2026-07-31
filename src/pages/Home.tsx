@@ -1,5 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+"use client";
+import Link from 'next/link';
+import React from 'react';
 
 function Home() {
   return (
@@ -35,7 +36,7 @@ function Home() {
 
         {/* Main Categories */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-16">
-          <Link to="/html" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
+          <Link href="/html" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
             <div className="text-4xl mb-5">📄</div>
             <h3 className="text-gray-800 text-[1.8em] font-semibold mb-4">HTML</h3>
             <p className="text-gray-600 mb-5 leading-relaxed">
@@ -47,7 +48,7 @@ function Home() {
             </div>
           </Link>
 
-          <Link to="/css" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
+          <Link href="/css" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
             <div className="text-4xl mb-5">🎨</div>
             <h3 className="text-gray-800 text-[1.8em] font-semibold mb-4">CSS</h3>
             <p className="text-gray-600 mb-5 leading-relaxed">
@@ -59,7 +60,7 @@ function Home() {
             </div>
           </Link>
 
-          <Link to="/javascript" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
+          <Link href="/javascript" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
             <div className="text-4xl mb-5">⚡</div>
             <h3 className="text-gray-800 text-[1.8em] font-semibold mb-4">JavaScript</h3>
             <p className="text-gray-600 mb-5 leading-relaxed">
@@ -71,7 +72,7 @@ function Home() {
             </div>
           </Link>
 
-          <Link to="/patterns" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
+          <Link href="/patterns" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
             <div className="text-4xl mb-5">🧩</div>
             <h3 className="text-gray-800 text-[1.8em] font-semibold mb-4">Patterns</h3>
             <p className="text-gray-600 mb-5 leading-relaxed">
@@ -83,7 +84,7 @@ function Home() {
             </div>
           </Link>
 
-          <Link to="/senior-interview" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
+          <Link href="/senior-interview" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
             <div className="text-4xl mb-5">💼</div>
             <h3 className="text-gray-800 text-[1.8em] font-semibold mb-4">Senior Interview</h3>
             <p className="text-gray-600 mb-5 leading-relaxed">
@@ -95,7 +96,7 @@ function Home() {
             </div>
           </Link>
 
-          <Link to="/frontend-mentor" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
+          <Link href="/frontend-mentor" className="bg-white/95 rounded-2xl p-10 text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300 cursor-pointer text-inherit no-underline">
             <div className="text-4xl mb-5">🎨</div>
             <h3 className="text-gray-800 text-[1.8em] font-semibold mb-4">Frontend Mentor</h3>
             <p className="text-gray-600 mb-5 leading-relaxed">
@@ -114,7 +115,7 @@ function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

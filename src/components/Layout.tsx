@@ -1,15 +1,15 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Logo from './Logo'
-import MobileMenuToggle from './MobileMenuToggle'
-import NavLinks from './NavLinks'
-import ThemeToggle from './ThemeToggle'
+'use client';
+import React from 'react';
+import Logo from './Logo';
+import MobileMenuToggle from './MobileMenuToggle';
+import NavLinks from './NavLinks';
+import ThemeToggle from './ThemeToggle';
 
 interface LayoutProps {
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
-function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <div className="bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 font-sans text-base leading-relaxed antialiased">
       <nav className="fixed top-0 left-0 right-0 bg-[var(--bg-primary)]/90 backdrop-blur-lg shadow-md z-50 py-3 transition-all duration-300">
@@ -26,10 +26,8 @@ function Layout({ children }: LayoutProps) {
       </nav>
 
       <main className="pt-20">
-        <Outlet />
+        {children}
       </main>
     </div>
-  )
+  );
 }
-
-export default Layout

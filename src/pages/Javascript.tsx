@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 function Javascript() {
   return (
@@ -12,7 +12,7 @@ function Javascript() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <Link to="/javascript/fundamentals" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/javascript/fundamentals" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">📚</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">Fundamentals</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -21,7 +21,7 @@ function Javascript() {
           <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">Beginner</span>
         </Link>
 
-        <Link to="/javascript/es6" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/javascript/es6" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">✨</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">ES6+</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -30,7 +30,7 @@ function Javascript() {
           <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">Intermediate</span>
         </Link>
 
-        <Link to="/javascript/async" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/javascript/async" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">⏳</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">Async Programming</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -39,7 +39,7 @@ function Javascript() {
           <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">Advanced</span>
         </Link>
 
-        <Link to="/javascript/dom" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/javascript/dom" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">🌐</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">DOM Manipulation</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -48,7 +48,7 @@ function Javascript() {
           <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">Intermediate</span>
         </Link>
 
-        <Link to="/javascript/functional" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/javascript/functional" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">🔧</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">Functional Programming</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
@@ -57,7 +57,7 @@ function Javascript() {
           <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">Advanced</span>
         </Link>
 
-        <Link to="/javascript/oop" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
+        <Link href="/javascript/oop" className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer text-inherit no-underline border border-gray-200">
           <div className="text-3xl mb-4">🏗️</div>
           <h3 className="text-[1.5em] font-semibold mb-3 text-gray-800">OOP</h3>
           <p className="text-gray-600 leading-relaxed mb-4">

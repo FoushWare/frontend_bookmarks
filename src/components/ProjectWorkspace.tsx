@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from 'react';
-import CodeMirror from '@uiw/react-codemirror';
-import { css } from '@codemirror/lang-css';
-import { html } from '@codemirror/lang-html';
+import dynamic from 'next/dynamic';
+const CodeMirror = dynamic(() => import('@uiw/react-codemirror'), { ssr: false });
+// language extensions will be loaded dynamically
 import type { Project, Mode } from '../types/project';
 import { useLivePreview } from '../hooks/useLivePreview';
 import { useTestRunner } from '../hooks/useTestRunner';
@@ -22,6 +22,7 @@ export default function ProjectWorkspace({ projectId, projectType }: ProjectWork
   const [userCode, setUserCode] = useState(project?.css.starterCode || '');
   const [showSolution, setShowSolution] = useState(false);
   const [revealedHints, setRevealedHints] = useState(1);
+  const [extensions, setExtensions] = useState<any[]>([]);
 
   const { srcDoc, iframeRef } = useLivePreview(mode, content, project?.css.starterHtml || '');
   const { testResults, allPassed, passedCount, totalCount } = useTestRunner(project?.tests || [], iframeRef);
@@ -71,6 +72,22 @@ export default function ProjectWorkspace({ projectId, projectType }: ProjectWork
     setUserCode(variant.starterCode);
   };
 
+  // Load appropriate CodeMirror language extension dynamically based on mode
+  useEffect(() => {
+    let active = true;
+    const load = async () => {
+      if (mode === 'css') {
+        const { css } = await import('@codemirror/lang-css');
+        if (active) setExtensions([css()]);
+      } else {
+        const { html } = await import('@codemirror/lang-html');
+        if (active) setExtensions([html()]);
+      }
+    };
+    load();
+    return () => { active = false; };
+  }, [mode]);
+
   // Handle content change with debounce
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -107,7 +124,7 @@ export default function ProjectWorkspace({ projectId, projectType }: ProjectWork
     }
   };
 
-  const extension = mode === 'css' ? [css()] : [html()];
+  
 
   return (
     <>
@@ -520,7 +537,7 @@ export default function ProjectWorkspace({ projectId, projectType }: ProjectWork
             <CodeMirror
               value={content}
               height="400px"
-              extensions={extension}
+              extensions={extensions}
               onChange={(value) => setContent(value)}
               readOnly={showSolution}
               theme="dark"

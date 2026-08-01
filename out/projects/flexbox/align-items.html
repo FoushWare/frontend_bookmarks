@@ -1,0 +1,413 @@
+<!DOCTYPE html><!--8zbceqAfewazS_E4dQNOc--><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/frontend_bookmarks/_next/static/css/5e220cec83c12819.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/frontend_bookmarks/_next/static/chunks/webpack-ca2577dba9c0ce09.js"/><script src="/frontend_bookmarks/_next/static/chunks/4bd1b696-f785427dddbba9fb.js" async=""></script><script src="/frontend_bookmarks/_next/static/chunks/1255-2df8830980449ed3.js" async=""></script><script src="/frontend_bookmarks/_next/static/chunks/main-app-404a23b84e69e9ac.js" async=""></script><script src="/frontend_bookmarks/_next/static/chunks/2619-3c9e02e22d10480a.js" async=""></script><script src="/frontend_bookmarks/_next/static/chunks/app/projects/flexbox/page-3ce6c34473c669d7.js" async=""></script><script src="/frontend_bookmarks/_next/static/chunks/app/layout-4d40cb32d25ec0c0.js" async=""></script><script src="/frontend_bookmarks/_next/static/chunks/7490-ebdee84beb96c45b.js" async=""></script><script src="/frontend_bookmarks/_next/static/chunks/app/projects/flexbox/%5Bid%5D/page-771a764ac139b6cf.js" async=""></script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><title>Frontend Bookmarks — Master Modern Web Development</title><meta name="description" content="Interactive frontend learning platform. Master HTML, CSS, JavaScript, Design Patterns, and ace your next interview."/><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&amp;display=swap" rel="stylesheet"/><script>
+              (function() {
+                try {
+                  var s = localStorage.getItem('theme');
+                  var dark = s ? (s === 'dark' || (s === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) : true;
+                  document.documentElement.classList.toggle('dark', dark);
+
+                  var palettes = {
+                    lime: { accent: '#b5f23d', dark: '#96d121', text: '#1a2e00' },
+                    emerald: { accent: '#10b981', dark: '#059669', text: '#ffffff' },
+                    indigo: { accent: '#6366f1', dark: '#4f46e5', text: '#ffffff' },
+                    cyan: { accent: '#06b6d4', dark: '#0284c7', text: '#ffffff' },
+                    rose: { accent: '#f43f5e', dark: '#e11d48', text: '#ffffff' },
+                    amber: { accent: '#f59e0b', dark: '#d97706', text: '#ffffff' }
+                  };
+                  var pId = localStorage.getItem('color-palette');
+                  var p = palettes[pId] || palettes.lime;
+                  document.documentElement.style.setProperty('--accent', p.accent);
+                  document.documentElement.style.setProperty('--accent-dark', p.dark);
+                  document.documentElement.style.setProperty('--accent-text', p.text);
+                } catch(e) {}
+              })();
+            </script><script src="/frontend_bookmarks/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div hidden=""><!--$--><!--/$--></div><nav class="site-nav"><div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1.5rem;max-width:1280px;margin:0 auto"><a style="display:flex;align-items:center;gap:0.6rem;text-decoration:none;font-weight:700;font-size:1rem;color:var(--text);letter-spacing:-0.02em" href="/frontend_bookmarks"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary-600"><rect x="4" y="6" width="24" height="20" rx="3"></rect><path d="M4 12h24"></path><path d="M10 16h4"></path><path d="M18 16h4"></path><path d="M10 20h4"></path><path d="M18 20h4"></path></svg><span>Frontend<span style="color:var(--accent-dark)"> Bookmarks</span></span></a><button class="md:hidden flex flex-col justify-around w-[30px] h-[25px] bg-transparent border-0 cursor-pointer p-0 z-[1002]" aria-label="Toggle menu"><span class="w-[30px] h-[3px] bg-text-primary rounded-[3px] transition-all duration-300 origin-center "></span><span class="w-[30px] h-[3px] bg-text-primary rounded-[3px] transition-all duration-300 origin-center "></span><span class="w-[30px] h-[3px] bg-text-primary rounded-[3px] transition-all duration-300 origin-center "></span></button><ul id="nav-links" style="display:flex;gap:0.25rem;list-style:none;align-items:center;margin:0;padding:0" class="hidden md:flex"><li style="position:relative;list-style:none"><button class="nav-btn-trigger" style="display:flex;align-items:center;gap:0.25rem;padding:0.5rem 0.75rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:var(--text-2);background:none;border:none;cursor:pointer;transition:color 0.15s ease, background 0.15s ease" aria-expanded="false">Fundamentals<svg style="width:0.875rem;height:0.875rem;transition:transform 0.2s ease;transform:rotate(0)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div style="position:absolute;left:0;margin-top:0.25rem;width:12rem;border-radius:0.75rem;box-shadow:0 10px 40px -8px rgba(0,0,0,0.12), 0 4px 12px -4px rgba(0,0,0,0.08);background:var(--surface);border:1px solid var(--border);z-index:50;transform-origin:top left;transition:all 0.15s ease;opacity:0;visibility:hidden;transform:translateY(-4px)"><div style="padding:0.375rem"><a class="nav-dropdown-item" style="display:block;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--text-2);text-decoration:none;border-radius:0.375rem;transition:background 0.12s ease, color 0.12s ease" href="/frontend_bookmarks/html">HTML</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--text-2);text-decoration:none;border-radius:0.375rem;transition:background 0.12s ease, color 0.12s ease" href="/frontend_bookmarks/css">CSS</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--text-2);text-decoration:none;border-radius:0.375rem;transition:background 0.12s ease, color 0.12s ease" href="/frontend_bookmarks/javascript">JavaScript</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--text-2);text-decoration:none;border-radius:0.375rem;transition:background 0.12s ease, color 0.12s ease" href="/frontend_bookmarks/patterns">Patterns</a></div></div></li><li style="position:relative;list-style:none"><button class="nav-btn-trigger" style="display:flex;align-items:center;gap:0.25rem;padding:0.5rem 0.75rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:var(--text-2);background:none;border:none;cursor:pointer;transition:color 0.15s ease, background 0.15s ease" aria-expanded="false">Practice<svg style="width:0.875rem;height:0.875rem;transition:transform 0.2s ease;transform:rotate(0)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div style="position:absolute;left:0;margin-top:0.25rem;width:12rem;border-radius:0.75rem;box-shadow:0 10px 40px -8px rgba(0,0,0,0.12), 0 4px 12px -4px rgba(0,0,0,0.08);background:var(--surface);border:1px solid var(--border);z-index:50;transform-origin:top left;transition:all 0.15s ease;opacity:0;visibility:hidden;transform:translateY(-4px)"><div style="padding:0.375rem"><a class="nav-dropdown-item" style="display:block;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--text-2);text-decoration:none;border-radius:0.375rem;transition:background 0.12s ease, color 0.12s ease" href="/frontend_bookmarks/questions">Questions</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--text-2);text-decoration:none;border-radius:0.375rem;transition:background 0.12s ease, color 0.12s ease" href="/frontend_bookmarks/challenges">Challenges</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--text-2);text-decoration:none;border-radius:0.375rem;transition:background 0.12s ease, color 0.12s ease" href="/frontend_bookmarks/projects">Projects</a></div></div></li><li style="position:relative;list-style:none"><button class="nav-btn-trigger" style="display:flex;align-items:center;gap:0.25rem;padding:0.5rem 0.75rem;border-radius:0.5rem;font-size:0.875rem;font-weight:500;color:var(--text-2);background:none;border:none;cursor:pointer;transition:color 0.15s ease, background 0.15s ease" aria-expanded="false">Resources<svg style="width:0.875rem;height:0.875rem;transition:transform 0.2s ease;transform:rotate(0)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div style="position:absolute;left:0;margin-top:0.25rem;width:12rem;border-radius:0.75rem;box-shadow:0 10px 40px -8px rgba(0,0,0,0.12), 0 4px 12px -4px rgba(0,0,0,0.08);background:var(--surface);border:1px solid var(--border);z-index:50;transform-origin:top left;transition:all 0.15s ease;opacity:0;visibility:hidden;transform:translateY(-4px)"><div style="padding:0.375rem"><a class="nav-dropdown-item" style="display:block;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--text-2);text-decoration:none;border-radius:0.375rem;transition:background 0.12s ease, color 0.12s ease" href="/frontend_bookmarks/frontend-mentor">Frontend Mentor</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--text-2);text-decoration:none;border-radius:0.375rem;transition:background 0.12s ease, color 0.12s ease" href="/frontend_bookmarks/senior-interview">Senior Interview</a></div></div></li></ul><ul id="nav-links-mobile" style="display:none;position:fixed;top:57px;left:0;right:0;background:var(--bg);flex-direction:column;padding:1rem 1.25rem;gap:0;list-style:none;margin:0;box-shadow:0 10px 30px rgba(0,0,0,0.1);border-bottom:1px solid var(--border);z-index:99;transition:all 0.3s ease"><li style="border-bottom:1px solid var(--border)"><button style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0.25rem;background:none;border:none;color:var(--text);font-size:0.9375rem;font-weight:500;cursor:pointer">Fundamentals<svg style="width:1rem;height:1rem;color:var(--text-muted);transition:transform 0.2s ease;transform:rotate(0)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div style="overflow:hidden;max-height:0;transition:max-height 0.2s ease;padding-bottom:0"><a class="nav-dropdown-item" style="display:block;padding:0.5rem 1rem;font-size:0.875rem;color:var(--text-muted);text-decoration:none;transition:color 0.15s ease" href="/frontend_bookmarks/html">HTML</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 1rem;font-size:0.875rem;color:var(--text-muted);text-decoration:none;transition:color 0.15s ease" href="/frontend_bookmarks/css">CSS</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 1rem;font-size:0.875rem;color:var(--text-muted);text-decoration:none;transition:color 0.15s ease" href="/frontend_bookmarks/javascript">JavaScript</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 1rem;font-size:0.875rem;color:var(--text-muted);text-decoration:none;transition:color 0.15s ease" href="/frontend_bookmarks/patterns">Patterns</a></div></li><li style="border-bottom:1px solid var(--border)"><button style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0.25rem;background:none;border:none;color:var(--text);font-size:0.9375rem;font-weight:500;cursor:pointer">Practice<svg style="width:1rem;height:1rem;color:var(--text-muted);transition:transform 0.2s ease;transform:rotate(0)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div style="overflow:hidden;max-height:0;transition:max-height 0.2s ease;padding-bottom:0"><a class="nav-dropdown-item" style="display:block;padding:0.5rem 1rem;font-size:0.875rem;color:var(--text-muted);text-decoration:none;transition:color 0.15s ease" href="/frontend_bookmarks/questions">Questions</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 1rem;font-size:0.875rem;color:var(--text-muted);text-decoration:none;transition:color 0.15s ease" href="/frontend_bookmarks/challenges">Challenges</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 1rem;font-size:0.875rem;color:var(--text-muted);text-decoration:none;transition:color 0.15s ease" href="/frontend_bookmarks/projects">Projects</a></div></li><li style="border-bottom:1px solid var(--border)"><button style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0.25rem;background:none;border:none;color:var(--text);font-size:0.9375rem;font-weight:500;cursor:pointer">Resources<svg style="width:1rem;height:1rem;color:var(--text-muted);transition:transform 0.2s ease;transform:rotate(0)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button><div style="overflow:hidden;max-height:0;transition:max-height 0.2s ease;padding-bottom:0"><a class="nav-dropdown-item" style="display:block;padding:0.5rem 1rem;font-size:0.875rem;color:var(--text-muted);text-decoration:none;transition:color 0.15s ease" href="/frontend_bookmarks/frontend-mentor">Frontend Mentor</a><a class="nav-dropdown-item" style="display:block;padding:0.5rem 1rem;font-size:0.875rem;color:var(--text-muted);text-decoration:none;transition:color 0.15s ease" href="/frontend_bookmarks/senior-interview">Senior Interview</a></div></li></ul><div style="display:flex;align-items:center;gap:0.5rem"><div style="position:relative;display:inline-flex;align-items:center"><button type="button" aria-label="Select accent color theme" aria-expanded="false" class="nav-btn-trigger" style="display:flex;align-items:center;justify-content:center;gap:0.35rem;height:2rem;padding:0 0.6rem;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border);cursor:pointer;color:var(--text);transition:all 0.15s ease"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92 0 1.5-.78 1.5-1.5 0-.42-.15-.8-.4-1.12-.27-.33-.4-.73-.4-1.18 0-.97.8-1.75 1.8-1.75h2.2c3.2 0 5.8-2.6 5.8-5.8 0-4.75-4.67-8.65-10.5-8.65Z"></path></svg></button><div style="position:absolute;right:0;top:calc(100% + 0.5rem);width:13.5rem;background:var(--surface);border:1px solid var(--border);border-radius:0.875rem;box-shadow:0 12px 32px -4px rgba(0,0,0,0.15);padding:0.5rem;z-index:100;opacity:0;visibility:hidden;transform:translateY(-6px);transition:all 0.15s ease"><div style="font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-faint);padding:0.35rem 0.5rem 0.5rem;border-bottom:1px solid var(--border);margin-bottom:0.35rem">Accent Color Theme</div><div style="display:flex;flex-direction:column;gap:0.2rem"><button type="button" class="nav-dropdown-item" style="display:flex;align-items:center;gap:0.6rem;width:100%;padding:0.45rem 0.6rem;border-radius:0.5rem;border:none;background:transparent;color:var(--text);font-size:0.825rem;font-weight:400;cursor:pointer;text-align:left;transition:background 0.12s ease"><span style="width:0.875rem;height:0.875rem;border-radius:50%;background:#b5f23d;flex-shrink:0;box-shadow:0 0 4px rgba(0,0,0,0.15)"></span><span style="flex:1">Lime (GFE)</span></button><button type="button" class="nav-dropdown-item" style="display:flex;align-items:center;gap:0.6rem;width:100%;padding:0.45rem 0.6rem;border-radius:0.5rem;border:none;background:transparent;color:var(--text);font-size:0.825rem;font-weight:400;cursor:pointer;text-align:left;transition:background 0.12s ease"><span style="width:0.875rem;height:0.875rem;border-radius:50%;background:#10b981;flex-shrink:0;box-shadow:0 0 4px rgba(0,0,0,0.15)"></span><span style="flex:1">Emerald</span></button><button type="button" class="nav-dropdown-item" style="display:flex;align-items:center;gap:0.6rem;width:100%;padding:0.45rem 0.6rem;border-radius:0.5rem;border:none;background:transparent;color:var(--text);font-size:0.825rem;font-weight:400;cursor:pointer;text-align:left;transition:background 0.12s ease"><span style="width:0.875rem;height:0.875rem;border-radius:50%;background:#6366f1;flex-shrink:0;box-shadow:0 0 4px rgba(0,0,0,0.15)"></span><span style="flex:1">Indigo</span></button><button type="button" class="nav-dropdown-item" style="display:flex;align-items:center;gap:0.6rem;width:100%;padding:0.45rem 0.6rem;border-radius:0.5rem;border:none;background:transparent;color:var(--text);font-size:0.825rem;font-weight:400;cursor:pointer;text-align:left;transition:background 0.12s ease"><span style="width:0.875rem;height:0.875rem;border-radius:50%;background:#06b6d4;flex-shrink:0;box-shadow:0 0 4px rgba(0,0,0,0.15)"></span><span style="flex:1">Ocean Cyan</span></button><button type="button" class="nav-dropdown-item" style="display:flex;align-items:center;gap:0.6rem;width:100%;padding:0.45rem 0.6rem;border-radius:0.5rem;border:none;background:transparent;color:var(--text);font-size:0.825rem;font-weight:400;cursor:pointer;text-align:left;transition:background 0.12s ease"><span style="width:0.875rem;height:0.875rem;border-radius:50%;background:#f43f5e;flex-shrink:0;box-shadow:0 0 4px rgba(0,0,0,0.15)"></span><span style="flex:1">Sunset Rose</span></button><button type="button" class="nav-dropdown-item" style="display:flex;align-items:center;gap:0.6rem;width:100%;padding:0.45rem 0.6rem;border-radius:0.5rem;border:none;background:transparent;color:var(--text);font-size:0.825rem;font-weight:400;cursor:pointer;text-align:left;transition:background 0.12s ease"><span style="width:0.875rem;height:0.875rem;border-radius:50%;background:#f59e0b;flex-shrink:0;box-shadow:0 0 4px rgba(0,0,0,0.15)"></span><span style="flex:1">Amber Gold</span></button></div></div></div><div role="radiogroup" aria-label="Theme preference" style="display:inline-flex;gap:4px;padding:4px;border-radius:9999px;background:var(--surface-2);border:1px solid var(--border)"><button role="radio" tabindex="0" aria-checked="false" aria-label="light" style="display:flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:50%;cursor:pointer;border:none;transition:all 0.15s ease;background:transparent;color:var(--text-muted)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg></button><button role="radio" tabindex="0" aria-checked="false" aria-label="dark" style="display:flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:50%;cursor:pointer;border:none;transition:all 0.15s ease;background:transparent;color:var(--text-muted)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></button><button role="radio" tabindex="0" aria-checked="true" aria-label="system" style="display:flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:50%;cursor:pointer;border:none;transition:all 0.15s ease;background:var(--text);color:var(--bg)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></button></div></div></div></nav><main style="padding-top:57px"><div style="max-width:1400px;margin:0 auto;padding:2.5rem 1.25rem"><style>
+        .project-workspace {
+          max-width: 1400px;
+          margin: 0 auto;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        /* Generic Card Style */
+        .workspace-card {
+          background: var(--surface-2);
+          border: 1px solid var(--border);
+          border-radius: 1rem;
+          padding: 1.5rem;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .problem-statement {
+          background: var(--surface-2);
+          padding: 2rem;
+          border-radius: 1rem;
+          border: 1px solid var(--border);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .statement-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1rem;
+        }
+
+        .statement-header h2 {
+          margin: 0;
+          color: var(--text);
+          font-size: 2rem;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+        }
+
+        .difficulty-badge {
+          padding: 0.35rem 1rem;
+          border-radius: 2rem;
+          font-size: 0.875rem;
+          font-weight: 700;
+        }
+
+        .difficulty-badge.beginner {
+          background: rgba(16, 185, 129, 0.1);
+          color: #059669;
+        }
+
+        .difficulty-badge.intermediate {
+          background: rgba(245, 158, 11, 0.1);
+          color: #d97706;
+        }
+
+        .difficulty-badge.advanced {
+          background: rgba(239, 68, 68, 0.1);
+          color: #dc2626;
+        }
+
+        .instructions {
+          color: var(--text-muted);
+          line-height: 1.7;
+          margin-bottom: 1rem;
+          font-size: 1.1rem;
+        }
+
+        .expected-result {
+          color: var(--text);
+          line-height: 1.7;
+          font-size: 1.05rem;
+          padding: 1rem;
+          background: rgba(0, 0, 0, 0.2);
+          border-left: 4px solid var(--accent);
+          border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+        .target-preview {
+          margin-top: 2rem;
+          padding-top: 2rem;
+          border-top: 1px dashed var(--border);
+        }
+
+        .target-preview h4 {
+          margin: 0 0 1rem 0;
+          color: var(--text);
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+
+        .target-iframe {
+          width: 100%;
+          height: 220px;
+          border: 1px solid var(--border);
+          border-radius: 0.75rem;
+          background: #ffffff; /* iFrames often need a white bg for proper contrast in examples */
+          box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .mode-toggle {
+          display: flex;
+          gap: 1rem;
+        }
+
+        .mode-button {
+          padding: 0.75rem 1.5rem;
+          background: var(--surface-2);
+          border: 1px solid var(--border);
+          border-radius: 0.75rem;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 600;
+          transition: all 0.2s ease;
+          color: var(--text-muted);
+        }
+
+        .mode-button.active {
+          background: var(--accent);
+          color: white;
+          border-color: var(--accent);
+          box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.3);
+        }
+
+        .mode-button:hover:not(.active) {
+          background: var(--surface-3);
+          color: var(--text);
+        }
+
+        .workspace-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+
+        .editor-section,
+        .preview-section {
+          background: var(--surface-2);
+          border-radius: 1rem;
+          padding: 1.5rem;
+          border: 1px solid var(--border);
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .editor-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1.25rem;
+        }
+
+        .editor-header h3 {
+          margin: 0;
+          color: var(--text);
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+
+        .editor-controls {
+          display: flex;
+          gap: 0.75rem;
+        }
+
+        .editor-controls button {
+          padding: 0.5rem 1rem;
+          background: rgba(255, 255, 255, 0.05);
+          color: var(--text);
+          border: 1px solid var(--border);
+          border-radius: 0.5rem;
+          cursor: pointer;
+          font-size: 0.9rem;
+          font-weight: 600;
+          transition: all 0.2s ease;
+        }
+        
+        .editor-controls button.accent-btn {
+          background: var(--accent);
+          color: white;
+          border-color: var(--accent);
+        }
+
+        .editor-controls button:hover {
+          background: var(--surface-3);
+        }
+        
+        .editor-controls button.accent-btn:hover {
+          filter: brightness(1.1);
+        }
+
+        .preview-section h3 {
+          margin: 0 0 1.25rem 0;
+          color: var(--text);
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+
+        .preview-iframe {
+          width: 100%;
+          height: 400px;
+          border: 1px solid var(--border);
+          border-radius: 0.75rem;
+          background: #ffffff;
+          flex: 1;
+        }
+
+        .test-results, .hints-section {
+          background: var(--surface-2);
+          padding: 2rem;
+          border-radius: 1rem;
+          border: 1px solid var(--border);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .test-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1.5rem;
+        }
+
+        .test-header h3, .hints-section h3 {
+          margin: 0;
+          color: var(--text);
+          font-size: 1.5rem;
+          font-weight: 700;
+        }
+
+        .test-summary {
+          padding: 0.5rem 1rem;
+          border-radius: 2rem;
+          font-size: 0.9rem;
+          font-weight: 700;
+          background: rgba(255, 255, 255, 0.05);
+          color: var(--text-muted);
+          border: 1px solid var(--border);
+        }
+
+        .test-summary.passed {
+          background: rgba(16, 185, 129, 0.1);
+          color: #10b981;
+          border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .success-banner {
+          background: linear-gradient(135deg, #10b981, #059669);
+          color: white;
+          padding: 1rem 1.5rem;
+          border-radius: 0.75rem;
+          margin-bottom: 1.5rem;
+          text-align: center;
+          font-weight: 700;
+          font-size: 1.1rem;
+          box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+
+        .test-list, .hints-list {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+
+        .test-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem 1.25rem;
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 0.75rem;
+          border: 1px solid var(--border);
+        }
+
+        .test-item.passed {
+          border-left: 4px solid #10b981;
+        }
+
+        .test-item.failed {
+          border-left: 4px solid #ef4444;
+        }
+
+        .test-status {
+          font-weight: 900;
+          font-size: 1.2rem;
+        }
+
+        .test-item.passed .test-status {
+          color: #10b981;
+        }
+
+        .test-item.failed .test-status {
+          color: #ef4444;
+        }
+
+        .test-description {
+          color: var(--text);
+          font-weight: 500;
+          font-size: 1.05rem;
+        }
+
+        .hint-item {
+          display: flex;
+          gap: 1rem;
+          padding: 1.25rem;
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 0.75rem;
+          border: 1px solid var(--border);
+        }
+
+        .hint-number {
+          font-weight: 800;
+          color: var(--accent);
+          font-size: 1.1rem;
+        }
+
+        .hint-text {
+          color: var(--text);
+          line-height: 1.6;
+          font-size: 1.05rem;
+        }
+
+        .reveal-hint-button {
+          width: 100%;
+          padding: 1rem;
+          background: transparent;
+          color: var(--accent);
+          border: 2px dashed var(--accent);
+          border-radius: 0.75rem;
+          cursor: pointer;
+          font-size: 1.05rem;
+          font-weight: 700;
+          transition: all 0.2s ease;
+          margin-top: 1rem;
+        }
+
+        .reveal-hint-button:hover {
+          background: rgba(var(--accent-rgb), 0.1);
+        }
+        
+        .cm-theme {
+          border-radius: 0.5rem;
+          overflow: hidden;
+          border: 1px solid var(--border);
+        }
+
+        @media (max-width: 1024px) {
+          .workspace-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      </style><div class="project-workspace"><div class="problem-statement"><div class="statement-header"><h2>align-items</h2><span class="difficulty-badge beginner">Beginner</span></div><p class="instructions">Use align-items to vertically center flex items in the container. The items should be centered vertically regardless of their individual heights.</p><p class="expected-result"><strong>Expected result:</strong> <!-- -->Three boxes vertically centered in the container.</p><div class="target-preview"><h4>Target Preview</h4><iframe srcDoc="
+      &lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+      &lt;head&gt;
+        &lt;style&gt;
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          body { font-family: Arial, sans-serif; padding: 20px; }
+          .container {
+  display: flex;
+  height: 200px;
+  align-items: center;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.box {
+  width: 100px;
+  height: 50px;
+  background: #667eea;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+        &lt;/style&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;box box1&quot;&gt;Box 1&lt;/div&gt;
+  &lt;div class=&quot;box box2&quot;&gt;Box 2&lt;/div&gt;
+  &lt;div class=&quot;box box3&quot;&gt;Box 3&lt;/div&gt;
+&lt;/div&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+    " class="target-iframe" title="Target Preview"></iframe></div></div><div class="mode-toggle"><button class="mode-button active">CSS</button><button class="mode-button ">Tailwind</button></div><div class="workspace-grid"><div class="editor-section"><div class="editor-header"><h3>CSS Editor</h3><div class="editor-controls"><button>Reset</button><button class="accent-btn">Show Solution</button></div></div><!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$--></div><div class="preview-section"><h3>Live Preview</h3><iframe srcDoc="" class="preview-iframe" title="Live Preview"></iframe></div></div><div class="test-results"><div class="test-header"><h3>Test Results</h3><span class="test-summary ">0<!-- -->/<!-- -->3<!-- --> passing</span></div><div class="test-list"><div class="test-item failed"><span class="test-status">✗</span><span class="test-description">Container has display: flex</span></div><div class="test-item failed"><span class="test-status">✗</span><span class="test-description">Items are vertically centered</span></div><div class="test-item failed"><span class="test-status">✗</span><span class="test-description">Container has defined height</span></div></div></div><div class="hints-section"><h3>Hints</h3><div class="hints-list"><div class="hint-item"><span class="hint-number">1<!-- -->.</span><span class="hint-text">Use align-items: center to center items vertically.</span></div></div><button class="reveal-hint-button">Reveal Next Hint</button></div></div></div><!--$--><!--/$--></main><script src="/frontend_bookmarks/_next/static/chunks/webpack-ca2577dba9c0ce09.js" id="_R_" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n3:I[2619,[\"2619\",\"static/chunks/2619-3c9e02e22d10480a.js\",\"6910\",\"static/chunks/app/projects/flexbox/page-3ce6c34473c669d7.js\"],\"\"]\n4:I[300,[\"2619\",\"static/chunks/2619-3c9e02e22d10480a.js\",\"7177\",\"static/chunks/app/layout-4d40cb32d25ec0c0.js\"],\"default\"]\n5:I[2882,[\"2619\",\"static/chunks/2619-3c9e02e22d10480a.js\",\"7177\",\"static/chunks/app/layout-4d40cb32d25ec0c0.js\"],\"default\"]\n6:I[3193,[\"2619\",\"static/chunks/2619-3c9e02e22d10480a.js\",\"7177\",\"static/chunks/app/layout-4d40cb32d25ec0c0.js\"],\"default\"]\n7:I[7495,[\"2619\",\"static/chunks/2619-3c9e02e22d10480a.js\",\"7177\",\"static/chunks/app/layout-4d40cb32d25ec0c0.js\"],\"default\"]\n8:I[9196,[\"2619\",\"static/chunks/2619-3c9e02e22d10480a.js\",\"7177\",\"static/chunks/app/layout-4d40cb32d25ec0c0.js\"],\"default\"]\n9:I[9766,[],\"\"]\na:I[8924,[],\"\"]\n12:I[7150,[],\"\"]\n:HL[\"/frontend_bookmarks/_next/static/css/5e220cec83c12819.css\",\"style\"]\n2:T52d,"])</script><script>self.__next_f.push([1,"\n              (function() {\n                try {\n                  var s = localStorage.getItem('theme');\n                  var dark = s ? (s === 'dark' || (s === 'system' \u0026\u0026 window.matchMedia('(prefers-color-scheme: dark)').matches)) : true;\n                  document.documentElement.classList.toggle('dark', dark);\n\n                  var palettes = {\n                    lime: { accent: '#b5f23d', dark: '#96d121', text: '#1a2e00' },\n                    emerald: { accent: '#10b981', dark: '#059669', text: '#ffffff' },\n                    indigo: { accent: '#6366f1', dark: '#4f46e5', text: '#ffffff' },\n                    cyan: { accent: '#06b6d4', dark: '#0284c7', text: '#ffffff' },\n                    rose: { accent: '#f43f5e', dark: '#e11d48', text: '#ffffff' },\n                    amber: { accent: '#f59e0b', dark: '#d97706', text: '#ffffff' }\n                  };\n                  var pId = localStorage.getItem('color-palette');\n                  var p = palettes[pId] || palettes.lime;\n                  document.documentElement.style.setProperty('--accent', p.accent);\n                  document.documentElement.style.setProperty('--accent-dark', p.dark);\n                  document.documentElement.style.setProperty('--accent-text', p.text);\n                } catch(e) {}\n              })();\n            "])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\":\"8zbceqAfewazS-E4dQNOc\",\"p\":\"/frontend_bookmarks\",\"c\":[\"\",\"projects\",\"flexbox\",\"align-items\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"projects\",{\"children\":[\"flexbox\",{\"children\":[[\"id\",\"align-items\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/frontend_bookmarks/_next/static/css/5e220cec83c12819.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"suppressHydrationWarning\":true,\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.googleapis.com\"}],[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://fonts.gstatic.com\",\"crossOrigin\":\"anonymous\"}],[\"$\",\"link\",null,{\"href\":\"https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900\u0026display=swap\",\"rel\":\"stylesheet\"}],[\"$\",\"script\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"$2\"}}]]}],[\"$\",\"body\",null,{\"children\":[[\"$\",\"nav\",null,{\"className\":\"site-nav\",\"children\":[\"$\",\"div\",null,{\"style\":{\"display\":\"flex\",\"justifyContent\":\"space-between\",\"alignItems\":\"center\",\"padding\":\"0.75rem 1.5rem\",\"maxWidth\":\"1280px\",\"margin\":\"0 auto\"},\"children\":[[\"$\",\"$L3\",null,{\"href\":\"/\",\"style\":{\"display\":\"flex\",\"alignItems\":\"center\",\"gap\":\"0.6rem\",\"textDecoration\":\"none\",\"fontWeight\":700,\"fontSize\":\"1rem\",\"color\":\"var(--text)\",\"letterSpacing\":\"-0.02em\"},\"children\":[[\"$\",\"$L4\",null,{}],[\"$\",\"span\",null,{\"children\":[\"Frontend\",[\"$\",\"span\",null,{\"style\":{\"color\":\"var(--accent-dark)\"},\"children\":\" Bookmarks\"}]]}]]}],[\"$\",\"$L5\",null,{}],[\"$\",\"$L6\",null,{}],[\"$\",\"$L6\",null,{\"isMobile\":true}],[\"$\",\"div\",null,{\"style\":{\"display\":\"flex\",\"alignItems\":\"center\",\"gap\":\"0.5rem\"},\"children\":[[\"$\",\"$L7\",null,{}],[\"$\",\"$L8\",null,{}]]}]]}]}],[\"$\",\"main\",null,{\"style\":{\"paddingTop\":\"57px\"},\"children\":[\"$\",\"$L9\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$La\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],\"$Lb\",\"$Lc\"]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]]}]]}]]}],{\"children\":[\"projects\",\"$Ld\",{\"children\":[\"flexbox\",\"$Le\",{\"children\":[[\"id\",\"align-items\",\"d\"],\"$Lf\",{\"children\":[\"__PAGE__\",\"$L10\",{},null,false]},null,false]},null,false]},null,false]},null,false],\"$L11\",false]],\"m\":\"$undefined\",\"G\":[\"$12\",[]],\"s\":false,\"S\":true}\n"])</script><script>self.__next_f.push([1,"14:I[4431,[],\"OutletBoundary\"]\n16:I[5278,[],\"AsyncMetadataOutlet\"]\n18:I[4431,[],\"ViewportBoundary\"]\n1a:I[4431,[],\"MetadataBoundary\"]\n1b:\"$Sreact.suspense\"\nb:[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}]\nc:[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]\nd:[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L9\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$La\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]\ne:[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L9\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$La\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]\nf:[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L9\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$La\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]\n10:[\"$\",\"$1\",\"c\",{\"children\":[\"$L13\",null,[\"$\",\"$L14\",null,{\"children\":[\"$L15\",[\"$\",\"$L16\",null,{\"promise\":\"$@17\"}]]}]]}]\n11:[\"$\",\"$1\",\"h\",{\"children\":[null,[[\"$\",\"$L18\",null,{\"children\":\"$L19\"}],null],[\"$\",\"$L1a\",null,{\"children\":[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$1b\",null,{\"fallback\":null,\"children\":\"$L1c\"}]}]}]]}]\n"])</script><script>self.__next_f.push([1,"1d:I[1751,[\"7490\",\"static/chunks/7490-ebdee84beb96c45b.js\",\"68\",\"static/chunks/app/projects/flexbox/%5Bid%5D/page-771a764ac139b6cf.js\"],\"default\"]\n13:[\"$\",\"div\",null,{\"style\":{\"maxWidth\":\"1400px\",\"margin\":\"0 auto\",\"padding\":\"2.5rem 1.25rem\"},\"children\":[\"$\",\"$L1d\",null,{\"projectId\":\"align-items\",\"projectType\":\"flexbox\"}]}]\n"])</script><script>self.__next_f.push([1,"19:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n15:null\n"])</script><script>self.__next_f.push([1,"17:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Frontend Bookmarks — Master Modern Web Development\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Interactive frontend learning platform. Master HTML, CSS, JavaScript, Design Patterns, and ace your next interview.\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script><script>self.__next_f.push([1,"1c:\"$17:metadata\"\n"])</script></body></html>

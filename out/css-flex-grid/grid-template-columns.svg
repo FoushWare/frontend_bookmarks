@@ -1,0 +1,21 @@
+<svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .cell { fill:#4f86f7; stroke:#2955b8; stroke-width:2; }
+    .label { fill:#1a1a2e; font-size:16px; font-weight:600; }
+    .code { fill:#ffffff; font-size:14px; font-weight:600; }
+  </style>
+
+  <text x="20" y="25" class="label">grid-template-columns: 1fr 2fr 1fr;  grid-template-rows: 80px 80px;</text>
+
+  <rect x="20" y="40" width="150" height="80" class="cell" rx="4"/><text x="60" y="85" class="code">1fr</text>
+  <rect x="174" y="40" width="300" height="80" class="cell" rx="4"/><text x="290" y="85" class="code">2fr</text>
+  <rect x="478" y="40" width="150" height="80" class="cell" rx="4"/><text x="518" y="85" class="code">1fr</text>
+
+  <rect x="20" y="124" width="150" height="80" class="cell" rx="4"/>
+  <rect x="174" y="124" width="300" height="80" class="cell" rx="4"/>
+  <rect x="478" y="124" width="150" height="80" class="cell" rx="4"/>
+
+  <text x="20" y="245" class="label" font-size="14" font-weight="400">Track sizes are proportional shares of remaining space, not pixels.</text>
+  <text x="20" y="267" class="label" font-size="14" font-weight="400">Here the total is 4 fr, so the middle column always takes 2x the width</text>
+  <text x="20" y="289" class="label" font-size="14" font-weight="400">of each outer column, at any container width.</text>
+</svg>

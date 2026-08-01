@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "npm rebuild lightningcss || true"
+    "lint": "next lint"
   },
   "dependencies": {
     "@codemirror/lang-css": "^6.3.1",

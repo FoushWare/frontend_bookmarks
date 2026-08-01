@@ -1,0 +1,52 @@
+1:"$Sreact.fragment"
+3:I[2619,["2619","static/chunks/2619-3c9e02e22d10480a.js","6910","static/chunks/app/projects/flexbox/page-3ce6c34473c669d7.js"],""]
+4:I[300,["2619","static/chunks/2619-3c9e02e22d10480a.js","7177","static/chunks/app/layout-4d40cb32d25ec0c0.js"],"default"]
+5:I[2882,["2619","static/chunks/2619-3c9e02e22d10480a.js","7177","static/chunks/app/layout-4d40cb32d25ec0c0.js"],"default"]
+6:I[3193,["2619","static/chunks/2619-3c9e02e22d10480a.js","7177","static/chunks/app/layout-4d40cb32d25ec0c0.js"],"default"]
+7:I[7495,["2619","static/chunks/2619-3c9e02e22d10480a.js","7177","static/chunks/app/layout-4d40cb32d25ec0c0.js"],"default"]
+8:I[9196,["2619","static/chunks/2619-3c9e02e22d10480a.js","7177","static/chunks/app/layout-4d40cb32d25ec0c0.js"],"default"]
+9:I[9766,[],""]
+a:I[8924,[],""]
+12:I[7150,[],""]
+:HL["/frontend_bookmarks/_next/static/css/5e220cec83c12819.css","style"]
+2:T52d,
+              (function() {
+                try {
+                  var s = localStorage.getItem('theme');
+                  var dark = s ? (s === 'dark' || (s === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) : true;
+                  document.documentElement.classList.toggle('dark', dark);
+
+                  var palettes = {
+                    lime: { accent: '#b5f23d', dark: '#96d121', text: '#1a2e00' },
+                    emerald: { accent: '#10b981', dark: '#059669', text: '#ffffff' },
+                    indigo: { accent: '#6366f1', dark: '#4f46e5', text: '#ffffff' },
+                    cyan: { accent: '#06b6d4', dark: '#0284c7', text: '#ffffff' },
+                    rose: { accent: '#f43f5e', dark: '#e11d48', text: '#ffffff' },
+                    amber: { accent: '#f59e0b', dark: '#d97706', text: '#ffffff' }
+                  };
+                  var pId = localStorage.getItem('color-palette');
+                  var p = palettes[pId] || palettes.lime;
+                  document.documentElement.style.setProperty('--accent', p.accent);
+                  document.documentElement.style.setProperty('--accent-dark', p.dark);
+                  document.documentElement.style.setProperty('--accent-text', p.text);
+                } catch(e) {}
+              })();
+            0:{"P":null,"b":"8zbceqAfewazS-E4dQNOc","p":"/frontend_bookmarks","c":["","projects","flexbox","flex-wrap"],"i":false,"f":[[["",{"children":["projects",{"children":["flexbox",{"children":[["id","flex-wrap","d"],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/frontend_bookmarks/_next/static/css/5e220cec83c12819.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}],["$","link",null,{"rel":"preconnect","href":"https://fonts.gstatic.com","crossOrigin":"anonymous"}],["$","link",null,{"href":"https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap","rel":"stylesheet"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]]}],["$","body",null,{"children":[["$","nav",null,{"className":"site-nav","children":["$","div",null,{"style":{"display":"flex","justifyContent":"space-between","alignItems":"center","padding":"0.75rem 1.5rem","maxWidth":"1280px","margin":"0 auto"},"children":[["$","$L3",null,{"href":"/","style":{"display":"flex","alignItems":"center","gap":"0.6rem","textDecoration":"none","fontWeight":700,"fontSize":"1rem","color":"var(--text)","letterSpacing":"-0.02em"},"children":[["$","$L4",null,{}],["$","span",null,{"children":["Frontend",["$","span",null,{"style":{"color":"var(--accent-dark)"},"children":" Bookmarks"}]]}]]}],["$","$L5",null,{}],["$","$L6",null,{}],["$","$L6",null,{"isMobile":true}],["$","div",null,{"style":{"display":"flex","alignItems":"center","gap":"0.5rem"},"children":[["$","$L7",null,{}],["$","$L8",null,{}]]}]]}]}],["$","main",null,{"style":{"paddingTop":"57px"},"children":["$","$L9",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$La",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],"$Lb","$Lc"]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}]]}],{"children":["projects","$Ld",{"children":["flexbox","$Le",{"children":[["id","flex-wrap","d"],"$Lf",{"children":["__PAGE__","$L10",{},null,false]},null,false]},null,false]},null,false]},null,false],"$L11",false]],"m":"$undefined","G":["$12",[]],"s":false,"S":true}
+14:I[4431,[],"OutletBoundary"]
+16:I[5278,[],"AsyncMetadataOutlet"]
+18:I[4431,[],"ViewportBoundary"]
+1a:I[4431,[],"MetadataBoundary"]
+1b:"$Sreact.suspense"
+b:["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}]
+c:["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]
+d:["$","$1","c",{"children":[null,["$","$L9",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$La",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+e:["$","$1","c",{"children":[null,["$","$L9",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$La",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+f:["$","$1","c",{"children":[null,["$","$L9",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$La",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+10:["$","$1","c",{"children":["$L13",null,["$","$L14",null,{"children":["$L15",["$","$L16",null,{"promise":"$@17"}]]}]]}]
+11:["$","$1","h",{"children":[null,[["$","$L18",null,{"children":"$L19"}],null],["$","$L1a",null,{"children":["$","div",null,{"hidden":true,"children":["$","$1b",null,{"fallback":null,"children":"$L1c"}]}]}]]}]
+1d:I[1751,["7490","static/chunks/7490-ebdee84beb96c45b.js","68","static/chunks/app/projects/flexbox/%5Bid%5D/page-771a764ac139b6cf.js"],"default"]
+13:["$","div",null,{"style":{"maxWidth":"1400px","margin":"0 auto","padding":"2.5rem 1.25rem"},"children":["$","$L1d",null,{"projectId":"flex-wrap","projectType":"flexbox"}]}]
+19:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+15:null
+17:{"metadata":[["$","title","0",{"children":"Frontend Bookmarks — Master Modern Web Development"}],["$","meta","1",{"name":"description","content":"Interactive frontend learning platform. Master HTML, CSS, JavaScript, Design Patterns, and ace your next interview."}]],"error":null,"digest":"$undefined"}
+1c:"$17:metadata"

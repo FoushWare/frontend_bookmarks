@@ -1,0 +1,44 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .box { fill:#4f86f7; stroke:#2955b8; stroke-width:2; }
+    .container { fill:#eef2fb; stroke:#94a8d8; stroke-width:2; stroke-dasharray:6,4; }
+    .label { fill:#1a1a2e; font-size:16px; font-weight:600; }
+  </style>
+
+  <!-- flex-start -->
+  <text x="20" y="25" class="label">align-items: flex-start</text>
+  <rect x="20" y="35" width="230" height="120" class="container" rx="6"/>
+  <rect x="35" y="45" width="45" height="40" class="box" rx="4"/>
+  <rect x="95" y="45" width="45" height="70" class="box" rx="4"/>
+  <rect x="155" y="45" width="45" height="55" class="box" rx="4"/>
+
+  <!-- center -->
+  <text x="280" y="25" class="label">align-items: center</text>
+  <rect x="280" y="35" width="230" height="120" class="container" rx="6"/>
+  <rect x="295" y="75" width="45" height="40" class="box" rx="4"/>
+  <rect x="355" y="60" width="45" height="70" class="box" rx="4"/>
+  <rect x="415" y="67" width="45" height="55" class="box" rx="4"/>
+
+  <!-- flex-end -->
+  <text x="540" y="25" class="label">align-items: flex-end</text>
+  <rect x="540" y="35" width="230" height="120" class="container" rx="6"/>
+  <rect x="555" y="110" width="45" height="40" class="box" rx="4"/>
+  <rect x="615" y="80" width="45" height="70" class="box" rx="4"/>
+  <rect x="675" y="95" width="45" height="55" class="box" rx="4"/>
+
+  <!-- stretch -->
+  <text x="20" y="200" class="label">align-items: stretch (default, no fixed height)</text>
+  <rect x="20" y="210" width="230" height="120" class="container" rx="6"/>
+  <rect x="35" y="220" width="45" height="100" class="box" rx="4"/>
+  <rect x="95" y="220" width="45" height="100" class="box" rx="4"/>
+  <rect x="155" y="220" width="45" height="100" class="box" rx="4"/>
+
+  <!-- baseline -->
+  <text x="280" y="200" class="label">align-items: baseline (text aligns)</text>
+  <rect x="280" y="210" width="230" height="120" class="container" rx="6"/>
+  <rect x="295" y="260" width="45" height="30" class="box" rx="4"/>
+  <rect x="355" y="230" width="45" height="60" class="box" rx="4"/>
+  <rect x="415" y="245" width="45" height="45" class="box" rx="4"/>
+  <line x1="290" y1="290" x2="465" y2="290" stroke="#e0533d" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="290" y="350" class="label" font-size="13" font-weight="400">red line = shared text baseline</text>
+</svg>

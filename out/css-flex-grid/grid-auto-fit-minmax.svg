@@ -1,0 +1,24 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .cell { fill:#4f86f7; stroke:#2955b8; stroke-width:2; }
+    .ghost { fill:#eef2fb; stroke:#94a8d8; stroke-width:1.5; stroke-dasharray:4,3; }
+    .label { fill:#1a1a2e; font-size:15px; font-weight:600; }
+    .sub { fill:#1a1a2e; font-size:13px; font-weight:400; }
+  </style>
+
+  <text x="20" y="25" class="label">grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));</text>
+
+  <text x="20" y="55" class="sub">Wide container - 4 cards fit, each stretches to fill space</text>
+  <rect x="20" y="65" width="170" height="70" class="cell" rx="4"/>
+  <rect x="200" y="65" width="170" height="70" class="cell" rx="4"/>
+  <rect x="380" y="65" width="170" height="70" class="cell" rx="4"/>
+  <rect x="560" y="65" width="170" height="70" class="cell" rx="4"/>
+
+  <text x="20" y="175" class="sub">Narrower container - only 2 cards fit per row, they still stretch</text>
+  <rect x="20" y="185" width="220" height="70" class="cell" rx="4"/>
+  <rect x="260" y="185" width="220" height="70" class="cell" rx="4"/>
+
+  <text x="20" y="295" class="sub">auto-fit collapses empty tracks (cards stretch to fill the row).</text>
+  <text x="20" y="317" class="sub">auto-fill keeps empty tracks reserved (cards stay at minmax width,</text>
+  <text x="20" y="339" class="sub">leaving visible gaps) - useful when you don't want items to stretch.</text>
+</svg>

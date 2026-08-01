@@ -5,12 +5,14 @@ import ResourceGuide, { ResourceSection } from './ResourceGuide';
 
 interface TopicPageProps {
   title: string;
-  category: string;
-  categorySlug: string;
+  category?: string;
+  categorySlug?: string;
   description: string;
   icon: string;
   sections?: ResourceSection[];
   children?: ReactNode;
+  backLink?: string;
+  backLabel?: string;
 }
 
 export function TopicPage({
@@ -21,6 +23,8 @@ export function TopicPage({
   icon,
   sections = [],
   children,
+  backLink,
+  backLabel,
 }: TopicPageProps) {
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem 5rem' }}>
@@ -76,7 +80,7 @@ export function TopicPage({
 
         <div style={{ marginTop: '2rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border)' }}>
           <Link
-            href={`/${categorySlug}`}
+            href={backLink ? backLink : (categorySlug ? `/${categorySlug}` : '#')}
             className="btn-ghost"
             style={{
               fontSize: '0.875rem',
@@ -88,7 +92,7 @@ export function TopicPage({
               gap: '0.375rem',
             }}
           >
-            ← Back to {category}
+            ← Back to {backLabel ? backLabel : (category ?? title)}
           </Link>
         </div>
       </div>

@@ -4,6 +4,7 @@ const nextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
+  // Force redeploy
 };
 
 export default nextConfig;

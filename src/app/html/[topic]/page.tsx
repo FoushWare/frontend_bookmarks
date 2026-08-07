@@ -1,6 +1,15 @@
 import { notFound } from 'next/navigation';
 import TopicPage from '@/components/TopicPage';
 import { ResourceSection } from '@/components/ResourceGuide';
+import { semanticsData } from '@/data/html/semantics';
+import { accessibilityData } from '@/data/html/accessibility';
+import { formsData } from '@/data/html/forms';
+import { mediaData } from '@/data/html/media';
+import { seoData } from '@/data/html/seo';
+import { tablesData } from '@/data/html/tables';
+import { performanceData } from '@/data/html/performance';
+import { apisData } from '@/data/html/apis';
+import { interviewData } from '@/data/html/interview';
 
 interface TopicData {
   title: string;
@@ -14,71 +23,55 @@ const htmlTopicDetails: Record<string, TopicData> = {
     title: 'HTML Semantics',
     icon: '🏗️',
     description: 'Use correct HTML elements to give meaning and structure to web content.',
-    sections: [
-      {
-        title: 'References',
-        icon: '📖',
-        links: [
-          { title: 'MDN HTML Elements', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element', description: 'Complete reference of HTML elements' },
-        ],
-      },
-    ],
+    sections: semanticsData,
   },
   accessibility: {
     title: 'HTML Accessibility',
     icon: '♿',
-    description: 'Ensure web applications are accessible to all users using ARIA, proper roles, and keyboard navigation.',
-    sections: [
-      {
-        title: 'References',
-        icon: '📖',
-        links: [
-          { title: 'W3C WAI-ARIA Authoring Practices', url: 'https://www.w3.org/WAI/ARIA/apg/', description: 'Official accessibility practices' },
-        ],
-      },
-    ],
+    description: 'Make your HTML accessible to all users with ARIA, semantic elements, and proper labeling.',
+    sections: accessibilityData,
   },
   forms: {
     title: 'HTML Forms',
     icon: '📝',
-    description: 'Build user-friendly, accessible form controls, inputs, and built-in validation.',
-    sections: [
-      {
-        title: 'References',
-        icon: '📖',
-        links: [
-          { title: 'MDN Web Forms Guide', url: 'https://developer.mozilla.org/en-US/docs/Learn/Forms', description: 'Web forms guide' },
-        ],
-      },
-    ],
+    description: 'Build interactive forms with proper validation, accessibility, and submission handling.',
+    sections: formsData,
   },
   media: {
     title: 'HTML Media',
     icon: '🎬',
     description: 'Embed images, audio, video, picture elements, and responsive assets.',
-    sections: [
-      {
-        title: 'References',
-        icon: '📖',
-        links: [
-          { title: 'MDN Media Elements', url: 'https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding', description: 'Multimedia and embedding guide' },
-        ],
-      },
-    ],
+    sections: mediaData,
   },
   seo: {
     title: 'HTML SEO & Meta Tags',
     icon: '🔍',
     description: 'Optimize page discovery with structured metadata, Open Graph, and search engines.',
-    sections: [
-      {
-        title: 'References',
-        icon: '📖',
-        links: [
-          { title: 'Google Search Central Docs', url: 'https://developers.google.com/search/docs', description: 'SEO documentation' },
-        ],
-      },
-    ],
+    sections: seoData,
+  },
+  tables: {
+    title: 'HTML Tables',
+    icon: '📊',
+    description: 'Create accessible data tables with proper structure and semantic markup.',
+    sections: tablesData,
+  },
+  performance: {
+    title: 'HTML Performance & Loading',
+    icon: '⚡',
+    description: 'Optimize resource loading with hints, lazy loading, and script placement strategies.',
+    sections: performanceData,
+  },
+  apis: {
+    title: 'HTML5 APIs & Misc',
+    icon: '🔧',
+    description: 'Use data attributes, templates, and modern HTML5 features for enhanced functionality.',
+    sections: apisData,
+  },
+  interview: {
+    title: 'HTML Interview Traps',
+    icon: '🎯',
+    description: 'Master common HTML gotchas, tricky behaviors, and interview questions.',
+    sections: interviewData,
   },
 };
 

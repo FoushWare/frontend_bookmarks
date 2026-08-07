@@ -6,6 +6,10 @@ const htmlTopics = [
   { slug: 'forms', icon: '📝', title: 'Forms', description: 'Master form elements, validation, and user input', level: 'intermediate' },
   { slug: 'media', icon: '🎬', title: 'Media', description: 'Master images, video, audio, and responsive media', level: 'beginner' },
   { slug: 'seo', icon: '🔍', title: 'SEO', description: 'Master meta tags, structured data, and search optimization', level: 'intermediate' },
+  { slug: 'tables', icon: '📊', title: 'Tables', description: 'Master table structure and accessible data tables', level: 'beginner' },
+  { slug: 'performance', icon: '⚡', title: 'Performance & Loading', description: 'Master script loading, resource hints, and lazy loading', level: 'intermediate' },
+  { slug: 'apis', icon: '🔧', title: 'HTML5 APIs & Misc', description: 'Master data attributes, templates, and modern HTML features', level: 'intermediate' },
+  { slug: 'interview', icon: '🎯', title: 'Interview Traps', description: 'Master common HTML gotchas and interview questions', level: 'advanced' },
 ];
 
 const badgeStyle = (level: string) => {

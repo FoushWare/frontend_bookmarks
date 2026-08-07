@@ -1,0 +1,49 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="480" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="36" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">The First Rule of ARIA</text>
+  <text x="400" y="58" text-anchor="middle" fill="#94a3b8" font-size="13">"No ARIA is better than bad ARIA"</text>
+
+  <!-- left: native element -->
+  <rect x="60" y="90" width="300" height="150" rx="10" fill="#0f766e" opacity="0.9"/>
+  <text x="210" y="122" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Native HTML element</text>
+  <rect x="90" y="140" width="240" height="36" rx="6" fill="#0f172a"/>
+  <text x="210" y="163" text-anchor="middle" fill="#5eead4" font-size="13">&lt;button&gt;Submit&lt;/button&gt;</text>
+  <text x="210" y="196" text-anchor="middle" fill="#ccfbf1" font-size="12">Keyboard support, focus,</text>
+  <text x="210" y="212" text-anchor="middle" fill="#ccfbf1" font-size="12">and role built in — free</text>
+
+  <!-- right: div + aria -->
+  <rect x="440" y="90" width="300" height="150" rx="10" fill="#7c2d12" opacity="0.9"/>
+  <text x="590" y="122" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">div + ARIA (last resort)</text>
+  <rect x="470" y="140" width="240" height="36" rx="6" fill="#0f172a"/>
+  <text x="590" y="157" text-anchor="middle" fill="#fca5a5" font-size="11">&lt;div role="button"</text>
+  <text x="590" y="171" text-anchor="middle" fill="#fca5a5" font-size="11">tabindex="0"&gt;Submit&lt;/div&gt;</text>
+  <text x="590" y="196" text-anchor="middle" fill="#fecaca" font-size="12">You must manually add</text>
+  <text x="590" y="212" text-anchor="middle" fill="#fecaca" font-size="12">keyboard handlers, focus mgmt</text>
+
+  <!-- vs -->
+  <circle cx="400" cy="165" r="24" fill="#334155"/>
+  <text x="400" y="171" text-anchor="middle" fill="#e2e8f0" font-size="13" font-weight="700">VS</text>
+
+  <!-- role categories -->
+  <text x="400" y="280" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="700">Common ARIA Role Categories</text>
+
+  <rect x="60" y="300" width="215" height="70" rx="8" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="167" y="324" text-anchor="middle" fill="#5eead4" font-size="13" font-weight="700">Landmark roles</text>
+  <text x="167" y="344" text-anchor="middle" fill="#cbd5e1" font-size="11">banner, navigation,</text>
+  <text x="167" y="358" text-anchor="middle" fill="#cbd5e1" font-size="11">main, contentinfo</text>
+
+  <rect x="292" y="300" width="215" height="70" rx="8" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="400" y="324" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700">Widget roles</text>
+  <text x="400" y="344" text-anchor="middle" fill="#cbd5e1" font-size="11">button, tab, dialog,</text>
+  <text x="400" y="358" text-anchor="middle" fill="#cbd5e1" font-size="11">slider, checkbox</text>
+
+  <rect x="524" y="300" width="215" height="70" rx="8" fill="#1e293b" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="631" y="324" text-anchor="middle" fill="#c084fc" font-size="13" font-weight="700">Live region roles</text>
+  <text x="631" y="344" text-anchor="middle" fill="#cbd5e1" font-size="11">alert, status,</text>
+  <text x="631" y="358" text-anchor="middle" fill="#cbd5e1" font-size="11">log</text>
+
+  <rect x="60" y="400" width="680" height="60" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="424" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">If a native HTML element already gives you the role, states,</text>
+  <text x="400" y="442" text-anchor="middle" fill="#94a3b8" font-size="12">and behavior you need — use it. Only add ARIA when there's a real gap.</text>
+</svg>

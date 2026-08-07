@@ -1,0 +1,51 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="460" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Native Validation Flow</text>
+
+  <!-- attrs -->
+  <rect x="60" y="56" width="300" height="130" rx="10" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="80" y="82" fill="#5eead4" font-size="13" font-weight="700">Validation attributes</text>
+  <text x="80" y="106" fill="#cbd5e1" font-size="11">required</text>
+  <text x="80" y="126" fill="#cbd5e1" font-size="11">pattern="regex"</text>
+  <text x="80" y="146" fill="#cbd5e1" font-size="11">min / max / minlength / maxlength</text>
+  <text x="80" y="166" fill="#cbd5e1" font-size="11">step, type="email"/"url" built-ins</text>
+
+  <!-- arrow -->
+  <line x1="360" y1="120" x2="420" y2="120" stroke="#475569" stroke-width="2" marker-end="url(#a3)"/>
+  <defs>
+    <marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- pseudo classes -->
+  <rect x="420" y="56" width="320" height="130" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="440" y="82" fill="#fbbf24" font-size="13" font-weight="700">CSS pseudo-classes (free styling hooks)</text>
+  <text x="440" y="106" fill="#cbd5e1" font-size="11">:valid / :invalid</text>
+  <text x="440" y="126" fill="#cbd5e1" font-size="11">:required / :optional</text>
+  <text x="440" y="146" fill="#cbd5e1" font-size="11">:in-range / :out-of-range</text>
+  <text x="440" y="166" fill="#cbd5e1" font-size="11">:user-invalid (only after interaction)</text>
+
+  <!-- JS API -->
+  <text x="400" y="230" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="700">Constraint Validation API (JavaScript)</text>
+
+  <rect x="60" y="250" width="220" height="90" rx="8" fill="#134e4a"/>
+  <text x="170" y="276" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="700">checkValidity()</text>
+  <text x="170" y="298" text-anchor="middle" fill="#ccfbf1" font-size="11">Returns true/false,</text>
+  <text x="170" y="314" text-anchor="middle" fill="#ccfbf1" font-size="11">triggers native UI</text>
+
+  <rect x="290" y="250" width="220" height="90" rx="8" fill="#0f766e"/>
+  <text x="400" y="276" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">setCustomValidity()</text>
+  <text x="400" y="298" text-anchor="middle" fill="#e0f2f1" font-size="11">Custom error message,</text>
+  <text x="400" y="314" text-anchor="middle" fill="#e0f2f1" font-size="11">e.g. "Passwords must match"</text>
+
+  <rect x="520" y="250" width="220" height="90" rx="8" fill="#0d9488"/>
+  <text x="630" y="276" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700">validationMessage</text>
+  <text x="630" y="298" text-anchor="middle" fill="#e0f2f1" font-size="11">Read-only, the browser's</text>
+  <text x="630" y="314" text-anchor="middle" fill="#e0f2f1" font-size="11">current error text</text>
+
+  <rect x="60" y="370" width="680" height="70" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="394" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Native validation is a UX baseline, not a security boundary —</text>
+  <text x="400" y="414" text-anchor="middle" fill="#94a3b8" font-size="12">it can be bypassed entirely, so the server must always re-validate</text>
+</svg>

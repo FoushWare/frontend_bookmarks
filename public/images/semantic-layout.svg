@@ -1,0 +1,47 @@
+<svg viewBox="0 0 800 620" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="620" fill="#0f172a" rx="12"/>
+
+  <!-- outer page frame -->
+  <rect x="60" y="30" width="680" height="560" rx="10" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="80" y="20" fill="#64748b" font-size="13" font-weight="600">&lt;body&gt;</text>
+
+  <!-- header -->
+  <rect x="80" y="50" width="640" height="70" rx="6" fill="#0d9488" opacity="0.85"/>
+  <text x="400" y="82" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="700">&lt;header&gt;</text>
+  <text x="400" y="103" text-anchor="middle" fill="#e0f2f1" font-size="12">Logo, site title, intro content</text>
+
+  <!-- nav -->
+  <rect x="80" y="132" width="640" height="50" rx="6" fill="#0f766e" opacity="0.85"/>
+  <text x="400" y="153" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">&lt;nav&gt;</text>
+  <text x="400" y="171" text-anchor="middle" fill="#ccfbf1" font-size="12">Primary site navigation links</text>
+
+  <!-- main wrapper -->
+  <rect x="80" y="194" width="640" height="300" rx="6" fill="none" stroke="#5eead4" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="98" y="214" fill="#5eead4" font-size="14" font-weight="700">&lt;main&gt;</text>
+
+  <!-- article -->
+  <rect x="100" y="224" width="380" height="250" rx="6" fill="#134e4a" opacity="0.9"/>
+  <text x="290" y="250" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">&lt;article&gt;</text>
+  <text x="290" y="270" text-anchor="middle" fill="#99f6e4" font-size="12">Self-contained, reusable content</text>
+
+  <rect x="120" y="286" width="340" height="40" rx="5" fill="#0f172a" stroke="#2dd4bf" stroke-width="1"/>
+  <text x="290" y="310" text-anchor="middle" fill="#5eead4" font-size="12">&lt;section&gt; Related grouped content</text>
+
+  <rect x="120" y="336" width="340" height="40" rx="5" fill="#0f172a" stroke="#2dd4bf" stroke-width="1"/>
+  <text x="290" y="360" text-anchor="middle" fill="#5eead4" font-size="12">&lt;section&gt; Another topic group</text>
+
+  <rect x="120" y="386" width="340" height="40" rx="5" fill="#0f172a" stroke="#2dd4bf" stroke-width="1"/>
+  <text x="290" y="410" text-anchor="middle" fill="#5eead4" font-size="12">&lt;figure&gt; Image + &lt;figcaption&gt;</text>
+
+  <!-- aside -->
+  <rect x="490" y="224" width="210" height="250" rx="6" fill="#78350f" opacity="0.85"/>
+  <text x="595" y="250" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">&lt;aside&gt;</text>
+  <text x="595" y="270" text-anchor="middle" fill="#fde68a" font-size="12">Tangentially related</text>
+  <text x="595" y="286" text-anchor="middle" fill="#fde68a" font-size="12">content (sidebar,</text>
+  <text x="595" y="302" text-anchor="middle" fill="#fde68a" font-size="12">related links, ads)</text>
+
+  <!-- footer -->
+  <rect x="80" y="504" width="640" height="60" rx="6" fill="#334155"/>
+  <text x="400" y="530" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">&lt;footer&gt;</text>
+  <text x="400" y="548" text-anchor="middle" fill="#cbd5e1" font-size="12">Copyright, site links, contact info</text>
+</svg>

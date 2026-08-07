@@ -1,0 +1,42 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="480" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Why Input Type Matters — Not Just Styling</text>
+
+  <!-- row template -->
+  <!-- email -->
+  <rect x="60" y="56" width="680" height="60" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="80" fill="#5eead4" font-size="13" font-weight="700">type="email"</text>
+  <text x="280" y="80" fill="#cbd5e1" font-size="12">Mobile: shows @ key on keyboard</text>
+  <text x="280" y="98" fill="#cbd5e1" font-size="12">Built-in format validation for free</text>
+
+  <!-- tel -->
+  <rect x="60" y="124" width="680" height="60" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="148" fill="#5eead4" font-size="13" font-weight="700">type="tel"</text>
+  <text x="280" y="148" fill="#cbd5e1" font-size="12">Mobile: shows numeric phone keypad</text>
+  <text x="280" y="166" fill="#cbd5e1" font-size="12">No built-in validation (phone formats vary globally)</text>
+
+  <!-- number -->
+  <rect x="60" y="192" width="680" height="60" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="216" fill="#5eead4" font-size="13" font-weight="700">type="number"</text>
+  <text x="280" y="216" fill="#cbd5e1" font-size="12">Mobile: numeric keypad + spinner arrows</text>
+  <text x="280" y="234" fill="#cbd5e1" font-size="12">Value returned as parsed number-like string, supports min/max/step</text>
+
+  <!-- date -->
+  <rect x="60" y="260" width="680" height="60" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="284" fill="#5eead4" font-size="13" font-weight="700">type="date"</text>
+  <text x="280" y="284" fill="#cbd5e1" font-size="12">Native OS date picker UI, consistent format handling</text>
+  <text x="280" y="302" fill="#cbd5e1" font-size="12">Value always in ISO format (YYYY-MM-DD) regardless of locale display</text>
+
+  <!-- search -->
+  <rect x="60" y="328" width="680" height="60" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="352" fill="#5eead4" font-size="13" font-weight="700">type="search"</text>
+  <text x="280" y="352" fill="#cbd5e1" font-size="12">Shows an "×" clear button natively</text>
+  <text x="280" y="370" fill="#cbd5e1" font-size="12">Mobile keyboard shows "Search" instead of "Enter" as the action key</text>
+
+  <!-- url -->
+  <rect x="60" y="396" width="680" height="60" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="420" fill="#5eead4" font-size="13" font-weight="700">type="url"</text>
+  <text x="280" y="420" fill="#cbd5e1" font-size="12">Mobile: shows / and .com keys</text>
+  <text x="280" y="438" fill="#cbd5e1" font-size="12">Built-in validation requires a valid URL structure</text>
+</svg>

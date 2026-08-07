@@ -1,0 +1,41 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="420" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Choosing the Right Multi-Option Control</text>
+
+  <!-- select -->
+  <rect x="50" y="60" width="220" height="180" rx="10" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="160" y="86" text-anchor="middle" fill="#5eead4" font-size="14" font-weight="700">&lt;select&gt;</text>
+  <text x="70" y="112" fill="#cbd5e1" font-size="11">Locked to given options</text>
+  <text x="70" y="132" fill="#cbd5e1" font-size="11">only — no free text</text>
+  <text x="70" y="160" fill="#cbd5e1" font-size="11">✓ Country picker</text>
+  <text x="70" y="180" fill="#cbd5e1" font-size="11">✓ Small fixed list</text>
+  <text x="70" y="200" fill="#cbd5e1" font-size="11">✓ Few options (&lt;15ish)</text>
+  <text x="70" y="222" fill="#cbd5e1" font-size="11">Native mobile-friendly UI</text>
+
+  <!-- datalist -->
+  <rect x="290" y="60" width="220" height="180" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="400" y="86" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">&lt;input&gt; + &lt;datalist&gt;</text>
+  <text x="310" y="112" fill="#cbd5e1" font-size="11">Suggestions, but free</text>
+  <text x="310" y="132" fill="#cbd5e1" font-size="11">text still allowed</text>
+  <text x="310" y="160" fill="#cbd5e1" font-size="11">✓ City/product autocomplete</text>
+  <text x="310" y="180" fill="#cbd5e1" font-size="11">✓ Large option lists</text>
+  <text x="310" y="200" fill="#cbd5e1" font-size="11">✓ Value not in list is OK</text>
+  <text x="310" y="222" fill="#cbd5e1" font-size="11">Filters as user types</text>
+
+  <!-- radio group -->
+  <rect x="530" y="60" width="220" height="180" rx="10" fill="#1e293b" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="640" y="86" text-anchor="middle" fill="#c084fc" font-size="14" font-weight="700">Radio group</text>
+  <text x="550" y="112" fill="#cbd5e1" font-size="11">All options visible</text>
+  <text x="550" y="132" fill="#cbd5e1" font-size="11">at once, no click-to-open</text>
+  <text x="550" y="160" fill="#cbd5e1" font-size="11">✓ 2-5 options</text>
+  <text x="550" y="180" fill="#cbd5e1" font-size="11">✓ Comparison matters</text>
+  <text x="550" y="200" fill="#cbd5e1" font-size="11">✓ One click to select</text>
+  <text x="550" y="222" fill="#cbd5e1" font-size="11">Best for few, visible choices</text>
+
+  <rect x="60" y="270" width="680" height="130" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="296" fill="#f1f5f9" font-size="13" font-weight="700">Decision rule</text>
+  <text x="80" y="322" fill="#cbd5e1" font-size="12">Few options (2-5), comparison matters → radio group</text>
+  <text x="80" y="346" fill="#cbd5e1" font-size="12">Many fixed options, must pick from list → select</text>
+  <text x="80" y="370" fill="#cbd5e1" font-size="12">Many options, but custom values allowed → input + datalist</text>
+</svg>

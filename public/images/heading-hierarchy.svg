@@ -1,0 +1,52 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="460" fill="#0f172a" rx="12"/>
+
+  <!-- correct outline column -->
+  <text x="210" y="34" text-anchor="middle" fill="#5eead4" font-size="15" font-weight="700">✓ Correct hierarchy</text>
+
+  <rect x="60" y="50" width="300" height="36" rx="5" fill="#0d9488"/>
+  <text x="80" y="73" fill="#ffffff" font-size="13" font-weight="700">H1 — Page title</text>
+
+  <rect x="90" y="96" width="270" height="34" rx="5" fill="#0f766e"/>
+  <text x="108" y="118" fill="#ffffff" font-size="12" font-weight="600">H2 — Main section</text>
+
+  <rect x="120" y="140" width="240" height="32" rx="5" fill="#134e4a"/>
+  <text x="138" y="161" fill="#ccfbf1" font-size="12">H3 — Subsection</text>
+
+  <rect x="120" y="182" width="240" height="32" rx="5" fill="#134e4a"/>
+  <text x="138" y="203" fill="#ccfbf1" font-size="12">H3 — Subsection</text>
+
+  <rect x="90" y="224" width="270" height="34" rx="5" fill="#0f766e"/>
+  <text x="108" y="246" fill="#ffffff" font-size="12" font-weight="600">H2 — Main section</text>
+
+  <rect x="120" y="268" width="240" height="32" rx="5" fill="#134e4a"/>
+  <text x="138" y="289" fill="#ccfbf1" font-size="12">H3 — Subsection</text>
+
+  <text x="210" y="330" text-anchor="middle" fill="#94a3b8" font-size="12">Sequential, no skipped levels</text>
+
+  <!-- divider -->
+  <line x1="420" y1="30" x2="420" y2="420" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- incorrect outline column -->
+  <text x="610" y="34" text-anchor="middle" fill="#f87171" font-size="15" font-weight="700">✗ Common mistake</text>
+
+  <rect x="460" y="50" width="300" height="36" rx="5" fill="#0d9488"/>
+  <text x="480" y="73" fill="#ffffff" font-size="13" font-weight="700">H1 — Page title</text>
+
+  <rect x="490" y="96" width="270" height="32" rx="5" fill="#7c2d12" stroke="#f87171" stroke-width="1.5"/>
+  <text x="508" y="117" fill="#fecaca" font-size="12" font-weight="600">H4 — Skipped H2/H3!</text>
+
+  <rect x="490" y="138" width="270" height="34" rx="5" fill="#0f766e"/>
+  <text x="508" y="160" fill="#ffffff" font-size="12" font-weight="600">H2 — Main section</text>
+
+  <rect x="490" y="182" width="270" height="32" rx="5" fill="#7c2d12" stroke="#f87171" stroke-width="1.5"/>
+  <text x="508" y="203" fill="#fecaca" font-size="12" font-weight="600">H1 — Second H1!</text>
+
+  <text x="610" y="250" text-anchor="middle" fill="#94a3b8" font-size="12">Skipped levels break</text>
+  <text x="610" y="266" text-anchor="middle" fill="#94a3b8" font-size="12">the document outline</text>
+
+  <!-- legend note -->
+  <rect x="60" y="380" width="680" height="60" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="404" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Heading levels convey structure to screen readers —</text>
+  <text x="400" y="422" text-anchor="middle" fill="#94a3b8" font-size="12">users often jump between headings, skipping levels breaks that navigation</text>
+</svg>

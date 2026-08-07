@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 520" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="520" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Form Submission Lifecycle</text>
+
+  <!-- step 1 -->
+  <rect x="60" y="56" width="680" height="56" rx="8" fill="#0f766e"/>
+  <text x="80" y="80" fill="#ffffff" font-size="13" font-weight="700">1. Trigger: submit button click, Enter key, or form.requestSubmit()</text>
+  <text x="80" y="98" fill="#ccfbf1" font-size="11">Note: form.submit() does NOT fire the submit event — bypasses validation/handlers</text>
+
+  <line x1="400" y1="112" x2="400" y2="128" stroke="#475569" stroke-width="2" marker-end="url(#a4)"/>
+
+  <!-- step 2 -->
+  <rect x="60" y="128" width="680" height="56" rx="8" fill="#134e4a"/>
+  <text x="80" y="152" fill="#ffffff" font-size="13" font-weight="700">2. Constraint validation runs (required, pattern, min/max...)</text>
+  <text x="80" y="170" fill="#ccfbf1" font-size="11">Invalid → submission blocked, native error UI shown, submit event never fires</text>
+
+  <line x1="400" y1="184" x2="400" y2="200" stroke="#475569" stroke-width="2" marker-end="url(#a4)"/>
+
+  <!-- step 3 -->
+  <rect x="60" y="200" width="680" height="56" rx="8" fill="#0f766e"/>
+  <text x="80" y="224" fill="#ffffff" font-size="13" font-weight="700">3. "submit" event fires on the &lt;form&gt; element</text>
+  <text x="80" y="242" fill="#ccfbf1" font-size="11">e.preventDefault() here stops native navigation — required for SPA/AJAX submission</text>
+
+  <line x1="400" y1="256" x2="400" y2="272" stroke="#475569" stroke-width="2" marker-end="url(#a4)"/>
+
+  <!-- branch -->
+  <text x="400" y="290" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="600">preventDefault() called?</text>
+
+  <line x1="330" y1="298" x2="200" y2="330" stroke="#f87171" stroke-width="2"/>
+  <text x="230" y="310" fill="#f87171" font-size="11" font-weight="700">NO</text>
+  <line x1="470" y1="298" x2="600" y2="330" stroke="#2dd4bf" stroke-width="2"/>
+  <text x="570" y="310" fill="#2dd4bf" font-size="11" font-weight="700">YES</text>
+
+  <!-- native path -->
+  <rect x="80" y="330" width="240" height="90" rx="8" fill="#1e293b" stroke="#f87171" stroke-width="1.5"/>
+  <text x="200" y="354" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">Native navigation</text>
+  <text x="100" y="376" fill="#cbd5e1" font-size="11">Full page reload/navigation</text>
+  <text x="100" y="394" fill="#cbd5e1" font-size="11">to action URL, GET/POST</text>
+  <text x="100" y="412" fill="#cbd5e1" font-size="11">as specified on &lt;form&gt;</text>
+
+  <!-- js path -->
+  <rect x="480" y="330" width="240" height="90" rx="8" fill="#1e293b" stroke="#2dd4bf" stroke-width="1.5"/>
+  <text x="600" y="354" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="700">JS/AJAX submission</text>
+  <text x="500" y="376" fill="#cbd5e1" font-size="11">FormData built manually,</text>
+  <text x="500" y="394" fill="#cbd5e1" font-size="11">fetch() call, no page reload,</text>
+  <text x="500" y="412" fill="#cbd5e1" font-size="11">you handle response/errors</text>
+
+  <rect x="60" y="450" width="680" height="56" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="474" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Disabled inputs are excluded from FormData entirely —</text>
+  <text x="400" y="492" text-anchor="middle" fill="#94a3b8" font-size="12">readonly inputs are still included</text>
+
+  <defs>
+    <marker id="a4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#475569"/>
+    </marker>
+  </defs>
+</svg>

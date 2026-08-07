@@ -1,0 +1,45 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="460" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Two Ways to Associate a Label</text>
+
+  <!-- explicit -->
+  <rect x="60" y="56" width="330" height="120" rx="10" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="225" y="80" text-anchor="middle" fill="#5eead4" font-size="13" font-weight="700">Explicit (preferred)</text>
+  <rect x="80" y="96" width="290" height="30" rx="5" fill="#0f172a"/>
+  <text x="90" y="116" fill="#cbd5e1" font-size="10">&lt;label for="email"&gt;Email&lt;/label&gt;</text>
+  <rect x="80" y="132" width="290" height="30" rx="5" fill="#0f172a"/>
+  <text x="90" y="152" fill="#cbd5e1" font-size="10">&lt;input id="email" type="email"&gt;</text>
+
+  <!-- implicit -->
+  <rect x="410" y="56" width="330" height="120" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="575" y="80" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700">Implicit (wrapping)</text>
+  <rect x="430" y="96" width="290" height="66" rx="5" fill="#0f172a"/>
+  <text x="440" y="116" fill="#cbd5e1" font-size="10">&lt;label&gt;</text>
+  <text x="450" y="134" fill="#cbd5e1" font-size="10">  Email &lt;input type="email"&gt;</text>
+  <text x="440" y="152" fill="#cbd5e1" font-size="10">&lt;/label&gt;</text>
+
+  <text x="400" y="204" text-anchor="middle" fill="#94a3b8" font-size="12">Both: clicking the label text focuses the input — but "for" is more flexible for styling layouts</text>
+
+  <!-- fieldset -->
+  <text x="400" y="250" text-anchor="middle" fill="#f1f5f9" font-size="15" font-weight="700">Grouping Related Inputs: fieldset + legend</text>
+
+  <rect x="150" y="270" width="500" height="160" rx="10" fill="none" stroke="#5eead4" stroke-width="2"/>
+  <rect x="180" y="258" width="140" height="24" rx="4" fill="#0f172a"/>
+  <text x="250" y="275" text-anchor="middle" fill="#5eead4" font-size="12" font-weight="700">Shipping Address</text>
+
+  <rect x="180" y="296" width="200" height="32" rx="5" fill="#1e293b" stroke="#334155"/>
+  <text x="280" y="317" text-anchor="middle" fill="#cbd5e1" font-size="11">Street address</text>
+
+  <rect x="400" y="296" width="220" height="32" rx="5" fill="#1e293b" stroke="#334155"/>
+  <text x="510" y="317" text-anchor="middle" fill="#cbd5e1" font-size="11">City</text>
+
+  <circle cx="200" cy="360" r="8" fill="none" stroke="#0d9488" stroke-width="2"/>
+  <circle cx="200" cy="360" r="4" fill="#0d9488"/>
+  <text x="220" y="365" fill="#cbd5e1" font-size="11">Standard shipping</text>
+
+  <circle cx="200" cy="390" r="8" fill="none" stroke="#5eead4" stroke-width="2"/>
+  <text x="220" y="395" fill="#cbd5e1" font-size="11">Express shipping</text>
+
+  <text x="400" y="450" text-anchor="middle" fill="#94a3b8" font-size="12">Screen reader announces "Shipping Address" group name before each field</text>
+</svg>

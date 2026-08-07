@@ -1,8 +1,1 @@
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "framework": "nextjs",
-  "git": {
-    "deploymentEnabled": true
-  }
-}
+{}

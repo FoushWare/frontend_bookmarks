@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { notFound } from 'next/navigation';
 import TopicPage from '@/components/TopicPage';
 import { ResourceSection } from '@/components/ResourceGuide';
@@ -1719,13 +1720,9 @@ h2 {
   },
 };
 
-export function generateStaticParams() {
-  return Object.keys(cssTopicDetails).map((topic) => ({ topic }));
-}
-
 // Force rebuild - CSS content updated
-export default async function CssTopicSubpage({ params }: { params: Promise<{ topic: string }> }) {
-  const { topic } = await params;
+export default function CssTopicSubpage({ params }: { params: Promise<{ topic: string }> }) {
+  const { topic } = React.use(params);
   const data = cssTopicDetails[topic];
 
   if (!data) {

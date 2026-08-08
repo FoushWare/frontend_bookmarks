@@ -1,0 +1,43 @@
+<svg width="600" height="280" viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="600" height="280" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Object Fit</text>
+  
+  <!-- fill -->
+  <rect x="20" y="50" width="130" height="80" fill="#e9ecef" stroke="#333" stroke-width="2"/>
+  <rect x="20" y="50" width="130" height="80" fill="#ff6b6b" opacity="0.5"/>
+  <text x="85" y="145" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">fill (stretches)</text>
+  
+  <!-- contain -->
+  <rect x="170" y="50" width="130" height="80" fill="#e9ecef" stroke="#333" stroke-width="2"/>
+  <rect x="195" y="50" width="80" height="80" fill="#4ecdc4" opacity="0.5"/>
+  <text x="235" y="145" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">contain (fits)</text>
+  
+  <!-- cover -->
+  <rect x="320" y="50" width="130" height="80" fill="#e9ecef" stroke="#333" stroke-width="2"/>
+  <rect x="320" y="50" width="130" height="80" fill="#45b7d1" opacity="0.5"/>
+  <text x="385" y="145" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">cover (fills)</text>
+  
+  <!-- none -->
+  <rect x="470" y="50" width="110" height="80" fill="#e9ecef" stroke="#333" stroke-width="2"/>
+  <rect x="490" y="60" width="60" height="60" fill="#96ceb4" opacity="0.5"/>
+  <text x="525" y="145" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">none (original)</text>
+  
+  <!-- Object position -->
+  <rect x="20" y="170" width="170" height="80" fill="#e9ecef" stroke="#333" stroke-width="2"/>
+  <rect x="20" y="170" width="170" height="80" fill="#ff6b6b" opacity="0.3"/>
+  <circle cx="105" cy="210" r="5" fill="#333"/>
+  <text x="105" y="265" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">center</text>
+  
+  <rect x="210" y="170" width="170" height="80" fill="#e9ecef" stroke="#333" stroke-width="2"/>
+  <rect x="210" y="170" width="170" height="80" fill="#4ecdc4" opacity="0.3"/>
+  <circle cx="370" cy="185" r="5" fill="#333"/>
+  <text x="295" y="265" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">top right</text>
+  
+  <rect x="400" y="170" width="170" height="80" fill="#e9ecef" stroke="#333" stroke-width="2"/>
+  <rect x="400" y="170" width="170" height="80" fill="#45b7d1" opacity="0.3"/>
+  <circle cx="485" cy="235" r="5" fill="#333"/>
+  <text x="485" y="265" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">bottom left</text>
+</svg>

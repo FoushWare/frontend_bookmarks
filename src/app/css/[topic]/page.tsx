@@ -340,7 +340,7 @@ const cssTopicDetails: Record<string, TopicData> = {
 
         <h2>3. Linear Gradients</h2>
         <div className="article-image-box">
-          <img src="/css-flex-grid/linear-gradient.svg" alt="linear-gradient diagram" />
+          <img src="/images/css-linear-gradient.svg" alt="linear-gradient diagram" />
         </div>
         <pre><code>{`.element {
   background: linear-gradient(to right, #ff6b6b, #4ecdc4);
@@ -353,7 +353,7 @@ const cssTopicDetails: Record<string, TopicData> = {
 
         <h2>4. Radial Gradients</h2>
         <div className="article-image-box">
-          <img src="/css-flex-grid/radial-gradient.svg" alt="radial-gradient diagram" />
+          <img src="/images/css-radial-gradient.svg" alt="radial-gradient diagram" />
         </div>
         <pre><code>{`.element {
   background: radial-gradient(circle, #ff6b6b, #4ecdc4);
@@ -538,7 +538,7 @@ const cssTopicDetails: Record<string, TopicData> = {
 
         <h2>4. border-radius</h2>
         <div className="article-image-box">
-          <img src="/css-flex-grid/border-radius.svg" alt="border-radius diagram" />
+          <img src="/images/css-border-radius.svg" alt="border-radius diagram" />
         </div>
         <pre><code>{`.element {
   border-radius: 8px;           /* all corners */
@@ -577,7 +577,7 @@ const cssTopicDetails: Record<string, TopicData> = {
 
         <h2>7. box-shadow</h2>
         <div className="article-image-box">
-          <img src="/css-flex-grid/box-shadow.svg" alt="box-shadow diagram" />
+          <img src="/images/css-box-shadow.svg" alt="box-shadow diagram" />
         </div>
         <pre><code>{`.element {
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
@@ -838,7 +838,7 @@ module.exports = {
 
         <h2>1. object-fit</h2>
         <div className="article-image-box">
-          <img src="/css-flex-grid/object-fit.svg" alt="object-fit diagram" />
+          <img src="/images/css-object-fit.svg" alt="object-fit diagram" />
         </div>
         <pre><code>{`.image {
   object-fit: fill;     /* default: stretches to fill */
@@ -1008,6 +1008,9 @@ module.exports = {
         <hr />
 
         <h2>2. Common Breakpoints</h2>
+        <div className="article-image-box">
+          <img src="/images/css-media-queries.svg" alt="media queries diagram" />
+        </div>
         <pre><code>{`/* Mobile-first approach */
 /* Mobile: default styles */
 
@@ -1228,6 +1231,9 @@ h1 {
         <hr />
 
         <h2>3. calc()</h2>
+        <div className="article-image-box">
+          <img src="/images/css-calc.svg" alt="calc diagram" />
+        </div>
         <pre><code>{`.element {
   width: calc(100% - 32px);
   height: calc(50vh + 20px);
@@ -1244,6 +1250,9 @@ h1 {
         <hr />
 
         <h2>4. clamp()</h2>
+        <div className="article-image-box">
+          <img src="/images/css-clamp.svg" alt="clamp diagram" />
+        </div>
         <pre><code>{`.element {
   font-size: clamp(16px, 4vw, 24px);
   /* minimum: 16px, preferred: 4vw, maximum: 24px */
@@ -1373,7 +1382,7 @@ h1 {
 
         <h2>1. The Box Model</h2>
         <div className="article-image-box">
-          <img src="/css-flex-grid/box-model.svg" alt="box model diagram" />
+          <img src="/images/css-box-model.svg" alt="box model diagram" />
         </div>
         <pre><code>{`/* From outside in: */
 /* margin → border → padding → content */`}</code></pre>
@@ -1594,6 +1603,9 @@ code {
         <hr />
 
         <h2>4. line-height</h2>
+        <div className="article-image-box">
+          <img src="/images/css-line-height.svg" alt="line-height diagram" />
+        </div>
         <pre><code>{`.element {
   line-height: 1.5;     /* unitless: recommended */
   line-height: 1.5em;    /* relative to font size */

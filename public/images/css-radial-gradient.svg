@@ -1,0 +1,65 @@
+<svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="600" height="200" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Radial Gradients</text>
+  
+  <!-- circle -->
+  <rect x="20" y="50" width="170" height="60" rx="4" fill="url(#grad1)"/>
+  <text x="105" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">circle (center)</text>
+  
+  <!-- circle at top right -->
+  <rect x="215" y="50" width="170" height="60" rx="4" fill="url(#grad2)"/>
+  <text x="300" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">circle at top right</text>
+  
+  <!-- ellipse -->
+  <rect x="410" y="50" width="170" height="60" rx="4" fill="url(#grad3)"/>
+  <text x="495" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">ellipse</text>
+  
+  <!-- Center indicators -->
+  <circle cx="105" cy="80" r="3" fill="#333"/>
+  <circle cx="385" cy="65" r="3" fill="#333"/>
+  <circle cx="495" cy="80" r="3" fill="#333"/>
+  
+  <!-- Gradients -->
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="grad2" cx="100%" cy="0%" r="70%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="grad3" cx="50%" cy="50%" rx="50%" ry="30%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Size example -->
+  <rect x="20" y="140" width="170" height="40" rx="4" fill="url(#grad4)"/>
+  <text x="105" y="195" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">closest-side</text>
+  
+  <rect x="215" y="140" width="170" height="40" rx="4" fill="url(#grad5)"/>
+  <text x="300" y="195" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">farthest-corner</text>
+  
+  <rect x="410" y="140" width="170" height="40" rx="4" fill="url(#grad6)"/>
+  <text x="495" y="195" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">custom size</text>
+  
+  <defs>
+    <radialGradient id="grad4" cx="50%" cy="50%" r="closest-side">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="grad5" cx="50%" cy="50%" r="farthest-corner">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="grad6" cx="50%" cy="50%" r="30%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+</svg>

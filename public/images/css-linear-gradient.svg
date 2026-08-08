@@ -1,0 +1,55 @@
+<svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="600" height="200" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">Linear Gradients</text>
+  
+  <!-- to right -->
+  <rect x="20" y="50" width="170" height="60" rx="4" fill="url(#grad1)"/>
+  <text x="105" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">to right</text>
+  
+  <!-- to bottom -->
+  <rect x="215" y="50" width="170" height="60" rx="4" fill="url(#grad2)"/>
+  <text x="300" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">to bottom</text>
+  
+  <!-- 45deg -->
+  <rect x="410" y="50" width="170" height="60" rx="4" fill="url(#grad3)"/>
+  <text x="495" y="125" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">45deg</text>
+  
+  <!-- Arrow indicators -->
+  <path d="M 20 80 L 190 80" stroke="#333" stroke-width="2" marker-end="url(#arrow)" transform="translate(0, -15)"/>
+  <path d="M 300 50 L 300 110" stroke="#333" stroke-width="2" marker-end="url(#arrow)" transform="translate(-15, 0)"/>
+  <path d="M 410 50 L 580 110" stroke="#333" stroke-width="2" marker-end="url(#arrow)" transform="translate(-5, -5)"/>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Color stops example -->
+  <rect x="20" y="140" width="560" height="40" rx="4" fill="url(#grad4)"/>
+  <text x="300" y="195" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#333">Multiple color stops: 0% → 50% → 100%</text>
+  
+  <defs>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>

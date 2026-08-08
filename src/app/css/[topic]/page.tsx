@@ -1721,6 +1721,7 @@ export function generateStaticParams() {
   return Object.keys(cssTopicDetails).map((topic) => ({ topic }));
 }
 
+// Force rebuild - CSS content updated
 export default async function CssTopicSubpage({ params }: { params: Promise<{ topic: string }> }) {
   const { topic } = await params;
   const data = cssTopicDetails[topic];

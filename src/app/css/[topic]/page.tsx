@@ -1739,7 +1739,7 @@ export default async function CssTopicSubpage({ params }: { params: Promise<{ to
       icon={data.icon}
       sections={data.sections}
     >
-      {data.content}
+      {data.content ? data.content : <p>Content missing for {topic}</p>}
     </TopicPage>
   );
 }

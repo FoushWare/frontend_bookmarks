@@ -2,7 +2,7 @@ name: Deploy to Vercel
 on:
   push:
     branches:
-      - main   # adjust if you use a different branch
+      - master   # use master branch
 
 jobs:
   vercel-deploy:

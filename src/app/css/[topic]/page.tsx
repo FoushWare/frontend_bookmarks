@@ -1,3 +1,5 @@
+'use client';
+
 import { notFound } from 'next/navigation';
 import TopicPage from '@/components/TopicPage';
 import { ResourceSection } from '@/components/ResourceGuide';

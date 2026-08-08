@@ -1,0 +1,27 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="380" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">HTML Attribute ↔ JS dataset Mapping</text>
+
+  <rect x="80" y="66" width="640" height="60" rx="8" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="100" y="102" fill="#5eead4" font-size="13" font-family="monospace">data-user-id="42"</text>
+  <text x="450" y="102" fill="#94a3b8" font-size="13">kebab-case in HTML</text>
+
+  <line x1="400" y1="126" x2="400" y2="150" stroke="#0d9488" stroke-width="2" marker-end="url(#a6)"/>
+  <text x="420" y="142" fill="#2dd4bf" font-size="11" font-weight="700">auto camelCase</text>
+  <defs>
+    <marker id="a6" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#0d9488"/>
+    </marker>
+  </defs>
+
+  <rect x="80" y="150" width="640" height="60" rx="8" fill="#0f766e"/>
+  <text x="100" y="186" fill="#ffffff" font-size="13" font-family="monospace">element.dataset.userId</text>
+  <text x="450" y="186" fill="#e0f2f1" font-size="13">→ "42"  (camelCase in JS)</text>
+
+  <rect x="60" y="234" width="680" height="120" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="260" fill="#f1f5f9" font-size="13" font-weight="700">Good use cases</text>
+  <text x="80" y="286" fill="#cbd5e1" font-size="12">✓ CSS/JS hooks: data-state="open", styling via [data-state="open"]</text>
+  <text x="80" y="308" fill="#cbd5e1" font-size="12">✓ Testing hooks: data-testid="submit-button" (E2E test selectors)</text>
+  <text x="80" y="330" fill="#f87171" font-size="12">✗ Storing sensitive/large data — it's plain visible text in the DOM</text>
+</svg>

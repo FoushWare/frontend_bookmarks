@@ -1,0 +1,32 @@
+<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="380" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">&lt;details&gt; — Native Accordion, Zero JS</text>
+
+  <!-- closed -->
+  <text x="200" y="70" text-anchor="middle" fill="#94a3b8" font-size="13" font-weight="600">Closed</text>
+  <rect x="80" y="84" width="240" height="46" rx="8" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="100" y="112" fill="#5eead4" font-size="13">▸ &lt;summary&gt;Show details&lt;/summary&gt;</text>
+
+  <line x1="330" y1="107" x2="440" y2="107" stroke="#0d9488" stroke-width="2" marker-end="url(#a9)"/>
+  <text x="385" y="95" text-anchor="middle" fill="#2dd4bf" font-size="10" font-weight="700">click</text>
+  <defs>
+    <marker id="a9" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#0d9488"/>
+    </marker>
+  </defs>
+
+  <!-- open -->
+  <text x="600" y="70" text-anchor="middle" fill="#94a3b8" font-size="13" font-weight="600">Open</text>
+  <rect x="450" y="84" width="290" height="130" rx="8" fill="#0f766e"/>
+  <text x="470" y="112" fill="#ffffff" font-size="13">▾ &lt;summary&gt;Show details&lt;/summary&gt;</text>
+  <rect x="470" y="126" width="250" height="70" rx="5" fill="#134e4a"/>
+  <text x="490" y="150" fill="#ccfbf1" font-size="11">Hidden content revealed —</text>
+  <text x="490" y="168" fill="#ccfbf1" font-size="11">no JS toggle function needed</text>
+
+  <rect x="60" y="240" width="680" height="120" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="266" fill="#f1f5f9" font-size="13" font-weight="700">Free behavior included</text>
+  <text x="80" y="292" fill="#cbd5e1" font-size="12">✓ Keyboard accessible (Enter/Space on summary) — no ARIA needed</text>
+  <text x="80" y="314" fill="#cbd5e1" font-size="12">✓ toggle event fires in JS — hook into open/close programmatically</text>
+  <text x="80" y="336" fill="#cbd5e1" font-size="12">✓ "open" attribute reflects state — CSS [open] selector works too</text>
+</svg>

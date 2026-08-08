@@ -1,0 +1,35 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="460" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">iframe sandbox — Deny by Default</text>
+
+  <rect x="200" y="56" width="400" height="70" rx="10" fill="#7c2d12"/>
+  <text x="400" y="86" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">&lt;iframe sandbox src="..."&gt;</text>
+  <text x="400" y="108" text-anchor="middle" fill="#fecaca" font-size="12">Empty sandbox = everything blocked by default</text>
+
+  <text x="400" y="156" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="700">Add back only what you need:</text>
+
+  <rect x="60" y="176" width="330" height="56" rx="8" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="80" y="200" fill="#5eead4" font-size="12" font-weight="700">allow-scripts</text>
+  <text x="80" y="218" fill="#cbd5e1" font-size="11">Permits JavaScript execution inside the frame</text>
+
+  <rect x="410" y="176" width="330" height="56" rx="8" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="430" y="200" fill="#5eead4" font-size="12" font-weight="700">allow-same-origin</text>
+  <text x="430" y="218" fill="#cbd5e1" font-size="11">Treats frame as same-origin (cookies, storage)</text>
+
+  <rect x="60" y="242" width="330" height="56" rx="8" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="80" y="266" fill="#5eead4" font-size="12" font-weight="700">allow-forms</text>
+  <text x="80" y="284" fill="#cbd5e1" font-size="11">Permits form submission from inside the frame</text>
+
+  <rect x="410" y="242" width="330" height="56" rx="8" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="430" y="266" fill="#5eead4" font-size="12" font-weight="700">allow-popups</text>
+  <text x="430" y="284" fill="#cbd5e1" font-size="11">Permits window.open() / target="_blank"</text>
+
+  <!-- danger zone -->
+  <rect x="60" y="320" width="680" height="70" rx="10" fill="#450a0a" stroke="#f87171" stroke-width="1.5"/>
+  <text x="80" y="346" fill="#fca5a5" font-size="13" font-weight="700">⚠ allow-scripts + allow-same-origin together</text>
+  <text x="80" y="368" fill="#fecaca" font-size="12">Combined, the frame can remove its OWN sandbox attribute via JS — defeats the sandbox</text>
+
+  <rect x="60" y="404" width="680" height="46" rx="8" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="432" text-anchor="middle" fill="#94a3b8" font-size="12">Only combine them for content you fully trust</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="480" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Essential Meta Tags</text>
+
+  <rect x="60" y="56" width="330" height="220" rx="10" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="80" y="82" fill="#5eead4" font-size="13" font-weight="700">Core / SEO</text>
+  <text x="80" y="108" fill="#cbd5e1" font-size="11">&lt;meta charset="UTF-8"&gt;</text>
+  <text x="80" y="130" fill="#cbd5e1" font-size="11">&lt;meta name="viewport"</text>
+  <text x="94" y="146" fill="#cbd5e1" font-size="11">  content="width=device-width,</text>
+  <text x="94" y="162" fill="#cbd5e1" font-size="11">  initial-scale=1.0"&gt;</text>
+  <text x="80" y="184" fill="#cbd5e1" font-size="11">&lt;meta name="description"</text>
+  <text x="94" y="200" fill="#cbd5e1" font-size="11">  content="..."&gt;</text>
+  <text x="80" y="222" fill="#cbd5e1" font-size="11">&lt;link rel="canonical"</text>
+  <text x="94" y="238" fill="#cbd5e1" font-size="11">  href="..."&gt;</text>
+  <text x="80" y="260" fill="#cbd5e1" font-size="11">&lt;meta name="robots"</text>
+  <text x="94" y="276" fill="#cbd5e1" font-size="11">  content="index, follow"&gt;</text>
+
+  <rect x="410" y="56" width="330" height="220" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="430" y="82" fill="#fbbf24" font-size="13" font-weight="700">Social sharing (Open Graph)</text>
+  <text x="430" y="108" fill="#cbd5e1" font-size="11">&lt;meta property="og:title"&gt;</text>
+  <text x="430" y="130" fill="#cbd5e1" font-size="11">&lt;meta property="og:description"&gt;</text>
+  <text x="430" y="152" fill="#cbd5e1" font-size="11">&lt;meta property="og:image"&gt;</text>
+  <text x="430" y="174" fill="#cbd5e1" font-size="11">&lt;meta property="og:url"&gt;</text>
+  <text x="430" y="196" fill="#cbd5e1" font-size="11">&lt;meta property="og:type"&gt;</text>
+  <text x="430" y="222" fill="#cbd5e1" font-size="11">&lt;meta name="twitter:card"&gt;</text>
+  <text x="430" y="244" fill="#cbd5e1" font-size="11">content="summary_large_image"</text>
+
+  <!-- preview card -->
+  <text x="400" y="316" text-anchor="middle" fill="#f1f5f9" font-size="14" font-weight="700">What og: tags actually produce when shared</text>
+
+  <rect x="220" y="332" width="360" height="120" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="220" y="332" width="360" height="70" fill="#134e4a" rx="10"/>
+  <text x="400" y="372" text-anchor="middle" fill="#5eead4" font-size="12">[ og:image preview ]</text>
+  <text x="236" y="418" fill="#f1f5f9" font-size="12" font-weight="700">og:title text appears here</text>
+  <text x="236" y="436" fill="#94a3b8" font-size="11">og:description text appears here</text>
+
+  <rect x="60" y="460" width="680" height="1" fill="#334155"/>
+</svg>

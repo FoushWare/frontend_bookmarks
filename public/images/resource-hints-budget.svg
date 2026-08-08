@@ -1,0 +1,26 @@
+<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="420" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Resource Hint Budget for One Page</text>
+  <text x="400" y="54" text-anchor="middle" fill="#94a3b8" font-size="12">Too many hints compete with each other and waste the benefit</text>
+
+  <rect x="60" y="76" width="680" height="56" rx="8" fill="#0f766e"/>
+  <text x="80" y="100" fill="#ffffff" font-size="12" font-weight="700">preload: critical font (inter-bold.woff2)</text>
+  <text x="80" y="118" fill="#ccfbf1" font-size="11">Used in the hero heading, referenced only inside CSS — browser would discover it late</text>
+
+  <rect x="60" y="140" width="680" height="56" rx="8" fill="#134e4a"/>
+  <text x="80" y="164" fill="#ffffff" font-size="12" font-weight="700">preconnect: fonts.gstatic.com, api.example.com</text>
+  <text x="80" y="182" fill="#ccfbf1" font-size="11">2-4 max — each one opens a real connection, costing CPU/memory even if unused</text>
+
+  <rect x="60" y="204" width="680" height="56" rx="8" fill="#78350f"/>
+  <text x="80" y="228" fill="#fde68a" font-size="12" font-weight="700">prefetch: /checkout page bundle</text>
+  <text x="80" y="246" fill="#fde68a" font-size="11">Only on pages where checkout is a LIKELY next step (e.g. cart page)</text>
+
+  <rect x="60" y="268" width="680" height="56" rx="8" fill="#450a0a" opacity="0.6" stroke="#f87171" stroke-width="1.5"/>
+  <text x="80" y="292" fill="#fca5a5" font-size="12" font-weight="700">✗ Don't: preload everything "just in case"</text>
+  <text x="80" y="310" fill="#fecaca" font-size="11">Excess preloads compete for bandwidth with what the page ACTUALLY needs first</text>
+
+  <rect x="60" y="342" width="680" height="60" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="400" y="368" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">fetchpriority="high" / "low" fine-tunes priority further,</text>
+  <text x="400" y="388" text-anchor="middle" fill="#94a3b8" font-size="12">independent of load order in the HTML</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="460" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Three Ways to Lazy Load</text>
+
+  <rect x="60" y="56" width="215" height="170" rx="10" fill="#1e293b" stroke="#5eead4" stroke-width="1.5"/>
+  <text x="167" y="82" text-anchor="middle" fill="#5eead4" font-size="13" font-weight="700">loading="lazy"</text>
+  <text x="80" y="108" fill="#cbd5e1" font-size="11">Native, zero JS</text>
+  <text x="80" y="128" fill="#cbd5e1" font-size="11">img and iframe only</text>
+  <text x="80" y="148" fill="#cbd5e1" font-size="11">Browser decides threshold</text>
+  <text x="80" y="168" fill="#cbd5e1" font-size="11">No loading callback/control</text>
+  <text x="80" y="196" fill="#5eead4" font-size="11" font-weight="700">✓ First choice, use by default</text>
+
+  <rect x="292" y="56" width="215" height="170" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="399" y="82" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700">IntersectionObserver</text>
+  <text x="312" y="108" fill="#cbd5e1" font-size="11">JavaScript API</text>
+  <text x="312" y="128" fill="#cbd5e1" font-size="11">Any element, any logic</text>
+  <text x="312" y="148" fill="#cbd5e1" font-size="11">Custom threshold control</text>
+  <text x="312" y="168" fill="#cbd5e1" font-size="11">Callback fires on visibility</text>
+  <text x="312" y="196" fill="#fbbf24" font-size="11" font-weight="700">✓ Custom components, infinite scroll</text>
+
+  <rect x="524" y="56" width="215" height="170" rx="10" fill="#1e293b" stroke="#c084fc" stroke-width="1.5"/>
+  <text x="631" y="82" text-anchor="middle" fill="#c084fc" font-size="13" font-weight="700">content-visibility</text>
+  <text x="544" y="108" fill="#cbd5e1" font-size="11">Pure CSS property</text>
+  <text x="544" y="128" fill="#cbd5e1" font-size="11">Skips render work, not fetch</text>
+  <text x="544" y="148" fill="#cbd5e1" font-size="11">Great for long pages</text>
+  <text x="544" y="168" fill="#cbd5e1" font-size="11">contain-intrinsic-size needed</text>
+  <text x="544" y="196" fill="#c084fc" font-size="11" font-weight="700">✓ Long lists, offscreen sections</text>
+
+  <rect x="60" y="250" width="680" height="90" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="276" fill="#f1f5f9" font-size="13" font-weight="700">Key distinction</text>
+  <text x="80" y="300" fill="#cbd5e1" font-size="12">loading="lazy" / IntersectionObserver: defer NETWORK fetch</text>
+  <text x="80" y="322" fill="#cbd5e1" font-size="12">content-visibility: skip RENDERING work (layout, paint) — resource may already be loaded</text>
+
+  <rect x="60" y="356" width="680" height="70" rx="10" fill="#450a0a" opacity="0.6" stroke="#f87171" stroke-width="1.5"/>
+  <text x="80" y="382" fill="#fca5a5" font-size="13" font-weight="700">✗ Never lazy-load the LCP/above-the-fold element</text>
+  <text x="80" y="404" fill="#fecaca" font-size="12">Delays what should already be loading — hurts Core Web Vitals</text>
+</svg>

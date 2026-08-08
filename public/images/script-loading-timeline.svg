@@ -1,0 +1,44 @@
+<svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="460" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Script Loading Timelines</text>
+
+  <!-- legend -->
+  <rect x="60" y="50" width="14" height="14" fill="#0d9488"/>
+  <text x="80" y="61" fill="#cbd5e1" font-size="11">HTML parsing</text>
+  <rect x="200" y="50" width="14" height="14" fill="#78350f"/>
+  <text x="220" y="61" fill="#cbd5e1" font-size="11">Script fetch</text>
+  <rect x="330" y="50" width="14" height="14" fill="#f87171"/>
+  <text x="350" y="61" fill="#cbd5e1" font-size="11">Script execute (blocks parsing)</text>
+
+  <!-- normal -->
+  <text x="60" y="100" fill="#f1f5f9" font-size="13" font-weight="700">&lt;script src="a.js"&gt; (normal)</text>
+  <rect x="60" y="108" width="180" height="24" fill="#0d9488"/>
+  <rect x="240" y="108" width="100" height="24" fill="#78350f"/>
+  <rect x="340" y="108" width="60" height="24" fill="#f87171"/>
+  <rect x="400" y="108" width="200" height="24" fill="#0d9488"/>
+  <text x="700" y="125" fill="#94a3b8" font-size="10">HTML parsing PAUSES for fetch + execute</text>
+
+  <!-- async -->
+  <text x="60" y="176" fill="#f1f5f9" font-size="13" font-weight="700">&lt;script async&gt;</text>
+  <rect x="60" y="184" width="540" height="24" fill="#0d9488"/>
+  <rect x="240" y="184" width="100" height="24" fill="#78350f" opacity="0.8"/>
+  <rect x="340" y="184" width="60" height="24" fill="#f87171"/>
+  <text x="700" y="201" fill="#94a3b8" font-size="10">Fetches in parallel, executes WHENEVER ready (unpredictable order)</text>
+
+  <!-- defer -->
+  <text x="60" y="252" fill="#f1f5f9" font-size="13" font-weight="700">&lt;script defer&gt;</text>
+  <rect x="60" y="260" width="540" height="24" fill="#0d9488"/>
+  <rect x="240" y="260" width="100" height="24" fill="#78350f" opacity="0.8"/>
+  <rect x="600" y="260" width="60" height="24" fill="#f87171"/>
+  <text x="700" y="277" fill="#94a3b8" font-size="10">Fetches in parallel, executes AFTER parsing, in DOM order</text>
+
+  <!-- DOMContentLoaded marker -->
+  <line x1="600" y1="284" x2="600" y2="330" stroke="#5eead4" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="600" y="344" text-anchor="middle" fill="#5eead4" font-size="10" font-weight="700">DOMContentLoaded</text>
+
+  <rect x="60" y="360" width="680" height="80" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="386" fill="#f1f5f9" font-size="13" font-weight="700">Practical rule</text>
+  <text x="80" y="410" fill="#cbd5e1" font-size="12">defer: for scripts needing the DOM, order matters (most app code)</text>
+  <text x="80" y="428" fill="#cbd5e1" font-size="12">async: for independent scripts, order doesn't matter (analytics, ads)</text>
+</svg>

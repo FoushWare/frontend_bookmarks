@@ -1,0 +1,48 @@
+<svg viewBox="0 0 800 440" xmlns="http://www.w3.org/2000/svg" font-family="Inter, -apple-system, sans-serif">
+  <rect width="800" height="440" fill="#0f172a" rx="12"/>
+
+  <text x="400" y="34" text-anchor="middle" fill="#f1f5f9" font-size="16" font-weight="700">Accessible Table Anatomy</text>
+
+  <rect x="120" y="56" width="560" height="30" rx="4" fill="#134e4a"/>
+  <text x="140" y="76" fill="#5eead4" font-size="12" font-weight="700">&lt;caption&gt;Q3 2026 sales by region&lt;/caption&gt;</text>
+
+  <!-- thead -->
+  <rect x="120" y="94" width="560" height="40" fill="#0f766e"/>
+  <text x="140" y="110" fill="#ffffff" font-size="10" font-weight="700">&lt;thead&gt;</text>
+  <rect x="140" y="114" width="150" height="18" fill="#0d9488" stroke="#134e4a"/>
+  <text x="215" y="127" text-anchor="middle" fill="#ffffff" font-size="10">&lt;th scope="col"&gt;Region</text>
+  <rect x="290" y="114" width="150" height="18" fill="#0d9488" stroke="#134e4a"/>
+  <text x="365" y="127" text-anchor="middle" fill="#ffffff" font-size="10">&lt;th scope="col"&gt;Revenue</text>
+  <rect x="440" y="114" width="150" height="18" fill="#0d9488" stroke="#134e4a"/>
+  <text x="515" y="127" text-anchor="middle" fill="#ffffff" font-size="10">&lt;th scope="col"&gt;Growth</text>
+
+  <!-- tbody -->
+  <rect x="120" y="134" width="560" height="80" fill="#1e293b"/>
+  <text x="140" y="150" fill="#cbd5e1" font-size="10" font-weight="700">&lt;tbody&gt;</text>
+
+  <rect x="140" y="154" width="150" height="26" fill="#334155" stroke="#0f172a"/>
+  <text x="215" y="171" text-anchor="middle" fill="#5eead4" font-size="10">&lt;th scope="row"&gt;West</text>
+  <rect x="290" y="154" width="150" height="26" fill="#0f172a" stroke="#334155"/>
+  <text x="365" y="171" text-anchor="middle" fill="#cbd5e1" font-size="10">$1.2M</text>
+  <rect x="440" y="154" width="150" height="26" fill="#0f172a" stroke="#334155"/>
+  <text x="515" y="171" text-anchor="middle" fill="#cbd5e1" font-size="10">+12%</text>
+
+  <rect x="140" y="182" width="150" height="26" fill="#334155" stroke="#0f172a"/>
+  <text x="215" y="199" text-anchor="middle" fill="#5eead4" font-size="10">&lt;th scope="row"&gt;East</text>
+  <rect x="290" y="182" width="150" height="26" fill="#0f172a" stroke="#334155"/>
+  <text x="365" y="199" text-anchor="middle" fill="#cbd5e1" font-size="10">$980K</text>
+  <rect x="440" y="182" width="150" height="26" fill="#0f172a" stroke="#334155"/>
+  <text x="515" y="199" text-anchor="middle" fill="#cbd5e1" font-size="10">+8%</text>
+
+  <!-- tfoot -->
+  <rect x="120" y="216" width="560" height="30" fill="#78350f"/>
+  <text x="140" y="234" fill="#fde68a" font-size="10" font-weight="700">&lt;tfoot&gt; Total: $2.18M</text>
+
+  <text x="400" y="278" text-anchor="middle" fill="#94a3b8" font-size="12">scope="col" and scope="row" tell screen readers which header applies to each cell</text>
+
+  <rect x="60" y="300" width="680" height="120" rx="10" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="326" fill="#f1f5f9" font-size="13" font-weight="700">Common misuse: tables for page layout</text>
+  <text x="80" y="352" fill="#cbd5e1" font-size="12">Screen readers announce "table, row 1 of 12, column 1 of 4" for EVERY cell —</text>
+  <text x="80" y="372" fill="#cbd5e1" font-size="12">meaningless noise when the table is only being used for visual positioning.</text>
+  <text x="80" y="396" fill="#94a3b8" font-size="12">Use CSS Grid/Flexbox for layout. Reserve &lt;table&gt; for real tabular data.</text>
+</svg>

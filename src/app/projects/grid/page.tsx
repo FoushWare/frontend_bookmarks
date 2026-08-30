@@ -1,9 +1,22 @@
 import Link from 'next/link';
 import { gridProjects } from '@/data/grid-projects';
+import PageLayout from '@/components/PageLayout';
+import PageSidebar from '@/components/PageSidebar';
+import { getTopicNavigation } from '@/data/navigation';
 
 export default function GridProjectsPage() {
+  const topicNav = getTopicNavigation('grid');
+
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem 5rem' }}>
+    <PageLayout
+      sidebar={
+        <PageSidebar
+          category="CSS"
+          topic="Grid"
+          navigation={topicNav?.navigation || []}
+        />
+      }
+    >
       <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
         <h1 style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--text)', marginBottom: '1rem' }}>
           🔲 Grid Projects
@@ -25,7 +38,7 @@ export default function GridProjectsPage() {
           <Link
             key={project.id}
             href={`/projects/grid/${project.id}`}
-            className="topic-card"
+            className="topic-card project-card"
             style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column' }}
           >
             <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
@@ -99,6 +112,6 @@ export default function GridProjectsPage() {
           ← Back to All Projects
         </Link>
       </div>
-    </div>
+    </PageLayout>
   );
 }

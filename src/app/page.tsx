@@ -2,6 +2,9 @@
 
 import Link from 'next/link';
 import { useEffect } from 'react';
+import { useTranslation } from '@/hooks/useTranslation';
+import { homeTranslations as homeTranslationsEn } from '@/data/translations/home.en';
+import { homeTranslations as homeTranslationsAr } from '@/data/translations/home.ar';
 
 /* ─── Category data ──────────────────────────────────────────── */
 const categories = [
@@ -9,7 +12,6 @@ const categories = [
     href: '/html',
     emoji: '📄',
     title: 'HTML',
-    desc: 'Semantics, accessibility, forms, media & SEO best practices for the modern web.',
     badge: 'Beginner',
     badgeClass: 'badge-beginner',
     topics: 5,
@@ -19,7 +21,6 @@ const categories = [
     href: '/css',
     emoji: '🎨',
     title: 'CSS',
-    desc: 'Flexbox, Grid, animations, responsive design & cutting-edge layout techniques.',
     badge: 'Intermediate',
     badgeClass: 'badge-intermediate',
     topics: 10,
@@ -29,7 +30,6 @@ const categories = [
     href: '/javascript',
     emoji: '⚡',
     title: 'JavaScript',
-    desc: 'Fundamentals to ES2024, async, DOM, OOP, and functional programming patterns.',
     badge: 'Advanced',
     badgeClass: 'badge-advanced',
     topics: 6,
@@ -39,7 +39,6 @@ const categories = [
     href: '/patterns',
     emoji: '🧩',
     title: 'Patterns',
-    desc: 'Design patterns, rendering strategies, and architectural patterns at scale.',
     badge: 'Advanced',
     badgeClass: 'badge-advanced',
     topics: 10,
@@ -49,7 +48,6 @@ const categories = [
     href: '/questions',
     emoji: '💡',
     title: 'Interview Q&A',
-    desc: 'Comprehensive Q&A for HTML, CSS, JS, React, TypeScript, performance & system design.',
     badge: 'Senior',
     badgeClass: 'badge-senior',
     topics: 9,
@@ -59,7 +57,6 @@ const categories = [
     href: '/frontend-mentor',
     emoji: '🏆',
     title: 'Frontend Mentor',
-    desc: 'Real-world challenges to sharpen your practical UI-building skills.',
     badge: 'Intermediate',
     badgeClass: 'badge-intermediate',
     topics: 2,
@@ -94,6 +91,9 @@ const codeLines = [
 const previewItems = ['Walk the dog', 'Water the plants', 'Wash the dishes'];
 
 export default function HomePage() {
+  const translations = { en: homeTranslationsEn, ar: homeTranslationsAr };
+  const { t, locale, mounted } = useTranslation(translations);
+
   /* IntersectionObserver fallback for browsers without scroll-driven animations */
   useEffect(() => {
     if (
@@ -140,6 +140,8 @@ export default function HomePage() {
     };
   }, []);
 
+  if (!mounted) return null;
+
   return (
     <div style={{ background: 'var(--bg)', color: 'var(--text)' }}>
 
@@ -162,7 +164,7 @@ export default function HomePage() {
           <div>
             <div className="accent-badge" style={{ marginBottom: '1.5rem' }}>
               <span>✦</span>
-              <span>Frontend interview prep platform</span>
+              <span>{t('hero.badge')}</span>
             </div>
 
             <h1
@@ -175,15 +177,7 @@ export default function HomePage() {
                 color: 'var(--text)',
               }}
             >
-              Master frontend<br />
-              <span
-                style={{
-                  color: 'var(--accent-dark)',
-                }}
-              >
-                development
-              </span>{' '}
-              with ease
+              {t('hero.title')}
             </h1>
 
             <p
@@ -195,8 +189,7 @@ export default function HomePage() {
                 maxWidth: '480px',
               }}
             >
-              The complete learning platform for modern frontend engineers. Interactive examples,
-              curated references, and real interview prep — all in one place.
+              {t('hero.description')}
             </p>
 
             {/* CTA row */}
@@ -210,10 +203,10 @@ export default function HomePage() {
               }}
             >
               <Link href="/css" className="btn-accent">
-                Get started now →
+                {t('hero.ctaPrimary')}
               </Link>
               <Link href="/questions" className="btn-ghost">
-                Interview prep
+                {t('hero.ctaSecondary')}
               </Link>
             </div>
 
@@ -245,10 +238,10 @@ export default function HomePage() {
                     color: 'var(--text)',
                   }}
                 >
-                  2,000+ engineers learning
+                  {t('hero.socialProof')}
                 </div>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-                  Join the community today
+                  {t('hero.socialProofSub')}
                 </div>
               </div>
             </div>
@@ -425,7 +418,7 @@ export default function HomePage() {
       >
         {/* Section header */}
         <div style={{ marginBottom: '3rem' }}>
-          <p className="section-label">Learning Paths</p>
+          <p className="section-label">{t('categories.sectionLabel')}</p>
           <h2
             style={{
               fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
@@ -436,10 +429,10 @@ export default function HomePage() {
               marginBottom: '0.75rem',
             }}
           >
-            Everything you need to level up
+            {t('categories.title')}
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1rem', maxWidth: '520px' }}>
-            Curated learning paths, interactive examples, and interview Q&A — structured for how developers actually learn.
+            {t('categories.description')}
           </p>
         </div>
 
@@ -483,7 +476,7 @@ export default function HomePage() {
                   flex: 1,
                 }}
               >
-                {cat.desc}
+                {t(`categoryCards.${cat.title.toLowerCase().replace(' ', '-')}.desc`)}
               </p>
               <div
                 style={{
@@ -496,8 +489,8 @@ export default function HomePage() {
                   paddingTop: '0.875rem',
                 }}
               >
-                <span>{cat.topics} topics</span>
-                <span style={{ color: 'var(--accent-dark)', fontWeight: 600 }}>Explore →</span>
+                <span>{cat.topics} {t('categories.topics')}</span>
+                <span style={{ color: 'var(--accent-dark)', fontWeight: 600 }}>{t('categories.explore')}</span>
               </div>
             </Link>
           ))}
@@ -516,7 +509,7 @@ export default function HomePage() {
           color: 'var(--text-faint)',
         }}
       >
-        Built for frontend developers · 🚀 Happy learning
+        {t('footer')}
       </footer>
 
       {/* IntersectionObserver fallback script (inline) */}

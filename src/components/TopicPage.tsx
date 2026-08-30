@@ -2,6 +2,9 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import ResourceGuide, { ResourceSection } from './ResourceGuide';
+import { useTranslation } from '@/hooks/useTranslation';
+import { topicTranslations as topicTranslationsEn } from '@/data/translations/topic.en';
+import { topicTranslations as topicTranslationsAr } from '@/data/translations/topic.ar';
 
 interface TopicPageProps {
   title: string;
@@ -26,8 +29,13 @@ export function TopicPage({
   backLink,
   backLabel,
 }: TopicPageProps) {
+  const translations = { en: topicTranslationsEn, ar: topicTranslationsAr };
+  const { t, mounted } = useTranslation(translations);
+
+  if (!mounted) return null;
+
   return (
-    <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem 5rem' }}>
+    <div style={{ width: '100%' }}>
       {/* Hero Header */}
       <div
         style={{
@@ -74,7 +82,7 @@ export function TopicPage({
           children
         ) : (
           <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
-            Topic documentation and guides are available for {title}. Check the reference links above or practice with interactive projects.
+            {t('noContent').replace('{title}', title)}
           </p>
         )}
 
@@ -92,7 +100,7 @@ export function TopicPage({
               gap: '0.375rem',
             }}
           >
-            ← Back to {backLabel ? backLabel : (category ?? title)}
+            {t('backTo')} {backLabel ? backLabel : (category ?? title)}
           </Link>
         </div>
       </div>

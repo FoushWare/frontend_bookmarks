@@ -49,6 +49,18 @@
   --code-string:  #a6e3a1;
   --code-fn:      #89b4fa;
   --code-text:    #cdd6f4;
+
+  /* Flexbox lesson colors */
+  --coral:        #ff6b6b;
+  --yellow:       #ffd93d;
+  --teal:         #5eead4;
+  --purple:       #a78bfa;
+  --blue:         #60a5fa;
+  --coral-dim:    rgba(255,107,107,0.15);
+  --yellow-dim:   rgba(255,217,61,0.15);
+  --teal-dim:     rgba(94,234,212,0.15);
+  --purple-dim:   rgba(167,139,250,0.15);
+  --blue-dim:     rgba(96,165,250,0.15);
 }
 
 /* ============================================
@@ -77,6 +89,18 @@
   --code-string:  #50fa7b;
   --code-fn:      #8be9fd;
   --code-text:    #f8f8f2;
+
+  /* Flexbox lesson colors */
+  --coral:        #ff6b6b;
+  --yellow:       #ffd93d;
+  --teal:         #5eead4;
+  --purple:       #a78bfa;
+  --blue:         #60a5fa;
+  --coral-dim:    rgba(255,107,107,0.15);
+  --yellow-dim:   rgba(255,217,61,0.15);
+  --teal-dim:     rgba(94,234,212,0.15);
+  --purple-dim:   rgba(167,139,250,0.15);
+  --blue-dim:     rgba(96,165,250,0.15);
 }
 
 /* ============================================
@@ -529,6 +553,203 @@ body {
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* ============================================
+   PAGE LAYOUT
+   ============================================ */
+.page-layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 920px);
+  gap: 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.page-sidebar {
+  position: sticky;
+  top: 24px;
+  height: fit-content;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.page-content {
+  min-width: 0; /* Prevent flex/grid overflow issues */
+}
+
+/* ============================================
+   PAGE SIDEBAR NAVIGATION
+   ============================================ */
+.page-sidebar-nav {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.page-sidebar-category {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 4px;
+}
+
+.page-sidebar-topic {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.page-nav-section {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 20px 0 8px;
+}
+
+.page-nav-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+}
+
+.page-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-nav-list li {
+  margin: 2px 0;
+}
+
+.page-nav-link {
+  display: block;
+  padding: 6px 0;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.15s ease;
+  border-radius: 4px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.page-nav-link:hover {
+  color: var(--text);
+}
+
+.page-nav-active {
+  color: var(--accent-dark) !important;
+  font-weight: 600;
+}
+
+.page-nav-section-link {
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+.page-nav-section-link:hover {
+  color: var(--text-muted);
+}
+
+/* RTL support for sidebar */
+[dir="rtl"] .page-nav-link {
+  text-align: right;
+}
+
+/* ============================================
+   PAGE LAYOUT - MOBILE RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  .page-sidebar {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .page-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .page-sidebar-category,
+  .page-sidebar-topic {
+    display: none;
+  }
+
+  .page-nav-section {
+    margin: 8px 0 4px;
+  }
+
+  .page-nav-divider {
+    display: none;
+  }
+
+  .page-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .page-nav-list li {
+    margin: 0;
+  }
+
+  .page-nav-link {
+    padding: 8px 16px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .page-nav-active {
+    background: var(--accent);
+    color: var(--accent-text) !important;
+    border-color: var(--accent);
+  }
+
+  .page-nav-section-link {
+    display: none; /* Hide section links on mobile for cleaner UI */
+  }
+}
+
+/* ============================================
+   EXERCISE CARD HOVER EFFECTS
+   ============================================ */
+.exercise-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   PROJECT CARD HOVER EFFECTS
+   ============================================ */
+.project-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  transform: translateY(-3px);
+}
 
 /* ============================================
    ARTICLE / DOCUMENTATION CONTENT STYLES

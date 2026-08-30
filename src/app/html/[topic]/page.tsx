@@ -10,6 +10,7 @@ import { tablesData } from '@/data/html/tables';
 import { performanceData } from '@/data/html/performance';
 import { apisData } from '@/data/html/apis';
 import { interviewData } from '@/data/html/interview';
+import { getTopicNavigation } from '@/data/navigation';
 
 interface TopicData {
   title: string;

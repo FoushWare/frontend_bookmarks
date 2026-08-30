@@ -5,9 +5,10 @@
     "icon": "📦",
     "description": "Master flexible box layout for one-dimensional layouts",
     "level": "intermediate",
-    "referenceUrl": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
-    "examplesUrl": "https://flexboxfroggy.com/",
-    "projectsUrl": "/projects/flexbox"
+    "reference": true,
+    "exercises": true,
+    "games": true,
+    "projects": true
   },
   {
     "slug": "grid",
@@ -15,9 +16,10 @@
     "icon": "🔲",
     "description": "Master CSS grid for two-dimensional layouts",
     "level": "intermediate",
-    "referenceUrl": "https://css-tricks.com/snippets/css/complete-guide-grid/",
-    "examplesUrl": "https://cssgridgarden.com/",
-    "projectsUrl": "/projects/grid"
+    "reference": true,
+    "exercises": false,
+    "games": true,
+    "projects": true
   },
   {
     "slug": "background",
@@ -25,9 +27,10 @@
     "icon": "🖼️",
     "description": "Master background properties and techniques",
     "level": "beginner",
-    "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/background",
-    "examplesUrl": "https://cssgradient.io/",
-    "projectsUrl": "https://github.com/FoushWare"
+    "reference": true,
+    "exercises": false,
+    "games": false,
+    "projects": false
   },
   {
     "slug": "border",
@@ -35,9 +38,10 @@
     "icon": "🔲",
     "description": "Master border properties and styling",
     "level": "beginner",
-    "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/border",
-    "examplesUrl": "https://border-radius.com/",
-    "projectsUrl": "https://github.com/FoushWare"
+    "reference": true,
+    "exercises": false,
+    "games": false,
+    "projects": false
   },
   {
     "slug": "images",
@@ -45,9 +49,10 @@
     "icon": "🖼️",
     "description": "Master image styling and optimization",
     "level": "beginner",
-    "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/background-image",
-    "examplesUrl": "https://css-tricks.com/almanac/properties/o/object-fit/",
-    "projectsUrl": "https://github.com/FoushWare"
+    "reference": true,
+    "exercises": false,
+    "games": false,
+    "projects": false
   },
   {
     "slug": "spacing",
@@ -55,9 +60,10 @@
     "icon": "📏",
     "description": "Master padding, margin, and spacing techniques",
     "level": "beginner",
-    "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/margin",
-    "examplesUrl": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
-    "projectsUrl": "https://github.com/FoushWare"
+    "reference": true,
+    "exercises": false,
+    "games": false,
+    "projects": false
   },
   {
     "slug": "sizing",
@@ -65,9 +71,10 @@
     "icon": "📐",
     "description": "Master width, height, and sizing properties",
     "level": "beginner",
-    "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/width",
-    "examplesUrl": "https://css-tricks.com/almanac/properties/s/size/",
-    "projectsUrl": "https://github.com/FoushWare"
+    "reference": true,
+    "exercises": false,
+    "games": false,
+    "projects": false
   },
   {
     "slug": "typography",
@@ -75,9 +82,10 @@
     "icon": "🔤",
     "description": "Master fonts, text styling, and typography",
     "level": "beginner",
-    "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/font",
-    "examplesUrl": "https://fonts.google.com/",
-    "projectsUrl": "https://github.com/FoushWare"
+    "reference": true,
+    "exercises": false,
+    "games": false,
+    "projects": false
   },
   {
     "slug": "responsive",
@@ -85,9 +93,10 @@
     "icon": "📱",
     "description": "Master responsive design and media queries",
     "level": "intermediate",
-    "referenceUrl": "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries",
-    "examplesUrl": "https://responsivedesign.is/",
-    "projectsUrl": "https://github.com/FoushWare"
+    "reference": true,
+    "exercises": false,
+    "games": false,
+    "projects": false
   },
   {
     "slug": "frameworks",
@@ -95,8 +104,9 @@
     "icon": "🛠️",
     "description": "Master Tailwind CSS, Sass, and other frameworks",
     "level": "advanced",
-    "referenceUrl": "https://tailwindcss.com/docs",
-    "examplesUrl": "https://tailwindui.com/",
-    "projectsUrl": "https://github.com/FoushWare"
+    "reference": true,
+    "exercises": false,
+    "games": false,
+    "projects": false
   }
 ]

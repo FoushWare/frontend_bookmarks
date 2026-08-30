@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 type TranslationKey = string;
 
-export function useTranslation(translations: any) {
+export function useTranslation(translations: { en: any; ar: any }) {
   const [locale, setLocale] = useState<'en' | 'ar'>('ar');
   const [mounted, setMounted] = useState(false);
 
@@ -16,14 +16,14 @@ export function useTranslation(translations: any) {
 
   const t = (key: string) => {
     if (!mounted) return key;
-    
+
     const keys = key.split('.');
     let value = translations[locale];
-    
+
     for (const k of keys) {
       value = value?.[k];
     }
-    
+
     return value || key;
   };
 

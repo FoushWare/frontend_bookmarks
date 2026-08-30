@@ -1,8 +1,8 @@
 export const homeTranslations = {
   hero: {
-    badge: '✦ Frontend interview prep platform',
-    title: 'Master frontend development with ease',
-    description: 'The complete learning platform for modern frontend engineers. Interactive examples, curated references, and real interview prep — all in one place.',
+    badge: '✦ Developer interview prep platform',
+    title: 'Master development with ease',
+    description: 'The complete learning platform for modern developers. Interactive examples, curated references, and real interview prep — all in one place.',
     ctaPrimary: 'Get started now →',
     ctaSecondary: 'Interview prep',
     socialProof: '2,000+ engineers learning',
@@ -41,5 +41,21 @@ export const homeTranslations = {
       title: 'Frontend Mentor',
       desc: 'Real-world challenges to sharpen your practical UI-building skills.',
     },
+  },
+  navbar: {
+    fundamentals: 'Fundamentals',
+    practice: 'Practice',
+    resources: 'Resources',
+    html: 'HTML',
+    css: 'CSS',
+    javascript: 'JavaScript',
+    patterns: 'Patterns',
+    questions: 'Questions',
+    challenges: 'Challenges',
+    projects: 'Projects',
+    frontendMentor: 'Frontend Mentor',
+    seniorInterview: 'Senior Interview',
+    brandName: "Developer's",
+    brandNameAccent: 'Compass',
   },
 };

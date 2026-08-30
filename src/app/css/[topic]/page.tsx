@@ -7,20 +7,28 @@ import { getTopicNavigation } from '@/data/navigation';
 
 interface TopicData {
   title: string;
+  titleAr: string;
   icon: string;
   description: string;
+  descriptionAr: string;
   reference?: ResourceSection[];
+  referenceAr?: ResourceSection[];
   exercises?: ResourceSection[];
+  exercisesAr?: ResourceSection[];
   games?: ResourceSection[];
+  gamesAr?: ResourceSection[];
   projects?: ResourceSection[];
+  projectsAr?: ResourceSection[];
   useFlexboxLesson?: boolean;
 }
 
 const cssTopicDetails: Record<string, TopicData> = {
   flexbox: {
     title: 'Flexbox',
+    titleAr: 'فليكس بوكس',
     icon: '📦',
     description: 'Master flexible box layout for one-dimensional layouts along a main axis and cross axis.',
+    descriptionAr: 'أتقن التخطيط المرن للصناديق للتخطيطات أحادية البعد على المحور الرئيسي والمحور المتعامد.',
     useFlexboxLesson: true,
     reference: [
       {
@@ -29,6 +37,16 @@ const cssTopicDetails: Record<string, TopicData> = {
         links: [
           { title: 'CSS-Tricks Flexbox Guide', url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox', description: 'Complete visual guide' },
           { title: 'MDN Flexbox Docs', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout', description: 'Official documentation' },
+        ],
+      },
+    ],
+    referenceAr: [
+      {
+        title: 'المراجع والأدلة',
+        icon: '📖',
+        links: [
+          { title: 'دليل CSS-Tricks لفليكس بوكس', url: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox', description: 'دليل بصري كامل' },
+          { title: 'وثائق MDN لفليكس بوكس', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout', description: 'الوثائق الرسمية' },
         ],
       },
     ],
@@ -45,6 +63,19 @@ const cssTopicDetails: Record<string, TopicData> = {
         ],
       },
     ],
+    exercisesAr: [
+      {
+        title: 'تمارين التدريب',
+        icon: '✏️',
+        links: [
+          {
+            title: 'تحديات فليكس بوكس',
+            url: '/exercises/flexbox',
+            description: 'تحديات برمجة تفاعلية لإتقان مفاهيم فليكس بوكس',
+          },
+        ],
+      },
+    ],
     games: [
       {
         title: 'Gaming Practice',
@@ -52,6 +83,16 @@ const cssTopicDetails: Record<string, TopicData> = {
         links: [
           { title: 'Flexbox Froggy', url: 'https://flexboxfroggy.com', description: 'Help a frog reach its lilypad with flexbox' },
           { title: 'Flexbox Defense', url: 'http://flexboxdefense.com', description: 'Tower defense game powered by flexbox' },
+        ],
+      },
+    ],
+    gamesAr: [
+      {
+        title: 'التدريب بالألعاب',
+        icon: '🎮',
+        links: [
+          { title: 'ضفدع فليكس بوكس', url: 'https://flexboxfroggy.com', description: 'ساعد ضفدعًا للوصول إلى زهرة زنبق الماء باستخدام فليكس بوكس' },
+          { title: 'دفاع فليكس بوكس', url: 'http://flexboxdefense.com', description: 'لعب دفاع الأبراج مدعوم بفليكس بوكس' },
         ],
       },
     ],
@@ -73,11 +114,31 @@ const cssTopicDetails: Record<string, TopicData> = {
         ],
       },
     ],
+    projectsAr: [
+      {
+        title: 'مشاريع مكتبة المكونات',
+        icon: '🛠️',
+        links: [
+          {
+            title: 'مسار التسويق - مكتبة المكونات',
+            url: '/projects/flexbox/marketing-library',
+            description: 'ابنِ مكتبة مكونات كاملة باستخدام فليكس بوكس',
+          },
+          {
+            title: 'مكونات فردية',
+            url: '/projects/flexbox/components',
+            description: 'تدرب على مكونات فليكس بوكس الفردية',
+          },
+        ],
+      },
+    ],
   },
   grid: {
     title: 'Grid',
+    titleAr: 'الشبكة',
     icon: '🔲',
     description: 'Two-dimensional layout system for rows and columns.',
+    descriptionAr: 'نظام التخطيط ثنائي الأبعاد للصفوف والأعمدة.',
     reference: [
       {
         title: 'References & Guides',
@@ -88,11 +149,23 @@ const cssTopicDetails: Record<string, TopicData> = {
         ],
       },
     ],
+    referenceAr: [
+      {
+        title: 'المراجع والأدلة',
+        icon: '📖',
+        links: [
+          { title: 'دليل CSS-Tricks للشبكة', url: 'https://css-tricks.com/snippets/css/complete-guide-grid/', description: 'دليل بصري كامل' },
+          { title: 'وثائق MDN للشبكة', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout', description: 'الوثائق الرسمية' },
+        ],
+      },
+    ],
   },
   background: {
     title: 'Background',
+    titleAr: 'الخلفية',
     icon: '🎨',
     description: 'Control background images, colors, gradients, and more.',
+    descriptionAr: 'تحكم في صور الخلفية والألوان والتدرجات والمزيد.',
     reference: [
       {
         title: 'References & Guides',
@@ -102,17 +175,37 @@ const cssTopicDetails: Record<string, TopicData> = {
         ],
       },
     ],
+    referenceAr: [
+      {
+        title: 'المراجع والأدلة',
+        icon: '📖',
+        links: [
+          { title: 'وثائق MDN للخلفية', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/background', description: 'الوثائق الرسمية' },
+        ],
+      },
+    ],
   },
   typography: {
     title: 'Typography',
+    titleAr: 'الطباعة',
     icon: '📝',
     description: 'Font sizing, line height, spacing, and text styling.',
+    descriptionAr: 'حجم الخط، ارتفاع السطر، المسافات وتنسيق النص.',
     reference: [
       {
         title: 'References & Guides',
         icon: '📖',
         links: [
           { title: 'MDN Typography Docs', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts', description: 'Official documentation' },
+        ],
+      },
+    ],
+    referenceAr: [
+      {
+        title: 'المراجع والأدلة',
+        icon: '📖',
+        links: [
+          { title: 'وثائق MDN للطباعة', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts', description: 'الوثائق الرسمية' },
         ],
       },
     ],
@@ -144,14 +237,24 @@ export default async function CssTopicSubpage({ params }: { params: Promise<{ to
     ...(data.projects || []),
   ];
 
+  const allSectionsAr = [
+    ...(data.referenceAr || []),
+    ...(data.exercisesAr || []),
+    ...(data.gamesAr || []),
+    ...(data.projectsAr || []),
+  ];
+
   return (
     <TopicPage
       title={data.title}
+      titleAr={data.titleAr}
       category="CSS"
       categorySlug="css"
       description={data.description}
+      descriptionAr={data.descriptionAr}
       icon={data.icon}
       sections={allSections}
+      sectionsAr={allSectionsAr}
     >
       <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
         Topic documentation and guides are available for {data.title}. Check the reference links above or practice with interactive projects.

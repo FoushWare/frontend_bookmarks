@@ -1,12 +1,20 @@
 export const cssTranslations = {
-  hero: {
-    title: 'CSS',
-    description: 'أتقن تخطيطات CSS مع Flexbox و Grid، التنسيق، الرسوم المتحركة، والتصميم المتجاوب',
+  grid: {
+    title: 'شبكة CSS',
+    description: 'أتقن نظام التخطيط ثنائي الأبعاد القوي للويب.',
   },
-  references: {
-    reference: 'مرجع',
-    exercises: 'تمارين',
-    games: 'ألعاب',
-    projects: 'مشاريع',
+  background: {
+    title: 'خلفية CSS',
+    description: 'تعلم تصميم الخلفيات بالألوان والصور والتدرجات والمزيد.',
+  },
+  typography: {
+    title: 'طباعة CSS',
+    description: 'تحكم في الخطوط وحجم النص والمسافات وقابلية القراءة.',
+  },
+  general: {
+    overview: 'نظرة عامة',
+    projects: 'المشاريع',
+    exercises: 'التمارين',
+    tableOfContents: 'جدول المحتويات',
   },
 };

@@ -1,5 +1,8 @@
 'use client';
 import { NavDropdown } from './NavDropdown';
+import { useTranslation } from '@/hooks/useTranslation';
+import { homeTranslations } from '@/data/translations/home.en';
+import { homeTranslations as homeTranslationsAr } from '@/data/translations/home.ar';
 
 interface NavItem {
   label: string;
@@ -15,34 +18,36 @@ interface NavLinksProps {
   isMobile?: boolean;
 }
 
-const navSections: NavSection[] = [
-  {
-    title: 'Fundamentals',
-    items: [
-      { label: 'HTML', href: '/html' },
-      { label: 'CSS', href: '/css' },
-      { label: 'JavaScript', href: '/javascript' },
-      { label: 'Patterns', href: '/patterns' },
-    ],
-  },
-  {
-    title: 'Practice',
-    items: [
-      { label: 'Questions', href: '/questions' },
-      { label: 'Challenges', href: '/challenges' },
-      { label: 'Projects', href: '/projects' },
-    ],
-  },
-  {
-    title: 'Resources',
-    items: [
-      { label: 'Frontend Mentor', href: '/frontend-mentor' },
-      { label: 'Senior Interview', href: '/senior-interview' },
-    ],
-  },
-];
-
 export function NavLinks({ isMobile = false }: NavLinksProps) {
+  const { t, locale } = useTranslation({ en: homeTranslations, ar: homeTranslationsAr });
+
+  const navSections: NavSection[] = [
+    {
+      title: t('navbar.fundamentals'),
+      items: [
+        { label: t('navbar.html'), href: '/html' },
+        { label: t('navbar.css'), href: '/css' },
+        { label: t('navbar.javascript'), href: '/javascript' },
+        { label: t('navbar.patterns'), href: '/patterns' },
+      ],
+    },
+    {
+      title: t('navbar.practice'),
+      items: [
+        { label: t('navbar.questions'), href: '/questions' },
+        { label: t('navbar.challenges'), href: '/challenges' },
+        { label: t('navbar.projects'), href: '/projects' },
+      ],
+    },
+    {
+      title: t('navbar.resources'),
+      items: [
+        { label: t('navbar.frontendMentor'), href: '/frontend-mentor' },
+        { label: t('navbar.seniorInterview'), href: '/senior-interview' },
+      ],
+    },
+  ];
+
   if (isMobile) {
     return (
       <ul

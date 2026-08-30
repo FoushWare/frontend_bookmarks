@@ -1,12 +1,20 @@
 export const cssTranslations = {
-  hero: {
-    title: 'CSS',
-    description: 'Master CSS layouts with Flexbox and Grid, styling, animations, and responsive design',
+  grid: {
+    title: 'CSS Grid',
+    description: 'Master the powerful two-dimensional layout system for the web.',
   },
-  references: {
-    reference: 'Reference',
-    exercises: 'Exercises',
-    games: 'Games',
+  background: {
+    title: 'CSS Background',
+    description: 'Learn to style backgrounds with colors, images, gradients, and more.',
+  },
+  typography: {
+    title: 'CSS Typography',
+    description: 'Control fonts, text sizing, spacing, and readability.',
+  },
+  general: {
+    overview: 'Overview',
     projects: 'Projects',
+    exercises: 'Exercises',
+    tableOfContents: 'Table of Contents',
   },
 };

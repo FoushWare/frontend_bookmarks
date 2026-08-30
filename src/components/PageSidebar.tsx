@@ -4,20 +4,33 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { PageNavigation, ContentSection } from '@/data/navigation';
+import { useTranslation } from '@/hooks/useTranslation';
+import { cssTranslations } from '@/data/translations/css.en';
+import { cssTranslations as cssTranslationsAr } from '@/data/translations/css.ar';
+import { htmlTranslations } from '@/data/translations/html.en';
+import { htmlTranslations as htmlTranslationsAr } from '@/data/translations/html.ar';
+import { javascriptTranslations } from '@/data/translations/javascript.en';
+import { javascriptTranslations as javascriptTranslationsAr } from '@/data/translations/javascript.ar';
 
 interface PageSidebarProps {
   category: string;
   topic: string;
+  topicAr?: string;
   navigation: PageNavigation[];
+  navigationAr?: PageNavigation[];
   sections?: ContentSection[];
+  sectionsAr?: ContentSection[];
   currentPath?: string;
 }
 
 export default function PageSidebar({
   category,
   topic,
+  topicAr,
   navigation,
+  navigationAr,
   sections = [],
+  sectionsAr = [],
   currentPath,
 }: PageSidebarProps) {
   const pathname = usePathname() || currentPath;
@@ -27,6 +40,26 @@ export default function PageSidebar({
     const dir = document.documentElement.dir;
     setIsRTL(dir === 'rtl');
   }, []);
+
+  // Get appropriate translations based on category
+  const getTranslations = () => {
+    const categoryLower = category.toLowerCase();
+    if (categoryLower === 'css') {
+      return { en: cssTranslations, ar: cssTranslationsAr };
+    } else if (categoryLower === 'html') {
+      return { en: htmlTranslations, ar: htmlTranslationsAr };
+    } else if (categoryLower === 'javascript') {
+      return { en: javascriptTranslations, ar: javascriptTranslationsAr };
+    }
+    return { en: cssTranslations, ar: cssTranslationsAr };
+  };
+
+  const { t, locale } = useTranslation(getTranslations());
+
+  const currentNavigation = locale === 'ar' && navigationAr ? navigationAr : navigation;
+  const currentSections = locale === 'ar' && sectionsAr ? sectionsAr : sections;
+  const currentTopic = locale === 'ar' && topicAr ? topicAr : topic;
+  const currentCategory = locale === 'ar' && topicAr ? topicAr : category;
 
   const isActive = (href: string) => {
     if (!pathname) return false;
@@ -62,22 +95,22 @@ export default function PageSidebar({
     <nav className="page-sidebar-nav">
       {/* Category header */}
       <div className="page-sidebar-category">
-        {category}
+        {currentCategory}
       </div>
 
       {/* Topic header */}
       <div className="page-sidebar-topic">
-        {topic.toUpperCase()}
+        {currentTopic.toUpperCase()}
       </div>
 
       {/* Page Navigation */}
-      {navigation.length > 0 && (
+      {currentNavigation.length > 0 && (
         <>
           <div className="page-nav-section">
-            {isRTL ? 'صفحات' : 'Pages'}
+            {t('general.tableOfContents')}
           </div>
           <ul className="page-nav-list">
-            {navigation.map((item) => (
+            {currentNavigation.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -92,14 +125,14 @@ export default function PageSidebar({
       )}
 
       {/* Content Navigation - On This Page */}
-      {sections.length > 0 && (
+      {currentSections.length > 0 && (
         <>
           <div className="page-nav-divider" />
           <div className="page-nav-section">
-            {isRTL ? 'في هذه الصفحة' : 'On This Page'}
+            {locale === 'ar' ? 'في هذه الصفحة' : 'On This Page'}
           </div>
           <ul className="page-nav-list">
-            {sections.map((section) => (
+            {currentSections.map((section) => (
               <li key={section.id}>
                 <button
                   onClick={() => scrollToSection(section.id)}

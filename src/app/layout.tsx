@@ -6,13 +6,14 @@ import NavLinks from '@/components/NavLinks';
 import ThemeToggle from '@/components/ThemeToggle';
 import ColorPalettePicker from '@/components/ColorPalettePicker';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { BrandName } from '@/components/BrandName';
 // @ts-ignore - CSS import
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Frontend Bookmarks — Master Modern Web Development',
+  title: "بوصلة المطوّر — Developer's Compass",
   description:
-    'Interactive frontend learning platform. Master HTML, CSS, JavaScript, Design Patterns, and ace your next interview.',
+    'منصة تعلم تفاعلية للمطورين. أتقن HTML و CSS و JavaScript وأنماط التصميم وتفوق في مقابلتك القادمة.',
 };
 
 interface RootLayoutProps {
@@ -95,7 +96,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               }}
             >
               <Logo />
-              <span>Frontend<span style={{ color: 'var(--accent-dark)' }}> Bookmarks</span></span>
+              <BrandName />
             </Link>
 
             <MobileMenuToggle />

@@ -8,11 +8,14 @@ import { topicTranslations as topicTranslationsAr } from '@/data/translations/to
 
 interface TopicPageProps {
   title: string;
+  titleAr?: string;
   category?: string;
   categorySlug?: string;
   description: string;
+  descriptionAr?: string;
   icon: string;
   sections?: ResourceSection[];
+  sectionsAr?: ResourceSection[];
   children?: ReactNode;
   backLink?: string;
   backLabel?: string;
@@ -20,19 +23,26 @@ interface TopicPageProps {
 
 export function TopicPage({
   title,
+  titleAr,
   category,
   categorySlug,
   description,
+  descriptionAr,
   icon,
   sections = [],
+  sectionsAr = [],
   children,
   backLink,
   backLabel,
 }: TopicPageProps) {
   const translations = { en: topicTranslationsEn, ar: topicTranslationsAr };
-  const { t, mounted } = useTranslation(translations);
+  const { t, mounted, locale } = useTranslation(translations);
 
   if (!mounted) return null;
+
+  const currentTitle = locale === 'ar' && titleAr ? titleAr : title;
+  const currentDescription = locale === 'ar' && descriptionAr ? descriptionAr : description;
+  const currentSections = locale === 'ar' && sectionsAr.length > 0 ? sectionsAr : sections;
 
   return (
     <div style={{ width: '100%' }}>
@@ -55,19 +65,19 @@ export function TopicPage({
               fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
               fontWeight: 900,
               color: 'var(--text)',
-              letterSpacing: '-0.03em',
+              letterSpacing: locale === 'ar' ? '0' : '-0.03em',
               marginBottom: '0.5rem',
             }}
           >
-            {title}
+            {currentTitle}
           </h1>
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', maxWidth: '580px', lineHeight: 1.6, margin: 0 }}>
-            {description}
+            {currentDescription}
           </p>
         </div>
       </div>
 
-      {sections.length > 0 && <ResourceGuide sections={sections} />}
+      {currentSections.length > 0 && <ResourceGuide sections={currentSections} />}
 
       <div
         style={{
@@ -82,7 +92,7 @@ export function TopicPage({
           children
         ) : (
           <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
-            {t('noContent').replace('{title}', title)}
+            {t('noContent').replace('{title}', currentTitle)}
           </p>
         )}
 
@@ -100,7 +110,7 @@ export function TopicPage({
               gap: '0.375rem',
             }}
           >
-            {t('backTo')} {backLabel ? backLabel : (category ?? title)}
+            {t('backTo')} {backLabel ? backLabel : (category ?? currentTitle)}
           </Link>
         </div>
       </div>

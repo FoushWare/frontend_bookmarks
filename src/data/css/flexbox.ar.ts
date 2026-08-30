@@ -47,7 +47,7 @@ export const flexboxContent = {
       },
     },
     {
-      eyebrow: '� مين اللي ياخد المساحة الزيادة؟',
+      eyebrow: '⚡ مين اللي ياخد المساحة الزيادة؟',
       title: '<code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code>',
       description: `مش لازم كل العناصر تبقى بنفس الحجم. الثلاث خصومات دي بتشتغل مع بعض في ٣ خطوات: الأول، Flexbox بيحدد الحجم الأساسي لكل عنصر (<code>flex-basis</code>)، وبعدين بيشوف فيه مساحة زيادة ولا لأ — لو فيه، بيوزّعها حسب <code>flex-grow</code>، ولو مفيش، بيقصّر العناصر حسب <code>flex-shrink</code>. جرّب كل واحد لوحده تحت عشان تفهم الفكرة أوضح.`,
       growShrinkBasis: true,
@@ -60,7 +60,7 @@ export const flexboxContent = {
       orderWarning: '⚠️ تحذير إمكانية الوصول: <code>order</code> بيغيّر الترتيب البصري بس، وبيخلي ترتيب الـ DOM وترتيب التنقل بالكيبورد (ترتيب القراءة / Tab) زي ما هو. ده يعني إن أي حد بيستخدم قارئ شاشة أو كيبورد ممكن يقرأ أو يتنقل بترتيب مختلف تمامًا عن اللي شايفه على الشاشة — استخدمه بحذر وتجنّب إعادة ترتيب المعلومات المهمة بيه.',
     },
     {
-      eyebrow: '�📐 <code>justify-content</code>',
+      eyebrow: '📐 <code>justify-content</code>',
       title: 'عايز توزّع العناصر على المحور الرئيسي؟',
       description: 'دي وظيفة <code>justify-content</code>. الفرق بين القيم بيبان جدًا لما يكون عندك مساحة فاضية جوه الـ <code>Container</code> — جرّب كل واحدة وشوف الفرق بنفسك.',
       gallery: [

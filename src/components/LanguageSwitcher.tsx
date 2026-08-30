@@ -14,13 +14,16 @@ export default function LanguageSwitcher() {
     const newLocale = currentLocale === 'en' ? 'ar' : 'en';
     localStorage.setItem('language', newLocale);
     setCurrentLocale(newLocale);
-    
+
     // Update document attributes
     const isArabic = newLocale === 'ar';
     document.documentElement.lang = newLocale;
     document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
     document.documentElement.style.fontFamily = isArabic ? "'Cairo', sans-serif" : "'Inter', sans-serif";
-    
+
+    // Emit custom event for other components to listen
+    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { locale: newLocale } }));
+
     // Reload page to apply changes
     window.location.reload();
   };

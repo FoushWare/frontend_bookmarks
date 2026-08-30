@@ -36,10 +36,19 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
   }, []);
 
   useEffect(() => {
-    if (mounted) {
-      localStorage.setItem('language', locale);
-    }
-  }, [locale, mounted]);
+    const handleLanguageChange = () => {
+      const lang = localStorage.getItem('language') || 'ar';
+      setLocale(lang as 'en' | 'ar');
+    };
+
+    window.addEventListener('storage', handleLanguageChange);
+    window.addEventListener('languageChanged', handleLanguageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleLanguageChange);
+      window.removeEventListener('languageChanged', handleLanguageChange);
+    };
+  }, []);
 
   if (!mounted) return null;
 
@@ -49,12 +58,6 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
 
   // Get navigation data
   const topicNav = getTopicNavigation('flexbox');
-
-  // Handle language change
-  const handleLanguageChange = () => {
-    setLocale(locale === 'en' ? 'ar' : 'en');
-    localStorage.setItem('language', locale === 'en' ? 'ar' : 'en');
-  };
 
   const updateState = (key: string, value: string) => {
     setState((prev) => ({ ...prev, [key]: value }));
@@ -142,8 +145,11 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
         <PageSidebar
           category="CSS"
           topic="Flexbox"
+          topicAr="فليكس بوكس"
           navigation={topicNav?.navigation || []}
+          navigationAr={topicNav?.navigationAr || []}
           sections={topicNav?.sections || []}
+          sectionsAr={topicNav?.sectionsAr || []}
         />
       }
     >
@@ -154,33 +160,6 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
           lineHeight: 1.85,
         }}
       >
-        {/* Language toggle in header */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            marginBottom: '16px',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '4px',
-              padding: '8px 12px',
-              background: 'var(--surface-2)',
-              borderRadius: '12px',
-              border: '1px solid var(--border)',
-              cursor: 'pointer',
-            }}
-            onClick={handleLanguageChange}
-          >
-            <span style={{ fontSize: '12px', fontWeight: 600, color: locale === 'en' ? 'var(--teal)' : 'var(--muted)' }}>EN</span>
-            <div style={{ height: '1px', background: 'var(--border)' }}></div>
-            <span style={{ fontSize: '12px', fontWeight: 600, color: locale === 'ar' ? 'var(--teal)' : 'var(--muted)' }}>AR</span>
-          </div>
-        </div>
-
         {/* Header */}
       <div>
         <span

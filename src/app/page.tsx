@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
-import { homeTranslations as homeTranslationsEn } from '@/data/translations/home.en';
+import { homeTranslations } from '@/data/translations/home.en';
 import { homeTranslations as homeTranslationsAr } from '@/data/translations/home.ar';
 
 /* ─── Category data ──────────────────────────────────────────── */
@@ -91,7 +91,7 @@ const codeLines = [
 const previewItems = ['Walk the dog', 'Water the plants', 'Wash the dishes'];
 
 export default function HomePage() {
-  const translations = { en: homeTranslationsEn, ar: homeTranslationsAr };
+  const translations = { en: homeTranslations, ar: homeTranslationsAr };
   const { t, locale, mounted } = useTranslation(translations);
 
   /* IntersectionObserver fallback for browsers without scroll-driven animations */

@@ -1,4 +1,8 @@
 export const cssTranslations = {
+  hero: {
+    title: 'إتقان CSS',
+    description: 'أتقن تقنيات CSS الحديثة بما في ذلك فليكس بوكس والشبكة والرسوم المتحركة والتصميم المتجاوب لبناء واجهات ويب جميلة.',
+  },
   grid: {
     title: 'شبكة CSS',
     description: 'أتقن نظام التخطيط ثنائي الأبعاد القوي للويب.',
@@ -16,5 +20,12 @@ export const cssTranslations = {
     projects: 'المشاريع',
     exercises: 'التمارين',
     tableOfContents: 'جدول المحتويات',
+    references: 'المراجع',
+    reference: 'مرجع',
+    exercises: 'تمارين',
+    games: 'ألعاب',
+    projects: 'مشاريع',
   },
 };
+
+export default cssTranslations;

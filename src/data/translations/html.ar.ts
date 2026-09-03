@@ -1,4 +1,8 @@
 export const htmlTranslations = {
+  hero: {
+    title: 'إتقان HTML',
+    description: 'أتقن HTML الدلالي وإمكانية الوصول والنماذج والوسائط وأفضل ممارسات SEO لبناء تجارب ويب شاملة.',
+  },
   accessibility: {
     title: 'إمكانية الوصول',
     description: 'ابنِ تجارب ويب شاملة لجميع المستخدمين.',
@@ -38,5 +42,12 @@ export const htmlTranslations = {
   general: {
     overview: 'نظرة عامة',
     tableOfContents: 'جدول المحتويات',
+    references: 'المراجع',
+    reference: 'مرجع',
+    exercises: 'تمارين',
+    games: 'ألعاب',
+    projects: 'مشاريع',
   },
 };
+
+export default htmlTranslations;

@@ -40,9 +40,11 @@ export function TopicPage({
 
   if (!mounted) return null;
 
-  const currentTitle = locale === 'ar' && titleAr ? titleAr : title;
-  const currentDescription = locale === 'ar' && descriptionAr ? descriptionAr : description;
   const currentSections = locale === 'ar' && sectionsAr.length > 0 ? sectionsAr : sections;
+
+  // Use provided translations or fallback to original props
+  const displayTitle = locale === 'ar' ? (titleAr || title) : title;
+  const displayDescription = locale === 'ar' ? (descriptionAr || description) : description;
 
   return (
     <div style={{ width: '100%' }}>
@@ -69,10 +71,10 @@ export function TopicPage({
               marginBottom: '0.5rem',
             }}
           >
-            {currentTitle}
+            {displayTitle}
           </h1>
           <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', maxWidth: '580px', lineHeight: 1.6, margin: 0 }}>
-            {currentDescription}
+            {displayDescription}
           </p>
         </div>
       </div>
@@ -92,7 +94,7 @@ export function TopicPage({
           children
         ) : (
           <p style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>
-            {t('noContent').replace('{title}', currentTitle)}
+            {t('noContent').replace('{title}', displayTitle)}
           </p>
         )}
 
@@ -110,7 +112,7 @@ export function TopicPage({
               gap: '0.375rem',
             }}
           >
-            {t('backTo')} {backLabel ? backLabel : (category ?? currentTitle)}
+            {t('backTo')} {backLabel ? backLabel : (category ?? displayTitle)}
           </Link>
         </div>
       </div>

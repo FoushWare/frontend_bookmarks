@@ -42,6 +42,13 @@ export const homeTranslations = {
       desc: 'تحديات واقعية لتحسين مهاراتك العملية في بناء واجهات المستخدم.',
     },
   },
+  page: {
+    welcome: 'مرحبًا',
+    gettingStarted: 'البدء',
+    exploreTopics: 'استكشف المواضيع',
+    latestArticles: 'المقالات الأخيرة',
+    quickLinks: 'روابط سريعة',
+  },
   navbar: {
     fundamentals: 'الأساسيات',
     practice: 'التدريب',

@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import { useTranslation } from '@/hooks/useTranslation';
+import { htmlTranslations } from '@/data/translations/html.en';
+import { htmlTranslations as htmlTranslationsAr } from '@/data/translations/html.ar';
 
 const htmlTopics = [
   { slug: 'semantics', icon: '🏗️', title: 'Semantics', description: 'Master semantic HTML elements and proper document structure', level: 'beginner' },
@@ -22,6 +25,11 @@ const badgeStyle = (level: string) => {
 };
 
 export default function HtmlPage() {
+  const translations = { en: htmlTranslations, ar: htmlTranslationsAr };
+  const { t, mounted } = useTranslation(translations);
+
+  if (!mounted) return null;
+
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem 5rem' }}>
       {/* Hero */}
@@ -38,10 +46,10 @@ export default function HtmlPage() {
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ fontSize: '3rem', marginBottom: '0.75rem' }}>📄</div>
           <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: 'white', letterSpacing: '-0.03em', marginBottom: '0.75rem' }}>
-            HTML
+            {t('hero.title')}
           </h1>
           <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.85)', maxWidth: '560px', lineHeight: 1.6 }}>
-            Master HTML semantics, accessibility, and modern best practices for building structured web pages
+            {t('hero.description')}
           </p>
         </div>
         <div style={{ position: 'absolute', top: '-20%', right: '-5%', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)', pointerEvents: 'none' }} />

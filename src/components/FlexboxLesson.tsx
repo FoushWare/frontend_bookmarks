@@ -22,6 +22,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
     wrap: 'nowrap',
     justify: 'flex-start',
     align: 'stretch',
+    alignSelf: 'auto',
   });
   const [basisValues, setBasisValues] = useState([80, 80, 80]);
   const [growValues, setGrowValues] = useState([0, 0, 0]);
@@ -134,6 +135,10 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
         <span style={{ color: 'var(--teal)' }}>align-items</span>:{' '}
         <span style={{ color: 'var(--yellow)' }}>{state.align}</span>;
         {'\n'}
+        {'  '}
+        <span style={{ color: 'var(--teal)' }}>align-self</span>:{' '}
+        <span style={{ color: 'var(--yellow)' }}>{state.alignSelf}</span>;
+        {'\n'}
         <span style={{ color: 'var(--muted)' }}>{'}'}</span>
       </div>
     );
@@ -245,6 +250,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
           'flex-direction',
           'justify-content',
           'align-items',
+          'align-self',
           'flex-grow-shrink-basis',
           'order',
           'justify-content-gallery',
@@ -451,10 +457,30 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                 {section.callout.icon}
               </span>
               <div>
-                <b>{section.callout.title}</b>{' '}
+                {section.callout.title && <b>{section.callout.title}</b>}{' '}
                 <span dangerouslySetInnerHTML={{ __html: section.callout.content }} />
               </div>
             </div>
+          )}
+
+          {section.codeExample && (
+            <div
+              style={{
+                background: '#0d0f17',
+                border: '1px solid var(--border)',
+                borderRadius: '12px',
+                padding: '16px 18px',
+                fontSize: '14px',
+                whiteSpace: 'pre',
+                overflowX: 'auto',
+                marginTop: '16px',
+                direction: 'ltr',
+                textAlign: 'left',
+                unicodeBidi: 'embed',
+                fontFamily: "'JetBrains Mono', monospace",
+              }}
+              dangerouslySetInnerHTML={{ __html: section.codeExample.replace(/\n/g, '<br>').replace(/display: flex;/g, '<span style="color: var(--teal)">display</span>: <span style="color: var(--yellow)">flex</span>;').replace(/align-items: flex-start;/g, '<span style="color: var(--teal)">align-items</span>: <span style="color: var(--yellow)">flex-start</span>;').replace(/align-self: flex-end;/g, '<span style="color: var(--teal)">align-self</span>: <span style="color: var(--yellow)">flex-end</span>;').replace(/\/\*.*?\*\//g, '<span style="color: var(--muted)">$&</span>') }}
+            />
           )}
 
           {section.controls && (
@@ -524,7 +550,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                         minWidth: '32px',
                         borderRadius: '8px',
                         display: 'flex',
-                        alignItems: 'center',
+                        alignItems: i === 2 ? state.alignSelf : 'center',
                         justifyContent: 'center',
                         fontWeight: 800,
                         fontSize: '12px',
@@ -552,6 +578,9 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                 >
                   ↔ {locale === 'en' ? 'If you picked nowrap and can\'t see all the boxes, scroll inside the box left/right' : 'لو اخترت nowrap ومش شايف كل الصناديق، مرّر جواه شمال/يمين'}
                 </span>
+                <p style={{ color: 'var(--muted)', fontSize: '14px', margin: '8px 0 0' }}>
+                  🟡 {locale === 'en' ? 'Try changing align-items to any value, then change align-self only on the yellow element — you\'ll see it breaks the general rule and follows its own path.' : 'جرّب تغيّر align-items بأي قيمة، وبعدين غيّر align-self بس على العنصر الأصفر — هتلاقيه بيخرج عن القاعدة العامة ويمشي على مزاجه هو.'}
+                </p>
                 {renderCode()}
               </div>
             </div>
@@ -761,8 +790,9 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                       padding: '10px',
                       display: 'flex',
                       gap: '8px',
-                      height: '64px',
+                      height: item.tall ? '110px' : '64px',
                       justifyContent: item.value,
+                      alignItems: item.tall ? 'flex-start' : 'center',
                     }}
                   >
                     <div
@@ -771,6 +801,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                         borderRadius: '7px',
                         flex: '0 0 auto',
                         background: 'var(--coral)',
+                        height: item.tall ? '26px' : 'auto',
                       }}
                     />
                     <div
@@ -779,6 +810,10 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                         borderRadius: '7px',
                         flex: '0 0 auto',
                         background: 'var(--teal)',
+                        height: item.tall ? '26px' : 'auto',
+                        alignItems: item.value !== 'none' ? item.value : 'flex-start',
+                        display: 'flex',
+                        boxShadow: item.value !== 'none' ? '0 0 0 2px var(--yellow)' : 'none',
                       }}
                     />
                     <div
@@ -787,6 +822,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                         borderRadius: '7px',
                         flex: '0 0 auto',
                         background: 'var(--yellow)',
+                        height: item.tall ? '36px' : 'auto',
                       }}
                     />
                   </div>
@@ -796,9 +832,8 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                       fontSize: '13px',
                       color: 'var(--muted)',
                     }}
-                  >
-                    <code style={{ color: 'var(--yellow)', fontSize: '12.5px' }}>{item.value}</code> — {item.description}
-                  </div>
+                    dangerouslySetInnerHTML={{ __html: item.description }}
+                  />
                 </div>
               ))}
             </div>

@@ -42,6 +42,13 @@ export const homeTranslations = {
       desc: 'Real-world challenges to sharpen your practical UI-building skills.',
     },
   },
+  page: {
+    welcome: 'Welcome',
+    gettingStarted: 'Getting Started',
+    exploreTopics: 'Explore Topics',
+    latestArticles: 'Latest Articles',
+    quickLinks: 'Quick Links',
+  },
   navbar: {
     fundamentals: 'Fundamentals',
     practice: 'Practice',

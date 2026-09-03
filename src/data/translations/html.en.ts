@@ -1,6 +1,10 @@
 export const htmlTranslations = {
+  hero: {
+    title: 'HTML Mastery',
+    description: 'Master semantic HTML, accessibility, forms, media, and SEO best practices for building inclusive web experiences.',
+  },
   accessibility: {
-    title: 'Accessibility',
+    title: 'HTML Accessibility',
     description: 'Build inclusive web experiences for all users.',
   },
   apis: {
@@ -38,5 +42,12 @@ export const htmlTranslations = {
   general: {
     overview: 'Overview',
     tableOfContents: 'Table of Contents',
+    references: 'References',
+    reference: 'Reference',
+    exercises: 'Exercises',
+    games: 'Games',
+    projects: 'Projects',
   },
 };
+
+export default htmlTranslations;

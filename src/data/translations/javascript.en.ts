@@ -1,4 +1,8 @@
 export const javascriptTranslations = {
+  hero: {
+    title: 'JavaScript Mastery',
+    description: 'Master JavaScript from fundamentals to advanced concepts including ES6+, async programming, DOM manipulation, and functional patterns.',
+  },
   fundamentals: {
     title: 'JavaScript Fundamentals',
     description: 'Master the core concepts of JavaScript programming.',
@@ -26,5 +30,12 @@ export const javascriptTranslations = {
   general: {
     overview: 'Overview',
     tableOfContents: 'Table of Contents',
+    references: 'References',
+    reference: 'Reference',
+    exercises: 'Exercises',
+    games: 'Games',
+    projects: 'Projects',
   },
 };
+
+export default javascriptTranslations;

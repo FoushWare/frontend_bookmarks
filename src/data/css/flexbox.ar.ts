@@ -44,7 +44,36 @@ export const flexboxContent = {
           label: 'align-items — تتحاذى إزاي في الاتجاه التاني؟',
           options: ['stretch', 'flex-start', 'center', 'flex-end'],
         },
+        alignSelf: {
+          label: 'align-self — بس للعنصر التاني (الأصفر)',
+          options: ['auto', 'flex-start', 'center', 'flex-end', 'stretch'],
+        },
       },
+    },
+    {
+      eyebrow: '🙋‍♂️ خصائص على العنصر مش الحاوية',
+      title: '<code>align-self</code> — عنصر واحد بس عايز يختلف عن الباقي؟',
+      description: `<code>align-items</code> بتتحط على الـ <code>container</code> وبتتحكم في كل العناصر مع بعض. لكن لو عايز عنصر واحد بس يتحاذى بشكل مختلف عن إخواته، تحط <code>align-self</code> على العنصر نفسه — وهي بتلاقيه وبتلغي (override) اللي جاي من <code>align-items</code> بتاع الأب، لكن بس للعنصر ده. القيم زيها زي <code>align-items</code> بالظبط: <code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>stretch</code>, وكمان <code>auto</code> (الافتراضي، يعني "خد اللي الأب حاطه").`,
+      callout: {
+        icon: '💡',
+        title: '',
+        content: 'لاحظ في الأمثلة تحت: كل الصناديق حاوياتها فيها <code>align-items: flex-start</code> — العنصر الأصفر (التاني) بس هو اللي عليه <code>align-self</code>، وده اللي بيخليه يتصرف مختلف عن أخواته الفيروزي والكورال.',
+      },
+      alignSelfGallery: true,
+      gallery: [
+        { value: 'none', description: 'من غير <code>align-self</code> — العنصر الأصفر ماشي زي باقي إخواته على <code>align-items: flex-start</code>', tall: true },
+        { value: 'center', description: '<code>align-self: center</code> — الأصفر بس اتوسط، والباقي فضل فوق', tall: true },
+        { value: 'flex-end', description: '<code>align-self: flex-end</code> — الأصفر بس نزل تحت خالص', tall: true },
+        { value: 'stretch', description: '<code>align-self: stretch</code> — الأصفر بس اتمدد يملأ الصندوق طولاً', tall: true },
+      ],
+      codeExample: `.container {
+  display: flex;
+  align-items: flex-start; /* الافتراضي لكل العناصر */
+}
+
+.item-2 {
+  align-self: flex-end; /* العنصر ده بس هيتصرف مختلف */
+}`,
     },
     {
       eyebrow: '⚡ مين اللي ياخد المساحة الزيادة؟',

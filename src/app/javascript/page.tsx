@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import { useTranslation } from '@/hooks/useTranslation';
+import { javascriptTranslations } from '@/data/translations/javascript.en';
+import { javascriptTranslations as javascriptTranslationsAr } from '@/data/translations/javascript.ar';
 
 const jsTopics = [
   { slug: 'fundamentals', icon: '📚', title: 'Fundamentals', description: 'Master variables, data types, operators, scopes, and core language concepts', level: 'beginner' },
@@ -19,6 +22,11 @@ const badgeStyle = (level: string) => {
 };
 
 export default function JavascriptPage() {
+  const translations = { en: javascriptTranslations, ar: javascriptTranslationsAr };
+  const { t, mounted } = useTranslation(translations);
+
+  if (!mounted) return null;
+
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '3rem 1.5rem 5rem' }}>
       {/* Hero */}
@@ -35,10 +43,10 @@ export default function JavascriptPage() {
         <div style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ fontSize: '3rem', marginBottom: '0.75rem' }}>⚡</div>
           <h1 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 900, color: 'white', letterSpacing: '-0.03em', marginBottom: '0.75rem' }}>
-            JavaScript
+            {t('hero.title')}
           </h1>
           <p style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.85)', maxWidth: '560px', lineHeight: 1.6 }}>
-            Master JavaScript fundamentals, ES6+, async programming, DOM manipulation, and modern patterns
+            {t('hero.description')}
           </p>
         </div>
         <div style={{ position: 'absolute', top: '-20%', right: '-5%', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)', pointerEvents: 'none' }} />
@@ -73,6 +81,24 @@ export default function JavascriptPage() {
             <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.6, flex: 1 }}>
               {topic.description}
             </p>
+            {/* Resource sections */}
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', paddingTop: '0.875rem', borderTop: '1px solid var(--border)', marginTop: '1rem' }}>
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.25rem',
+                  padding: '0.25rem 0.6rem',
+                  background: 'var(--surface-2)',
+                  borderRadius: '0.375rem',
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  color: 'var(--text-2)',
+                }}
+              >
+                📖 {t('general.overview')}
+              </span>
+            </div>
           </Link>
         ))}
       </div>

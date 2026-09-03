@@ -1,4 +1,8 @@
 export const javascriptTranslations = {
+  hero: {
+    title: 'إتقان JavaScript',
+    description: 'أتقن JavaScript من الأساسيات إلى المفاهيم المتقدمة بما في ذلك ES6+ والبرمجة غير المتزامنة والتعامل مع DOM والأنماط الوظيفية.',
+  },
   fundamentals: {
     title: 'أساسيات JavaScript',
     description: 'أتقن المفاهيم الأساسية لبرمجة JavaScript.',
@@ -26,5 +30,12 @@ export const javascriptTranslations = {
   general: {
     overview: 'نظرة عامة',
     tableOfContents: 'جدول المحتويات',
+    references: 'المراجع',
+    reference: 'مرجع',
+    exercises: 'تمارين',
+    games: 'ألعاب',
+    projects: 'مشاريع',
   },
 };
+
+export default javascriptTranslations;

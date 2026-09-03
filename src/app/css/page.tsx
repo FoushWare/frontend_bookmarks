@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import cssTopics from '@/data/css-topics.json';
 import { useTranslation } from '@/hooks/useTranslation';
-import { cssTranslations as cssTranslationsEn } from '@/data/translations/css.en';
+import { cssTranslations } from '@/data/translations/css.en';
 import { cssTranslations as cssTranslationsAr } from '@/data/translations/css.ar';
 
 const badgeStyle = (level: string) => {
@@ -16,7 +16,7 @@ const badgeStyle = (level: string) => {
 };
 
 export default function CssPage() {
-  const translations = { en: cssTranslationsEn, ar: cssTranslationsAr };
+  const translations = { en: cssTranslations, ar: cssTranslationsAr };
   const { t, mounted } = useTranslation(translations);
 
   if (!mounted) return null;

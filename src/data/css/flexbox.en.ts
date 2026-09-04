@@ -44,7 +44,21 @@ export const flexboxContent = {
           label: 'align-items — how do they align on the other axis?',
           options: ['stretch', 'flex-start', 'center', 'flex-end'],
         },
+        alignSelf: {
+          label: 'align-self — for the second item (yellow)',
+          options: ['auto', 'flex-start', 'center', 'flex-end', 'stretch'],
+        },
+        flexFlow: {
+          label: 'flex-flow — shorthand for direction and wrap',
+          options: ['', 'row nowrap', 'row wrap', 'column nowrap', 'column wrap'],
+        },
       },
+    },
+    {
+      eyebrow: '⚡ flex-flow shorthand',
+      title: '<code>flex-flow</code> — direction and wrap in one property',
+      description: `<code>flex-flow</code> is a shorthand that combines <code>flex-direction</code> and <code>flex-wrap</code> into a single property. The syntax is <code>flex-flow: direction wrap;</code>. It's commonly used when you want to set both properties together for cleaner code.`,
+      flexFlowNote: true,
     },
     {
       eyebrow: '📦 Who gets the extra space?',
@@ -131,6 +145,7 @@ export const flexboxContent = {
       { property: 'display: flex', description: 'activates Flexbox' },
       { property: 'flex-direction', description: 'sets the direction of items' },
       { property: 'flex-wrap', description: 'controls whether items wrap to a new line' },
+      { property: 'flex-flow', description: 'shorthand for direction and wrap' },
       { property: 'justify-content', description: 'distributes items along the main axis' },
       { property: 'align-items', description: 'aligns items on the cross axis' },
       { property: 'gap', description: 'creates fixed spacing between items' },

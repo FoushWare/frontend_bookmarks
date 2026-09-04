@@ -48,7 +48,17 @@ export const flexboxContent = {
           label: 'align-self — بس للعنصر التاني (الأصفر)',
           options: ['auto', 'flex-start', 'center', 'flex-end', 'stretch'],
         },
+        flexFlow: {
+          label: 'flex-flow — اختصار للاتجاه واللف',
+          options: ['', 'row nowrap', 'row wrap', 'column nowrap', 'column wrap'],
+        },
       },
+    },
+    {
+      eyebrow: '⚡ اختصار flex-flow',
+      title: '<code>flex-flow</code> — الاتجاه واللف في خاصية واحدة',
+      description: `<code>flex-flow</code> هو اختصار بيجمع <code>flex-direction</code> و <code>flex-wrap</code> في خاصية واحدة. الصيغة هي <code>flex-flow: direction wrap;</code>. بيتستخدم عشان تكتب الكود أنظف لما تبي تحد الاتجاه واللف مع بعض.`,
+      flexFlowNote: true,
     },
     {
       eyebrow: '🙋‍♂️ خصائص على العنصر مش الحاوية',
@@ -151,6 +161,7 @@ export const flexboxContent = {
       { property: 'display: flex', description: 'بتفعّل Flexbox' },
       { property: 'flex-direction', description: 'بتحدد اتجاه العناصر' },
       { property: 'flex-wrap', description: 'بتحدد العناصر تلف لسطر جديد ولا لأ' },
+      { property: 'flex-flow', description: 'اختصار للاتجاه واللف' },
       { property: 'justify-content', description: 'بتوزّع العناصر على المحور الرئيسي' },
       { property: 'align-items', description: 'بتحاذي العناصر على المحور العرضي' },
       { property: 'gap', description: 'بتعمل مسافة ثابتة بين العناصر' },

@@ -23,6 +23,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
     justify: 'flex-start',
     align: 'stretch',
     alignSelf: 'auto',
+    flexFlow: '',
   });
   const [basisValues, setBasisValues] = useState([80, 80, 80]);
   const [growValues, setGrowValues] = useState([0, 0, 0]);
@@ -61,7 +62,18 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
   const topicNav = getTopicNavigation('flexbox');
 
   const updateState = (key: string, value: string) => {
-    setState((prev) => ({ ...prev, [key]: value }));
+    setState((prev) => {
+      const newState = { ...prev, [key]: value };
+
+      // Handle flex-flow shorthand
+      if (key === 'flexFlow' && value) {
+        const [flowDirection, flowWrap] = value.split(' ');
+        if (flowDirection) newState.direction = flowDirection;
+        if (flowWrap) newState.wrap = flowWrap;
+      }
+
+      return newState;
+    });
   };
 
   const updateBasis = (index: number, delta: number) => {
@@ -257,6 +269,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
           'justify-content',
           'align-items',
           'align-self',
+          'flex-flow',
           'flex-grow-shrink-basis',
           'order',
           'justify-content-gallery',
@@ -487,6 +500,28 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
               }}
               dangerouslySetInnerHTML={{ __html: section.codeExample.replace(/\n/g, '<br>').replace(/display: flex;/g, '<span style="color: var(--teal)">display</span>: <span style="color: var(--yellow)">flex</span>;').replace(/align-items: flex-start;/g, '<span style="color: var(--teal)">align-items</span>: <span style="color: var(--yellow)">flex-start</span>;').replace(/align-self: flex-end;/g, '<span style="color: var(--teal)">align-self</span>: <span style="color: var(--yellow)">flex-end</span>;').replace(/\/\*.*?\*\//g, '<span style="color: var(--muted)">$&</span>') }}
             />
+          )}
+
+          {section.flexFlowNote && (
+            <div
+              style={{
+                background: 'var(--surface-2)',
+                border: '1px solid var(--border)',
+                borderRadius: '14px',
+                padding: '16px 18px',
+                margin: '20px 0',
+                fontSize: '15px',
+                color: '#dfe2f2',
+              }}
+            >
+              <div>
+                <b>💡 Syntax:</b> <code style={{ color: 'var(--yellow)' }}>flex-flow: {state.direction} {state.wrap};</code>
+                <br />
+                <span style={{ color: 'var(--muted)' }}>
+                  This is equivalent to: <code style={{ color: 'var(--yellow)' }}>flex-direction: {state.direction}; flex-wrap: {state.wrap};</code>
+                </span>
+              </div>
+            </div>
           )}
 
           {section.controls && (

@@ -581,6 +581,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                     justifyContent: state.justify,
                     alignItems: state.align,
                     width: '100%',
+                    minHeight: state.direction.includes('column') ? 'auto' : '120px',
                   }}
                 >
                   {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -597,6 +598,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                         fontSize: '12px',
                         color: '#12151f',
                         padding: '4px 0',
+                        height: '40px',
                         background: [
                           'var(--coral)',
                           'var(--yellow)',

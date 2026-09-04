@@ -45,11 +45,11 @@ export const flexboxContent = {
           options: ['stretch', 'flex-start', 'center', 'flex-end'],
         },
         alignSelf: {
-          label: 'align-self — بس للعنصر التاني (الأصفر)',
+          label: 'align-self — للعنصر التاني (الأصفر)',
           options: ['auto', 'flex-start', 'center', 'flex-end', 'stretch'],
         },
         flexFlow: {
-          label: 'flex-flow — اختصار للاتجاه واللف',
+          label: 'flex-flow — اختصار الاتجاه واللف',
           options: ['', 'row nowrap', 'row wrap', 'column nowrap', 'column wrap'],
         },
       },

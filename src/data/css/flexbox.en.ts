@@ -61,7 +61,32 @@ export const flexboxContent = {
       flexFlowNote: true,
     },
     {
-      eyebrow: '📦 Who gets the extra space?',
+      eyebrow: '�‍♂️ Properties on the item, not the container',
+      title: '<code>align-self</code> — want just one item to behave differently?',
+      description: `<code>align-items</code> is set on the <code>container</code> and controls all items together. But if you want a single item to align differently from its siblings, you set <code>align-self</code> on the item itself — it finds and overrides (overrides) what comes from the parent's <code>align-items</code>, but only for this item. The values are exactly the same as <code>align-items</code>: <code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>stretch</code>, and also <code>auto</code> (the default, meaning "take what the parent set").`,
+      callout: {
+        icon: '💡',
+        title: '',
+        content: 'Notice in the examples below: all the boxes have <code>align-items: flex-start</code> — only the yellow item (the second one) has <code>align-self</code>, and that\'s what makes it behave differently from its teal and coral siblings.',
+      },
+      alignSelfGallery: true,
+      gallery: [
+        { value: 'none', description: 'Without <code>align-self</code> — The yellow item follows others on <code>align-items: flex-start</code>', tall: true },
+        { value: 'center', description: '<code>align-self: center</code> — Only yellow centers, others stay at top', tall: true },
+        { value: 'flex-end', description: '<code>align-self: flex-end</code> — Only yellow goes to bottom', tall: true },
+        { value: 'stretch', description: '<code>align-self: stretch</code> — Only yellow stretches to fill the box height', tall: true },
+      ],
+      codeExample: `.container {
+  display: flex;
+  align-items: flex-start; /* Default for all items */
+}
+
+.item-2 {
+  align-self: flex-end; /* This item only behaves differently */
+}`,
+    },
+    {
+      eyebrow: '�📦 Who gets the extra space?',
       title: '<code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code>',
       description: `Not all items need to stay the same size. These three properties work together in 3 steps: First, Flexbox determines each item's base size (<code>flex-basis</code>), then it checks if there's extra space or not — if there is, it distributes it according to <code>flex-grow</code>, and if there's not enough, it shrinks items according to <code>flex-shrink</code>. Try each one individually below to see the idea more clearly.`,
       growShrinkBasis: true,

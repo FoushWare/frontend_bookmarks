@@ -18,7 +18,8 @@ export const cssTranslations = {
   general: {
     overview: 'Overview',
     tableOfContents: 'Table of Contents',
-    references: 'References',
+  },
+  references: {
     reference: 'Reference',
     exercises: 'Exercises',
     games: 'Games',

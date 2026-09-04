@@ -18,7 +18,8 @@ export const cssTranslations = {
   general: {
     overview: 'نظرة عامة',
     tableOfContents: 'جدول المحتويات',
-    references: 'المراجع',
+  },
+  references: {
     reference: 'مرجع',
     exercises: 'تمارين',
     games: 'ألعاب',

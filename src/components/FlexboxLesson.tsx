@@ -136,6 +136,12 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
         <span style={{ color: 'var(--yellow)' }}>{state.align}</span>;
         {'\n'}
         {'  '}
+        <span style={{ color: 'var(--muted)' }}>{'}'}</span>
+        {'\n'}
+        {'\n'}
+        <span style={{ color: 'var(--muted)' }}>.item-2 {'{'}</span>
+        {'\n'}
+        {'  '}
         <span style={{ color: 'var(--teal)' }}>align-self</span>:{' '}
         <span style={{ color: 'var(--yellow)' }}>{state.alignSelf}</span>;
         {'\n'}
@@ -550,7 +556,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                         minWidth: '32px',
                         borderRadius: '8px',
                         display: 'flex',
-                        alignItems: i === 2 ? state.alignSelf : 'center',
+                        alignItems: 'center',
                         justifyContent: 'center',
                         fontWeight: 800,
                         fontSize: '12px',
@@ -564,6 +570,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                           'var(--blue)',
                           'var(--coral)',
                         ][i - 1],
+                        ...(i === 2 && { alignSelf: state.alignSelf }),
                       }}
                     >
                       {i}

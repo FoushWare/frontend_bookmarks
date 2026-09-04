@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { useTranslation } from '@/hooks/useTranslation';
 import { htmlTranslations } from '@/data/translations/html.en';

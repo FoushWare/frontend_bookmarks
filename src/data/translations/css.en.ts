@@ -17,8 +17,6 @@ export const cssTranslations = {
   },
   general: {
     overview: 'Overview',
-    projects: 'Projects',
-    exercises: 'Exercises',
     tableOfContents: 'Table of Contents',
     references: 'References',
     reference: 'Reference',

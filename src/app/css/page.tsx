@@ -1,5 +1,7 @@
 'use client';
 
+'use client';
+
 import Link from 'next/link';
 import cssTopics from '@/data/css-topics.json';
 import { useTranslation } from '@/hooks/useTranslation';

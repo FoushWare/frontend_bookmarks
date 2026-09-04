@@ -6,6 +6,8 @@ import { useTranslation } from '@/hooks/useTranslation';
 import { homeTranslations } from '@/data/translations/home.en';
 import { homeTranslations as homeTranslationsAr } from '@/data/translations/home.ar';
 
+// Last updated: 2026-09-04 - Added comprehensive Arabic/English translations and align-self feature
+
 /* ─── Category data ──────────────────────────────────────────── */
 const categories = [
   {

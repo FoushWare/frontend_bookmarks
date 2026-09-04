@@ -18,11 +18,14 @@ const marketingComponents = [
 ];
 
 const ecommerceComponents = [
-  { id: 'product-card', title: 'Product Card', icon: '🛍️', path: '#', difficulty: 'beginner', status: 'coming-soon' },
-  { id: 'cart-item', title: 'Cart Item', icon: '🛒', path: '#', difficulty: 'intermediate', status: 'coming-soon' },
-  { id: 'checkout-form', title: 'Checkout Form', icon: '💳', path: '#', difficulty: 'advanced', status: 'coming-soon' },
-  { id: 'product-filter', title: 'Product Filter', icon: '🔍', path: '#', difficulty: 'intermediate', status: 'coming-soon' },
-  { id: 'quantity-selector', title: 'Quantity Selector', icon: '➕', path: '#', difficulty: 'beginner', status: 'coming-soon' },
+  { id: 'product-card', title: 'Product Card', icon: '🛍️', path: '/exercises/flexbox/product-card', difficulty: 'intermediate', status: 'available' },
+  { id: 'category-card', title: 'Category Card', icon: '🗂️', path: '/exercises/flexbox/category-card', difficulty: 'beginner', status: 'coming-soon' },
+  { id: 'cart-item', title: 'Cart Item', icon: '🛒', path: '/exercises/flexbox/cart-item', difficulty: 'intermediate', status: 'coming-soon' },
+  { id: 'price-rating', title: 'Price / Rating', icon: '⭐', path: '/exercises/flexbox/price-rating', difficulty: 'beginner', status: 'coming-soon' },
+  { id: 'filter-sidebar', title: 'Filter Sidebar', icon: '🧰', path: '/exercises/flexbox/filter-sidebar', difficulty: 'advanced', status: 'coming-soon' },
+  { id: 'order-summary', title: 'Order Summary', icon: '🧮', path: '/exercises/flexbox/order-summary', difficulty: 'intermediate', status: 'coming-soon' },
+  { id: 'announcement-bar', title: 'Announcement Bar', icon: '📢', path: '/exercises/flexbox/announcement-bar', difficulty: 'beginner', status: 'coming-soon' },
+  { id: 'empty-state', title: 'Empty State', icon: '📭', path: '/exercises/flexbox/empty-state', difficulty: 'beginner', status: 'coming-soon' },
 ];
 
 const uncategorizedComponents = [
@@ -259,50 +262,63 @@ export default function FlexboxProjectsPage() {
 
             {/* E-commerce Project */}
             <div style={{ marginBottom: '1rem' }}>
-              <div
-                style={{
-                  background: 'var(--surface-2)',
-                  border: '1px solid var(--border)',
-                  borderRadius: '14px',
-                  padding: '1.25rem',
-                  marginBottom: '0.5rem',
-                  opacity: 0.7,
-                }}
+              <Link
+                href="/projects/flexbox/ecommerce-library"
+                style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
-                  <div style={{ fontSize: '2rem' }}>🛍️</div>
-                  <div>
-                    <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text)', margin: '0 0 0.25rem' }}>
-                      E-commerce Project
-                    </h3>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>
-                      Complete e-commerce store with product cards, cart, and checkout
-                    </p>
+                <div
+                  style={{
+                    background: 'var(--surface-2)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '14px',
+                    padding: '1.25rem',
+                    marginBottom: '0.5rem',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--yellow)';
+                    e.currentTarget.style.transform = 'translateX(4px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--border)';
+                    e.currentTarget.style.transform = 'translateX(0)';
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
+                    <div style={{ fontSize: '2rem' }}>🛍️</div>
+                    <div>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text)', margin: '0 0 0.25rem' }}>
+                        E-commerce Project
+                      </h3>
+                      <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>
+                        Complete e-commerce store with product cards, cart, and checkout
+                      </p>
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    <span style={{
+                      padding: '0.25rem 0.75rem',
+                      borderRadius: '999px',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      backgroundColor: 'rgba(255, 209, 102, 0.1)',
+                      color: '#d97706'
+                    }}>
+                      8 Components
+                    </span>
+                    <span style={{
+                      padding: '0.25rem 0.75rem',
+                      borderRadius: '999px',
+                      fontSize: '0.75rem',
+                      fontWeight: 500,
+                      backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                      color: '#059669'
+                    }}>
+                      In Progress
+                    </span>
                   </div>
                 </div>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span style={{ 
-                    padding: '0.25rem 0.75rem', 
-                    borderRadius: '999px', 
-                    fontSize: '0.75rem', 
-                    fontWeight: 600, 
-                    backgroundColor: 'var(--bg)', 
-                    color: 'var(--text-muted)' 
-                  }}>
-                    5 Components
-                  </span>
-                  <span style={{ 
-                    padding: '0.25rem 0.75rem', 
-                    borderRadius: '999px', 
-                    fontSize: '0.75rem', 
-                    fontWeight: 500, 
-                    backgroundColor: 'rgba(245, 158, 11, 0.1)', 
-                    color: '#d97706' 
-                  }}>
-                    Coming Soon
-                  </span>
-                </div>
-              </div>
+              </Link>
               <Link
                 href="/projects/flexbox/ecommerce-library/complete-page"
                 style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
@@ -317,7 +333,6 @@ export default function FlexboxProjectsPage() {
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.5rem',
-                    opacity: 0.7,
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = 'var(--yellow)';
@@ -330,7 +345,7 @@ export default function FlexboxProjectsPage() {
                 >
                   <span style={{ fontSize: '1rem' }}>📄</span>
                   <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text)' }}>
-                    View Page Preview
+                    View Complete Page Design
                   </span>
                 </div>
               </Link>
@@ -339,58 +354,75 @@ export default function FlexboxProjectsPage() {
             {/* E-commerce Components */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '0.75rem' }}>
               {ecommerceComponents.map((component) => (
-                <div
+                <Link
                   key={component.id}
-                  style={{
-                    background: 'var(--bg)',
-                    border: '1px solid var(--border)',
-                    borderRadius: '12px',
-                    padding: '1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    opacity: 0.6,
-                  }}
+                  href={component.path === '#' ? '#' : component.path}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
                 >
-                  <div style={{ fontSize: '1.5rem' }}>{component.icon}</div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)', marginBottom: '0.25rem' }}>
-                      {component.title}
-                    </div>
-                    <div style={{ display: 'flex', gap: '0.25rem', flexWrap: 'wrap' }}>
-                      <span style={{ 
-                        fontSize: '0.7rem', 
-                        padding: '0.15rem 0.5rem', 
-                        borderRadius: '999px', 
-                        fontWeight: 600,
-                        backgroundColor: component.difficulty === 'beginner' 
-                          ? 'rgba(16, 185, 129, 0.1)' 
-                          : component.difficulty === 'intermediate'
-                          ? 'rgba(245, 158, 11, 0.1)'
-                          : 'rgba(239, 68, 68, 0.1)', 
-                        color: component.difficulty === 'beginner' 
-                          ? '#059669' 
-                          : component.difficulty === 'intermediate'
-                          ? '#d97706'
-                          : '#dc2626' 
-                      }}>
-                        {component.difficulty}
-                      </span>
-                      {component.status === 'coming-soon' && (
-                        <span style={{ 
-                          fontSize: '0.7rem', 
-                          padding: '0.15rem 0.5rem', 
-                          borderRadius: '999px', 
+                  <div
+                    style={{
+                      background: 'var(--bg)',
+                      border: '1px solid var(--border)',
+                      borderRadius: '12px',
+                      padding: '1rem',
+                      transition: 'all 0.2s ease',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      opacity: component.status === 'coming-soon' ? 0.6 : 1,
+                      cursor: component.status === 'coming-soon' ? 'not-allowed' : 'pointer',
+                    }}
+                    onMouseEnter={(e) => {
+                      if (component.status !== 'coming-soon') {
+                        e.currentTarget.style.borderColor = 'var(--yellow)';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--border)';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }}
+                  >
+                    <div style={{ fontSize: '1.5rem' }}>{component.icon}</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)', marginBottom: '0.25rem' }}>
+                        {component.title}
+                      </div>
+                      <div style={{ display: 'flex', gap: '0.25rem', flexWrap: 'wrap' }}>
+                        <span style={{
+                          fontSize: '0.7rem',
+                          padding: '0.15rem 0.5rem',
+                          borderRadius: '999px',
                           fontWeight: 600,
-                          backgroundColor: 'var(--surface-2)', 
-                          color: 'var(--text-muted)' 
+                          backgroundColor: component.difficulty === 'beginner'
+                            ? 'rgba(16, 185, 129, 0.1)'
+                            : component.difficulty === 'intermediate'
+                            ? 'rgba(245, 158, 11, 0.1)'
+                            : 'rgba(239, 68, 68, 0.1)',
+                          color: component.difficulty === 'beginner'
+                            ? '#059669'
+                            : component.difficulty === 'intermediate'
+                            ? '#d97706'
+                            : '#dc2626'
                         }}>
-                          Coming Soon
+                          {component.difficulty}
                         </span>
-                      )}
+                        {component.status === 'coming-soon' && (
+                          <span style={{
+                            fontSize: '0.7rem',
+                            padding: '0.15rem 0.5rem',
+                            borderRadius: '999px',
+                            fontWeight: 600,
+                            backgroundColor: 'var(--surface-2)',
+                            color: 'var(--text-muted)'
+                          }}>
+                            Coming Soon
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

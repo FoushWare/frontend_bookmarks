@@ -833,7 +833,7 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                       display: 'flex',
                       gap: '8px',
                       height: item.tall ? '110px' : '64px',
-                      justifyContent: item.value,
+                      justifyContent: item.value === 'none' ? 'flex-start' : item.value,
                       alignItems: item.tall ? 'flex-start' : 'center',
                     }}
                   >
@@ -851,8 +851,8 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                         width: '34px',
                         borderRadius: '7px',
                         flex: '0 0 auto',
-                        background: 'var(--teal)',
-                        height: item.tall ? '26px' : 'auto',
+                        background: 'var(--yellow)',
+                        height: item.tall ? '36px' : 'auto',
                         alignItems: item.value !== 'none' ? item.value : 'flex-start',
                         display: 'flex',
                         boxShadow: item.value !== 'none' ? '0 0 0 2px var(--yellow)' : 'none',
@@ -863,8 +863,8 @@ export default function FlexboxLesson(/* { locale }: FlexboxLessonProps */) {
                         width: '34px',
                         borderRadius: '7px',
                         flex: '0 0 auto',
-                        background: 'var(--yellow)',
-                        height: item.tall ? '36px' : 'auto',
+                        background: 'var(--teal)',
+                        height: item.tall ? '26px' : 'auto',
                       }}
                     />
                   </div>
